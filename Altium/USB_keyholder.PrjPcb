@@ -81,103 +81,39 @@ GenerateClassCluster=0
 DocumentUniqueId=ASFKCJEE
 
 [GeneratedDocument1]
-DocumentPath=Project Outputs for USB_keyholder\Design Rule Check - USB_keyholder.html
-DItemRevisionGUID=
-
-[GeneratedDocument2]
-DocumentPath=Project Outputs for USB_keyholder\Pick Place for USB_keyholder.csv
-DItemRevisionGUID=
-
-[GeneratedDocument3]
 DocumentPath=Project Outputs for USB_keyholder\USB_keyholder-RoundHoles.TXT
 DItemRevisionGUID=
 
-[GeneratedDocument4]
+[GeneratedDocument2]
 DocumentPath=Project Outputs for USB_keyholder\USB_keyholder-SlotHoles.TXT
 DItemRevisionGUID=
 
-[GeneratedDocument5]
-DocumentPath=Project Outputs for USB_keyholder\USB_keyholder.DRR
-DItemRevisionGUID=
-
-[GeneratedDocument6]
-DocumentPath=Project Outputs for USB_keyholder\USB_keyholder.EXTREP
-DItemRevisionGUID=
-
-[GeneratedDocument7]
+[GeneratedDocument3]
 DocumentPath=Project Outputs for USB_keyholder\USB_keyholder.GBL
 DItemRevisionGUID=
 
-[GeneratedDocument8]
+[GeneratedDocument4]
 DocumentPath=Project Outputs for USB_keyholder\USB_keyholder.GBO
 DItemRevisionGUID=
 
-[GeneratedDocument9]
-DocumentPath=Project Outputs for USB_keyholder\USB_keyholder.GBP
-DItemRevisionGUID=
-
-[GeneratedDocument10]
+[GeneratedDocument5]
 DocumentPath=Project Outputs for USB_keyholder\USB_keyholder.GBS
 DItemRevisionGUID=
 
-[GeneratedDocument11]
+[GeneratedDocument6]
 DocumentPath=Project Outputs for USB_keyholder\USB_keyholder.GKO
 DItemRevisionGUID=
 
-[GeneratedDocument12]
-DocumentPath=Project Outputs for USB_keyholder\USB_keyholder.GM1
-DItemRevisionGUID=
-
-[GeneratedDocument13]
-DocumentPath=Project Outputs for USB_keyholder\USB_keyholder.GM2
-DItemRevisionGUID=
-
-[GeneratedDocument14]
-DocumentPath=Project Outputs for USB_keyholder\USB_keyholder.GM3
-DItemRevisionGUID=
-
-[GeneratedDocument15]
-DocumentPath=Project Outputs for USB_keyholder\USB_keyholder.GM13
-DItemRevisionGUID=
-
-[GeneratedDocument16]
-DocumentPath=Project Outputs for USB_keyholder\USB_keyholder.GM15
-DItemRevisionGUID=
-
-[GeneratedDocument17]
-DocumentPath=Project Outputs for USB_keyholder\USB_keyholder.GPB
-DItemRevisionGUID=
-
-[GeneratedDocument18]
-DocumentPath=Project Outputs for USB_keyholder\USB_keyholder.GPT
-DItemRevisionGUID=
-
-[GeneratedDocument19]
+[GeneratedDocument7]
 DocumentPath=Project Outputs for USB_keyholder\USB_keyholder.GTL
 DItemRevisionGUID=
 
-[GeneratedDocument20]
+[GeneratedDocument8]
 DocumentPath=Project Outputs for USB_keyholder\USB_keyholder.GTO
 DItemRevisionGUID=
 
-[GeneratedDocument21]
-DocumentPath=Project Outputs for USB_keyholder\USB_keyholder.GTP
-DItemRevisionGUID=
-
-[GeneratedDocument22]
+[GeneratedDocument9]
 DocumentPath=Project Outputs for USB_keyholder\USB_keyholder.GTS
-DItemRevisionGUID=
-
-[GeneratedDocument23]
-DocumentPath=Project Outputs for USB_keyholder\USB_keyholder.LDP
-DItemRevisionGUID=
-
-[GeneratedDocument24]
-DocumentPath=Project Outputs for USB_keyholder\USB_keyholder.REP
-DItemRevisionGUID=
-
-[GeneratedDocument25]
-DocumentPath=Project Outputs for USB_keyholder\USB_keyholder.RUL
 DItemRevisionGUID=
 
 [Configuration1]
