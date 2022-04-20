@@ -22,7 +22,11 @@
 #include "stm32l1xx_it.h"
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
+#include "user_interface.h"
 /* USER CODE END Includes */
+
+/* External functions --------------------------------------------------------*/
+void SystemClock_Config(void);
 
 /* Private typedef -----------------------------------------------------------*/
 /* USER CODE BEGIN TD */
@@ -56,6 +60,8 @@
 
 /* External variables --------------------------------------------------------*/
 extern PCD_HandleTypeDef hpcd_USB_FS;
+extern DMA_HandleTypeDef hdma_i2c1_tx;
+extern TIM_HandleTypeDef htim6;
 /* USER CODE BEGIN EV */
 
 /* USER CODE END EV */
@@ -199,6 +205,48 @@ void SysTick_Handler(void)
 /******************************************************************************/
 
 /**
+  * @brief This function handles EXTI line3 interrupt.
+  */
+void EXTI3_IRQHandler(void)
+{
+  /* USER CODE BEGIN EXTI3_IRQn 0 */
+	HAL_TIM_Base_Start_IT(&htim6);
+  /* USER CODE END EXTI3_IRQn 0 */
+  HAL_GPIO_EXTI_IRQHandler(SW4_Pin);
+  /* USER CODE BEGIN EXTI3_IRQn 1 */
+
+  /* USER CODE END EXTI3_IRQn 1 */
+}
+
+/**
+  * @brief This function handles EXTI line4 interrupt.
+  */
+void EXTI4_IRQHandler(void)
+{
+  /* USER CODE BEGIN EXTI4_IRQn 0 */
+	HAL_TIM_Base_Start_IT(&htim6);
+  /* USER CODE END EXTI4_IRQn 0 */
+  HAL_GPIO_EXTI_IRQHandler(SW5_Pin);
+  /* USER CODE BEGIN EXTI4_IRQn 1 */
+
+  /* USER CODE END EXTI4_IRQn 1 */
+}
+
+/**
+  * @brief This function handles DMA1 channel6 global interrupt.
+  */
+void DMA1_Channel6_IRQHandler(void)
+{
+  /* USER CODE BEGIN DMA1_Channel6_IRQn 0 */
+
+  /* USER CODE END DMA1_Channel6_IRQn 0 */
+  HAL_DMA_IRQHandler(&hdma_i2c1_tx);
+  /* USER CODE BEGIN DMA1_Channel6_IRQn 1 */
+
+  /* USER CODE END DMA1_Channel6_IRQn 1 */
+}
+
+/**
   * @brief This function handles USB low priority interrupt.
   */
 void USB_LP_IRQHandler(void)
@@ -210,6 +258,84 @@ void USB_LP_IRQHandler(void)
   /* USER CODE BEGIN USB_LP_IRQn 1 */
 
   /* USER CODE END USB_LP_IRQn 1 */
+}
+
+/**
+  * @brief This function handles EXTI line[9:5] interrupts.
+  */
+void EXTI9_5_IRQHandler(void)
+{
+  /* USER CODE BEGIN EXTI9_5_IRQn 0 */
+	HAL_TIM_Base_Start_IT(&htim6);
+	UI_print_menu();
+  /* USER CODE END EXTI9_5_IRQn 0 */
+  HAL_GPIO_EXTI_IRQHandler(SW6_Pin);
+  HAL_GPIO_EXTI_IRQHandler(SW7_Pin);
+  HAL_GPIO_EXTI_IRQHandler(SW8_Pin);
+  HAL_GPIO_EXTI_IRQHandler(SW1_Pin);
+  HAL_GPIO_EXTI_IRQHandler(SW2_Pin);
+  /* USER CODE BEGIN EXTI9_5_IRQn 1 */
+
+  /* USER CODE END EXTI9_5_IRQn 1 */
+}
+
+/**
+  * @brief This function handles EXTI line[15:10] interrupts.
+  */
+void EXTI15_10_IRQHandler(void)
+{
+  /* USER CODE BEGIN EXTI15_10_IRQn 0 */
+	HAL_TIM_Base_Start_IT(&htim6);
+  /* USER CODE END EXTI15_10_IRQn 0 */
+  HAL_GPIO_EXTI_IRQHandler(SW3_Pin);
+  /* USER CODE BEGIN EXTI15_10_IRQn 1 */
+
+  /* USER CODE END EXTI15_10_IRQn 1 */
+}
+
+/**
+  * @brief This function handles USB FS wake-up interrupt through EXTI line 18.
+  */
+void USB_FS_WKUP_IRQHandler(void)
+{
+  /* USER CODE BEGIN USB_FS_WKUP_IRQn 0 */
+
+  /* USER CODE END USB_FS_WKUP_IRQn 0 */
+  if ((&hpcd_USB_FS)->Init.low_power_enable) {
+    /* Reset SLEEPDEEP bit of Cortex System Control Register */
+    SCB->SCR &= (uint32_t)~((uint32_t)(SCB_SCR_SLEEPDEEP_Msk | SCB_SCR_SLEEPONEXIT_Msk));
+    SystemClock_Config();
+  }
+  /* Clear EXTI pending bit */
+  __HAL_USB_WAKEUP_EXTI_CLEAR_FLAG();
+  /* USER CODE BEGIN USB_FS_WKUP_IRQn 1 */
+
+  /* USER CODE END USB_FS_WKUP_IRQn 1 */
+}
+
+/**
+  * @brief This function handles TIM6 global interrupt.
+  */
+void TIM6_IRQHandler(void)
+{
+  /* USER CODE BEGIN TIM6_IRQn 0 */
+	test_value++;
+	HAL_TIM_Base_Stop(&htim6);
+	/*
+	switches_byte |= (HAL_GPIO_ReadPin(SW1_GPIO_Port, SW1_Pin) >> 0);
+	switches_byte |= (HAL_GPIO_ReadPin(SW2_GPIO_Port, SW2_Pin) >> 1);
+	HAL_GPIO_ReadPin(SW3_GPIO_Port, SW3_Pin);
+	HAL_GPIO_ReadPin(SW4_GPIO_Port, SW4_Pin);
+	HAL_GPIO_ReadPin(SW5_GPIO_Port, SW5_Pin);
+	HAL_GPIO_ReadPin(SW6_GPIO_Port, SW6_Pin);
+	HAL_GPIO_ReadPin(SW7_GPIO_Port, SW7_Pin);
+	HAL_GPIO_ReadPin(SW8_GPIO_Port, SW8_Pin);
+	*/
+  /* USER CODE END TIM6_IRQn 0 */
+  HAL_TIM_IRQHandler(&htim6);
+  /* USER CODE BEGIN TIM6_IRQn 1 */
+	
+  /* USER CODE END TIM6_IRQn 1 */
 }
 
 /* USER CODE BEGIN 1 */
