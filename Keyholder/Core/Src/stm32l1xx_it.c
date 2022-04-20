@@ -267,7 +267,7 @@ void EXTI9_5_IRQHandler(void)
 {
   /* USER CODE BEGIN EXTI9_5_IRQn 0 */
 	HAL_TIM_Base_Start_IT(&htim6);
-	UI_print_menu();
+	
   /* USER CODE END EXTI9_5_IRQn 0 */
   HAL_GPIO_EXTI_IRQHandler(SW6_Pin);
   HAL_GPIO_EXTI_IRQHandler(SW7_Pin);
@@ -321,6 +321,27 @@ void TIM6_IRQHandler(void)
   /* USER CODE BEGIN TIM6_IRQn 0 */
 	test_value++;
 	HAL_TIM_Base_Stop(&htim6);
+	
+	
+	
+	
+	
+	
+	
+	switches_byte = 0;
+
+	switches_byte += (HAL_GPIO_ReadPin(SW1_GPIO_Port, SW1_Pin)?0:1);
+	switches_byte += (HAL_GPIO_ReadPin(SW2_GPIO_Port, SW2_Pin)?0:1) * 2;
+	switches_byte += (HAL_GPIO_ReadPin(SW3_GPIO_Port, SW3_Pin)?0:1) * 4;
+	switches_byte += (HAL_GPIO_ReadPin(SW4_GPIO_Port, SW4_Pin)?0:1) * 8;
+	switches_byte += (HAL_GPIO_ReadPin(SW5_GPIO_Port, SW5_Pin)?0:1) * 16;
+	switches_byte += (HAL_GPIO_ReadPin(SW6_GPIO_Port, SW6_Pin)?0:1) * 32;
+	switches_byte += (HAL_GPIO_ReadPin(SW7_GPIO_Port, SW7_Pin)?0:1) * 64;
+	switches_byte += (HAL_GPIO_ReadPin(SW8_GPIO_Port, SW8_Pin)?0:1) * 128;
+	
+	
+	
+	
 	/*
 	switches_byte |= (HAL_GPIO_ReadPin(SW1_GPIO_Port, SW1_Pin) >> 0);
 	switches_byte |= (HAL_GPIO_ReadPin(SW2_GPIO_Port, SW2_Pin) >> 1);

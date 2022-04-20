@@ -121,12 +121,13 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-		//UI_print_menu();
+		UI_print_menu();
 		HAL_Delay(100);
-		//ssd1306_Fill(White);
-		//ssd1306_UpdateScreen();
-		//ssd1306_Fill(Black);
-		//ssd1306_UpdateScreen();
+		/*ssd1306_Fill(White);
+		ssd1306_UpdateScreen();
+		HAL_Delay(100);
+		ssd1306_Fill(Black);
+		ssd1306_UpdateScreen(); */
 		CDC_Transmit_FS((uint8_t*)testDataToSend, 5);
     /* USER CODE END WHILE */
 
