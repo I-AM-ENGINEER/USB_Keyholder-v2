@@ -47,19 +47,46 @@ void PAS_print_menu( void ){
 		ssd1306_UpdateScreen(); 
 		tPass = 1;
 	}
-	HAL_Delay(1000);
+	HAL_Delay(300);
 }
 
 
-
+int numMenuList = 0;
 void UI_print_menu( void ){
 	ssd1306_Fill(Black);
 	ssd1306_DrawRectangle(0, 0, 127, 31, White);
+	HAL_Delay(500);
+	char text[15];
+	
+	if (numMenuList == 0){
+		
+		ssd1306_SetCursor(2,2);
+		sprintf(text, "1 break");
+		ssd1306_WriteString(text, Font_6x8, White);
+		ssd1306_SetCursor(2,10);
+		sprintf(text, "2 ...");
+		ssd1306_WriteString(text, Font_6x8, White);
+		ssd1306_SetCursor(2,18);
+		sprintf(text, "3 next");
+		ssd1306_WriteString(text, Font_6x8, White);
+		ssd1306_UpdateScreen();
+	}
+	else if (numMenuList == 1){
+		ssd1306_SetCursor(2,26);
+		sprintf(text, "1 ...");
+		ssd1306_WriteString(text, Font_6x8, White);
+		ssd1306_SetCursor(2,10);
+		sprintf(text, "2 ...");
+		ssd1306_WriteString(text, Font_6x8, White);
+		ssd1306_SetCursor(2,18);
+		sprintf(text, "3 next");
+		ssd1306_WriteString(text, Font_6x8, White);
+		ssd1306_UpdateScreen();
+	}
 	
 	while(!switches_byte)
 	HAL_Delay(1);
-	
-	int numMenu = 0;		
+	int numMenu = 0;	
 	for(int i = 0; i < 8; i++){
 		if(switches_byte & (1 << i)){			
 				numMenu = i + 1;
@@ -67,19 +94,16 @@ void UI_print_menu( void ){
 		}
 	}
 	
-	char text[15] = "1 break";
-	ssd1306_SetCursor(2,2);
-	ssd1306_WriteString(text, Font_6x8, White);
-	ssd1306_SetCursor(2,10);
-	sprintf(text, "2 ...");
-	ssd1306_WriteString(text, Font_6x8, White);
-	ssd1306_SetCursor(2,18);
-	sprintf(text, "3 chang pass");
-	ssd1306_WriteString(text, Font_6x8, White);
+	
 	
 	switch(numMenu){
 		case 1:
 			tPass = 0;
+			ssd1306_Fill(Black);
+			ssd1306_DrawRectangle(0, 0, 127, 31, White);
+			break;
+		case 3:
+			numMenuList = 1;
 			break;
 		
 	}
@@ -88,15 +112,6 @@ void UI_print_menu( void ){
 	
 	while(switches_byte)
 			HAL_Delay(1);
-	/*
-	for(int i = 0; i < 8; i++){
-		ssd1306_SetCursor(2 + (i*5) ,17);
-		if(switches_byte & (1 << i)){			
-			ssd1306_WriteChar('1', Font_6x8, White);
-		}
-		else{
-			ssd1306_WriteChar('0', Font_6x8, White);
-		}
-	} */
+	
 	 
 }

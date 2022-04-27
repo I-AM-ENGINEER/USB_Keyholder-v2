@@ -108,6 +108,7 @@ int main(void)
 
 	ssd1306_SetDisplayPower(1);
 	ssd1306_Fill(Black);
+	ssd1306_DrawRectangle(0, 0, 127, 31, White);
 	ssd1306_UpdateScreen();
   /* USER CODE END 2 */
 
