@@ -37,3 +37,7 @@ keyholder\stm32l1xx_it.o: ../Drivers/STM32L1xx_HAL_Driver/Inc/stm32l1xx_hal_pcd_
 keyholder\stm32l1xx_it.o: ../Drivers/STM32L1xx_HAL_Driver/Inc/stm32l1xx_hal_exti.h
 keyholder\stm32l1xx_it.o: ../Core/Inc/stm32l1xx_it.h
 keyholder\stm32l1xx_it.o: ../Core/Inc/user_interface.h
+keyholder\stm32l1xx_it.o: ../Core/Inc/ssd1306.h
+keyholder\stm32l1xx_it.o: ../Core/Inc/ssd1306_conf.h
+keyholder\stm32l1xx_it.o: ../Core/Inc/ssd1306_fonts.h
+keyholder\stm32l1xx_it.o: ../Core/Inc/crypto.h

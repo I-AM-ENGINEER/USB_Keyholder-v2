@@ -97,23 +97,17 @@ int main(void)
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
-  MX_ADC_Init();
-  MX_DMA_Init();
+  //MX_ADC_Init();
+  //MX_DMA_Init();
   MX_I2C1_Init();
-  MX_USB_DEVICE_Init();
+  //MX_USB_DEVICE_Init();
   MX_TIM6_Init();
+  MX_TIM7_Init();
   /* USER CODE BEGIN 2 */
-	
-	HAL_GPIO_WritePin(DISPLAY_ON1_GPIO_Port, DISPLAY_ON1_Pin, GPIO_PIN_SET);
-	HAL_GPIO_WritePin(DISPLAY_ON2_GPIO_Port, DISPLAY_ON2_Pin, GPIO_PIN_SET);
-	//HAL_GPIO_WritePin(DISPLAY_ON2_GPIO_Port, DISPLAY_ON2_Pin, GPIO_PIN_SET);
-	ssd1306_Init();
-	ssd1306_Fill(White);
-	ssd1306_UpdateScreen();
-	
+	//__enable_irq();
 	char testDataToSend[8];
 	exampleF(12345, testDataToSend);
-	
+	ssd1306_SetDisplayPower(1);
 	
   /* USER CODE END 2 */
 
@@ -121,14 +115,18 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
+		if(ssd1306_GetNeedInitFlag())
+			ssd1306_SetDisplayPower(1);
+		if(power_GetNeedSleepFlag()){
+			ssd1306_SetDisplayOn(0);
+			power_GoToSleep();
+			SystemClock_Config();
+			HAL_ResumeTick();
+		}
 		UI_print_menu();
-		HAL_Delay(100);
-		/*ssd1306_Fill(White);
-		ssd1306_UpdateScreen();
-		HAL_Delay(100);
-		ssd1306_Fill(Black);
-		ssd1306_UpdateScreen(); */
-		CDC_Transmit_FS((uint8_t*)testDataToSend, 5);
+		
+		//CDC_Transmit_FS((uint8_t*)testDataToSend, 5);
+		
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */

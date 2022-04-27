@@ -1,4 +1,5 @@
 #include "ssd1306.h"
+#include "main.h"
 #include <math.h>
 #include <stdlib.h>
 #include <string.h>  // For memcpy
@@ -75,7 +76,7 @@ void ssd1306_Init(void) {
     ssd1306_Reset();
 
     // Wait for the screen to boot
-    HAL_Delay(100);
+    HAL_Delay(80);
 
     // Init OLED
     ssd1306_SetDisplayOn(0); //display off
@@ -159,10 +160,10 @@ void ssd1306_Init(void) {
     ssd1306_SetDisplayOn(1); //--turn on SSD1306 panel
 
     // Clear screen
-    ssd1306_Fill(Black);
+    //ssd1306_Fill(White);
     
     // Flush buffer to screen
-    ssd1306_UpdateScreen();
+    //ssd1306_UpdateScreen();
     
     // Set default values for screen object
     SSD1306.CurrentX = 0;
@@ -471,16 +472,39 @@ void ssd1306_SetContrast(const uint8_t value) {
 
 void ssd1306_SetDisplayOn(const uint8_t on) {
     uint8_t value;
+		SSD1306.NeedInit = 0;
     if (on) {
+				SSD1306.DisplayOn = 1;
         value = 0xAF;   // Display on
-        SSD1306.DisplayOn = 1;
     } else {
         value = 0xAE;   // Display off
         SSD1306.DisplayOn = 0;
     }
-    ssd1306_WriteCommand(value);
+		ssd1306_WriteCommand(value);
+}
+
+void ssd1306_SetDisplayPower(const uint8_t on) {
+    if (on) {
+				HAL_GPIO_WritePin(DISPLAY_ON1_GPIO_Port, DISPLAY_ON1_Pin, GPIO_PIN_SET);
+				HAL_GPIO_WritePin(DISPLAY_ON2_GPIO_Port, DISPLAY_ON2_Pin, GPIO_PIN_SET);
+				ssd1306_Init();
+    } else {
+        SSD1306.DisplayOn = 0;
+				SSD1306.Initialized = 0;
+				SSD1306.NeedInit = 0;
+				HAL_GPIO_WritePin(DISPLAY_ON1_GPIO_Port, DISPLAY_ON1_Pin, GPIO_PIN_RESET);
+				HAL_GPIO_WritePin(DISPLAY_ON2_GPIO_Port, DISPLAY_ON2_Pin, GPIO_PIN_RESET);
+    }
 }
 
 uint8_t ssd1306_GetDisplayOn( void ) {
     return SSD1306.DisplayOn;
+}
+
+void ssd1306_SetNeedInitFlag( void ) {
+		SSD1306.NeedInit = 1;
+}
+
+uint8_t ssd1306_GetNeedInitFlag( void ) {
+    return SSD1306.NeedInit;
 }

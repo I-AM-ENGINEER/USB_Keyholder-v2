@@ -27,16 +27,5 @@ void UI_print_menu( void ){
 			ssd1306_WriteChar('0', Font_6x8, White);
 		}
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	ssd1306_UpdateScreen(); 
-	
-	
 }

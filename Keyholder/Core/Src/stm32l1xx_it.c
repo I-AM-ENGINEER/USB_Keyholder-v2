@@ -23,6 +23,8 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "user_interface.h"
+#include "ssd1306.h"
+#include "crypto.h"
 /* USER CODE END Includes */
 
 /* External functions --------------------------------------------------------*/
@@ -62,6 +64,7 @@ void SystemClock_Config(void);
 extern PCD_HandleTypeDef hpcd_USB_FS;
 extern DMA_HandleTypeDef hdma_i2c1_tx;
 extern TIM_HandleTypeDef htim6;
+extern TIM_HandleTypeDef htim7;
 /* USER CODE BEGIN EV */
 
 /* USER CODE END EV */
@@ -238,7 +241,7 @@ void EXTI4_IRQHandler(void)
 void DMA1_Channel6_IRQHandler(void)
 {
   /* USER CODE BEGIN DMA1_Channel6_IRQn 0 */
-
+	
   /* USER CODE END DMA1_Channel6_IRQn 0 */
   HAL_DMA_IRQHandler(&hdma_i2c1_tx);
   /* USER CODE BEGIN DMA1_Channel6_IRQn 1 */
@@ -266,8 +269,9 @@ void USB_LP_IRQHandler(void)
 void EXTI9_5_IRQHandler(void)
 {
   /* USER CODE BEGIN EXTI9_5_IRQn 0 */
+	SystemClock_Config();
+	HAL_ResumeTick();
 	HAL_TIM_Base_Start_IT(&htim6);
-	
   /* USER CODE END EXTI9_5_IRQn 0 */
   HAL_GPIO_EXTI_IRQHandler(SW6_Pin);
   HAL_GPIO_EXTI_IRQHandler(SW7_Pin);
@@ -322,36 +326,39 @@ void TIM6_IRQHandler(void)
 	test_value++;
 	HAL_TIM_Base_Stop(&htim6);
 	
+	switches_byte = \
+	(HAL_GPIO_ReadPin(SW1_GPIO_Port, SW1_Pin)?0:0x01) + \
+	(HAL_GPIO_ReadPin(SW2_GPIO_Port, SW2_Pin)?0:0x02) + \
+	(HAL_GPIO_ReadPin(SW3_GPIO_Port, SW3_Pin)?0:0x04)	+ \
+	(HAL_GPIO_ReadPin(SW4_GPIO_Port, SW4_Pin)?0:0x08)	+ \
+	(HAL_GPIO_ReadPin(SW5_GPIO_Port, SW5_Pin)?0:0x10)	+ \
+	(HAL_GPIO_ReadPin(SW6_GPIO_Port, SW6_Pin)?0:0x20)	+ \
+	(HAL_GPIO_ReadPin(SW7_GPIO_Port, SW7_Pin)?0:0x40)	+ \
+	(HAL_GPIO_ReadPin(SW8_GPIO_Port, SW8_Pin)?0:0x80);
 	
+	//if(switches_byte != 0) {
+		//HAL_GPIO_WritePin(DISPLAY_ON1_GPIO_Port, DISPLAY_ON1_Pin, GPIO_PIN_SET);
+		//HAL_GPIO_WritePin(DISPLAY_ON2_GPIO_Port, DISPLAY_ON2_Pin, GPIO_PIN_SET);
+		//HAL_Delay(10);
+		//ssd1306_Init();
+		//ssd1306_Fill(White);
+		//ssd1306_UpdateScreen();
+	//}
+	//HAL_GPIO_WritePin(DISPLAY_ON1_GPIO_Port, DISPLAY_ON1_Pin, GPIO_PIN_SET);
+	//HAL_GPIO_WritePin(DISPLAY_ON2_GPIO_Port, DISPLAY_ON2_Pin, GPIO_PIN_SET);
+	//ssd1306_SetDisplayOn(1);
 	
+	//ssd1306_Init();
+	//UI_print_menu();
 	
+	//UI_print_menu();
+	//HAL_TIM_Base_Stop_IT(&htim7);
+	if(!ssd1306_GetDisplayOn()) 
+		ssd1306_SetNeedInitFlag();
+	HAL_TIM_Base_Start_IT(&htim7);
+	__HAL_TIM_SET_COUNTER(&htim7, 0);
 	
-	
-	
-	switches_byte = 0;
-
-	switches_byte += (HAL_GPIO_ReadPin(SW1_GPIO_Port, SW1_Pin)?0:1);
-	switches_byte += (HAL_GPIO_ReadPin(SW2_GPIO_Port, SW2_Pin)?0:1) * 2;
-	switches_byte += (HAL_GPIO_ReadPin(SW3_GPIO_Port, SW3_Pin)?0:1) * 4;
-	switches_byte += (HAL_GPIO_ReadPin(SW4_GPIO_Port, SW4_Pin)?0:1) * 8;
-	switches_byte += (HAL_GPIO_ReadPin(SW5_GPIO_Port, SW5_Pin)?0:1) * 16;
-	switches_byte += (HAL_GPIO_ReadPin(SW6_GPIO_Port, SW6_Pin)?0:1) * 32;
-	switches_byte += (HAL_GPIO_ReadPin(SW7_GPIO_Port, SW7_Pin)?0:1) * 64;
-	switches_byte += (HAL_GPIO_ReadPin(SW8_GPIO_Port, SW8_Pin)?0:1) * 128;
-	
-	
-	
-	
-	/*
-	switches_byte |= (HAL_GPIO_ReadPin(SW1_GPIO_Port, SW1_Pin) >> 0);
-	switches_byte |= (HAL_GPIO_ReadPin(SW2_GPIO_Port, SW2_Pin) >> 1);
-	HAL_GPIO_ReadPin(SW3_GPIO_Port, SW3_Pin);
-	HAL_GPIO_ReadPin(SW4_GPIO_Port, SW4_Pin);
-	HAL_GPIO_ReadPin(SW5_GPIO_Port, SW5_Pin);
-	HAL_GPIO_ReadPin(SW6_GPIO_Port, SW6_Pin);
-	HAL_GPIO_ReadPin(SW7_GPIO_Port, SW7_Pin);
-	HAL_GPIO_ReadPin(SW8_GPIO_Port, SW8_Pin);
-	*/
+	//power
   /* USER CODE END TIM6_IRQn 0 */
   HAL_TIM_IRQHandler(&htim6);
   /* USER CODE BEGIN TIM6_IRQn 1 */
@@ -359,6 +366,29 @@ void TIM6_IRQHandler(void)
   /* USER CODE END TIM6_IRQn 1 */
 }
 
+/**
+  * @brief This function handles TIM7 global interrupt.
+  */
+void TIM7_IRQHandler(void)
+{
+  /* USER CODE BEGIN TIM7_IRQn 0 */
+	HAL_TIM_Base_Stop(&htim7);
+	//ssd1306_SetDisplayPower(0);
+	power_SetNeedSleepFlag();
+	
+  /* USER CODE END TIM7_IRQn 0 */
+  HAL_TIM_IRQHandler(&htim7);
+  /* USER CODE BEGIN TIM7_IRQn 1 */
+	//HAL_SuspendTick();
+	//HAL_PWR_EnterSTOPMode(PWR_LOWPOWERREGULATOR_ON, PWR_STOPENTRY_WFI);
+  /* USER CODE END TIM7_IRQn 1 */
+}
+
 /* USER CODE BEGIN 1 */
+
+void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin){
+	//SystemClock_Config();
+	//HAL_ResumeTick();
+}
 
 /* USER CODE END 1 */

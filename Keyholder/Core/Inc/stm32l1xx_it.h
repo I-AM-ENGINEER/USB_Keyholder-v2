@@ -63,6 +63,7 @@ void EXTI9_5_IRQHandler(void);
 void EXTI15_10_IRQHandler(void);
 void USB_FS_WKUP_IRQHandler(void);
 void TIM6_IRQHandler(void);
+void TIM7_IRQHandler(void);
 /* USER CODE BEGIN EFP */
 
 /* USER CODE END EFP */

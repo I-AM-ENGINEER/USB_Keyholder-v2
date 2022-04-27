@@ -37,6 +37,7 @@ keyholder\ssd1306.o: ../Drivers/STM32L1xx_HAL_Driver/Inc/stm32l1xx_ll_usb.h
 keyholder\ssd1306.o: ../Drivers/STM32L1xx_HAL_Driver/Inc/stm32l1xx_hal_pcd_ex.h
 keyholder\ssd1306.o: ../Drivers/STM32L1xx_HAL_Driver/Inc/stm32l1xx_hal_exti.h
 keyholder\ssd1306.o: ../Core/Inc/ssd1306_fonts.h
+keyholder\ssd1306.o: ../Core/Inc/main.h
 keyholder\ssd1306.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\math.h
 keyholder\ssd1306.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
 keyholder\ssd1306.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h

@@ -36,3 +36,4 @@ keyholder\crypto.o: ../Drivers/STM32L1xx_HAL_Driver/Inc/stm32l1xx_ll_usb.h
 keyholder\crypto.o: ../Drivers/STM32L1xx_HAL_Driver/Inc/stm32l1xx_hal_pcd_ex.h
 keyholder\crypto.o: ../Drivers/STM32L1xx_HAL_Driver/Inc/stm32l1xx_hal_exti.h
 keyholder\crypto.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+keyholder\crypto.o: ../Core/Inc/main.h
