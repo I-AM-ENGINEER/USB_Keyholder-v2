@@ -45,6 +45,7 @@ void PAS_print_menu( void ){
 	if (unPass == 6){
 		ssd1306_Fill(White);
 		ssd1306_UpdateScreen(); 
+		tPass = 1;
 	}
 	HAL_Delay(1000);
 }
@@ -54,15 +55,40 @@ void PAS_print_menu( void ){
 void UI_print_menu( void ){
 	ssd1306_Fill(Black);
 	ssd1306_DrawRectangle(0, 0, 127, 31, White);
+	
+	while(!switches_byte)
+	HAL_Delay(1);
+	
+	int numMenu = 0;		
+	for(int i = 0; i < 8; i++){
+		if(switches_byte & (1 << i)){			
+				numMenu = i + 1;
+				break;
+		}
+	}
+	
+	char text[15] = "1 break";
 	ssd1306_SetCursor(2,2);
-	char text[20] = "test text";
 	ssd1306_WriteString(text, Font_6x8, White);
-	sprintf(text, "test text 2: %d", test_value);
 	ssd1306_SetCursor(2,10);
+	sprintf(text, "2 ...");
+	ssd1306_WriteString(text, Font_6x8, White);
+	ssd1306_SetCursor(2,18);
+	sprintf(text, "3 chang pass");
 	ssd1306_WriteString(text, Font_6x8, White);
 	
-	//switches_byte = 123;
+	switch(numMenu){
+		case 1:
+			tPass = 0;
+			break;
+		
+	}
+			
+	ssd1306_UpdateScreen();
 	
+	while(switches_byte)
+			HAL_Delay(1);
+	/*
 	for(int i = 0; i < 8; i++){
 		ssd1306_SetCursor(2 + (i*5) ,17);
 		if(switches_byte & (1 << i)){			
@@ -71,6 +97,6 @@ void UI_print_menu( void ){
 		else{
 			ssd1306_WriteChar('0', Font_6x8, White);
 		}
-	}
-	ssd1306_UpdateScreen(); 
+	} */
+	 
 }

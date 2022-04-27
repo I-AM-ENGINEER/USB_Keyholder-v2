@@ -54,7 +54,7 @@
 
 int switches_byte = 0;
 int test_value = 0;
-
+int tPass = 0;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -124,10 +124,12 @@ int main(void)
 			SystemClock_Config();
 			HAL_ResumeTick(); 
 		}*/
-		PAS_print_menu();
-		///
-		//UI_print_menu();
 		
+		
+		if (tPass == 1)
+			UI_print_menu();
+		else
+			PAS_print_menu();
 		//CDC_Transmit_FS((uint8_t*)testDataToSend, 5);
 		
     /* USER CODE END WHILE */

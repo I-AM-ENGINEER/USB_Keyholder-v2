@@ -38,6 +38,7 @@ extern "C" {
 /* USER CODE BEGIN ET */
 extern int switches_byte;
 extern int test_value;
+extern int tPass;
 /* USER CODE END ET */
 
 /* Exported constants --------------------------------------------------------*/
