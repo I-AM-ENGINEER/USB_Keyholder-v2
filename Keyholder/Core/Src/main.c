@@ -105,25 +105,28 @@ int main(void)
   MX_TIM7_Init();
   /* USER CODE BEGIN 2 */
 	//__enable_irq();
-	char testDataToSend[8];
-	exampleF(12345, testDataToSend);
+
 	ssd1306_SetDisplayPower(1);
-	
+	ssd1306_Fill(Black);
+	ssd1306_UpdateScreen();
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-		if(ssd1306_GetNeedInitFlag())
-			ssd1306_SetDisplayPower(1);
-		if(power_GetNeedSleepFlag()){
+		//if(ssd1306_GetNeedInitFlag())
+		//	ssd1306_SetDisplayPower(1);
+		/*if(power_GetNeedSleepFlag()){
 			ssd1306_SetDisplayOn(0);
 			power_GoToSleep();
+			// cgb
 			SystemClock_Config();
-			HAL_ResumeTick();
-		}
-		UI_print_menu();
+			HAL_ResumeTick(); 
+		}*/
+		PAS_print_menu();
+		///
+		//UI_print_menu();
 		
 		//CDC_Transmit_FS((uint8_t*)testDataToSend, 5);
 		

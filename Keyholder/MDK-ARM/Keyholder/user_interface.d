@@ -40,3 +40,13 @@ keyholder\user_interface.o: ../Drivers/STM32L1xx_HAL_Driver/Inc/stm32l1xx_hal_ex
 keyholder\user_interface.o: ../Core/Inc/ssd1306_fonts.h
 keyholder\user_interface.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
 keyholder\user_interface.o: ../Core/Inc/main.h
+keyholder\user_interface.o: ../USB_DEVICE/App/usbd_cdc_if.h
+keyholder\user_interface.o: ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc/usbd_cdc.h
+keyholder\user_interface.o: ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_ioreq.h
+keyholder\user_interface.o: ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_def.h
+keyholder\user_interface.o: ../USB_DEVICE/Target/usbd_conf.h
+keyholder\user_interface.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
+keyholder\user_interface.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+keyholder\user_interface.o: ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_core.h
+keyholder\user_interface.o: ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_ioreq.h
+keyholder\user_interface.o: ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_ctlreq.h

@@ -269,8 +269,6 @@ void USB_LP_IRQHandler(void)
 void EXTI9_5_IRQHandler(void)
 {
   /* USER CODE BEGIN EXTI9_5_IRQn 0 */
-	SystemClock_Config();
-	HAL_ResumeTick();
 	HAL_TIM_Base_Start_IT(&htim6);
   /* USER CODE END EXTI9_5_IRQn 0 */
   HAL_GPIO_EXTI_IRQHandler(SW6_Pin);
@@ -335,30 +333,12 @@ void TIM6_IRQHandler(void)
 	(HAL_GPIO_ReadPin(SW6_GPIO_Port, SW6_Pin)?0:0x20)	+ \
 	(HAL_GPIO_ReadPin(SW7_GPIO_Port, SW7_Pin)?0:0x40)	+ \
 	(HAL_GPIO_ReadPin(SW8_GPIO_Port, SW8_Pin)?0:0x80);
-	
-	//if(switches_byte != 0) {
-		//HAL_GPIO_WritePin(DISPLAY_ON1_GPIO_Port, DISPLAY_ON1_Pin, GPIO_PIN_SET);
-		//HAL_GPIO_WritePin(DISPLAY_ON2_GPIO_Port, DISPLAY_ON2_Pin, GPIO_PIN_SET);
-		//HAL_Delay(10);
-		//ssd1306_Init();
-		//ssd1306_Fill(White);
-		//ssd1306_UpdateScreen();
-	//}
-	//HAL_GPIO_WritePin(DISPLAY_ON1_GPIO_Port, DISPLAY_ON1_Pin, GPIO_PIN_SET);
-	//HAL_GPIO_WritePin(DISPLAY_ON2_GPIO_Port, DISPLAY_ON2_Pin, GPIO_PIN_SET);
-	//ssd1306_SetDisplayOn(1);
-	
-	//ssd1306_Init();
-	//UI_print_menu();
-	
-	//UI_print_menu();
-	//HAL_TIM_Base_Stop_IT(&htim7);
+
 	if(!ssd1306_GetDisplayOn()) 
 		ssd1306_SetNeedInitFlag();
 	HAL_TIM_Base_Start_IT(&htim7);
 	__HAL_TIM_SET_COUNTER(&htim7, 0);
 	
-	//power
   /* USER CODE END TIM6_IRQn 0 */
   HAL_TIM_IRQHandler(&htim6);
   /* USER CODE BEGIN TIM6_IRQn 1 */
