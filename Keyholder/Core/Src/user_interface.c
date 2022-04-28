@@ -9,7 +9,6 @@ char passTrue[6] = "123456";
 char pass[6];
 void PAS_print_menu( void ){
 	
-	
 	ssd1306_Fill(Black);
 	ssd1306_DrawRectangle(0, 0, 127, 31, White);
 	
@@ -42,12 +41,8 @@ void PAS_print_menu( void ){
 			unPass++;
 		}
 	}
-	if (unPass == 6){
-		ssd1306_Fill(White);
-		ssd1306_UpdateScreen(); 
+	if (unPass == 6)
 		tPass = 1;
-	}
-	HAL_Delay(300);
 }
 
 
@@ -55,11 +50,10 @@ int numMenuList = 0;
 void UI_print_menu( void ){
 	ssd1306_Fill(Black);
 	ssd1306_DrawRectangle(0, 0, 127, 31, White);
-	HAL_Delay(500);
+
 	char text[15];
 	
 	if (numMenuList == 0){
-		
 		ssd1306_SetCursor(2,2);
 		sprintf(text, "1 break");
 		ssd1306_WriteString(text, Font_6x8, White);
@@ -70,8 +64,7 @@ void UI_print_menu( void ){
 		sprintf(text, "3 next");
 		ssd1306_WriteString(text, Font_6x8, White);
 		ssd1306_UpdateScreen();
-	}
-	else if (numMenuList == 1){
+	} else if (numMenuList == 1){
 		ssd1306_SetCursor(2,26);
 		sprintf(text, "1 ...");
 		ssd1306_WriteString(text, Font_6x8, White);
@@ -84,8 +77,10 @@ void UI_print_menu( void ){
 		ssd1306_UpdateScreen();
 	}
 	
+	
 	while(!switches_byte)
-	HAL_Delay(1);
+		HAL_Delay(1);
+	
 	int numMenu = 0;	
 	for(int i = 0; i < 8; i++){
 		if(switches_byte & (1 << i)){			
@@ -93,8 +88,6 @@ void UI_print_menu( void ){
 				break;
 		}
 	}
-	
-	
 	
 	switch(numMenu){
 		case 1:
@@ -105,7 +98,8 @@ void UI_print_menu( void ){
 		case 3:
 			numMenuList = 1;
 			break;
-		
+		default:
+			break;
 	}
 			
 	ssd1306_UpdateScreen();
