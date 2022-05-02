@@ -5,6 +5,19 @@
 
 #include "usbd_cdc_if.h"
 
+
+
+const unsigned char imgN1[] = {
+0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 
+};
+
+
 char passTrue[6] = "123456";
 char pass[6];
 void PAS_print_menu( void ){
@@ -65,14 +78,14 @@ void UI_print_menu( void ){
 		ssd1306_WriteString(text, Font_6x8, White);
 		ssd1306_UpdateScreen();
 	} else if (numMenuList == 1){
-		ssd1306_SetCursor(2,26);
+		ssd1306_SetCursor(2,2);
 		sprintf(text, "1 ...");
 		ssd1306_WriteString(text, Font_6x8, White);
 		ssd1306_SetCursor(2,10);
 		sprintf(text, "2 ...");
 		ssd1306_WriteString(text, Font_6x8, White);
 		ssd1306_SetCursor(2,18);
-		sprintf(text, "3 next");
+		sprintf(text, "3 next44");
 		ssd1306_WriteString(text, Font_6x8, White);
 		ssd1306_UpdateScreen();
 	}
@@ -89,19 +102,63 @@ void UI_print_menu( void ){
 		}
 	}
 	
+	
+	
 	switch(numMenu){
 		case 1:
-			tPass = 0;
-			ssd1306_Fill(Black);
-			ssd1306_DrawRectangle(0, 0, 127, 31, White);
+			if(numMenuList == 0)
+					tPass = 0;
+					ssd1306_Fill(Black);
+					ssd1306_DrawRectangle(0, 0, 127, 31, White);
 			break;
-		case 3:
-			numMenuList = 1;
+		case 2:
+			break;
+		case 3:	
+				if(numMenuList == 0)
+					numMenuList = 1;
+				else 
+					numMenuList = 0;
 			break;
 		default:
 			break;
-	}
-			
+		}
+		
+	
+	
+	
+	
+	
+	/*if(numMenuList == 0){
+		switch(numMenu){
+			case 1:
+				tPass = 0;
+				ssd1306_Fill(Black);
+				ssd1306_DrawRectangle(0, 0, 127, 31, White);
+				break;		
+			case 2:	
+				break;		
+			case 3:	
+					numMenuList = 1;
+				break;
+			default:
+				break;
+		}
+	}		
+	if(numMenuList == 1){
+		switch(numMenu){
+			case 1:
+				break;
+			case 2:
+				break;
+			case 3:	
+					numMenuList = 0;
+				break;
+			default:
+				break;
+		}
+	}		
+	*/
+	
 	ssd1306_UpdateScreen();
 	
 	while(switches_byte)

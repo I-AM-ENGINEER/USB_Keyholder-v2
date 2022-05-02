@@ -15,6 +15,7 @@ void ssd1306_TestCircle(void);
 void ssd1306_TestArc(void);
 void ssd1306_TestPolyline(void);
 void ssd1306_TestDrawBitmap(void);
+void ssd1306_logo_imgN1(void);
 
 //_END_STD_C
 
