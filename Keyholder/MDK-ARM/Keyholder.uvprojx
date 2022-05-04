@@ -560,6 +560,11 @@
               <FileType>1</FileType>
               <FilePath>../Core/Src/stm32l1xx_hal_msp.c</FilePath>
             </File>
+            <File>
+              <FileName>system.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Core\Src\system.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -794,6 +799,11 @@
               <FileName>user_interface.h</FileName>
               <FileType>5</FileType>
               <FilePath>..\Core\Inc\user_interface.h</FilePath>
+            </File>
+            <File>
+              <FileName>system.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Core\Inc\system.h</FilePath>
             </File>
           </Files>
         </Group>

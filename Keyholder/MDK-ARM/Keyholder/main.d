@@ -58,3 +58,4 @@ keyholder\main.o: ../Core/Inc/ssd1306_fonts.h
 keyholder\main.o: ../Core/Inc/ssd1306_tests.h
 keyholder\main.o: ../Core/Inc/crypto.h
 keyholder\main.o: ../Core/Inc/user_interface.h
+keyholder\main.o: ../Core/Inc/system.h

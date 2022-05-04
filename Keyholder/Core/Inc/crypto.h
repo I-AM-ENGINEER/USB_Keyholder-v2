@@ -17,10 +17,7 @@ typedef struct {
 
 /* -------------------------------------------------------------------------- */
 
-int exampleF(int number, char *string);
-void power_GoToSleep( void );
-void power_SetNeedSleepFlag( void );
-uint8_t power_GetNeedSleepFlag( void );
+
 
 /* -------------------------------------------------------------------------- */
 

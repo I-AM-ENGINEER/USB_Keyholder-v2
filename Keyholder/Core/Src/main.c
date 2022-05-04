@@ -32,6 +32,7 @@
 #include "ssd1306_tests.h"
 #include "crypto.h"
 #include "user_interface.h"
+#include "system.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
