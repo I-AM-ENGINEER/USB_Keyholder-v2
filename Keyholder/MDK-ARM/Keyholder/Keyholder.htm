@@ -3,7 +3,7 @@
 <title>Static Call Graph - [Keyholder\Keyholder.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image Keyholder\Keyholder.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060960: Last Updated: Wed May 04 21:07:15 2022
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060960: Last Updated: Thu May 05 19:03:23 2022
 <BR><P>
 <H3>Maximum Stack Usage =        208 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -969,12 +969,12 @@ Global Symbols
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32l151xba.o(RESET)
 </UL>
-<P><STRONG><a name="[a9]"></a>UI_print_menu</STRONG> (Thumb, 212 bytes, Stack size 32 bytes, user_interface.o(i.UI_print_menu))
+<P><STRONG><a name="[a9]"></a>UI_print_menu</STRONG> (Thumb, 324 bytes, Stack size 32 bytes, user_interface.o(i.UI_print_menu))
 <BR><BR>[Stack]<UL><LI>Max Depth = 200<LI>Call Chain = UI_print_menu &rArr; ssd1306_UpdateScreen &rArr; ssd1306_WriteCommand &rArr; HAL_I2C_Mem_Write &rArr; I2C_RequestMemoryWrite &rArr; I2C_WaitOnMasterAddressFlagUntilTimeout
 </UL>
 <BR>[Calls]<UL><LI><a href="#[52]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_Delay
-<LI><a href="#[ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ssd1306_UpdateScreen
-<LI><a href="#[ac]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ssd1306_Line
+<LI><a href="#[ac]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ssd1306_UpdateScreen
+<LI><a href="#[ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ssd1306_Line
 <LI><a href="#[aa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ssd1306_Fill
 <LI><a href="#[ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ssd1306_DrawBitmap
 </UL>
@@ -1298,7 +1298,7 @@ Global Symbols
 <LI><a href="#[a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemClock_Config
 <LI><a href="#[a9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UI_print_menu
 <LI><a href="#[c6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PAS_print_menu
-<LI><a href="#[ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ssd1306_UpdateScreen
+<LI><a href="#[ac]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ssd1306_UpdateScreen
 <LI><a href="#[c4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ssd1306_SetDisplayPower
 <LI><a href="#[aa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ssd1306_Fill
 <LI><a href="#[c5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ssd1306_DrawRectangle
@@ -1321,14 +1321,14 @@ Global Symbols
 <P><STRONG><a name="[c7]"></a>ssd1306_DrawPixel</STRONG> (Thumb, 42 bytes, Stack size 12 bytes, ssd1306.o(i.ssd1306_DrawPixel))
 <BR><BR>[Stack]<UL><LI>Max Depth = 12<LI>Call Chain = ssd1306_DrawPixel
 </UL>
-<BR>[Called By]<UL><LI><a href="#[ac]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ssd1306_Line
+<BR>[Called By]<UL><LI><a href="#[ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ssd1306_Line
 <LI><a href="#[ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ssd1306_DrawBitmap
 </UL>
 
 <P><STRONG><a name="[c5]"></a>ssd1306_DrawRectangle</STRONG> (Thumb, 68 bytes, Stack size 28 bytes, ssd1306.o(i.ssd1306_DrawRectangle))
 <BR><BR>[Stack]<UL><LI>Max Depth = 84<LI>Call Chain = ssd1306_DrawRectangle &rArr; ssd1306_Line &rArr; ssd1306_DrawPixel
 </UL>
-<BR>[Calls]<UL><LI><a href="#[ac]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ssd1306_Line
+<BR>[Calls]<UL><LI><a href="#[ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ssd1306_Line
 </UL>
 <BR>[Called By]<UL><LI><a href="#[46]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
@@ -1355,7 +1355,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[c4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ssd1306_SetDisplayPower
 </UL>
 
-<P><STRONG><a name="[ac]"></a>ssd1306_Line</STRONG> (Thumb, 126 bytes, Stack size 44 bytes, ssd1306.o(i.ssd1306_Line))
+<P><STRONG><a name="[ad]"></a>ssd1306_Line</STRONG> (Thumb, 126 bytes, Stack size 44 bytes, ssd1306.o(i.ssd1306_Line))
 <BR><BR>[Stack]<UL><LI>Max Depth = 56<LI>Call Chain = ssd1306_Line &rArr; ssd1306_DrawPixel
 </UL>
 <BR>[Calls]<UL><LI><a href="#[c7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ssd1306_DrawPixel
@@ -1393,7 +1393,7 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[38]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM6_IRQHandler
 </UL>
 
-<P><STRONG><a name="[ad]"></a>ssd1306_UpdateScreen</STRONG> (Thumb, 50 bytes, Stack size 16 bytes, ssd1306.o(i.ssd1306_UpdateScreen))
+<P><STRONG><a name="[ac]"></a>ssd1306_UpdateScreen</STRONG> (Thumb, 50 bytes, Stack size 16 bytes, ssd1306.o(i.ssd1306_UpdateScreen))
 <BR><BR>[Stack]<UL><LI>Max Depth = 168<LI>Call Chain = ssd1306_UpdateScreen &rArr; ssd1306_WriteCommand &rArr; HAL_I2C_Mem_Write &rArr; I2C_RequestMemoryWrite &rArr; I2C_WaitOnMasterAddressFlagUntilTimeout
 </UL>
 <BR>[Calls]<UL><LI><a href="#[cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ssd1306_WriteData
@@ -1408,7 +1408,7 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[58]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_I2C_Mem_Write
 </UL>
-<BR>[Called By]<UL><LI><a href="#[ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ssd1306_UpdateScreen
+<BR>[Called By]<UL><LI><a href="#[ac]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ssd1306_UpdateScreen
 <LI><a href="#[c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ssd1306_SetDisplayOn
 <LI><a href="#[cb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ssd1306_SetContrast
 <LI><a href="#[c8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ssd1306_Init
@@ -1419,7 +1419,7 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[58]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_I2C_Mem_Write
 </UL>
-<BR>[Called By]<UL><LI><a href="#[ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ssd1306_UpdateScreen
+<BR>[Called By]<UL><LI><a href="#[ac]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ssd1306_UpdateScreen
 </UL>
 <P>
 <H3>

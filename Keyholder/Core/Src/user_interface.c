@@ -94,14 +94,20 @@ void PAS_print_menu( void ){
 	#endif
 }
 
-
+int cycleFlag = 0;
 int numMenuItem = 0;
 char masMenuItem[15] = "ABCDFGSUS";
 void UI_print_menu( void ){
 	
 	ssd1306_Fill(Black);
+	if (cycleFlag == 0){
+		ssd1306_DrawBitmap(34, 0, imgN1,  30, 30, White);
+		ssd1306_DrawBitmap(68, 0, imgN2,  30, 30, White);
+		ssd1306_UpdateScreen();
+		cycleFlag = 1;
+	}
 	int pushedButtonNumber = 0;
-	
+	ssd1306_Fill(Black);
 	
 	while(!switches_byte)
 		HAL_Delay(1);
@@ -116,21 +122,64 @@ void UI_print_menu( void ){
 			numMenuItem--;
 	else if(pushedButtonNumber == 1)
 			numMenuItem++;
+		
 	
-	if(numMenuItem == menuItemsCount + 1){			
+	ssd1306_Line(36, 31, 68, 31, White);
+	ssd1306_Line(46, 31, 58, 31, White);
+	
+	switch (numMenuItem){
+		case -2:
+			numMenuItem = 3;
+			ssd1306_DrawBitmap(0, 0, imgN3,  30, 30, White);
+			ssd1306_UpdateScreen();
+		break;
+		case -1:
+			ssd1306_DrawBitmap(68, 0, imgN1,  30, 30, White);
+			ssd1306_UpdateScreen();
+		break;
+		case 0:
+			ssd1306_DrawBitmap(34, 0, imgN1,  30, 30, White);
+			ssd1306_DrawBitmap(68, 0, imgN2,  30, 30, White);
+			ssd1306_UpdateScreen();
+			break;
+		case 1:
+			ssd1306_DrawBitmap(0, 0, imgN1,  30, 30, White);
+			ssd1306_DrawBitmap(34, 0, imgN2,  30, 30, White);
+			ssd1306_DrawBitmap(68, 0, imgN3,  30, 30, White);
+			ssd1306_UpdateScreen();
+			break;
+		case 2:
+			ssd1306_DrawBitmap(0, 0, imgN2,  30, 30, White);
+			ssd1306_DrawBitmap(34, 0, imgN3,  30, 30, White);
+			ssd1306_UpdateScreen();
+			break;
+		case 3:
+			ssd1306_DrawBitmap(0, 0, imgN3,  30, 30, White);
+			ssd1306_UpdateScreen();
+			break;
+		case 4:
+			numMenuItem = -1;
+			ssd1306_DrawBitmap(68, 0, imgN1,  30, 30, White);
+			ssd1306_UpdateScreen();
+			break;
+		}
+
+	
+	
+/*	if(numMenuItem == menuItemsCount + 1){			
 			numMenuItem = 0;		
 	}
 	else if(numMenuItem == 0){			
 			numMenuItem = menuItemsCount-1;		
 	}
+	
 	ssd1306_DrawBitmap(((numMenuItem - 1)* 34 + 4), 0, imgN1,  30, 30, White);
 	ssd1306_DrawBitmap((numMenuItem * 34) + 4, 0, imgN2,  30, 30, White);
 	if(numMenuItem != (menuItemsCount+1))
 	ssd1306_DrawBitmap(((numMenuItem + 1) * 34 + 4), 0, imgN3,  30, 30, White);
-	//ssd1306_DrawBitmap(((numMenuItem + 2) * 34 + 4), 0, imgN4,  30, 30, White);
 	ssd1306_Line(36, 31, 68, 31, White);
 	ssd1306_UpdateScreen();
-	
+	*/
 	while(switches_byte)
 			HAL_Delay(1);
 	
