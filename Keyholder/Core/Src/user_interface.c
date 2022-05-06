@@ -93,10 +93,9 @@ void PAS_print_menu( void ){
 	tPass = 1;
 	#endif
 }
-
+int orentationMoveMenu = 0;
 int cycleFlag = 0;
 int numMenuItem = 0;
-char masMenuItem[15] = "ABCDFGSUS";
 void UI_print_menu( void ){
 	
 	ssd1306_Fill(Black);
@@ -118,52 +117,116 @@ void UI_print_menu( void ){
 				break;
 		}
 	}
-	if(pushedButtonNumber == 0)
-			numMenuItem--;
-	else if(pushedButtonNumber == 1)
-			numMenuItem++;
-		
+	if(pushedButtonNumber == 0){
+		numMenuItem--;
+		orentationMoveMenu = -1;
+	}else if(pushedButtonNumber == 1){
+		numMenuItem++;
+		orentationMoveMenu = 1;
+	}
+			
 	
 	ssd1306_Line(36, 31, 68, 31, White);
 	ssd1306_Line(46, 31, 58, 31, White);
-	
-	switch (numMenuItem){
-		case -2:
-			numMenuItem = 3;
-			ssd1306_DrawBitmap(0, 0, imgN3,  30, 30, White);
-			ssd1306_UpdateScreen();
-		break;
-		case -1:
-			ssd1306_DrawBitmap(68, 0, imgN1,  30, 30, White);
-			ssd1306_UpdateScreen();
-		break;
-		case 0:
-			ssd1306_DrawBitmap(34, 0, imgN1,  30, 30, White);
-			ssd1306_DrawBitmap(68, 0, imgN2,  30, 30, White);
-			ssd1306_UpdateScreen();
+	if(orentationMoveMenu == 1){
+		switch (numMenuItem){
+			case -2:
+				numMenuItem = 3;
+				ssd1306_DrawBitmap(0, 0, imgN3,  30, 30, White);
+				ssd1306_UpdateScreen();
 			break;
-		case 1:
-			ssd1306_DrawBitmap(0, 0, imgN1,  30, 30, White);
-			ssd1306_DrawBitmap(34, 0, imgN2,  30, 30, White);
-			ssd1306_DrawBitmap(68, 0, imgN3,  30, 30, White);
-			ssd1306_UpdateScreen();
+			case -1:
+				ssd1306_DrawBitmap(68, 0, imgN1,  30, 30, White);
+				ssd1306_UpdateScreen();
 			break;
-		case 2:
-			ssd1306_DrawBitmap(0, 0, imgN2,  30, 30, White);
-			ssd1306_DrawBitmap(34, 0, imgN3,  30, 30, White);
-			ssd1306_UpdateScreen();
-			break;
-		case 3:
-			ssd1306_DrawBitmap(0, 0, imgN3,  30, 30, White);
-			ssd1306_UpdateScreen();
-			break;
-		case 4:
-			numMenuItem = -1;
-			ssd1306_DrawBitmap(68, 0, imgN1,  30, 30, White);
-			ssd1306_UpdateScreen();
-			break;
-		}
+			case 0:
+				
+				ssd1306_DrawBitmap(34, 0, imgN1,  30, 30, White);
+				ssd1306_DrawBitmap(68, 0, imgN2,  30, 30, White);
+				ssd1306_UpdateScreen();
 
+				
+				break;
+			case 1:
+				
+				for(int i = 32; i != 0; i-=2){
+					ssd1306_Fill(Black);
+					ssd1306_DrawBitmap(i, 0, imgN1,  30, 30, White);
+					ssd1306_DrawBitmap(i+34, 0, imgN2,  30, 30, White);
+					ssd1306_Line(36, 31, 68, 31, White);
+					ssd1306_Line(46, 31, 58, 31, White);
+					if ( i == 2)
+						ssd1306_DrawBitmap(68, 0, imgN3,  30, 30, White);
+					ssd1306_UpdateScreen();
+					HAL_Delay(2);
+				}
+			
+				break;
+			case 2:
+				for(int i = 32; i != 0; i-=2){
+					ssd1306_Fill(Black);
+					ssd1306_DrawBitmap(i, 0, imgN2,  30, 30, White);
+					ssd1306_DrawBitmap(i+34, 0, imgN3,  30, 30, White);
+					ssd1306_Line(36, 31, 68, 31, White);
+					ssd1306_Line(46, 31, 58, 31, White);
+					ssd1306_UpdateScreen();
+					HAL_Delay(2);
+				}
+						
+				break;
+			case 3:
+				ssd1306_DrawBitmap(0, 0, imgN3,  30, 30, White);
+				ssd1306_UpdateScreen();
+				break;
+			case 4:
+				numMenuItem = -1;
+				ssd1306_DrawBitmap(68, 0, imgN1,  30, 30, White);
+				ssd1306_UpdateScreen();
+				break;
+			}
+	}else{
+			switch (numMenuItem){
+			case -2:
+				numMenuItem = 3;
+				ssd1306_DrawBitmap(0, 0, imgN3,  30, 30, White);
+				ssd1306_UpdateScreen();
+			break;
+			case -1:
+				ssd1306_DrawBitmap(68, 0, imgN1,  30, 30, White);
+				ssd1306_UpdateScreen();
+			break;
+			case 0:
+				
+				ssd1306_DrawBitmap(34, 0, imgN1,  30, 30, White);
+				ssd1306_DrawBitmap(68, 0, imgN2,  30, 30, White);
+				ssd1306_UpdateScreen();
+	
+				break;
+			case 1:
+				ssd1306_DrawBitmap(0, 0, imgN1,  30, 30, White);
+				ssd1306_DrawBitmap(34, 0, imgN2,  30, 30, White);
+				ssd1306_DrawBitmap(68, 0, imgN3,  30, 30, White);
+				ssd1306_UpdateScreen();
+				
+				break;
+			case 2:
+				
+				ssd1306_DrawBitmap(0, 0, imgN2,  30, 30, White);
+				ssd1306_DrawBitmap(34, 0, imgN3,  30, 30, White);
+				ssd1306_UpdateScreen();
+
+				break;
+			case 3:
+				ssd1306_DrawBitmap(0, 0, imgN3,  30, 30, White);
+				ssd1306_UpdateScreen();
+				break;
+			case 4:
+				numMenuItem = -1;
+				ssd1306_DrawBitmap(68, 0, imgN1,  30, 30, White);
+				ssd1306_UpdateScreen();
+				break;
+			}
+	}
 	
 	
 /*	if(numMenuItem == menuItemsCount + 1){			
