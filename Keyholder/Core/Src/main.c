@@ -27,12 +27,14 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#include "usbd_cdc_if.h"
+//#include "usbd_cdc_if.h"
 #include "ssd1306.h"
 #include "ssd1306_tests.h"
 #include "crypto.h"
 #include "user_interface.h"
 #include "system.h"
+#include "usbd_hid.h"
+#include "usb.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -56,6 +58,8 @@
 int switches_byte = 0;
 int test_value = 0;
 int tPass = 0;
+
+
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -98,10 +102,10 @@ int main(void)
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
-  //MX_ADC_Init();
-  //MX_DMA_Init();
+  MX_ADC_Init();
+  MX_DMA_Init();
   MX_I2C1_Init();
-  //MX_USB_DEVICE_Init();
+  MX_USB_DEVICE_Init();
   MX_TIM6_Init();
   MX_TIM7_Init();
   /* USER CODE BEGIN 2 */
@@ -111,28 +115,26 @@ int main(void)
 	ssd1306_Fill(Black);
 	ssd1306_DrawRectangle(0, 0, 127, 31, White);
 	ssd1306_UpdateScreen();
+	
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
-  {
-		//if(ssd1306_GetNeedInitFlag())
-		//	ssd1306_SetDisplayPower(1);
-		/*if(power_GetNeedSleepFlag()){
+  {	
+		/*
+		if(ssd1306_GetNeedInitFlag())
+			ssd1306_SetDisplayPower(1);
+		if(power_GetNeedSleepFlag()){
+			// Going to sleep
 			ssd1306_SetDisplayOn(0);
 			power_GoToSleep();
-			// cgb
+			// Wakeup from sleep
 			SystemClock_Config();
-			HAL_ResumeTick(); 
+			HAL_ResumeTick();
 		}*/
 		
-		
-		if (tPass == 1)
-			UI_print_menu();
-		else
-			PAS_print_menu();
-		//CDC_Transmit_FS((uint8_t*)testDataToSend, 5);
+		UI_print_menu();
 		
     /* USER CODE END WHILE */
 

@@ -25,6 +25,7 @@
 #include "user_interface.h"
 #include "ssd1306.h"
 #include "crypto.h"
+#include "system.h"
 /* USER CODE END Includes */
 
 /* External functions --------------------------------------------------------*/
