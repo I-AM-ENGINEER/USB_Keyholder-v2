@@ -322,9 +322,7 @@ void USB_FS_WKUP_IRQHandler(void)
 void TIM6_IRQHandler(void)
 {
   /* USER CODE BEGIN TIM6_IRQn 0 */
-	test_value++;
 	HAL_TIM_Base_Stop(&htim6);
-	
 	switches_byte = \
 	(HAL_GPIO_ReadPin(SW1_GPIO_Port, SW1_Pin)?0:0x01) + \
 	(HAL_GPIO_ReadPin(SW2_GPIO_Port, SW2_Pin)?0:0x02) + \

@@ -4,47 +4,29 @@
 #include "crypto.h"
 #include "main.h"
 
-#define DEBUG
+//http://javl.github.io/image2cpp/
 
-const unsigned char imgN1[] = {
-	0xc1, 0x8f, 0x87, 0xf8, 0xc1, 0x9f, 0xc7, 0xfc, 0xc1, 0x98, 0x06, 0x0c, 0xc1, 0x98, 0x06, 0x0c, 
-	0xc1, 0x98, 0x06, 0x0c, 0xc1, 0x9f, 0x87, 0xf8, 0xc1, 0x8f, 0xc7, 0xf8, 0xc1, 0x80, 0xc6, 0x0c, 
-	0xc1, 0x80, 0xc6, 0x0c, 0xe3, 0x80, 0xc6, 0x0c, 0x7f, 0x1f, 0xc7, 0xfc, 0x3e, 0x0f, 0x87, 0xf8, 
-	0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x70, 0x00, 0x00, 0x00, 0x20, 0xff, 0xff, 0xff, 0xfc, 
-	0x80, 0x00, 0x00, 0x24, 0x80, 0x00, 0x00, 0x24, 0xa4, 0xa4, 0xa4, 0xa4, 0x95, 0x15, 0x15, 0x24, 
-	0x8e, 0x0e, 0x0e, 0x24, 0x8e, 0x0e, 0x0e, 0x24, 0x95, 0x15, 0x15, 0x24, 0xa4, 0xa4, 0xa4, 0xa4, 
-	0x80, 0x00, 0x00, 0x24, 0x80, 0x00, 0x00, 0x24, 0xff, 0xff, 0xff, 0xfc, 0x00, 0x00, 0x00, 0x20, 
-	0x00, 0x00, 0x00, 0x70, 0x00, 0x00, 0x00, 0x00
+//#define DEBUG
+
+const unsigned char img_folder[] = {
+	0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0xf0, 0x00, 0x00, 0x00, 0x1e, 0x70, 0xe3, 0x00, 
+	0x10, 0xc0, 0xb0, 0xfc, 0x20, 0x81, 0x00, 0x80, 0x20, 0x81, 0x00, 0x80, 0x20, 0x81, 0x80, 0x80, 
+	0x20, 0xf0, 0xe0, 0x80, 0x20, 0x80, 0x20, 0x80, 0x20, 0x83, 0xa0, 0x80, 0x10, 0x80, 0xe0, 0x40, 
+	0x00, 0xf8, 0x00, 0x40, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 
+	0x00, 0x01, 0xc3, 0xf0, 0x03, 0xc3, 0x46, 0x10, 0x0c, 0x40, 0x44, 0x10, 0x10, 0xc0, 0x40, 0x20, 
+	0x30, 0x80, 0x40, 0xe0, 0x00, 0x80, 0x80, 0x20, 0x01, 0x01, 0x88, 0x20, 0x02, 0x01, 0x08, 0x20, 
+	0x02, 0x06, 0x0c, 0x20, 0x02, 0x04, 0x03, 0xe0, 0x04, 0x0f, 0x00, 0x40, 0x04, 0x00, 0xf0, 0x00, 
+	0x04, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 
 };
-const unsigned char imgN2[] = {
-	0xc1, 0x80, 0x07, 0xf8, 0xc1, 0x87, 0x87, 0xfc, 0xc1, 0x8c, 0x86, 0x0c, 0xc1, 0x98, 0x86, 0x0c, 
-	0xc1, 0x80, 0x86, 0x0c, 0xc1, 0x80, 0x87, 0xf8, 0xc1, 0x81, 0x07, 0xf8, 0xc1, 0x82, 0x06, 0x0c, 
-	0xc1, 0x86, 0x06, 0x0c, 0xe3, 0x8c, 0x06, 0x0c, 0x7f, 0x0f, 0xc7, 0xfc, 0x3e, 0x00, 0x07, 0xf8, 
-	0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x70, 0x00, 0x00, 0x00, 0x20, 0xff, 0xff, 0xff, 0xfc, 
-	0x80, 0x00, 0x00, 0x24, 0x80, 0x00, 0x00, 0x24, 0xa4, 0xa4, 0xa4, 0xa4, 0x95, 0x15, 0x15, 0x24, 
-	0x8e, 0x0e, 0x0e, 0x24, 0x8e, 0x0e, 0x0e, 0x24, 0x95, 0x15, 0x15, 0x24, 0xa4, 0xa4, 0xa4, 0xa4, 
-	0x80, 0x00, 0x00, 0x24, 0x80, 0x00, 0x00, 0x24, 0xff, 0xff, 0xff, 0xfc, 0x00, 0x00, 0x00, 0x20, 
-	0x00, 0x00, 0x00, 0x70, 0x00, 0x00, 0x00, 0x00
-};
-const unsigned char imgN3[] = {
-	0xc1, 0x80, 0x07, 0xf8, 0xc1, 0x80, 0x07, 0xfc, 0xc1, 0x8f, 0x86, 0x0c, 0xc1, 0x98, 0x86, 0x0c, 
-	0xc1, 0x80, 0x86, 0x0c, 0xc1, 0x87, 0x87, 0xf8, 0xc1, 0x87, 0x87, 0xf8, 0xc1, 0x80, 0x86, 0x0c, 
-	0xc1, 0x80, 0x86, 0x0c, 0xe3, 0x80, 0x86, 0x0c, 0x7f, 0x01, 0x87, 0xfc, 0x3e, 0x3f, 0x07, 0xf8, 
-	0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x70, 0x00, 0x00, 0x00, 0x20, 0xff, 0xff, 0xff, 0xfc, 
-	0x80, 0x00, 0x00, 0x24, 0x80, 0x00, 0x00, 0x24, 0xa4, 0xa4, 0xa4, 0xa4, 0x95, 0x15, 0x15, 0x24, 
-	0x8e, 0x0e, 0x0e, 0x24, 0x8e, 0x0e, 0x0e, 0x24, 0x95, 0x15, 0x15, 0x24, 0xa4, 0xa4, 0xa4, 0xa4, 
-	0x80, 0x00, 0x00, 0x24, 0x80, 0x00, 0x00, 0x24, 0xff, 0xff, 0xff, 0xfc, 0x00, 0x00, 0x00, 0x20, 
-	0x00, 0x00, 0x00, 0x70, 0x00, 0x00, 0x00, 0x00
-};
-const unsigned char imgN4[] = {
-  0xc1, 0x80, 0x07, 0xf8, 0xc1, 0x84, 0x47, 0xfc, 0xc1, 0x88, 0x46, 0x0c, 0xc1, 0x88, 0x46, 0x0c, 
-	0xc1, 0x88, 0xc6, 0x0c, 0xc1, 0x8d, 0xc7, 0xf8, 0xc1, 0x87, 0x87, 0xf8, 0xc1, 0x80, 0x86, 0x0c, 
-	0xc1, 0x80, 0x86, 0x0c, 0xe3, 0x80, 0x86, 0x0c, 0x7f, 0x01, 0x07, 0xfc, 0x3e, 0x01, 0x07, 0xf8, 
-	0x00, 0x01, 0x00, 0x00, 0x00, 0x00, 0x00, 0x70, 0x00, 0x00, 0x00, 0x20, 0xff, 0xff, 0xff, 0xfc, 
-	0x80, 0x00, 0x00, 0x24, 0x80, 0x00, 0x00, 0x24, 0xa4, 0xa4, 0xa4, 0xa4, 0x95, 0x15, 0x15, 0x24, 
-	0x8e, 0x0e, 0x0e, 0x24, 0x8e, 0x0e, 0x0e, 0x24, 0x95, 0x15, 0x15, 0x24, 0xa4, 0xa4, 0xa4, 0xa4, 
-	0x80, 0x00, 0x00, 0x24, 0x80, 0x00, 0x00, 0x24, 0xff, 0xff, 0xff, 0xfc, 0x00, 0x00, 0x00, 0x20, 
-	0x00, 0x00, 0x00, 0x70, 0x00, 0x00, 0x00, 0x00
+const unsigned char img_lock[] = {
+	0x03, 0xff, 0xff, 0x00, 0x07, 0xff, 0xff, 0x80, 0x0f, 0xff, 0xff, 0xc0, 0x0f, 0x00, 0x03, 0xc0, 
+	0x0e, 0x00, 0x01, 0xc0, 0x0e, 0x00, 0x01, 0xc0, 0x0e, 0x00, 0x01, 0xc0, 0x0e, 0x00, 0x01, 0xc0, 
+	0x0e, 0x00, 0x01, 0xc0, 0x0e, 0x00, 0x01, 0xc0, 0x0e, 0x00, 0x01, 0xc0, 0x0e, 0x00, 0x01, 0xc0, 
+	0x7f, 0xff, 0xff, 0xf8, 0x7f, 0xff, 0xff, 0xf8, 0x60, 0x00, 0x00, 0x18, 0x60, 0x00, 0x00, 0x18, 
+	0x60, 0x07, 0x80, 0x18, 0x60, 0x0f, 0xc0, 0x18, 0x60, 0x0f, 0xc0, 0x18, 0x60, 0x0f, 0xc0, 0x18, 
+	0x60, 0x0f, 0xc0, 0x18, 0x60, 0x07, 0x80, 0x18, 0x60, 0x03, 0x00, 0x18, 0x60, 0x03, 0x00, 0x18, 
+	0x60, 0x03, 0x00, 0x18, 0x60, 0x03, 0x00, 0x18, 0x60, 0x00, 0x00, 0x18, 0x60, 0x00, 0x00, 0x18, 
+	0x7f, 0xff, 0xff, 0xf8, 0x7f, 0xff, 0xff, 0xf8
 };
 const unsigned char img_settings[] = {
   0x00, 0x07, 0x80, 0x00, 0x00, 0x0f, 0xc0, 0x00, 0x0c, 0x0f, 0xc0, 0xc0, 0x1e, 0x0f, 0xc1, 0xe0, 
@@ -78,23 +60,34 @@ const unsigned char img_passwords[] = {
 };
 
 
-void menu_login( void );
-void menu_main ( void );
-void menu_passwords( void );
-void menu_settings ( void );
-void menu_usb_write( void );
-	
-const int menuItemsCount = 4;
-char passTrue[6] = "111111";
-char pass[6];
-int orentationMoveMenu = 0;
-int cycleFlag = 0;
-int numMenuItem = 0;
+const uint8_t menuItemsCount = 5;
+// Menu icons
+const unsigned char *icons[menuItemsCount] = \
+{img_settings, img_passwords, img_usb_write, img_folder, img_lock};
 
+// Tabs name and number, require mach with icon position!
+#define	settings_tab		0x00
+#define	paswd_list_tab 	0x01
+#define	usb_write_tab 	0x02
+#define	folder_tab 			0x03
+#define	img_lock 				0x04
+#define	main_tab 				0xFE
+#define	login_tab 			0xFF
 
 uint8_t currentTab = login_tab;
 
+const char passTrue[6] = "111111";
 
+
+void menu_main 	( void );
+void menu_login	( void );
+void menu_folder( void );
+void menu_passwords( void );
+void menu_settings ( void );
+void menu_usb_write( void );
+
+
+// Main function of GUI
 void UI_print_menu( void ){
 	switch(currentTab){
 		case main_tab:
@@ -106,23 +99,105 @@ void UI_print_menu( void ){
 		case paswd_list_tab:
 			menu_passwords();
 			break;
+		case folder_tab:
+			menu_folder();
+			break;
+		case img_lock:
+			currentTab = login_tab;
+			break;
 		default:
 			menu_login();
 	}
 }
 
 
+
+// Main menu function
+void menu_main ( void ){
+	static uint8_t cycleFlag = 0;
+	static uint8_t menuPosition = 2;
+	// Image on first menu display
+	if (cycleFlag == 0){
+		ssd1306_Fill(Black);
+		ssd1306_DrawBitmap(8 , 0, icons[menuPosition-1],  30, 30, White);
+		ssd1306_DrawBitmap(50, 0, icons[menuPosition  ],  30, 30, White);
+		ssd1306_DrawBitmap(92, 0, icons[menuPosition+1],  30, 30, White);
+		ssd1306_Line(48, 31, 80, 31, White);
+		ssd1306_UpdateScreen();
+		cycleFlag = 1;
+	}
+	// Wait push button
+	while(!switches_byte)
+		HAL_Delay(1);
+	
+	int pushedButtonNumber = -1;
+	for(int i = 0; i < 8; i++){
+		if(switches_byte & (1 << i)){			
+				pushedButtonNumber = i ;
+				break;
+		}
+	}
+	
+	// Old menu position, uses for animation
+	uint8_t menuPositionOld = menuPosition;
+	if((pushedButtonNumber == 0) && (menuPosition != 0))
+		menuPosition--; // Slide left
+	else if((pushedButtonNumber == 2) && (menuPosition != (menuItemsCount - 1)))
+		menuPosition++; // Slide right
+	else if(pushedButtonNumber == 1){
+		// Switch tab
+		currentTab = menuPosition;
+		cycleFlag = 0;
+		menuPosition = 2;
+		// Wait button release
+		while(switches_byte)
+			HAL_Delay(1);
+		return;
+	}else{
+		return;
+	}
+	
+	// Icons animation
+	for(int8_t i = 2; i <= 42; i += 4){
+		// If menu counter adds, slide right (delta = 1), else slide left (delta = -1)
+		int8_t delta = 1;
+		if(menuPosition > menuPositionOld) delta = -1;
+		
+		ssd1306_Fill(Black);
+		// Print central icon
+		ssd1306_DrawBitmap((uint8_t)(i*delta) + 50, 0, icons[menuPositionOld],  30, 30, White);
+		ssd1306_Line(48, 31, 80, 31, White);
+		// Print side icons
+		if(menuPositionOld-2 >= 0)
+			ssd1306_DrawBitmap((uint8_t)(i*delta) - 34, 0, icons[menuPositionOld-2],  30, 30, White);
+		if(menuPositionOld-1 >= 0)
+			ssd1306_DrawBitmap((uint8_t)(i*delta) +  8, 0, icons[menuPositionOld-1],  30, 30, White);
+		if(menuPositionOld+1 < menuItemsCount)
+			ssd1306_DrawBitmap((uint8_t)(i*delta) + 92, 0, icons[menuPositionOld+1],  30, 30, White);
+		if(menuPositionOld+2 < menuItemsCount)
+			ssd1306_DrawBitmap((uint8_t)(i*delta) +134, 0, icons[menuPositionOld+2],  30, 30, White);
+		ssd1306_UpdateScreen();
+	}
+	// Wait button release
+	while(switches_byte)
+			HAL_Delay(1);
+	
+}
+
+// Authorisation tab, displayed on startup
 void menu_login( void ){
 	#ifndef DEBUG
+	char pass[6];
 	ssd1306_Fill(Black);
 	ssd1306_DrawRectangle(0, 0, 127, 31, White);
-	
-	for (int j = 0; j < 6; j++){
+	// Password enter
+	for (uint8_t j = 0; j < 6; j++){
+		// Wait push button
 		while(!switches_byte)
 			HAL_Delay(1);
 		
 		ssd1306_SetCursor(2 + 16 * j, 2);
-		for(int i = 0; i < 8; i++){
+		for(uint8_t i = 0; i < 8; i++){
 			if(switches_byte & (1 << i)){		
 				pass[j] = i + '1';	
 				ssd1306_WriteChar(i + '1', Font_16x26, White);
@@ -130,189 +205,112 @@ void menu_login( void ){
 			}
 		}
 		
-		for(int i = 0; i < j; i++){
+		for(uint8_t i = 0; i < j; i++){
 			ssd1306_SetCursor(2 + 16 * i, 2);		
 			ssd1306_WriteChar('*', Font_16x26, White);
 		}
 		
 		ssd1306_UpdateScreen(); 
-		
+		// Wait button release
 		while(switches_byte)
 			HAL_Delay(1);
 	}
-	int unPass = 0;
-	for (int i = 0; i < 6; i++){
+	// Check password
+	uint8_t unPass = 0;
+	for (uint8_t i = 0; i < 6; i++){
 		if (pass[i] == passTrue[i]){
 			unPass++;
 		}
 	}
-	if (unPass == 6)
+	
+	if (unPass == 6){
+		// If password correct, go to menu
 		currentTab = main_tab;
+	}else{
+		// Print "ERROR" and wait next try
+		ssd1306_Fill(Black);
+		ssd1306_SetCursor(4, 4);
+		ssd1306_WriteString("ERROR", Font_16x26, White);
+		ssd1306_DrawRectangle(0, 0, 127, 31, White);
+		ssd1306_UpdateScreen();
+		HAL_Delay(3000);
+		ssd1306_Fill(Black);
+		ssd1306_DrawRectangle(0, 0, 127, 31, White);
+		ssd1306_UpdateScreen();
+	}
 	#else
 	currentTab = main_tab;
 	#endif
 }
 
-void menu_main ( void ){
+// IN DEVELOPMENT: Tab with passwords list
+void menu_passwords( void ){
 	ssd1306_Fill(Black);
-	if (cycleFlag == 0){
-		ssd1306_DrawBitmap(34, 0, imgN1,  30, 30, White);
-		ssd1306_DrawBitmap(68, 0, imgN2,  30, 30, White);
-		ssd1306_UpdateScreen();
-		cycleFlag = 1;
-	}
-	int pushedButtonNumber = 0;
-	ssd1306_Fill(Black);
+	ssd1306_SetCursor(4, 4);
+	ssd1306_WriteString("Passwords", Font_16x26, White);
+	ssd1306_DrawRectangle(0, 0, 127, 31, White);
+	ssd1306_UpdateScreen();
 	
+	// Wait push button
 	while(!switches_byte)
 		HAL_Delay(1);
-	
-	for(int i = 0; i < 8; i++){
-		if(switches_byte & (1 << i)){			
-				pushedButtonNumber = i ;
-				break;
-		}
-	}
-	if(pushedButtonNumber == 0){
-		numMenuItem--;
-		orentationMoveMenu = -1;
-	}else if(pushedButtonNumber == 1){
-		numMenuItem++;
-		orentationMoveMenu = 1;
-	}
-			
-	
-	ssd1306_Line(36, 31, 68, 31, White);
-	ssd1306_Line(46, 31, 58, 31, White);
-	if(orentationMoveMenu == 1){
-		switch (numMenuItem){
-			case -2:
-				numMenuItem = 3;
-				ssd1306_DrawBitmap(0, 0, imgN3,  30, 30, White);
-				ssd1306_UpdateScreen();
-			break;
-			case -1:
-				ssd1306_DrawBitmap(68, 0, imgN1,  30, 30, White);
-				ssd1306_UpdateScreen();
-			break;
-			case 0:
-				
-				ssd1306_DrawBitmap(34, 0, imgN1,  30, 30, White);
-				ssd1306_DrawBitmap(68, 0, imgN2,  30, 30, White);
-				ssd1306_UpdateScreen();
-
-				
-				break;
-			case 1:
-				
-				for(int i = 32; i != 0; i-=2){
-					ssd1306_Fill(Black);
-					ssd1306_DrawBitmap(i, 0, imgN1,  30, 30, White);
-					ssd1306_DrawBitmap(i+34, 0, imgN2,  30, 30, White);
-					ssd1306_Line(36, 31, 68, 31, White);
-					ssd1306_Line(46, 31, 58, 31, White);
-					if ( i == 2)
-						ssd1306_DrawBitmap(68, 0, imgN3,  30, 30, White);
-					ssd1306_UpdateScreen();
-					HAL_Delay(2);
-				}
-			
-				break;
-			case 2:
-				for(int i = 32; i != 0; i-=2){
-					ssd1306_Fill(Black);
-					ssd1306_DrawBitmap(i, 0, imgN2,  30, 30, White);
-					ssd1306_DrawBitmap(i+34, 0, imgN3,  30, 30, White);
-					ssd1306_Line(36, 31, 68, 31, White);
-					ssd1306_Line(46, 31, 58, 31, White);
-					ssd1306_UpdateScreen();
-					HAL_Delay(2);
-				}
-						
-				break;
-			case 3:
-				ssd1306_DrawBitmap(0, 0, imgN3,  30, 30, White);
-				ssd1306_UpdateScreen();
-				break;
-			case 4:
-				numMenuItem = -1;
-				ssd1306_DrawBitmap(68, 0, imgN1,  30, 30, White);
-				ssd1306_UpdateScreen();
-				break;
-			}
-	}else{
-			switch (numMenuItem){
-			case -2:
-				numMenuItem = 3;
-				ssd1306_DrawBitmap(0, 0, imgN3,  30, 30, White);
-				ssd1306_UpdateScreen();
-			break;
-			case -1:
-				ssd1306_DrawBitmap(68, 0, imgN1,  30, 30, White);
-				ssd1306_UpdateScreen();
-			break;
-			case 0:
-				
-				ssd1306_DrawBitmap(34, 0, imgN1,  30, 30, White);
-				ssd1306_DrawBitmap(68, 0, imgN2,  30, 30, White);
-				ssd1306_UpdateScreen();
-	
-				break;
-			case 1:
-				ssd1306_DrawBitmap(0, 0, imgN1,  30, 30, White);
-				ssd1306_DrawBitmap(34, 0, imgN2,  30, 30, White);
-				ssd1306_DrawBitmap(68, 0, imgN3,  30, 30, White);
-				ssd1306_UpdateScreen();
-				
-				break;
-			case 2:
-				
-				ssd1306_DrawBitmap(0, 0, imgN2,  30, 30, White);
-				ssd1306_DrawBitmap(34, 0, imgN3,  30, 30, White);
-				ssd1306_UpdateScreen();
-
-				break;
-			case 3:
-				ssd1306_DrawBitmap(0, 0, imgN3,  30, 30, White);
-				ssd1306_UpdateScreen();
-				break;
-			case 4:
-				numMenuItem = -1;
-				ssd1306_DrawBitmap(68, 0, imgN1,  30, 30, White);
-				ssd1306_UpdateScreen();
-				break;
-			}
-	}
-	
-	
-/*	if(numMenuItem == menuItemsCount + 1){			
-			numMenuItem = 0;		
-	}
-	else if(numMenuItem == 0){			
-			numMenuItem = menuItemsCount-1;		
-	}
-	
-	ssd1306_DrawBitmap(((numMenuItem - 1)* 34 + 4), 0, imgN1,  30, 30, White);
-	ssd1306_DrawBitmap((numMenuItem * 34) + 4, 0, imgN2,  30, 30, White);
-	if(numMenuItem != (menuItemsCount+1))
-	ssd1306_DrawBitmap(((numMenuItem + 1) * 34 + 4), 0, imgN3,  30, 30, White);
-	ssd1306_Line(36, 31, 68, 31, White);
-	ssd1306_UpdateScreen();
-	*/
+	// Wait button release
 	while(switches_byte)
-			HAL_Delay(1);
+		HAL_Delay(1);
 	
-	
+	currentTab = main_tab;
 }
 
-void menu_passwords( void ){
-	
-}
-
+// IN DEVELOPMENT: settings
 void menu_settings ( void ){
+	ssd1306_Fill(Black);
+	ssd1306_SetCursor(4, 4);
+	ssd1306_WriteString("Settings", Font_16x26, White);
+	ssd1306_DrawRectangle(0, 0, 127, 31, White);
+	ssd1306_UpdateScreen();
 	
+	// Wait push button
+	while(!switches_byte)
+		HAL_Delay(1);
+	// Wait button release
+	while(switches_byte)
+		HAL_Delay(1);
+	
+	currentTab = main_tab;
 }
 
+// IN DEVELOPMENT: Password list with USB access
 void menu_usb_write( void ){
+	ssd1306_Fill(Black);
+	ssd1306_SetCursor(4, 4);
+	ssd1306_WriteString("USB mode", Font_16x26, White);
+	ssd1306_DrawRectangle(0, 0, 127, 31, White);
+	ssd1306_UpdateScreen();
 	
+	// Wait push button
+	while(!switches_byte)
+		HAL_Delay(1);
+	// Wait button release
+	while(switches_byte)
+		HAL_Delay(1);
+	
+	currentTab = main_tab;
+}
+
+// IN DEVELOPMENT: 
+void menu_folder( void ){
+	ssd1306_Fill(Black);
+	ssd1306_SetCursor(4, 4);
+	ssd1306_WriteString("Folder", Font_16x26, White);
+	ssd1306_DrawRectangle(0, 0, 127, 31, White);
+	ssd1306_UpdateScreen();
+	
+	// Wait push button
+	while(!switches_byte)
+		HAL_Delay(1);
+	// Wait button release
+	while(switches_byte)
+		HAL_Delay(1);
+	
+	currentTab = main_tab;
 }

@@ -447,9 +447,9 @@ void ssd1306_DrawBitmap(uint8_t x, uint8_t y, const unsigned char* bitmap, uint8
     int16_t byteWidth = (w + 7) / 8; // Bitmap scanline pad = whole byte
     uint8_t byte = 0;
 
-    if (x >= SSD1306_WIDTH || y >= SSD1306_HEIGHT) {
-        return;
-    }
+    //if (x >= SSD1306_WIDTH || y >= SSD1306_HEIGHT) {
+    //    return;
+    //}
 
     for (uint8_t j = 0; j < h; j++, y++) {
         for (uint8_t i = 0; i < w; i++) {
