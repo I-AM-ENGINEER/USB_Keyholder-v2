@@ -248,18 +248,33 @@ void menu_passwords( void ){
 	char text[20];
 	static uint8_t Pass_currentTab = 0;
 	static uint8_t currentPassword = 0;
-
+  static uint8_t flagN1 = 0;
+	
 		switch(Pass_currentTab){
+			
+			case 11:
+			while(!switches_byte)
+		HAL_Delay(1);
+	int pushedButtonNumber = -1;
+	for(int i = 0; i < 8; i++){
+		if(switches_byte & (1 << i)){			
+				pushedButtonNumber = i ;
+				break;
+		}
+	}	
+		Pass_currentTab = pushedButtonNumber + 1 + (flagN1 * 20);
+			break;
+	
 		case 1:
-			currentPassword += 1;
+			currentPassword += 0;
 			Pass_currentTab = 10;
 			break;
 		case 2:
-			currentPassword += 2;
+			currentPassword += 1;
 			Pass_currentTab = 10;
 			break;
 		case 3:
-			currentPassword += 3;
+			currentPassword += 2;
 			Pass_currentTab = 10;
 			break;
 		case 10:	
@@ -273,53 +288,61 @@ void menu_passwords( void ){
 				ssd1306_WriteString(text,Font_6x8, White);
 				ssd1306_SetCursor(2,22);
 				sprintf(text,"comment: %s",passwordDataBase[currentPassword].comment); 
-				ssd1306_WriteString(text,Font_6x8, White);
+				ssd1306_WriteString(text, Font_6x8, White);
+				ssd1306_SetCursor(90,2);
+		ssd1306_WriteString("6:exet", Font_6x8, White);
 				ssd1306_UpdateScreen();
+				while(switches_byte)
+					HAL_Delay(1);
+				Pass_currentTab = 11;
+				flagN1 = 1;
 			break;
+		
 		case 5:
 			while(switches_byte)
 				HAL_Delay(1);
 			currentPassword += 3;
 			Pass_currentTab = 0;
-			
 			break;
+			
 		case 6:
+			while(switches_byte)
+					HAL_Delay(1);
 			currentPassword = 0;
 			currentTab = main_tab;
 			Pass_currentTab = 0;
 			break;
-		
+		case 26:
+			while(switches_byte)
+					HAL_Delay(1);
+			currentPassword = 0;
+			Pass_currentTab = 0;
+			flagN1 = 0;
+			break;
+		case 0:
+			ssd1306_Fill(Black);
+			ssd1306_DrawRectangle(0, 0, 127, 31, White);
+			ssd1306_SetCursor(2,2);
+			sprintf(text,"1 login: %s",passwordDataBase[currentPassword].login); 
+			ssd1306_WriteString(text,Font_6x8, White);
+			ssd1306_SetCursor(2,12);
+			sprintf(text,"2 login: %s",passwordDataBase[currentPassword+1].login); 
+			ssd1306_WriteString(text,Font_6x8, White);
+			ssd1306_SetCursor(2,22);
+			sprintf(text,"3 login: %s",passwordDataBase[currentPassword+2].login); 
+			ssd1306_WriteString(text,Font_6x8, White);
+			ssd1306_SetCursor(90,2); 
+			ssd1306_WriteString("4 add pass",Font_6x8, White);
+			ssd1306_SetCursor(90,12);
+			ssd1306_WriteString("5 next",Font_6x8, White);
+			ssd1306_SetCursor(90,22);
+			ssd1306_WriteString("6 exet",Font_6x8, White);
+			ssd1306_UpdateScreen();
+		// Wait push button
+		Pass_currentTab = 11;
+			break;
 		default:
-		ssd1306_Fill(Black);
-		ssd1306_DrawRectangle(0, 0, 127, 31, White);
-		ssd1306_SetCursor(2,2);
-		sprintf(text,"1 login: %s",passwordDataBase[currentPassword].login); 
-		ssd1306_WriteString(text,Font_6x8, White);
-		ssd1306_SetCursor(2,12);
-		sprintf(text,"2 login: %s",passwordDataBase[currentPassword+1].login); 
-		ssd1306_WriteString(text,Font_6x8, White);
-		ssd1306_SetCursor(2,22);
-		sprintf(text,"3 login: %s",passwordDataBase[currentPassword+2].login); 
-		ssd1306_WriteString(text,Font_6x8, White);
-		ssd1306_SetCursor(90,2); 
-		ssd1306_WriteString("4 add pass",Font_6x8, White);
-		ssd1306_SetCursor(90,12);
-		ssd1306_WriteString("5 next",Font_6x8, White);
-		ssd1306_SetCursor(90,22);
-		ssd1306_WriteString("6 break",Font_6x8, White);
-		ssd1306_UpdateScreen();
-	// Wait push button
-	while(!switches_byte)
-		HAL_Delay(1);
-	int pushedButtonNumber = -1;
-	for(int i = 0; i < 8; i++){
-		if(switches_byte & (1 << i)){			
-				pushedButtonNumber = i ;
-				break;
-		}
-	}
-	
-	Pass_currentTab = pushedButtonNumber + 1;
+			Pass_currentTab = 11;
 	break;
 }
 	
