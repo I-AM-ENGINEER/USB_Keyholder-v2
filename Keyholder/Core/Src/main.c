@@ -115,7 +115,7 @@ int main(void)
 	ssd1306_Fill(Black);
 	ssd1306_DrawRectangle(0, 0, 127, 31, White);
 	ssd1306_UpdateScreen();
-	
+	fill_database();
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -133,7 +133,7 @@ int main(void)
 			SystemClock_Config();
 			HAL_ResumeTick();
 		}*/
-		
+	 
 		UI_print_menu();
 		
     /* USER CODE END WHILE */

@@ -111,7 +111,6 @@ void UI_print_menu( void ){
 }
 
 
-
 // Main menu function
 void menu_main ( void ){
 	static uint8_t cycleFlag = 0;
@@ -244,7 +243,130 @@ void menu_login( void ){
 }
 
 // IN DEVELOPMENT: Tab with passwords list
+
 void menu_passwords( void ){
+	char text[20];
+	static uint8_t Pass_currentTab = 0;
+	static uint8_t currentPassword = 0;
+
+		switch(Pass_currentTab){
+		case 1:
+			currentPassword += 1;
+			Pass_currentTab = 10;
+			break;
+		case 2:
+			currentPassword += 2;
+			Pass_currentTab = 10;
+			break;
+		case 3:
+			currentPassword += 3;
+			Pass_currentTab = 10;
+			break;
+		case 10:	
+				ssd1306_Fill(Black);
+				ssd1306_DrawRectangle(0, 0, 127, 31, White);
+				ssd1306_SetCursor(2,2);
+				sprintf(text,"login: %s",passwordDataBase[currentPassword].login); 
+				ssd1306_WriteString(text,Font_6x8, White);
+				ssd1306_SetCursor(2,12);
+				sprintf(text,"password: %s",passwordDataBase[currentPassword].password); 
+				ssd1306_WriteString(text,Font_6x8, White);
+				ssd1306_SetCursor(2,22);
+				sprintf(text,"comment: %s",passwordDataBase[currentPassword].comment); 
+				ssd1306_WriteString(text,Font_6x8, White);
+				ssd1306_UpdateScreen();
+			break;
+		case 5:
+			while(switches_byte)
+				HAL_Delay(1);
+			currentPassword += 3;
+			Pass_currentTab = 0;
+			
+			break;
+		case 6:
+			currentPassword = 0;
+			currentTab = main_tab;
+			Pass_currentTab = 0;
+			break;
+		
+		default:
+		ssd1306_Fill(Black);
+		ssd1306_DrawRectangle(0, 0, 127, 31, White);
+		ssd1306_SetCursor(2,2);
+		sprintf(text,"1 login: %s",passwordDataBase[currentPassword].login); 
+		ssd1306_WriteString(text,Font_6x8, White);
+		ssd1306_SetCursor(2,12);
+		sprintf(text,"2 login: %s",passwordDataBase[currentPassword+1].login); 
+		ssd1306_WriteString(text,Font_6x8, White);
+		ssd1306_SetCursor(2,22);
+		sprintf(text,"3 login: %s",passwordDataBase[currentPassword+2].login); 
+		ssd1306_WriteString(text,Font_6x8, White);
+		ssd1306_SetCursor(90,2); 
+		ssd1306_WriteString("4 add pass",Font_6x8, White);
+		ssd1306_SetCursor(90,12);
+		ssd1306_WriteString("5 next",Font_6x8, White);
+		ssd1306_SetCursor(90,22);
+		ssd1306_WriteString("6 break",Font_6x8, White);
+		ssd1306_UpdateScreen();
+	// Wait push button
+	while(!switches_byte)
+		HAL_Delay(1);
+	int pushedButtonNumber = -1;
+	for(int i = 0; i < 8; i++){
+		if(switches_byte & (1 << i)){			
+				pushedButtonNumber = i ;
+				break;
+		}
+	}
+	
+	Pass_currentTab = pushedButtonNumber + 1;
+	break;
+}
+	
+	
+	
+	
+	
+	/*
+	//while(switches_byte)
+	//	HAL_Delay(1);
+	if(flac == 1){
+		currentPassword += pushedButtonNumber;
+		if (pushedButtonNumber == 1){
+			ssd1306_Fill(Black);
+			ssd1306_DrawRectangle(0, 0, 127, 31, White);
+			ssd1306_SetCursor(2,2);
+			sprintf(text,"login: %s",passwordDataBase[currentPassword].login); 
+			ssd1306_WriteString(text,Font_6x8, White);
+			ssd1306_SetCursor(2,12);
+			sprintf(text,"password: %s",passwordDataBase[currentPassword].password); 
+			ssd1306_WriteString(text,Font_6x8, White);
+			ssd1306_SetCursor(2,22);
+			sprintf(text,"comment: %s",passwordDataBase[currentPassword].comment); 
+			ssd1306_WriteString(text,Font_6x8, White);
+			ssd1306_UpdateScreen();
+			currentPassword = 0;
+		}else if(pushedButtonNumber == 4){
+			ssd1306_Fill(Black);
+			
+			ssd1306_UpdateScreen();
+			
+		}else if(pushedButtonNumber == 5){
+			ssd1306_Fill(Black);
+			
+			ssd1306_UpdateScreen();
+			
+		}else if(pushedButtonNumber == 6){
+			flac = 0;
+			currentPassword = 0;
+			currentTab = main_tab;
+		}
+		
+	}	
+		*/
+	// Wait button release
+	
+	/*
 	ssd1306_Fill(Black);
 	ssd1306_SetCursor(4, 4);
 	ssd1306_WriteString("Passwords", Font_16x26, White);
@@ -258,7 +380,7 @@ void menu_passwords( void ){
 	while(switches_byte)
 		HAL_Delay(1);
 	
-	currentTab = main_tab;
+	currentTab = main_tab;*/
 }
 
 // IN DEVELOPMENT: settings
