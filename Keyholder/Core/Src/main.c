@@ -35,6 +35,10 @@
 #include "system.h"
 #include "usbd_hid.h"
 #include "usb.h"
+
+#include "usbd_core.h"
+#include "usbd_desc.h"
+
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -59,6 +63,7 @@ int switches_byte = 0;
 int test_value = 0;
 int tPass = 0;
 
+extern USBD_HandleTypeDef hUsbDeviceFS;
 
 /* USER CODE END PV */
 
@@ -122,20 +127,27 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {	
-		/*
+		
 		if(ssd1306_GetNeedInitFlag())
 			ssd1306_SetDisplayPower(1);
 		if(power_GetNeedSleepFlag()){
 			// Going to sleep
 			ssd1306_SetDisplayOn(0);
+			USBD_Stop(&hUsbDeviceFS);
+			USBD_DeInit(&hUsbDeviceFS);
+			currentTab = 0xFF;
 			power_GoToSleep();
 			// Wakeup from sleep
 			SystemClock_Config();
 			HAL_ResumeTick();
-		}*/
-	 
-		UI_print_menu();
+			USBD_Init(&hUsbDeviceFS, &FS_Desc, DEVICE_FS);
+			USBD_Start(&hUsbDeviceFS);
+		}
 		
+		UI_print_menu();
+		if(get_USB_write_flag()){
+			wait_USB_insert_hotkey();
+		}
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */

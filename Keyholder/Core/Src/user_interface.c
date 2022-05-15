@@ -4,7 +4,8 @@
 #include "crypto.h"
 #include "main.h"
 #include "stdlib.h"
-
+#include "usb.h"
+#include "string.h"
 //http://javl.github.io/image2cpp/
 
 //#define DEBUG
@@ -75,10 +76,11 @@ const unsigned char *icons[menuItemsCount] = \
 #define	usb_write_tab 	0x02
 #define	folder_tab 			0x03
 #define	lock_tab 				0x04
+#define usb_hotkey_tab	0xFD
 #define	main_tab 				0xFE
 #define	login_tab 			0xFF
 
-uint8_t currentTab = main_tab;
+uint8_t currentTab = login_tab;
 
 const char passTrue[6] = "111111";
 
@@ -88,17 +90,18 @@ uint8_t displayUpdateFlag		= 1;
 uint8_t pushedButtonNum 		= 0;
 uint8_t releasedButtonNum 	= 0;
 
-void menu_main 	( void );
-void menu_login	( void );
-void menu_folder( void );
-void menu_passwords( void );
-void menu_settings ( void );
-void menu_usb_write( void );
+void menu_main 			( void );
+void menu_login			( void );
+void menu_folder		( void );
+void menu_passwords	( void );
+void menu_settings 	( void );
+void menu_usb_write	( void );
+void menu_usb_hotkey( void );
 
-uint8_t getPushedButtonFlag( void );
-uint8_t getReleasedButtonFlag( void );
-uint8_t getDisplayUpdateFlag( void );
-void setDisplayUpdateFlag( void );
+uint8_t getPushedButtonFlag		( void );
+uint8_t getReleasedButtonFlag	( void );
+uint8_t getDisplayUpdateFlag	( void );
+void setDisplayUpdateFlag			( void );
 
 
 void setDisplayUpdateFlag( void ){
@@ -170,10 +173,30 @@ void UI_print_menu( void ){
 				setDisplayUpdateFlag();
 				currentTab = login_tab;
 				break;
+			case usb_hotkey_tab:
+				menu_usb_hotkey();
+				break;
 			default:
 				menu_login();
 		}
 		ssd1306_UpdateScreen();
+	}
+}
+
+
+void menu_usb_hotkey( void ){
+	if(get_USB_write_flag() == 0){
+		currentTab = main_tab;
+		setDisplayUpdateFlag();
+	}else{
+		ssd1306_Fill(Black);
+		ssd1306_DrawRectangle(0, 0, 127, 31, White);
+		ssd1306_SetCursor(2,2);
+		char text[20];
+		sprintf(text,"%s",passwordDataBaseHot[pushedButtonNum - 4].login);
+		ssd1306_WriteString(text,Font_6x8, White);
+		ssd1306_SetCursor(2,12);
+		ssd1306_WriteString("Connect to USB...",Font_6x8, White);
 	}
 }
 
@@ -202,6 +225,11 @@ void menu_main ( void ){
 			menuPositionTarget 	= 2;
 			
 			setDisplayUpdateFlag();
+			return;
+		}else if((pushedButtonNum >= 4) && (pushedButtonNum <= 8)){
+			set_USB_write_flag(pushedButtonNum - 4);
+			currentTab = usb_hotkey_tab;
+			menu_usb_hotkey();
 			return;
 		}
 	}
@@ -389,7 +417,7 @@ void menu_passwords( void ){
 			ssd1306_Fill(Black);
 			ssd1306_DrawRectangle(0, 0, 127, 31, White);
 			ssd1306_SetCursor(2,2);
-			sprintf(text,"5 login: %s",passwordDataBase[currentPassword].login); 
+			sprintf(text,"5 login: %s",passwordDataBase[currentPassword  ].login); 
 			ssd1306_WriteString(text,Font_6x8, White);
 			ssd1306_SetCursor(2,12);
 			sprintf(text,"6 login: %s",passwordDataBase[currentPassword+1].login); 
@@ -439,8 +467,8 @@ void menu_usb_write( void ){
 	
 	// If button was pushed
 	if(getPushedButtonFlag()){
-		// If push 2 button
-		if(pushedButtonNum == 2){
+	// If push 2 button
+	if(pushedButtonNum == 2){
 			// Switch tab
 			currentTab = main_tab;
 			// And update display on next cycle for display main tab

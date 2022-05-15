@@ -595,6 +595,11 @@
               <FileType>1</FileType>
               <FilePath>../USB_DEVICE/Target/usbd_conf.c</FilePath>
             </File>
+            <File>
+              <FileName>usbd_conf.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\USB_DEVICE\Target\usbd_conf.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -785,6 +790,36 @@
                   </Cads>
                 </FileArmAds>
               </FileOption>
+            </File>
+            <File>
+              <FileName>usbd_conf_template.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Middlewares\ST\STM32_USB_Device_Library\Core\Inc\usbd_conf_template.h</FilePath>
+            </File>
+            <File>
+              <FileName>usbd_core.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Middlewares\ST\STM32_USB_Device_Library\Core\Inc\usbd_core.h</FilePath>
+            </File>
+            <File>
+              <FileName>usbd_ctlreq.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Middlewares\ST\STM32_USB_Device_Library\Core\Inc\usbd_ctlreq.h</FilePath>
+            </File>
+            <File>
+              <FileName>usbd_def.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Middlewares\ST\STM32_USB_Device_Library\Core\Inc\usbd_def.h</FilePath>
+            </File>
+            <File>
+              <FileName>usbd_desc_template.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Middlewares\ST\STM32_USB_Device_Library\Core\Inc\usbd_desc_template.h</FilePath>
+            </File>
+            <File>
+              <FileName>usbd_ioreq.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Middlewares\ST\STM32_USB_Device_Library\Core\Inc\usbd_ioreq.h</FilePath>
             </File>
           </Files>
         </Group>

@@ -2,8 +2,16 @@
 #include "stdio.h"
 #include "main.h"
 #include "usbd_hid.h"
+#include "usbd_core.h"
+#include "user_interface.h"
+#include "crypto.h"
 
 extern USBD_HandleTypeDef hUsbDeviceFS;
+uint8_t usbDetectionFlag 	= 0;
+uint8_t usbHotkeyNumber		= 0;
+uint8_t usbWriteFlag 			= 0;
+
+//extern uint8_t currentTab;
 
 // If keys isnt in subsequence, uses this table
 char ascii2kbd[]={
@@ -33,26 +41,61 @@ char convert_askii_kbd(char symbol){
 	return chToSend;
 }
 
-void usb_keyboard_puts(char *str, uint8_t length){
-	for(int i = 0; i < length; i++){
-		char chToSend = convert_askii_kbd(str[i]);
-		if(chToSend){
-			//MODIFIER, RESERVED, KEYCODE1..6
-			uint8_t keyboardHIDsub[8] = {0,0,0,0,0,0,0,0};
-			// Press shift and key
-			if(chToSend & 0x80)
-				keyboardHIDsub[0] = 0x02;
-			keyboardHIDsub[2] = chToSend & 0x7F;
-			
-			USBD_HID_SendReport(&hUsbDeviceFS,keyboardHIDsub,sizeof(keyboardHIDsub));
-			HAL_Delay(20);
-			
-			// Release shift and key
-			keyboardHIDsub[0] = 0x00;
-			keyboardHIDsub[2] = 0x00;
-			
-			USBD_HID_SendReport(&hUsbDeviceFS,keyboardHIDsub,sizeof(keyboardHIDsub));
-			HAL_Delay(20);
-		}
+void usb_keyboard_putc(char ch){
+	char chToSend = convert_askii_kbd(ch);
+	if(chToSend){
+		//MODIFIER, RESERVED, KEYCODE1..6
+		uint8_t keyboardHIDsub[8] = {0,0,0,0,0,0,0,0};
+		// Press shift and key
+		if(chToSend & 0x80)
+			keyboardHIDsub[0] = 0x02;
+		keyboardHIDsub[2] = chToSend & 0x7F;
+		
+		USBD_HID_SendReport(&hUsbDeviceFS,keyboardHIDsub,sizeof(keyboardHIDsub));
+		HAL_Delay(20);
+		
+		// Release shift and key
+		keyboardHIDsub[0] = 0x00;
+		keyboardHIDsub[2] = 0x00;
+		
+		USBD_HID_SendReport(&hUsbDeviceFS,keyboardHIDsub,sizeof(keyboardHIDsub));
+		HAL_Delay(20);
 	}
 }
+
+void usb_keyboard_puts(char *str, uint8_t length){
+	for(int i = 0; i < length; i++){
+		usb_keyboard_putc(str[i]);
+	}
+}
+
+uint8_t is_USB_connected( void ){
+	return usbDetectionFlag;
+}
+
+
+void set_USB_connection( void ){
+	usbDetectionFlag = 1;
+}
+
+void reset_USB_connection( void ){
+	usbDetectionFlag = 0;
+}
+
+void set_USB_write_flag( uint8_t passwordNum ){
+	usbHotkeyNumber = passwordNum;
+	usbWriteFlag = 1;
+}
+
+uint8_t get_USB_write_flag( void ){
+	return usbWriteFlag;
+}
+
+void wait_USB_insert_hotkey( void ){
+	if(is_USB_connected()){
+		usb_keyboard_puts(passwordDataBaseHot[usbHotkeyNumber].password, strlen(passwordDataBaseHot[usbHotkeyNumber].password));
+		usbWriteFlag = 0;
+		setDisplayUpdateFlag();
+	}
+}
+

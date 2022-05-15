@@ -11,6 +11,7 @@ typedef struct {
 	char comment[64];
 } dataType; 
 extern dataType passwordDataBase[30];
+extern dataType passwordDataBaseHot[8];
 /* -------------------------------------------------------------------------- */
 void fill_database (void);
 

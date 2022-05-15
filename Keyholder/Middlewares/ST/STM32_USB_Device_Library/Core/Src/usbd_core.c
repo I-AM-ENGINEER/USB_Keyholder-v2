@@ -584,7 +584,6 @@ USBD_StatusTypeDef USBD_LL_DevDisconnected(USBD_HandleTypeDef  *pdev)
 * @}
 */
 
-
 /**
 * @}
 */

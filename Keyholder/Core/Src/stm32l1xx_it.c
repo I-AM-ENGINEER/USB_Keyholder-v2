@@ -336,7 +336,7 @@ void TIM6_IRQHandler(void)
 	if(!ssd1306_GetDisplayOn()) 
 		ssd1306_SetNeedInitFlag();
 	HAL_TIM_Base_Start_IT(&htim7);
-	__HAL_TIM_SET_COUNTER(&htim7, 0);
+	__HAL_TIM_SET_COUNTER(&htim7, 1);
 	
 	setPushedButton();
   /* USER CODE END TIM6_IRQn 0 */

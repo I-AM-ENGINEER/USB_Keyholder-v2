@@ -35,7 +35,7 @@
 #include "stm32l1xx_hal.h"
 
 /* USER CODE BEGIN INCLUDE */
-
+extern uint8_t usbDetectionTest;
 /* USER CODE END INCLUDE */
 
 /** @addtogroup USBD_OTG_DRIVER
