@@ -3,6 +3,7 @@
 #include "stdio.h"
 #include "crypto.h"
 #include "main.h"
+#include "stdlib.h"
 
 //http://javl.github.io/image2cpp/
 
@@ -60,24 +61,32 @@ const unsigned char img_passwords[] = {
 };
 
 
+#define DELTA_SLIDE 4
+
 const uint8_t menuItemsCount = 5;
 // Menu icons
 const unsigned char *icons[menuItemsCount] = \
 {img_settings, img_passwords, img_usb_write, img_folder, img_lock};
+
 
 // Tabs name and number, require mach with icon position!
 #define	settings_tab		0x00
 #define	paswd_list_tab 	0x01
 #define	usb_write_tab 	0x02
 #define	folder_tab 			0x03
-#define	img_lock 				0x04
+#define	lock_tab 				0x04
 #define	main_tab 				0xFE
 #define	login_tab 			0xFF
 
-uint8_t currentTab = login_tab;
+uint8_t currentTab = main_tab;
 
 const char passTrue[6] = "111111";
 
+uint8_t pushedButtonFlag 		= 0;
+uint8_t releasedButtonFlag 	= 0;
+uint8_t displayUpdateFlag		= 1;
+uint8_t pushedButtonNum 		= 0;
+uint8_t releasedButtonNum 	= 0;
 
 void menu_main 	( void );
 void menu_login	( void );
@@ -86,160 +95,210 @@ void menu_passwords( void );
 void menu_settings ( void );
 void menu_usb_write( void );
 
+uint8_t getPushedButtonFlag( void );
+uint8_t getReleasedButtonFlag( void );
+uint8_t getDisplayUpdateFlag( void );
+void setDisplayUpdateFlag( void );
+
+
+void setDisplayUpdateFlag( void ){
+	displayUpdateFlag = 1;
+}
+
+uint8_t getDisplayUpdateFlag( void ){
+	if(displayUpdateFlag){
+		displayUpdateFlag = 0;
+		return 1;
+	}
+	return 0;
+}
+
+uint8_t getPushedButtonFlag( void ){
+	if(pushedButtonFlag){
+		pushedButtonFlag = 0;
+		return 1;
+	}
+	return 0;
+}
+
+uint8_t getReleasedButtonFlag( void ){
+	if(releasedButtonFlag){
+		releasedButtonFlag = 0;
+		return 1;
+	}
+	return 0;
+}
+
+
+void setPushedButton( void ){
+	if(switches_byte != 0){
+		pushedButtonFlag = 1;
+		releasedButtonFlag = 0;
+		releasedButtonNum = 0;
+		for(int i = 0; i < 8; i++){
+			if(switches_byte & (1 << i)){			
+					pushedButtonNum = i + 1;
+					break;
+			}
+		}
+	}else{
+		releasedButtonNum = pushedButtonNum;
+		pushedButtonNum = 0;
+		pushedButtonFlag = 0;
+		releasedButtonFlag = 1;
+	}
+	setDisplayUpdateFlag();
+}
 
 // Main function of GUI
 void UI_print_menu( void ){
-	switch(currentTab){
-		case main_tab:
-			menu_main();
-			break;
-		case usb_write_tab:
-			menu_usb_write();
-			break;
-		case paswd_list_tab:
-			menu_passwords();
-			break;
-		case folder_tab:
-			menu_folder();
-			break;
-		case img_lock:
-			currentTab = login_tab;
-			break;
-		default:
-			menu_login();
+	if(getDisplayUpdateFlag()){
+		switch(currentTab){
+			case main_tab:
+					menu_main();
+				break;
+			case usb_write_tab:
+				menu_usb_write();
+				break;
+			case paswd_list_tab:
+				menu_passwords();
+				break;
+			case folder_tab:
+				menu_folder();
+				break;
+			case lock_tab:
+				setDisplayUpdateFlag();
+				currentTab = login_tab;
+				break;
+			default:
+				menu_login();
+		}
+		ssd1306_UpdateScreen();
 	}
 }
 
 
 // Main menu function
 void menu_main ( void ){
-	static uint8_t cycleFlag = 0;
-	static uint8_t menuPosition = 2;
-	// Image on first menu display
-	if (cycleFlag == 0){
-		ssd1306_Fill(Black);
-		ssd1306_DrawBitmap(8 , 0, icons[menuPosition-1],  30, 30, White);
-		ssd1306_DrawBitmap(50, 0, icons[menuPosition  ],  30, 30, White);
-		ssd1306_DrawBitmap(92, 0, icons[menuPosition+1],  30, 30, White);
-		ssd1306_Line(48, 31, 80, 31, White);
-		ssd1306_UpdateScreen();
-		cycleFlag = 1;
-	}
-	// Wait push button
-	while(!switches_byte)
-		HAL_Delay(1);
+	static uint8_t menuPosition 				= 2;
+	static uint8_t menuPositionOld 			= 2;
+	static uint8_t menuPositionTarget 	= 2;
+	static int8_t animationPoint 				= 0;
+	static int8_t animationPointTarget 	= 0;
 	
-	int pushedButtonNumber = -1;
-	for(int i = 0; i < 8; i++){
-		if(switches_byte & (1 << i)){			
-				pushedButtonNumber = i ;
-				break;
+	
+	if(getPushedButtonFlag()){
+		if((pushedButtonNum == 1) && (menuPositionTarget != 0)){
+			menuPositionTarget--; // Slide left
+		}else if((pushedButtonNum == 3) && (menuPositionTarget != (menuItemsCount - 1))){
+			menuPositionTarget++; // Slide right
+		}else if(pushedButtonNum == 2){
+			
+			// Switch tab
+			currentTab = menuPositionTarget;
+			// Reset menu state
+			menuPosition 				= 2;
+			menuPositionOld 		= 2;
+			menuPositionTarget 	= 2;
+			
+			setDisplayUpdateFlag();
+			return;
 		}
 	}
 	
-	// Old menu position, uses for animation
-	uint8_t menuPositionOld = menuPosition;
-	if((pushedButtonNumber == 0) && (menuPosition != 0))
-		menuPosition--; // Slide left
-	else if((pushedButtonNumber == 2) && (menuPosition != (menuItemsCount - 1)))
-		menuPosition++; // Slide right
-	else if(pushedButtonNumber == 1){
-		// Switch tab
-		currentTab = menuPosition;
-		cycleFlag = 0;
-		menuPosition = 2;
-		// Wait button release
-		while(switches_byte)
-			HAL_Delay(1);
-		return;
-	}else{
-		return;
+	if(animationPoint == animationPointTarget){
+		animationPointTarget = 0;
+		animationPoint = 0;
+		
+		if(menuPositionTarget != menuPosition){
+			if(menuPosition > menuPositionTarget){
+				menuPositionOld = menuPosition;
+				menuPosition--;
+				animationPointTarget = 42;
+			}else{
+				menuPositionOld = menuPosition;
+				menuPosition++;
+				animationPointTarget = -42;
+			}
+		}
 	}
 	
 	// Icons animation
-	for(int8_t i = 2; i <= 42; i += 4){
-		// If menu counter adds, slide right (delta = 1), else slide left (delta = -1)
-		int8_t delta = 1;
-		if(menuPosition > menuPositionOld) delta = -1;
+	if((animationPoint != animationPointTarget) && (menuPositionOld != menuPosition)){
+		// If menu counter adds, slide right, else slide left
+		if(abs(animationPoint - animationPointTarget) >= DELTA_SLIDE)
+			animationPoint += (animationPoint > animationPointTarget) ? -DELTA_SLIDE : DELTA_SLIDE;
+		else
+			animationPoint = animationPointTarget;
 		
 		ssd1306_Fill(Black);
 		// Print central icon
-		ssd1306_DrawBitmap((uint8_t)(i*delta) + 50, 0, icons[menuPositionOld],  30, 30, White);
+		ssd1306_DrawBitmap((uint8_t)(animationPoint + 50), 0, icons[menuPositionOld],  30, 30, White);
 		ssd1306_Line(48, 31, 80, 31, White);
 		// Print side icons
 		if(menuPositionOld-2 >= 0)
-			ssd1306_DrawBitmap((uint8_t)(i*delta) - 34, 0, icons[menuPositionOld-2],  30, 30, White);
+			ssd1306_DrawBitmap((uint8_t)(animationPoint - 34), 0, icons[menuPositionOld-2],  30, 30, White);
 		if(menuPositionOld-1 >= 0)
-			ssd1306_DrawBitmap((uint8_t)(i*delta) +  8, 0, icons[menuPositionOld-1],  30, 30, White);
+			ssd1306_DrawBitmap((uint8_t)(animationPoint +  8), 0, icons[menuPositionOld-1],  30, 30, White);
 		if(menuPositionOld+1 < menuItemsCount)
-			ssd1306_DrawBitmap((uint8_t)(i*delta) + 92, 0, icons[menuPositionOld+1],  30, 30, White);
+			ssd1306_DrawBitmap((uint8_t)(animationPoint + 92), 0, icons[menuPositionOld+1],  30, 30, White);
 		if(menuPositionOld+2 < menuItemsCount)
-			ssd1306_DrawBitmap((uint8_t)(i*delta) +134, 0, icons[menuPositionOld+2],  30, 30, White);
-		ssd1306_UpdateScreen();
+			ssd1306_DrawBitmap((uint8_t)(animationPoint +134), 0, icons[menuPositionOld+2],  30, 30, White);
+		
+		setDisplayUpdateFlag();
+	}else{
+		ssd1306_Fill(Black);
+		ssd1306_Line(48, 31, 80, 31, White);
+		ssd1306_DrawBitmap(50, 0, icons[menuPosition],  	30, 30, White);
+		if(menuPosition-1 >= 0)
+			ssd1306_DrawBitmap(8, 0, icons[menuPosition-1], 30, 30, White);
+		if(menuPosition+1 < menuItemsCount)
+			ssd1306_DrawBitmap(92, 0, icons[menuPosition+1],30, 30, White);
 	}
-	// Wait button release
-	while(switches_byte)
-			HAL_Delay(1);
-	
 }
 
 // Authorisation tab, displayed on startup
 void menu_login( void ){
-	#ifndef DEBUG
-	char pass[6];
+	static char pass[6];
+	static uint8_t j = 0;
+	
 	ssd1306_Fill(Black);
 	ssd1306_DrawRectangle(0, 0, 127, 31, White);
-	// Password enter
-	for (uint8_t j = 0; j < 6; j++){
-		// Wait push button
-		while(!switches_byte)
-			HAL_Delay(1);
-		
-		ssd1306_SetCursor(2 + 16 * j, 2);
-		for(uint8_t i = 0; i < 8; i++){
-			if(switches_byte & (1 << i)){		
-				pass[j] = i + '1';	
-				ssd1306_WriteChar(i + '1', Font_16x26, White);
-				break;
+	
+	if(getPushedButtonFlag()){
+		pass[++j - 1] = pushedButtonNum + '0';
+	}
+	
+	if(j == 6){
+		// Check password
+		uint8_t unPass = 0;
+		for (uint8_t i = 0; i < 6; i++){
+			if (pass[i] == passTrue[i]){
+				unPass++;
 			}
 		}
 		
-		for(uint8_t i = 0; i < j; i++){
+		if (unPass == 6){
+			// If password correct, go to menu
+			currentTab = main_tab;
+		}else{
+			// Print "ERROR" and wait next try
+			ssd1306_SetCursor(4, 4);
+			ssd1306_WriteString("ERROR", Font_16x26, White);
+			ssd1306_UpdateScreen();
+			HAL_Delay(3000);
+		}
+		j = 0;
+		setDisplayUpdateFlag();
+	}else{
+		for(uint8_t i = 0; i < (j - 1); i++){
 			ssd1306_SetCursor(2 + 16 * i, 2);		
 			ssd1306_WriteChar('*', Font_16x26, White);
 		}
 		
-		ssd1306_UpdateScreen(); 
-		// Wait button release
-		while(switches_byte)
-			HAL_Delay(1);
+		ssd1306_SetCursor(2 + 16 * (j - 1), 2);
+		ssd1306_WriteChar(pass[j - 1], Font_16x26, White);
 	}
-	// Check password
-	uint8_t unPass = 0;
-	for (uint8_t i = 0; i < 6; i++){
-		if (pass[i] == passTrue[i]){
-			unPass++;
-		}
-	}
-	
-	if (unPass == 6){
-		// If password correct, go to menu
-		currentTab = main_tab;
-	}else{
-		// Print "ERROR" and wait next try
-		ssd1306_Fill(Black);
-		ssd1306_SetCursor(4, 4);
-		ssd1306_WriteString("ERROR", Font_16x26, White);
-		ssd1306_DrawRectangle(0, 0, 127, 31, White);
-		ssd1306_UpdateScreen();
-		HAL_Delay(3000);
-		ssd1306_Fill(Black);
-		ssd1306_DrawRectangle(0, 0, 127, 31, White);
-		ssd1306_UpdateScreen();
-	}
-	#else
-	currentTab = main_tab;
-	#endif
 }
 
 // IN DEVELOPMENT: Tab with passwords list
@@ -248,114 +307,37 @@ void menu_passwords( void ){
 	char text[20];
 	static uint8_t Pass_currentTab = 0;
 	static uint8_t currentPassword = 0;
-  static uint8_t flagN1 = 0;
-	
-		switch(Pass_currentTab){
-			
-			case 11:
+	static uint8_t flagN1 = 0;
+	static uint8_t flagN2 = 0;
+	switch(Pass_currentTab){
+		case 11:
 			while(!switches_byte)
-		HAL_Delay(1);
-	int pushedButtonNumber = -1;
-	for(int i = 0; i < 8; i++){
-		if(switches_byte & (1 << i)){			
-				pushedButtonNumber = i ;
-				break;
-		}
-	}	
-		Pass_currentTab = pushedButtonNumber + 1 + (flagN1 * 20);
+				HAL_Delay(1);
+			int pushedButtonNumber = -1;
+			for(int i = 0; i < 8; i++){
+				if(switches_byte & (1 << i)){   
+					pushedButtonNumber = i ;
+					break;
+				}
+			} 
+			Pass_currentTab = pushedButtonNumber + 1 + (flagN1 * 20);
 			break;
-	
-		case 1:
+		case 5:
 			currentPassword += 0;
 			Pass_currentTab = 10;
+			flagN2 = 0;
 			break;
-		case 2:
+		case 6:
 			currentPassword += 1;
 			Pass_currentTab = 10;
+			flagN2 = 1;
 			break;
-		case 3:
+		case 7:
 			currentPassword += 2;
 			Pass_currentTab = 10;
+			flagN2 = 2;
 			break;
-		case 10:	
-				ssd1306_Fill(Black);
-				ssd1306_DrawRectangle(0, 0, 127, 31, White);
-				ssd1306_SetCursor(2,2);
-				sprintf(text,"login: %s",passwordDataBase[currentPassword].login); 
-				ssd1306_WriteString(text,Font_6x8, White);
-				ssd1306_SetCursor(2,12);
-				sprintf(text,"password: %s",passwordDataBase[currentPassword].password); 
-				ssd1306_WriteString(text,Font_6x8, White);
-				ssd1306_SetCursor(2,22);
-				sprintf(text,"comment: %s",passwordDataBase[currentPassword].comment); 
-				ssd1306_WriteString(text, Font_6x8, White);
-				ssd1306_SetCursor(90,2);
-		ssd1306_WriteString("6:exet", Font_6x8, White);
-				ssd1306_UpdateScreen();
-				while(switches_byte)
-					HAL_Delay(1);
-				Pass_currentTab = 11;
-				flagN1 = 1;
-			break;
-		
-		case 5:
-			while(switches_byte)
-				HAL_Delay(1);
-			currentPassword += 3;
-			Pass_currentTab = 0;
-			break;
-			
-		case 6:
-			while(switches_byte)
-					HAL_Delay(1);
-			currentPassword = 0;
-			currentTab = main_tab;
-			Pass_currentTab = 0;
-			break;
-		case 26:
-			while(switches_byte)
-					HAL_Delay(1);
-			currentPassword = 0;
-			Pass_currentTab = 0;
-			flagN1 = 0;
-			break;
-		case 0:
-			ssd1306_Fill(Black);
-			ssd1306_DrawRectangle(0, 0, 127, 31, White);
-			ssd1306_SetCursor(2,2);
-			sprintf(text,"1 login: %s",passwordDataBase[currentPassword].login); 
-			ssd1306_WriteString(text,Font_6x8, White);
-			ssd1306_SetCursor(2,12);
-			sprintf(text,"2 login: %s",passwordDataBase[currentPassword+1].login); 
-			ssd1306_WriteString(text,Font_6x8, White);
-			ssd1306_SetCursor(2,22);
-			sprintf(text,"3 login: %s",passwordDataBase[currentPassword+2].login); 
-			ssd1306_WriteString(text,Font_6x8, White);
-			ssd1306_SetCursor(90,2); 
-			ssd1306_WriteString("4 add pass",Font_6x8, White);
-			ssd1306_SetCursor(90,12);
-			ssd1306_WriteString("5 next",Font_6x8, White);
-			ssd1306_SetCursor(90,22);
-			ssd1306_WriteString("6 exet",Font_6x8, White);
-			ssd1306_UpdateScreen();
-		// Wait push button
-		Pass_currentTab = 11;
-			break;
-		default:
-			Pass_currentTab = 11;
-	break;
-}
-	
-	
-	
-	
-	
-	/*
-	//while(switches_byte)
-	//	HAL_Delay(1);
-	if(flac == 1){
-		currentPassword += pushedButtonNumber;
-		if (pushedButtonNumber == 1){
+		case 10: 
 			ssd1306_Fill(Black);
 			ssd1306_DrawRectangle(0, 0, 127, 31, White);
 			ssd1306_SetCursor(2,2);
@@ -366,45 +348,72 @@ void menu_passwords( void ){
 			ssd1306_WriteString(text,Font_6x8, White);
 			ssd1306_SetCursor(2,22);
 			sprintf(text,"comment: %s",passwordDataBase[currentPassword].comment); 
-			ssd1306_WriteString(text,Font_6x8, White);
+			ssd1306_WriteString(text, Font_6x8, White);
+			ssd1306_SetCursor(90,2);
+			ssd1306_WriteString("2:exet", Font_6x8, White);
 			ssd1306_UpdateScreen();
-			currentPassword = 0;
-		}else if(pushedButtonNumber == 4){
-			ssd1306_Fill(Black);
-			
-			ssd1306_UpdateScreen();
-			
-		}else if(pushedButtonNumber == 5){
-			ssd1306_Fill(Black);
-			
-			ssd1306_UpdateScreen();
-			
-		}else if(pushedButtonNumber == 6){
-			flac = 0;
+			while(switches_byte)
+				HAL_Delay(1);
+			Pass_currentTab = 11;
+			flagN1 = 1;
+			break;
+		case 3:
+			while(switches_byte)
+				HAL_Delay(1);
+			// if(currentPassword != 0)
+			currentPassword += 3;
+			Pass_currentTab = 0;
+			break;
+		case 1:
+			while(switches_byte)
+				HAL_Delay(1);
+			if(currentPassword != 0)
+			currentPassword -= 3;
+			Pass_currentTab = 0;
+			break;
+		case 2:
+			while(switches_byte)
+				HAL_Delay(1);
 			currentPassword = 0;
 			currentTab = main_tab;
-		}
-		
-	}	
-		*/
-	// Wait button release
-	
-	/*
-	ssd1306_Fill(Black);
-	ssd1306_SetCursor(4, 4);
-	ssd1306_WriteString("Passwords", Font_16x26, White);
-	ssd1306_DrawRectangle(0, 0, 127, 31, White);
-	ssd1306_UpdateScreen();
-	
-	// Wait push button
-	while(!switches_byte)
-		HAL_Delay(1);
-	// Wait button release
-	while(switches_byte)
-		HAL_Delay(1);
-	
-	currentTab = main_tab;*/
+			Pass_currentTab = 0;
+			break;
+		case 22:
+			while(switches_byte)
+				HAL_Delay(1);
+			currentPassword -= flagN2;
+			Pass_currentTab = 0;
+			flagN1 = 0;
+			break;
+		case 0:
+			ssd1306_Fill(Black);
+			ssd1306_DrawRectangle(0, 0, 127, 31, White);
+			ssd1306_SetCursor(2,2);
+			sprintf(text,"5 login: %s",passwordDataBase[currentPassword].login); 
+			ssd1306_WriteString(text,Font_6x8, White);
+			ssd1306_SetCursor(2,12);
+			sprintf(text,"6 login: %s",passwordDataBase[currentPassword+1].login); 
+			ssd1306_WriteString(text,Font_6x8, White);
+			ssd1306_SetCursor(2,22);
+			sprintf(text,"7 login: %s",passwordDataBase[currentPassword+2].login); 
+			ssd1306_WriteString(text,Font_6x8, White);
+			ssd1306_SetCursor(90,2); 
+			ssd1306_WriteString("1 back",Font_6x8, White);
+			ssd1306_SetCursor(90,12);
+			ssd1306_WriteString("3 exet",Font_6x8, White);
+			ssd1306_SetCursor(90,22);
+			ssd1306_WriteString("2 next",Font_6x8, White);
+			ssd1306_UpdateScreen();
+			// Wait push button
+			Pass_currentTab = 11;
+			break;
+		default:
+			Pass_currentTab = 11;
+			break;
+	}
+	setDisplayUpdateFlag();
 }
+
 
 // IN DEVELOPMENT: settings
 void menu_settings ( void ){
@@ -426,20 +435,38 @@ void menu_settings ( void ){
 
 // IN DEVELOPMENT: Password list with USB access
 void menu_usb_write( void ){
-	ssd1306_Fill(Black);
+	static uint8_t counter = 0;
+	
+	// If button was pushed
+	if(getPushedButtonFlag()){
+		// If push 2 button
+		if(pushedButtonNum == 2){
+			// Switch tab
+			currentTab = main_tab;
+			// And update display on next cycle for display main tab
+			setDisplayUpdateFlag();
+			// End exit from function
+			return;
+		}
+		
+	}
+	
 	ssd1306_SetCursor(4, 4);
-	ssd1306_WriteString("USB mode", Font_16x26, White);
-	ssd1306_DrawRectangle(0, 0, 127, 31, White);
-	ssd1306_UpdateScreen();
-	
-	// Wait push button
-	while(!switches_byte)
-		HAL_Delay(1);
-	// Wait button release
-	while(switches_byte)
-		HAL_Delay(1);
-	
-	currentTab = main_tab;
+	//if(pushedButtonNum != 0){
+		ssd1306_Fill(Black);
+		ssd1306_DrawRectangle(0, 0, 127, 31, White);
+	//}
+	if(pushedButtonNum == 1){
+		ssd1306_WriteString("Test1", Font_16x26, White);
+	}else if(pushedButtonNum == 3){
+		ssd1306_WriteString("Button3", Font_16x26, White);
+	}else if(pushedButtonNum != 0){
+		char tmp[10];
+		sprintf(tmp, "i:%d", counter++);
+		ssd1306_WriteString(tmp, Font_16x26, White);
+	}else if(releasedButtonNum != 0){
+		ssd1306_WriteString("Released!", Font_16x26, White);
+	}
 }
 
 // IN DEVELOPMENT: 

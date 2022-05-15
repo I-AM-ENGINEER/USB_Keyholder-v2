@@ -338,6 +338,7 @@ void TIM6_IRQHandler(void)
 	HAL_TIM_Base_Start_IT(&htim7);
 	__HAL_TIM_SET_COUNTER(&htim7, 0);
 	
+	setPushedButton();
   /* USER CODE END TIM6_IRQn 0 */
   HAL_TIM_IRQHandler(&htim6);
   /* USER CODE BEGIN TIM6_IRQn 1 */
