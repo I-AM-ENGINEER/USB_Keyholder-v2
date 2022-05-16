@@ -134,14 +134,15 @@ int main(void)
 			// Going to sleep
 			ssd1306_SetDisplayOn(0);
 			USBD_Stop(&hUsbDeviceFS);
-			USBD_DeInit(&hUsbDeviceFS);
+			//USBD_DeInit(&hUsbDeviceFS);
 			currentTab = 0xFF;
 			power_GoToSleep();
 			// Wakeup from sleep
 			SystemClock_Config();
 			HAL_ResumeTick();
-			USBD_Init(&hUsbDeviceFS, &FS_Desc, DEVICE_FS);
+			//USBD_Init(&hUsbDeviceFS, &FS_Desc, DEVICE_FS);
 			USBD_Start(&hUsbDeviceFS);
+			HAL_Delay(1000);
 		}
 		
 		UI_print_menu();

@@ -6,6 +6,7 @@
 #include "stdlib.h"
 #include "usb.h"
 #include "string.h"
+#include "system.h"
 //http://javl.github.io/image2cpp/
 
 //#define DEBUG
@@ -170,7 +171,8 @@ void UI_print_menu( void ){
 				menu_folder();
 				break;
 			case lock_tab:
-				setDisplayUpdateFlag();
+				//setDisplayUpdateFlag();
+				power_SetNeedSleepFlag();
 				currentTab = login_tab;
 				break;
 			case usb_hotkey_tab:
@@ -185,18 +187,32 @@ void UI_print_menu( void ){
 
 
 void menu_usb_hotkey( void ){
-	if(get_USB_write_flag() == 0){
-		currentTab = main_tab;
-		setDisplayUpdateFlag();
-	}else{
+	static int i = 0;
+	if(!is_USB_connected()){
 		ssd1306_Fill(Black);
 		ssd1306_DrawRectangle(0, 0, 127, 31, White);
 		ssd1306_SetCursor(2,2);
-		char text[20];
-		sprintf(text,"%s",passwordDataBaseHot[pushedButtonNum - 4].login);
+		char text[30];
+		
+		sprintf(text,"%s %d %d",passwordDataBaseHot[1].login, i++, !is_USB_connected());
 		ssd1306_WriteString(text,Font_6x8, White);
 		ssd1306_SetCursor(2,12);
-		ssd1306_WriteString("Connect to USB...",Font_6x8, White);
+		ssd1306_WriteString("Waiting connection",Font_6x8, White);
+		setDisplayUpdateFlag();
+	}else{
+		if(get_USB_write_flag() == 0){
+			currentTab = main_tab;
+			setDisplayUpdateFlag();
+		}else{
+			ssd1306_Fill(Black);
+			ssd1306_DrawRectangle(0, 0, 127, 31, White);
+			ssd1306_SetCursor(2,2);
+			char text[20];
+			sprintf(text,"%s",passwordDataBaseHot[pushedButtonNum - 4].login);
+			ssd1306_WriteString(text,Font_6x8, White);
+			ssd1306_SetCursor(2,12);
+			ssd1306_WriteString("Connect to USB...",Font_6x8, White);
+		}
 	}
 }
 
@@ -227,7 +243,7 @@ void menu_main ( void ){
 			setDisplayUpdateFlag();
 			return;
 		}else if((pushedButtonNum >= 4) && (pushedButtonNum <= 8)){
-			set_USB_write_flag(pushedButtonNum - 4);
+			set_USB_write_flag(pushedButtonNum - 1);
 			currentTab = usb_hotkey_tab;
 			menu_usb_hotkey();
 			return;

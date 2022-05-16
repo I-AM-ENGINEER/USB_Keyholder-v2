@@ -93,6 +93,7 @@ uint8_t get_USB_write_flag( void ){
 
 void wait_USB_insert_hotkey( void ){
 	if(is_USB_connected()){
+		HAL_Delay(1000);
 		usb_keyboard_puts(passwordDataBaseHot[usbHotkeyNumber].password, strlen(passwordDataBaseHot[usbHotkeyNumber].password));
 		usbWriteFlag = 0;
 		setDisplayUpdateFlag();
