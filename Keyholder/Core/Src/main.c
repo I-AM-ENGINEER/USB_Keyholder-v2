@@ -128,7 +128,7 @@ int main(void)
   while (1)
   {	
 		
-		if(ssd1306_GetNeedInitFlag())
+	/*password8password8password8password8password8	if(ssd1306_GetNeedInitFlag())
 			ssd1306_SetDisplayPower(1);
 		if(power_GetNeedSleepFlag()){
 			// Going to sleep
@@ -144,7 +144,7 @@ int main(void)
 			USBD_Start(&hUsbDeviceFS);
 			HAL_Delay(1000);
 		}
-		
+		*/
 		UI_print_menu();
 		if(get_USB_write_flag()){
 			wait_USB_insert_hotkey();

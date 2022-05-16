@@ -9,7 +9,7 @@
 void UI_print_menu( void );
 void setPushedButton( void );
 void setDisplayUpdateFlag( void );
-
+//char textsas[20];
 extern uint8_t currentTab;
 
 /* -------------------------------------------------------------------------- */

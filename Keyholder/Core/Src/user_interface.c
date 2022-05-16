@@ -80,7 +80,7 @@ const unsigned char *icons[menuItemsCount] = \
 #define usb_hotkey_tab	0xFD
 #define	main_tab 				0xFE
 #define	login_tab 			0xFF
-
+#define password_print_tab 0xFC
 uint8_t currentTab = login_tab;
 
 const char passTrue[6] = "111111";
@@ -95,9 +95,11 @@ void menu_main 			( void );
 void menu_login			( void );
 void menu_folder		( void );
 void menu_passwords	( void );
+void menu_passwords_show( void );
 void menu_settings 	( void );
 void menu_usb_write	( void );
 void menu_usb_hotkey( void );
+void menu_passwords_case0( void );
 
 uint8_t getPushedButtonFlag		( void );
 uint8_t getReleasedButtonFlag	( void );
@@ -177,6 +179,9 @@ void UI_print_menu( void ){
 				break;
 			case usb_hotkey_tab:
 				menu_usb_hotkey();
+				break;
+			case password_print_tab:
+				menu_passwords_case0();
 				break;
 			default:
 				menu_login();
@@ -346,117 +351,78 @@ void menu_login( void ){
 }
 
 // IN DEVELOPMENT: Tab with passwords list
+char textsas[20];	
+uint8_t Pass_currentTab = 0;
+uint8_t flagN1 = 0;
+uint8_t flagN2 = 0;
+uint8_t currentPassword = 0;
+uint8_t currentTabPass = 0;
+
+void menu_passwords_case0( void ){
+	if(getPushedButtonFlag()){
+		if(pushedButtonNum == 2){
+			currentTab = paswd_list_tab;
+			setDisplayUpdateFlag();
+			return;
+		}
+	}
+	ssd1306_Fill(Black);
+	ssd1306_DrawRectangle(0, 0, 127, 31, White);
+	ssd1306_SetCursor(2,2);
+	sprintf(textsas,"login: %s",passwordDataBase[currentPassword].login); 
+	ssd1306_WriteString(textsas,Font_6x8, White);
+	ssd1306_SetCursor(2,12);
+	sprintf(textsas,"password: %s",passwordDataBase[currentPassword].password); 
+	ssd1306_WriteString(textsas,Font_6x8, White);
+	ssd1306_SetCursor(2,22);
+	sprintf(textsas,"comment: %s",passwordDataBase[currentPassword].comment); 
+	ssd1306_WriteString(textsas, Font_6x8, White);
+	ssd1306_SetCursor(90,2);
+	ssd1306_WriteString("2:exet", Font_6x8, White);
+	ssd1306_UpdateScreen();
+}
+
 
 void menu_passwords( void ){
-	char text[20];
-	static uint8_t Pass_currentTab = 0;
-	static uint8_t currentPassword = 0;
-	static uint8_t flagN1 = 0;
-	static uint8_t flagN2 = 0;
-	switch(Pass_currentTab){
-		case 11:
-			while(!switches_byte)
-				HAL_Delay(1);
-			int pushedButtonNumber = -1;
-			for(int i = 0; i < 8; i++){
-				if(switches_byte & (1 << i)){   
-					pushedButtonNumber = i ;
-					break;
-				}
-			} 
-			Pass_currentTab = pushedButtonNumber + 1 + (flagN1 * 20);
-			break;
-		case 5:
-			currentPassword += 0;
-			Pass_currentTab = 10;
-			flagN2 = 0;
-			break;
-		case 6:
-			currentPassword += 1;
-			Pass_currentTab = 10;
-			flagN2 = 1;
-			break;
-		case 7:
-			currentPassword += 2;
-			Pass_currentTab = 10;
-			flagN2 = 2;
-			break;
-		case 10: 
-			ssd1306_Fill(Black);
-			ssd1306_DrawRectangle(0, 0, 127, 31, White);
-			ssd1306_SetCursor(2,2);
-			sprintf(text,"login: %s",passwordDataBase[currentPassword].login); 
-			ssd1306_WriteString(text,Font_6x8, White);
-			ssd1306_SetCursor(2,12);
-			sprintf(text,"password: %s",passwordDataBase[currentPassword].password); 
-			ssd1306_WriteString(text,Font_6x8, White);
-			ssd1306_SetCursor(2,22);
-			sprintf(text,"comment: %s",passwordDataBase[currentPassword].comment); 
-			ssd1306_WriteString(text, Font_6x8, White);
-			ssd1306_SetCursor(90,2);
-			ssd1306_WriteString("2:exet", Font_6x8, White);
-			ssd1306_UpdateScreen();
-			while(switches_byte)
-				HAL_Delay(1);
-			Pass_currentTab = 11;
-			flagN1 = 1;
-			break;
-		case 3:
-			while(switches_byte)
-				HAL_Delay(1);
-			// if(currentPassword != 0)
-			currentPassword += 3;
-			Pass_currentTab = 0;
-			break;
-		case 1:
-			while(switches_byte)
-				HAL_Delay(1);
-			if(currentPassword != 0)
-			currentPassword -= 3;
-			Pass_currentTab = 0;
-			break;
-		case 2:
-			while(switches_byte)
-				HAL_Delay(1);
-			currentPassword = 0;
+
+	if(getPushedButtonFlag()){
+		if((pushedButtonNum == 1) && (currentTabPass != 0))
+			currentTabPass -= 3;
+		else if((pushedButtonNum == 3) && (currentTabPass <=  6))
+			currentTabPass += 3;
+		else if(pushedButtonNum == 2){
 			currentTab = main_tab;
-			Pass_currentTab = 0;
-			break;
-		case 22:
-			while(switches_byte)
-				HAL_Delay(1);
-			currentPassword -= flagN2;
-			Pass_currentTab = 0;
-			flagN1 = 0;
-			break;
-		case 0:
+			setDisplayUpdateFlag();
+			return;
+		}
+		else if((pushedButtonNum >= 5) && (pushedButtonNum <= 7)){
+			currentTab = password_print_tab;
+			currentPassword = pushedButtonNum - 5 + currentTabPass;
+			setDisplayUpdateFlag();
+			return;
+		}
+	}
+		
 			ssd1306_Fill(Black);
 			ssd1306_DrawRectangle(0, 0, 127, 31, White);
 			ssd1306_SetCursor(2,2);
-			sprintf(text,"5 login: %s",passwordDataBase[currentPassword  ].login); 
-			ssd1306_WriteString(text,Font_6x8, White);
+			sprintf(textsas,"5 login: %s",passwordDataBase[currentTabPass  ].login); 
+			ssd1306_WriteString(textsas,Font_6x8, White);
 			ssd1306_SetCursor(2,12);
-			sprintf(text,"6 login: %s",passwordDataBase[currentPassword+1].login); 
-			ssd1306_WriteString(text,Font_6x8, White);
+			sprintf(textsas,"6 login: %s",passwordDataBase[currentTabPass+1].login); 
+			ssd1306_WriteString(textsas,Font_6x8, White);
 			ssd1306_SetCursor(2,22);
-			sprintf(text,"7 login: %s",passwordDataBase[currentPassword+2].login); 
-			ssd1306_WriteString(text,Font_6x8, White);
+			sprintf(textsas,"7 login: %s",passwordDataBase[currentTabPass+2].login); 
+			ssd1306_WriteString(textsas,Font_6x8, White);
 			ssd1306_SetCursor(90,2); 
 			ssd1306_WriteString("1 back",Font_6x8, White);
 			ssd1306_SetCursor(90,12);
 			ssd1306_WriteString("3 exet",Font_6x8, White);
 			ssd1306_SetCursor(90,22);
-			ssd1306_WriteString("2 next",Font_6x8, White);
-			ssd1306_UpdateScreen();
-			// Wait push button
-			Pass_currentTab = 11;
-			break;
-		default:
-			Pass_currentTab = 11;
-			break;
-	}
-	setDisplayUpdateFlag();
+			ssd1306_WriteString("2 next",Font_6x8, White);	
+		
 }
+		
 
 
 // IN DEVELOPMENT: settings
@@ -477,6 +443,9 @@ void menu_settings ( void ){
 	currentTab = main_tab;
 }
 
+
+
+
 // IN DEVELOPMENT: Password list with USB access
 void menu_usb_write( void ){
 	static uint8_t counter = 0;
@@ -484,7 +453,7 @@ void menu_usb_write( void ){
 	// If button was pushed
 	if(getPushedButtonFlag()){
 	// If push 2 button
-	if(pushedButtonNum == 2){
+		if(pushedButtonNum == 2){
 			// Switch tab
 			currentTab = main_tab;
 			// And update display on next cycle for display main tab
