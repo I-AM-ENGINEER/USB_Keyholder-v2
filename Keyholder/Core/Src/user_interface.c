@@ -81,6 +81,7 @@ const unsigned char *icons[menuItemsCount] = \
 #define	main_tab 				0xFE
 #define	login_tab 			0xFF
 #define password_print_tab 0xFC
+#define usb_write_tab_insert_in_usb 0xFB
 uint8_t currentTab = login_tab;
 
 const char passTrue[6] = "111111";
@@ -164,7 +165,8 @@ void UI_print_menu( void ){
 					menu_main();
 				break;
 			case usb_write_tab:
-				menu_usb_write();
+				//menu_usb_write();
+				menu_passwords();
 				break;
 			case paswd_list_tab:
 				menu_passwords();
@@ -182,6 +184,9 @@ void UI_print_menu( void ){
 				break;
 			case password_print_tab:
 				menu_passwords_case0();
+				break;
+			case usb_write_tab_insert_in_usb:
+				menu_usb_write();
 				break;
 			default:
 				menu_login();
@@ -351,14 +356,13 @@ void menu_login( void ){
 }
 
 // IN DEVELOPMENT: Tab with passwords list
-char textsas[20];	
-uint8_t Pass_currentTab = 0;
-uint8_t flagN1 = 0;
-uint8_t flagN2 = 0;
-uint8_t currentPassword = 0;
-uint8_t currentTabPass = 0;
+	
 
+uint8_t currentPassword = 0;
 void menu_passwords_case0( void ){
+	
+	
+	char textsas[20];
 	if(getPushedButtonFlag()){
 		if(pushedButtonNum == 2){
 			currentTab = paswd_list_tab;
@@ -384,7 +388,8 @@ void menu_passwords_case0( void ){
 
 
 void menu_passwords( void ){
-
+	char textsas[20];
+	static uint8_t currentTabPass = 0;
 	if(getPushedButtonFlag()){
 		if((pushedButtonNum == 1) && (currentTabPass != 0))
 			currentTabPass -= 3;
@@ -394,12 +399,16 @@ void menu_passwords( void ){
 			currentTab = main_tab;
 			setDisplayUpdateFlag();
 			return;
-		}
-		else if((pushedButtonNum >= 5) && (pushedButtonNum <= 7)){
-			currentTab = password_print_tab;
-			currentPassword = pushedButtonNum - 5 + currentTabPass;
-			setDisplayUpdateFlag();
-			return;
+		}else if((pushedButtonNum >= 5) && (pushedButtonNum <= 7)){
+			
+			if(currentTab != usb_write_tab){
+				currentTab = password_print_tab;
+				currentPassword = pushedButtonNum - 5 + currentTabPass;
+				setDisplayUpdateFlag();
+				return;
+			}else{
+				currentTab = usb_write_tab_insert_in_usb;
+			}
 		}
 	}
 		
@@ -448,6 +457,27 @@ void menu_settings ( void ){
 
 // IN DEVELOPMENT: Password list with USB access
 void menu_usb_write( void ){
+	
+	// If button was pushed
+	if(getPushedButtonFlag()){
+	// If push 2 button
+		if(pushedButtonNum == 2){
+			// Switch tab
+			currentTab = main_tab;
+			// And update display on next cycle for display main tab
+			setDisplayUpdateFlag();
+			// End exit from function
+			return;
+		}
+	}
+	ssd1306_Fill(Black);
+	ssd1306_SetCursor(2,2); 
+	ssd1306_WriteString("insert in usb",Font_7x10, White);
+	
+	set_USB_write_flag(2);
+	//currentTab = usb_hotkey_tab;
+	//menu_usb_hotkey();
+	/*
 	static uint8_t counter = 0;
 	
 	// If button was pushed
@@ -480,6 +510,7 @@ void menu_usb_write( void ){
 	}else if(releasedButtonNum != 0){
 		ssd1306_WriteString("Released!", Font_16x26, White);
 	}
+	*/
 }
 
 // IN DEVELOPMENT: 
