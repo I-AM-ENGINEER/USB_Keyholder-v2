@@ -7,6 +7,7 @@
 #include "usb.h"
 #include "string.h"
 #include "system.h"
+#include "usbd_cdc_if.h"
 //http://javl.github.io/image2cpp/
 
 //#define DEBUG
@@ -370,20 +371,20 @@ void menu_passwords_case0( void ){
 			return;
 		}
 	}
+	dataType passwordData;
+	flash_data_grab(&passwordData, currentPassword);
+	
 	ssd1306_Fill(Black);
-	ssd1306_DrawRectangle(0, 0, 127, 31, White);
-	ssd1306_SetCursor(2,2);
-	sprintf(textsas,"login: %s",passwordDataBase[currentPassword].login); 
+	//ssd1306_DrawRectangle(0, 0, 127, 31, White);
+	ssd1306_SetCursor(0,0);
+	sprintf(textsas,"l:%s",passwordData.login); 
 	ssd1306_WriteString(textsas,Font_6x8, White);
-	ssd1306_SetCursor(2,12);
-	sprintf(textsas,"password: %s",passwordDataBase[currentPassword].password); 
+	ssd1306_SetCursor(0,8);
+	sprintf(textsas,"p:%s",passwordData.password); 
 	ssd1306_WriteString(textsas,Font_6x8, White);
-	ssd1306_SetCursor(2,22);
-	sprintf(textsas,"comment: %s",passwordDataBase[currentPassword].comment); 
+	ssd1306_SetCursor(0,16);
+	sprintf(textsas,"c:%s",passwordData.comment); 
 	ssd1306_WriteString(textsas, Font_6x8, White);
-	ssd1306_SetCursor(90,2);
-	ssd1306_WriteString("2:exet", Font_6x8, White);
-	ssd1306_UpdateScreen();
 }
 
 
@@ -392,9 +393,9 @@ void menu_passwords( void ){
 	static uint8_t currentTabPass = 0;
 	if(getPushedButtonFlag()){
 		if((pushedButtonNum == 1) && (currentTabPass != 0))
-			currentTabPass -= 3;
-		else if((pushedButtonNum == 3) && (currentTabPass <=  6))
-			currentTabPass += 3;
+			currentTabPass -= 4;
+		else if((pushedButtonNum == 3) && (currentTabPass < ((uint8_t)flash_get_passwords_count())))
+			currentTabPass += 4;
 		else if(pushedButtonNum == 2){
 			currentTab = main_tab;
 			setDisplayUpdateFlag();
@@ -411,25 +412,15 @@ void menu_passwords( void ){
 			}
 		}
 	}
-		
-			ssd1306_Fill(Black);
-			ssd1306_DrawRectangle(0, 0, 127, 31, White);
-			ssd1306_SetCursor(2,2);
-			sprintf(textsas,"5 login: %s",passwordDataBase[currentTabPass  ].login); 
-			ssd1306_WriteString(textsas,Font_6x8, White);
-			ssd1306_SetCursor(2,12);
-			sprintf(textsas,"6 login: %s",passwordDataBase[currentTabPass+1].login); 
-			ssd1306_WriteString(textsas,Font_6x8, White);
-			ssd1306_SetCursor(2,22);
-			sprintf(textsas,"7 login: %s",passwordDataBase[currentTabPass+2].login); 
-			ssd1306_WriteString(textsas,Font_6x8, White);
-			ssd1306_SetCursor(90,2); 
-			ssd1306_WriteString("1 back",Font_6x8, White);
-			ssd1306_SetCursor(90,12);
-			ssd1306_WriteString("3 exet",Font_6x8, White);
-			ssd1306_SetCursor(90,22);
-			ssd1306_WriteString("2 next",Font_6x8, White);	
-		
+	
+	ssd1306_Fill(Black);
+	for(int i = 0; i < 4; i++){
+		ssd1306_SetCursor(2, i*8);
+		dataType passwordData;
+		flash_data_grab(&passwordData, currentTabPass + i);
+		sprintf(textsas,"%d:%s", i+4, passwordData.login); 
+		ssd1306_WriteString(textsas,Font_6x8, White);
+	}
 }
 		
 
@@ -521,6 +512,26 @@ void menu_folder( void ){
 	ssd1306_DrawRectangle(0, 0, 127, 31, White);
 	ssd1306_UpdateScreen();
 	
+	char tmp[40] = "allllll";
+	char s[40] = "test";
+	char tmp2[40] = "";
+	uint8_t t = 0;
+	//while(1){
+		/*
+		//CDC_Receive_FS(tmp2, 4);
+		for(int i = 0; i < 4; i++){
+			if(tmp2[i] == s[i])
+				t++;
+			else {
+				t = 0;
+				break;
+			}
+		}*/
+			
+		//CDC_Transmit_FS(UserRxBufferFS, 5);
+	//}
+	while(switches_byte)
+		HAL_Delay(1);
 	// Wait push button
 	while(!switches_byte)
 		HAL_Delay(1);

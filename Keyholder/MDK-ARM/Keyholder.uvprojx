@@ -339,7 +339,7 @@
               <MiscControls></MiscControls>
               <Define>USE_HAL_DRIVER,STM32L151xBA</Define>
               <Undefine></Undefine>
-              <IncludePath>../Core/Inc;../USB_DEVICE/App;../USB_DEVICE/Target;../Drivers/STM32L1xx_HAL_Driver/Inc;../Drivers/STM32L1xx_HAL_Driver/Inc/Legacy;../Middlewares/ST/STM32_USB_Device_Library/Core/Inc;../Drivers/CMSIS/Device/ST/STM32L1xx/Include;../Drivers/CMSIS/Include;../Middlewares/ST/STM32_USB_Device_Library/Class/HID/Inc</IncludePath>
+              <IncludePath>../Core/Inc;../USB_DEVICE/App;../USB_DEVICE/Target;../Drivers/STM32L1xx_HAL_Driver/Inc;../Drivers/STM32L1xx_HAL_Driver/Inc/Legacy;../Middlewares/ST/STM32_USB_Device_Library/Core/Inc;../Drivers/CMSIS/Device/ST/STM32L1xx/Include;../Drivers/CMSIS/Include;../Middlewares/ST/STM32_USB_Device_Library/Class/HID/Inc;../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -422,6 +422,11 @@
               <FileName>system.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\Core\Src\system.c</FilePath>
+            </File>
+            <File>
+              <FileName>usb.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Core\Src\usb.c</FilePath>
             </File>
             <File>
               <FileName>main.c</FileName>
@@ -565,11 +570,6 @@
               <FileType>1</FileType>
               <FilePath>../Core/Src/stm32l1xx_hal_msp.c</FilePath>
             </File>
-            <File>
-              <FileName>usb.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\Core\Src\usb.c</FilePath>
-            </File>
           </Files>
         </Group>
         <Group>
@@ -585,20 +585,76 @@
               <FileType>1</FileType>
               <FilePath>../USB_DEVICE/App/usbd_desc.c</FilePath>
             </File>
+            <File>
+              <FileName>usbd_cdc_if.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>../USB_DEVICE/App/usbd_cdc_if.c</FilePath>
+              <FileOption>
+                <CommonProperty>
+                  <UseCPPCompiler>2</UseCPPCompiler>
+                  <RVCTCodeConst>0</RVCTCodeConst>
+                  <RVCTZI>0</RVCTZI>
+                  <RVCTOtherData>0</RVCTOtherData>
+                  <ModuleSelection>0</ModuleSelection>
+                  <IncludeInBuild>1</IncludeInBuild>
+                  <AlwaysBuild>2</AlwaysBuild>
+                  <GenerateAssemblyFile>2</GenerateAssemblyFile>
+                  <AssembleAssemblyFile>2</AssembleAssemblyFile>
+                  <PublicsOnly>2</PublicsOnly>
+                  <StopOnExitCode>11</StopOnExitCode>
+                  <CustomArgument></CustomArgument>
+                  <IncludeLibraryModules></IncludeLibraryModules>
+                  <ComprImg>1</ComprImg>
+                </CommonProperty>
+                <FileArmAds>
+                  <Cads>
+                    <interw>2</interw>
+                    <Optim>0</Optim>
+                    <oTime>2</oTime>
+                    <SplitLS>2</SplitLS>
+                    <OneElfS>2</OneElfS>
+                    <Strict>2</Strict>
+                    <EnumInt>2</EnumInt>
+                    <PlainCh>2</PlainCh>
+                    <Ropi>2</Ropi>
+                    <Rwpi>2</Rwpi>
+                    <wLevel>0</wLevel>
+                    <uThumb>2</uThumb>
+                    <uSurpInc>2</uSurpInc>
+                    <uC99>2</uC99>
+                    <uGnu>2</uGnu>
+                    <useXO>2</useXO>
+                    <v6Lang>0</v6Lang>
+                    <v6LangP>0</v6LangP>
+                    <vShortEn>2</vShortEn>
+                    <vShortWch>2</vShortWch>
+                    <v6Lto>2</v6Lto>
+                    <v6WtE>2</v6WtE>
+                    <v6Rtti>2</v6Rtti>
+                    <VariousControls>
+                      <MiscControls></MiscControls>
+                      <Define></Define>
+                      <Undefine></Undefine>
+                      <IncludePath></IncludePath>
+                    </VariousControls>
+                  </Cads>
+                </FileArmAds>
+              </FileOption>
+            </File>
           </Files>
         </Group>
         <Group>
           <GroupName>Application/User/USB_DEVICE/Target</GroupName>
           <Files>
             <File>
-              <FileName>usbd_conf.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>../USB_DEVICE/Target/usbd_conf.c</FilePath>
-            </File>
-            <File>
               <FileName>usbd_conf.h</FileName>
               <FileType>5</FileType>
               <FilePath>..\USB_DEVICE\Target\usbd_conf.h</FilePath>
+            </File>
+            <File>
+              <FileName>usbd_conf.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>../USB_DEVICE/Target/usbd_conf.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -721,6 +777,36 @@
           <GroupName>Middlewares/USB_Device_Library</GroupName>
           <Files>
             <File>
+              <FileName>usbd_conf_template.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Middlewares\ST\STM32_USB_Device_Library\Core\Inc\usbd_conf_template.h</FilePath>
+            </File>
+            <File>
+              <FileName>usbd_core.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Middlewares\ST\STM32_USB_Device_Library\Core\Inc\usbd_core.h</FilePath>
+            </File>
+            <File>
+              <FileName>usbd_ctlreq.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Middlewares\ST\STM32_USB_Device_Library\Core\Inc\usbd_ctlreq.h</FilePath>
+            </File>
+            <File>
+              <FileName>usbd_def.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Middlewares\ST\STM32_USB_Device_Library\Core\Inc\usbd_def.h</FilePath>
+            </File>
+            <File>
+              <FileName>usbd_desc_template.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Middlewares\ST\STM32_USB_Device_Library\Core\Inc\usbd_desc_template.h</FilePath>
+            </File>
+            <File>
+              <FileName>usbd_ioreq.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Middlewares\ST\STM32_USB_Device_Library\Core\Inc\usbd_ioreq.h</FilePath>
+            </File>
+            <File>
               <FileName>usbd_core.c</FileName>
               <FileType>1</FileType>
               <FilePath>../Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_core.c</FilePath>
@@ -736,9 +822,9 @@
               <FilePath>../Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ioreq.c</FilePath>
             </File>
             <File>
-              <FileName>usbd_hid.c</FileName>
+              <FileName>usbd_cdc.c</FileName>
               <FileType>1</FileType>
-              <FilePath>../Middlewares/ST/STM32_USB_Device_Library/Class/HID/Src/usbd_hid.c</FilePath>
+              <FilePath>../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Src/usbd_cdc.c</FilePath>
               <FileOption>
                 <CommonProperty>
                   <UseCPPCompiler>2</UseCPPCompiler>
@@ -790,36 +876,6 @@
                   </Cads>
                 </FileArmAds>
               </FileOption>
-            </File>
-            <File>
-              <FileName>usbd_conf_template.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\Middlewares\ST\STM32_USB_Device_Library\Core\Inc\usbd_conf_template.h</FilePath>
-            </File>
-            <File>
-              <FileName>usbd_core.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\Middlewares\ST\STM32_USB_Device_Library\Core\Inc\usbd_core.h</FilePath>
-            </File>
-            <File>
-              <FileName>usbd_ctlreq.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\Middlewares\ST\STM32_USB_Device_Library\Core\Inc\usbd_ctlreq.h</FilePath>
-            </File>
-            <File>
-              <FileName>usbd_def.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\Middlewares\ST\STM32_USB_Device_Library\Core\Inc\usbd_def.h</FilePath>
-            </File>
-            <File>
-              <FileName>usbd_desc_template.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\Middlewares\ST\STM32_USB_Device_Library\Core\Inc\usbd_desc_template.h</FilePath>
-            </File>
-            <File>
-              <FileName>usbd_ioreq.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\Middlewares\ST\STM32_USB_Device_Library\Core\Inc\usbd_ioreq.h</FilePath>
             </File>
           </Files>
         </Group>
@@ -895,6 +951,16 @@
               <FileName>usb.h</FileName>
               <FileType>5</FileType>
               <FilePath>..\Core\Inc\usb.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>USB/HID</GroupName>
+          <Files>
+            <File>
+              <FileName>usbd_hid.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Middlewares\ST\STM32_USB_Device_Library\Class\HID\Inc\usbd_hid.h</FilePath>
             </File>
           </Files>
         </Group>

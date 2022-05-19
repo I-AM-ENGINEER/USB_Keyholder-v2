@@ -51,14 +51,14 @@ void usb_keyboard_putc(char ch){
 			keyboardHIDsub[0] = 0x02;
 		keyboardHIDsub[2] = chToSend & 0x7F;
 		
-		USBD_HID_SendReport(&hUsbDeviceFS,keyboardHIDsub,sizeof(keyboardHIDsub));
+		//USBD_HID_SendReport(&hUsbDeviceFS,keyboardHIDsub,sizeof(keyboardHIDsub));
 		HAL_Delay(20);
 		
 		// Release shift and key
 		keyboardHIDsub[0] = 0x00;
 		keyboardHIDsub[2] = 0x00;
 		
-		USBD_HID_SendReport(&hUsbDeviceFS,keyboardHIDsub,sizeof(keyboardHIDsub));
+		//USBD_HID_SendReport(&hUsbDeviceFS,keyboardHIDsub,sizeof(keyboardHIDsub));
 		HAL_Delay(20);
 	}
 }

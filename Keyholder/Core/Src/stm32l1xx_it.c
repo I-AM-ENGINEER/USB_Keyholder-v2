@@ -28,9 +28,6 @@
 #include "system.h"
 /* USER CODE END Includes */
 
-/* External functions --------------------------------------------------------*/
-void SystemClock_Config(void);
-
 /* Private typedef -----------------------------------------------------------*/
 /* USER CODE BEGIN TD */
 
@@ -297,26 +294,6 @@ void EXTI15_10_IRQHandler(void)
 }
 
 /**
-  * @brief This function handles USB FS wake-up interrupt through EXTI line 18.
-  */
-void USB_FS_WKUP_IRQHandler(void)
-{
-  /* USER CODE BEGIN USB_FS_WKUP_IRQn 0 */
-
-  /* USER CODE END USB_FS_WKUP_IRQn 0 */
-  if ((&hpcd_USB_FS)->Init.low_power_enable) {
-    /* Reset SLEEPDEEP bit of Cortex System Control Register */
-    SCB->SCR &= (uint32_t)~((uint32_t)(SCB_SCR_SLEEPDEEP_Msk | SCB_SCR_SLEEPONEXIT_Msk));
-    SystemClock_Config();
-  }
-  /* Clear EXTI pending bit */
-  __HAL_USB_WAKEUP_EXTI_CLEAR_FLAG();
-  /* USER CODE BEGIN USB_FS_WKUP_IRQn 1 */
-
-  /* USER CODE END USB_FS_WKUP_IRQn 1 */
-}
-
-/**
   * @brief This function handles TIM6 global interrupt.
   */
 void TIM6_IRQHandler(void)
@@ -328,10 +305,10 @@ void TIM6_IRQHandler(void)
 	(HAL_GPIO_ReadPin(SW2_GPIO_Port, SW2_Pin)?0:0x02) + \
 	(HAL_GPIO_ReadPin(SW3_GPIO_Port, SW3_Pin)?0:0x04)	+ \
 	(HAL_GPIO_ReadPin(SW4_GPIO_Port, SW4_Pin)?0:0x08)	+ \
-	(HAL_GPIO_ReadPin(SW5_GPIO_Port, SW5_Pin)?0:0x10)	+ \
-	(HAL_GPIO_ReadPin(SW6_GPIO_Port, SW6_Pin)?0:0x20)	+ \
-	(HAL_GPIO_ReadPin(SW7_GPIO_Port, SW7_Pin)?0:0x40)	+ \
-	(HAL_GPIO_ReadPin(SW8_GPIO_Port, SW8_Pin)?0:0x80);
+	(HAL_GPIO_ReadPin(SW5_GPIO_Port, SW5_Pin)?0:0x80)	+ \
+	(HAL_GPIO_ReadPin(SW6_GPIO_Port, SW6_Pin)?0:0x40)	+ \
+	(HAL_GPIO_ReadPin(SW7_GPIO_Port, SW7_Pin)?0:0x20)	+ \
+	(HAL_GPIO_ReadPin(SW8_GPIO_Port, SW8_Pin)?0:0x10);
 
 	if(!ssd1306_GetDisplayOn()) 
 		ssd1306_SetNeedInitFlag();

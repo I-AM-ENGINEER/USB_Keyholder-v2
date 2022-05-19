@@ -115,12 +115,13 @@ int main(void)
   MX_TIM7_Init();
   /* USER CODE BEGIN 2 */
 	//__enable_irq();
-
+	//flash_set_passwords_count(30);
 	ssd1306_SetDisplayPower(1);
 	ssd1306_Fill(Black);
 	ssd1306_DrawRectangle(0, 0, 127, 31, White);
 	ssd1306_UpdateScreen();
-	fill_database();
+	HAL_TIM_Base_Start_IT(&htim7);
+	//fill_database();
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -128,7 +129,7 @@ int main(void)
   while (1)
   {	
 		
-	/*password8password8password8password8password8	if(ssd1306_GetNeedInitFlag())
+	if(ssd1306_GetNeedInitFlag())
 			ssd1306_SetDisplayPower(1);
 		if(power_GetNeedSleepFlag()){
 			// Going to sleep
@@ -144,7 +145,7 @@ int main(void)
 			USBD_Start(&hUsbDeviceFS);
 			HAL_Delay(1000);
 		}
-		*/
+		
 		UI_print_menu();
 		if(get_USB_write_flag()){
 			wait_USB_insert_hotkey();
@@ -179,7 +180,7 @@ void SystemClock_Config(void)
   RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
   RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSE;
   RCC_OscInitStruct.PLL.PLLMUL = RCC_PLL_MUL6;
-  RCC_OscInitStruct.PLL.PLLDIV = RCC_PLL_DIV2;
+  RCC_OscInitStruct.PLL.PLLDIV = RCC_PLL_DIV3;
   if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
   {
     Error_Handler();
@@ -189,7 +190,7 @@ void SystemClock_Config(void)
   */
   RCC_ClkInitStruct.ClockType = RCC_CLOCKTYPE_HCLK|RCC_CLOCKTYPE_SYSCLK
                               |RCC_CLOCKTYPE_PCLK1|RCC_CLOCKTYPE_PCLK2;
-  RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_HSI;
+  RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_HSE;
   RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV1;
   RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV1;
   RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV1;

@@ -71,8 +71,6 @@ extern uint8_t usbDetectionTest;
 #define USBD_DEBUG_LEVEL     0U
 /*---------- -----------*/
 #define USBD_SELF_POWERED     1U
-/*---------- -----------*/
-#define HID_FS_BINTERVAL     0xAU
 
 /****************************************/
 /* #define for FS and HS identification */
