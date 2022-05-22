@@ -127,9 +127,9 @@ int main(void)
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
-  {	
+  {
 		
-	if(ssd1306_GetNeedInitFlag())
+		if(ssd1306_GetNeedInitFlag())
 			ssd1306_SetDisplayPower(1);
 		if(power_GetNeedSleepFlag()){
 			// Going to sleep

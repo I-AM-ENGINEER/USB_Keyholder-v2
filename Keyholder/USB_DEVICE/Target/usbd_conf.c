@@ -26,7 +26,8 @@
 #include "usbd_cdc.h"
 
 /* USER CODE BEGIN Includes */
-
+#include "usb.h"
+#include "tim.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -228,7 +229,8 @@ void HAL_PCD_SuspendCallback(PCD_HandleTypeDef *hpcd)
     /* Set SLEEPDEEP bit and SleepOnExit of Cortex System Control Register. */
     //SCB->SCR |= (uint32_t)((uint32_t)(SCB_SCR_SLEEPDEEP_Msk | SCB_SCR_SLEEPONEXIT_Msk));
   }
-	
+	HAL_TIM_Base_Start_IT(&htim7);
+	__HAL_TIM_SetCounter(&htim7, 1);
 	reset_USB_connection();
   /* USER CODE END 2 */
 }
@@ -246,6 +248,7 @@ void HAL_PCD_ResumeCallback(PCD_HandleTypeDef *hpcd)
 #endif /* USE_HAL_PCD_REGISTER_CALLBACKS */
 {
   /* USER CODE BEGIN 3 */
+	HAL_TIM_Base_Stop_IT(&htim7);
 	set_USB_connection();
   /* USER CODE END 3 */
   USBD_LL_Resume((USBD_HandleTypeDef*)hpcd->pData);

@@ -265,54 +265,89 @@ static int8_t CDC_Receive_FS(uint8_t* Buf, uint32_t *Len)
 	
 	static uint8_t stage = 0;
 	static int number = 0;
-	//static char pass[32]  = "";
-	//static char login[32]  = "";
-	//static char comment[64]  = "";
+	static int mode = 0;
+	
 	static dataType data;
 	
+	char tmp[100];
+	
 	if(currentTab == 0x03){
-		char tmp[20];
-		//CDC_Transmit_FS(Buf[0]), 5);
-		switch(Buf[0]){
+		if(mode == 0){
+			switch(Buf[0]){
 			case 'a':
-				CDC_Transmit_FS((uint8_t*)"num:", 4);
-				stage = 1;
+				stage = 0;
+				mode = 1;
+				break;
+			case 'b':
+				stage = 0;
+				mode = 2;
+				break;
+			case 'r':
+				CDC_Transmit_FS((uint8_t*)"OK!\n", 4);
+				break;
+			}
+		}
+		
+		switch(mode){
+			case 1:
+				switch(stage){
+					case 0:
+						CDC_Transmit_FS((uint8_t*)"num:\n", 5);
+						break;
+					case 1:
+						memset(&data, 0,sizeof(dataType));
+						//number = atoi((char*)Buf);
+						sscanf((char*)Buf, "%d\n%s\n%s\n%s\n", &number, data.login, data.password, data.comment);
+						flash_data_save(&data,number);
+						mode = 0;
+						//CDC_Transmit_FS((uint8_t*)tmp, strlen(tmp));
+						break;
+					case 2:
+						memcpy(data.login, Buf, *Len);
+						//sprintf(tmp, "%s\n", data.login);
+						//CDC_Transmit_FS((uint8_t*)tmp, strlen(tmp));
+						break;
+					case 3:
+						memcpy(data.password, Buf, *Len);
+						//sprintf(tmp, "%s\n", data.password);
+						//CDC_Transmit_FS((uint8_t*)tmp, strlen(tmp));
+						break;
+					case 4:
+						memcpy(data.comment, Buf, *Len);
+						//sprintf(tmp, "%s\n", data.comment);
+						//CDC_Transmit_FS((uint8_t*)tmp, strlen(tmp));
+						flash_data_save(&data,number);
+						mode = 0;
+						break;
+					default:
+						mode = 0;
+						break;
+				}
+				stage++;
+				break;
+			case 2:
+				switch(stage){
+					case 0:
+						CDC_Transmit_FS((uint8_t*)"num:\n", 5);
+						break;
+					case 1:
+						number = atoi((char*)Buf);
+						flash_data_grab(&data, number);
+						sprintf(tmp, "%s\n%s\n%s\n", \
+							data.login, data.password, data.comment);
+						CDC_Transmit_FS((uint8_t*)tmp, strlen(tmp));
+						mode = 0;
+						break;
+					default:
+						mode = 0;
+						break;
+				}
+				stage++;
 				break;
 			default:
-				if(stage == 1){
-					number = atoi((char*)Buf);
-					sprintf(tmp, "num:%d\r\nlog:", number);
-					CDC_Transmit_FS((uint8_t*)tmp, strlen(tmp));
-					stage = 2;
-				}else if(stage == 2){
-					for(int i = 0; i < *Len; i++){
-						data.login[i] = Buf[i];
-					}
-					sprintf(tmp, "%s\r\npas:", data.login);
-					CDC_Transmit_FS((uint8_t*)tmp, strlen(tmp));
-					stage = 3;
-				}else if(stage == 3){
-					for(int i = 0; i < *Len; i++){
-						data.password[i] = Buf[i];
-					}
-					sprintf(tmp, "%s\r\ncom:", data.password);
-					CDC_Transmit_FS((uint8_t*)tmp, strlen(tmp));
-					stage = 4;
-				}else if(stage == 4){
-					for(int i = 0; i < *Len; i++){
-						data.comment[i] = Buf[i];
-					}
-					sprintf(tmp, "%s\r\nOK!", data.comment);
-					CDC_Transmit_FS((uint8_t*)tmp, strlen(tmp));
-					flash_data_save(&data,number);
-					stage = 0;
-				}
+				break;
 		}
 	}
-	
-	
-	
-	
   return (USBD_OK);
   /* USER CODE END 6 */
 }
