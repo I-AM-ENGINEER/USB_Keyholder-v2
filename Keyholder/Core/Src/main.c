@@ -110,46 +110,69 @@ int main(void)
   MX_ADC_Init();
   MX_DMA_Init();
   MX_I2C1_Init();
-  MX_USB_DEVICE_Init();
+  //MX_USB_DEVICE_Init();
   MX_TIM6_Init();
   MX_TIM7_Init();
   /* USER CODE BEGIN 2 */
-	//__enable_irq();
-	//flash_set_passwords_count(30);
+	if (USBD_Init(&hUsbDeviceFS, &FS_Desc, DEVICE_FS) != USBD_OK)
+  {
+    Error_Handler();
+	}
 	ssd1306_SetDisplayPower(1);
 	ssd1306_Fill(Black);
 	ssd1306_DrawRectangle(0, 0, 127, 31, White);
 	ssd1306_UpdateScreen();
 	HAL_TIM_Base_Start_IT(&htim7);
+	//USB_set_mode(USB_HID_MODE);
+	//USB_main();
+	
 	//fill_database();
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
+	
+	/*while(1){
+		USB_set_mode(USB_CDC_MODE);
+		USB_main();
+		for(int i = 0; i < 50; i++){
+			CDC_Transmit_FS((uint8_t*)"OK!\n", 4);
+			HAL_Delay(100);
+		}
+		USB_set_mode(USB_HID_MODE);
+		USB_main();
+		HAL_Delay(5000);
+	}*/
+	
   while (1)
   {
-		
+		//USB_set_mode(USB_CDC_MODE);
 		if(ssd1306_GetNeedInitFlag())
 			ssd1306_SetDisplayPower(1);
 		if(power_GetNeedSleepFlag()){
 			// Going to sleep
 			ssd1306_SetDisplayOn(0);
-			USBD_Stop(&hUsbDeviceFS);
-			//USBD_DeInit(&hUsbDeviceFS);
 			currentTab = 0xFF;
-			power_GoToSleep();
-			// Wakeup from sleep
-			SystemClock_Config();
-			HAL_ResumeTick();
-			//USBD_Init(&hUsbDeviceFS, &FS_Desc, DEVICE_FS);
-			USBD_Start(&hUsbDeviceFS);
-			HAL_Delay(1000);
+			if(!USB_get_state()){
+				power_GoToSleep();
+				// Wakeup from sleep
+				SystemClock_Config();
+				HAL_ResumeTick();
+			}
+			HAL_Delay(500);
 		}
 		
 		UI_print_menu();
-		if(get_USB_write_flag()){
-			wait_USB_insert_hotkey();
-		}
+		USB_main();
+		//HAL_Delay(10000);
+		//USB_set_mode(USB_CDC_MODE);
+		//
+		//HAL_Delay(10000);
+		//USB_set_mode(USB_HID_MODE);
+		//USB_main();
+		//if(get_USB_write_flag()){
+		//	wait_USB_insert_hotkey();
+		//}
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */

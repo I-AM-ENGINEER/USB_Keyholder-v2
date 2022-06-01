@@ -263,6 +263,8 @@ static int8_t CDC_Receive_FS(uint8_t* Buf, uint32_t *Len)
   USBD_CDC_SetRxBuffer(&hUsbDeviceFS, &Buf[0]);
   USBD_CDC_ReceivePacket(&hUsbDeviceFS);
 	
+	
+	//CDC_Transmit_FS(Buf, strlen((char*)Buf));
 	static uint8_t stage = 0;
 	static int number = 0;
 	static int mode = 0;
@@ -271,7 +273,7 @@ static int8_t CDC_Receive_FS(uint8_t* Buf, uint32_t *Len)
 	
 	char tmp[100];
 	
-	if(currentTab == 0x03){
+	if(currentTab == 0x00){
 		if(mode == 0){
 			switch(Buf[0]){
 			case 'a':
@@ -296,8 +298,10 @@ static int8_t CDC_Receive_FS(uint8_t* Buf, uint32_t *Len)
 						break;
 					case 1:
 						memset(&data, 0,sizeof(dataType));
+						//char l = 0;
 						//number = atoi((char*)Buf);
-						sscanf((char*)Buf, "%d\n%s\n%s\n%s\n", &number, data.login, data.password, data.comment);
+						sscanf((char*)Buf, "%d %[^\n] %[^\n] %[^\n]", &number, data.login, data.password, data.comment);
+						
 						flash_data_save(&data,number);
 						mode = 0;
 						//CDC_Transmit_FS((uint8_t*)tmp, strlen(tmp));
@@ -348,6 +352,7 @@ static int8_t CDC_Receive_FS(uint8_t* Buf, uint32_t *Len)
 				break;
 		}
 	}
+	memset(UserRxBufferFS, 0, APP_RX_DATA_SIZE);
   return (USBD_OK);
   /* USER CODE END 6 */
 }

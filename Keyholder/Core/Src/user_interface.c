@@ -66,18 +66,19 @@ const unsigned char img_passwords[] = {
 
 #define DELTA_SLIDE 4
 
-const uint8_t menuItemsCount = 5;
+const uint8_t menuItemsCount = 4;
 // Menu icons
 const unsigned char *icons[menuItemsCount] = \
-{img_settings, img_passwords, img_usb_write, img_folder, img_lock};
+	{img_settings, img_passwords, img_usb_write, img_lock};
+//{img_settings, img_passwords, img_usb_write, img_folder, img_lock};
 
 
 // Tabs name and number, require mach with icon position!
 #define	settings_tab		0x00
 #define	paswd_list_tab 	0x01
 #define	usb_write_tab 	0x02
-#define	folder_tab 			0x03
-#define	lock_tab 				0x04
+#define	folder_tab 			0x030
+#define	lock_tab 				0x03
 #define usb_hotkey_tab	0xFD
 #define	main_tab 				0xFE
 #define	login_tab 			0xFF
@@ -86,6 +87,9 @@ const unsigned char *icons[menuItemsCount] = \
 uint8_t currentTab = login_tab;
 
 const char passTrue[6] = "111111";
+const uint8_t hotkeyPin[8] = {
+	0,1,2,3,4,5,6,7
+};
 
 uint8_t pushedButtonFlag 		= 0;
 uint8_t releasedButtonFlag 	= 0;
@@ -176,7 +180,8 @@ void UI_print_menu( void ){
 				menu_folder();
 				break;
 			case lock_tab:
-				//setDisplayUpdateFlag();
+				while(switches_byte)
+					HAL_Delay(1);
 				power_SetNeedSleepFlag();
 				currentTab = login_tab;
 				break;
@@ -189,6 +194,9 @@ void UI_print_menu( void ){
 			case usb_write_tab_insert_in_usb:
 				menu_usb_write();
 				break;
+			case settings_tab:
+				menu_settings();
+				break;
 			default:
 				menu_login();
 		}
@@ -197,34 +205,43 @@ void UI_print_menu( void ){
 }
 
 
+uint8_t currentPassword = 0;
+
+
 void menu_usb_hotkey( void ){
-	static int i = 0;
-	if(!is_USB_connected()){
-		ssd1306_Fill(Black);
-		ssd1306_DrawRectangle(0, 0, 127, 31, White);
-		ssd1306_SetCursor(2,2);
-		char text[30];
-		
-		sprintf(text,"%s %d %d",passwordDataBaseHot[1].login, i++, !is_USB_connected());
-		ssd1306_WriteString(text,Font_6x8, White);
-		ssd1306_SetCursor(2,12);
-		ssd1306_WriteString("Waiting connection",Font_6x8, White);
-		setDisplayUpdateFlag();
-	}else{
-		if(get_USB_write_flag() == 0){
+	// If button was pushed
+	if(getPushedButtonFlag() ){
+	// If push 2 button
+		if(pushedButtonNum == 2){
+			// Switch tab
 			currentTab = main_tab;
+			// And update display on next cycle for display main tab
 			setDisplayUpdateFlag();
-		}else{
-			ssd1306_Fill(Black);
-			ssd1306_DrawRectangle(0, 0, 127, 31, White);
-			ssd1306_SetCursor(2,2);
-			char text[20];
-			sprintf(text,"%s",passwordDataBaseHot[pushedButtonNum - 4].login);
-			ssd1306_WriteString(text,Font_6x8, White);
-			ssd1306_SetCursor(2,12);
-			ssd1306_WriteString("Connect to USB...",Font_6x8, White);
+			// End exit from function
+			return;
 		}
 	}
+	if(get_USB_write_flag() == 0){
+		// Switch tab
+		currentTab = main_tab;
+		// And update display on next cycle for display main tab
+		setDisplayUpdateFlag();
+		// End exit from function
+		return;
+	}
+	
+	char text[30];
+	dataType data;
+	flash_data_grab(&data, currentPassword);
+	
+	ssd1306_Fill(Black);
+	ssd1306_SetCursor(0,0);
+	sprintf(text,"l:%s",data.login);
+	ssd1306_WriteString(text,Font_7x10, White);
+	ssd1306_SetCursor(0,11);
+	ssd1306_WriteString("Waiting",Font_7x10, White);
+	ssd1306_SetCursor(0,22);
+	ssd1306_WriteString("connection...",Font_7x10, White);
 }
 
 
@@ -235,7 +252,7 @@ void menu_main ( void ){
 	static uint8_t menuPositionTarget 	= 2;
 	static int8_t animationPoint 				= 0;
 	static int8_t animationPointTarget 	= 0;
-	
+	USB_set_mode(USB_HID_MODE);
 	
 	if(getPushedButtonFlag()){
 		if((pushedButtonNum == 1) && (menuPositionTarget != 0)){
@@ -254,9 +271,11 @@ void menu_main ( void ){
 			setDisplayUpdateFlag();
 			return;
 		}else if((pushedButtonNum >= 4) && (pushedButtonNum <= 8)){
-			set_USB_write_flag(pushedButtonNum - 1);
+			currentPassword = hotkeyPin[pushedButtonNum-1];
+			set_USB_write_flag(currentPassword);
 			currentTab = usb_hotkey_tab;
 			menu_usb_hotkey();
+			setDisplayUpdateFlag();
 			return;
 		}
 	}
@@ -359,11 +378,9 @@ void menu_login( void ){
 // IN DEVELOPMENT: Tab with passwords list
 	
 
-uint8_t currentPassword = 0;
+
 void menu_passwords_case0( void ){
-	
-	
-	char textsas[20];
+	char textsas[128];
 	if(getPushedButtonFlag()){
 		if(pushedButtonNum == 2){
 			currentTab = paswd_list_tab;
@@ -371,25 +388,87 @@ void menu_passwords_case0( void ){
 			return;
 		}
 	}
+	
+	
+	/*
+	if(get_USB_write_flag() == 0){
+		// Switch tab
+		currentTab = main_tab;
+		// And update display on next cycle for display main tab
+		setDisplayUpdateFlag();
+		// End exit from function
+		return;
+	}*/
+	
 	dataType passwordData;
 	flash_data_grab(&passwordData, currentPassword);
 	
 	ssd1306_Fill(Black);
 	//ssd1306_DrawRectangle(0, 0, 127, 31, White);
 	ssd1306_SetCursor(0,0);
-	sprintf(textsas,"l:%s",passwordData.login); 
+	snprintf(textsas, 22,"l:%s",passwordData.login); 
 	ssd1306_WriteString(textsas,Font_6x8, White);
 	ssd1306_SetCursor(0,8);
-	sprintf(textsas,"p:%s",passwordData.password); 
+	snprintf(textsas, 22,"p:%s",passwordData.password); 
 	ssd1306_WriteString(textsas,Font_6x8, White);
 	ssd1306_SetCursor(0,16);
-	sprintf(textsas,"c:%s",passwordData.comment); 
+	snprintf(textsas, 22,"%s",passwordData.comment); 
+	ssd1306_WriteString(textsas, Font_6x8, White);
+	ssd1306_SetCursor(0,24);
+	snprintf(textsas, 22,"%s",&passwordData.comment[21]); 
 	ssd1306_WriteString(textsas, Font_6x8, White);
 }
 
 
+//
+
+
+// IN DEVELOPMENT: Password list with USB access
+void menu_usb_write( void ){
+	// If button was pushed
+	if(getPushedButtonFlag()){
+	// If push 2 button
+		if(pushedButtonNum == 2){
+			// Switch tab
+			currentTab = main_tab;
+			// And update display on next cycle for display main tab
+			setDisplayUpdateFlag();
+			// End exit from function
+			return;
+		}
+	}
+	
+	if(get_USB_write_flag() == 0){
+		// Switch tab
+		currentTab = main_tab;
+		// And update display on next cycle for display main tab
+		setDisplayUpdateFlag();
+		// End exit from function
+		return;
+	}
+	
+	dataType passwordData;
+	flash_data_grab(&passwordData, currentPassword);
+	
+	
+	char textsas[128];
+	
+	ssd1306_Fill(Black);
+	ssd1306_SetCursor(0,0); 
+	ssd1306_WriteString("insert in usb...",Font_6x8, White);
+	ssd1306_SetCursor(0,8); 
+	snprintf(textsas, 20,"l:%s",passwordData.login); 
+	ssd1306_WriteString(textsas, Font_6x8, White);
+	ssd1306_SetCursor(0,16);
+	snprintf(textsas, 22,"%s",passwordData.comment); 
+	ssd1306_WriteString(textsas, Font_6x8, White);
+	ssd1306_SetCursor(0,24);
+	snprintf(textsas, 22,"%s",&passwordData.comment[21]); 
+	ssd1306_WriteString(textsas, Font_6x8, White);
+}
+
 void menu_passwords( void ){
-	char textsas[20];
+	char textsas[32];
 	static uint8_t currentTabPass = 0;
 	if(getPushedButtonFlag()){
 		if((pushedButtonNum == 1) && (currentTabPass != 0))
@@ -400,138 +479,62 @@ void menu_passwords( void ){
 			currentTab = main_tab;
 			setDisplayUpdateFlag();
 			return;
-		}else if((pushedButtonNum >= 5) && (pushedButtonNum <= 7)){
-			
+		}else if((pushedButtonNum >= 4) && (pushedButtonNum <= 8)){
+			currentPassword = pushedButtonNum - 5 + currentTabPass;
 			if(currentTab != usb_write_tab){
 				currentTab = password_print_tab;
-				currentPassword = pushedButtonNum - 5 + currentTabPass;
+				menu_passwords_case0();
 				setDisplayUpdateFlag();
 				return;
 			}else{
+				set_USB_write_flag(currentPassword);
 				currentTab = usb_write_tab_insert_in_usb;
+				menu_usb_write();
+				setDisplayUpdateFlag();
 			}
 		}
 	}
-	
 	ssd1306_Fill(Black);
 	for(int i = 0; i < 4; i++){
 		ssd1306_SetCursor(2, i*8);
 		dataType passwordData;
 		flash_data_grab(&passwordData, currentTabPass + i);
-		sprintf(textsas,"%d:%s", i+4, passwordData.login); 
+		sprintf(textsas,"%d:%s", i+4, passwordData.login);
 		ssd1306_WriteString(textsas,Font_6x8, White);
 	}
 }
-		
-
 
 // IN DEVELOPMENT: settings
 void menu_settings ( void ){
+	if(getPushedButtonFlag()){
+	// If push 2 button
+		if(pushedButtonNum == 2){
+			// Switch tab
+			currentTab = main_tab;
+			// And update display on next cycle for display main tab
+			setDisplayUpdateFlag();
+			// End exit from function
+			return;
+		}
+	}
+	USB_set_mode(USB_CDC_MODE);
 	ssd1306_Fill(Black);
 	ssd1306_SetCursor(4, 4);
 	ssd1306_WriteString("Settings", Font_16x26, White);
-	ssd1306_DrawRectangle(0, 0, 127, 31, White);
-	ssd1306_UpdateScreen();
-	
-	// Wait push button
-	while(!switches_byte)
-		HAL_Delay(1);
-	// Wait button release
-	while(switches_byte)
-		HAL_Delay(1);
-	
-	currentTab = main_tab;
-}
-
-
-
-
-// IN DEVELOPMENT: Password list with USB access
-void menu_usb_write( void ){
-	
-	// If button was pushed
-	if(getPushedButtonFlag()){
-	// If push 2 button
-		if(pushedButtonNum == 2){
-			// Switch tab
-			currentTab = main_tab;
-			// And update display on next cycle for display main tab
-			setDisplayUpdateFlag();
-			// End exit from function
-			return;
-		}
-	}
-	ssd1306_Fill(Black);
-	ssd1306_SetCursor(2,2); 
-	ssd1306_WriteString("insert in usb",Font_7x10, White);
-	
-	set_USB_write_flag(2);
-	//currentTab = usb_hotkey_tab;
-	//menu_usb_hotkey();
-	/*
-	static uint8_t counter = 0;
-	
-	// If button was pushed
-	if(getPushedButtonFlag()){
-	// If push 2 button
-		if(pushedButtonNum == 2){
-			// Switch tab
-			currentTab = main_tab;
-			// And update display on next cycle for display main tab
-			setDisplayUpdateFlag();
-			// End exit from function
-			return;
-		}
-		
-	}
-	
-	ssd1306_SetCursor(4, 4);
-	//if(pushedButtonNum != 0){
-		ssd1306_Fill(Black);
-		ssd1306_DrawRectangle(0, 0, 127, 31, White);
-	//}
-	if(pushedButtonNum == 1){
-		ssd1306_WriteString("Test1", Font_16x26, White);
-	}else if(pushedButtonNum == 3){
-		ssd1306_WriteString("Button3", Font_16x26, White);
-	}else if(pushedButtonNum != 0){
-		char tmp[10];
-		sprintf(tmp, "i:%d", counter++);
-		ssd1306_WriteString(tmp, Font_16x26, White);
-	}else if(releasedButtonNum != 0){
-		ssd1306_WriteString("Released!", Font_16x26, White);
-	}
-	*/
+	//CDC_Transmit_FS((uint8_t*)"OK!\n", 4);
+	//setDisplayUpdateFlag();
+	//ssd1306_DrawRectangle(0, 0, 127, 31, White);
+	//ssd1306_UpdateScreen();
 }
 
 // IN DEVELOPMENT: 
 void menu_folder( void ){
 	ssd1306_Fill(Black);
 	ssd1306_SetCursor(4, 4);
-	ssd1306_WriteString("Folder", Font_16x26, White);
+	ssd1306_WriteString("IN DEV", Font_16x26, White);
 	ssd1306_DrawRectangle(0, 0, 127, 31, White);
 	ssd1306_UpdateScreen();
 	
-	char tmp[40] = "allllll";
-	char s[40] = "test";
-	char tmp2[40] = "";
-	uint8_t t = 0;
-	//while(1){
-		/*
-		//CDC_Receive_FS(tmp2, 4);
-		for(int i = 0; i < 4; i++){
-			if(tmp2[i] == s[i])
-				t++;
-			else {
-				t = 0;
-				break;
-			}
-		}*/
-			
-		//CDC_Transmit_FS(UserRxBufferFS, 5);
-	//}
-	while(switches_byte)
-		HAL_Delay(1);
 	// Wait push button
 	while(!switches_byte)
 		HAL_Delay(1);
@@ -541,3 +544,5 @@ void menu_folder( void ){
 	
 	currentTab = main_tab;
 }
+
+

@@ -231,7 +231,6 @@ void HAL_PCD_SuspendCallback(PCD_HandleTypeDef *hpcd)
   }
 	HAL_TIM_Base_Start_IT(&htim7);
 	__HAL_TIM_SetCounter(&htim7, 1);
-	reset_USB_connection();
   /* USER CODE END 2 */
 }
 
@@ -249,7 +248,6 @@ void HAL_PCD_ResumeCallback(PCD_HandleTypeDef *hpcd)
 {
   /* USER CODE BEGIN 3 */
 	HAL_TIM_Base_Stop_IT(&htim7);
-	set_USB_connection();
   /* USER CODE END 3 */
   USBD_LL_Resume((USBD_HandleTypeDef*)hpcd->pData);
 }

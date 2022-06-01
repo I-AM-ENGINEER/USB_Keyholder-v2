@@ -7,18 +7,8 @@
 
 
 dataType passwordDataBase[30];
-dataType passwordDataBaseHot[8] = {
-	{"test1", "password1", ""},
-	{"test2", "password2", ""},
-	{"test3", "password3", ""},
-	{"test4", "cfyzXE1cjcb", ""},
-	{"test5", "password5", ""},
-	{"test6", "password6", ""},
-	{"test7", "password7", ""},
-	{"test8", "password8", ""}
-};
 
-void flash_data_grab(dataType *data, uint32_t dataNumber );
+void flash_data_grab( dataType *data, uint32_t dataNumber );
 void flash_data_save( dataType* data, uint32_t dataNumber );
 void flash_page_erase ( uint16_t pageNumber );
 void flash_page_write ( uint32_t* page, uint16_t pageNumber );
@@ -43,7 +33,7 @@ void fill_database ( void ){
 void flash_data_grab(dataType *data, uint32_t dataNumber ){
 	uint32_t page[64];
 	flash_page_read(page, PAGE_START + 1 + dataNumber);
-	memcpy(data, page, 128);
+	memcpy(data, page, 256);
 }
 
 /**
