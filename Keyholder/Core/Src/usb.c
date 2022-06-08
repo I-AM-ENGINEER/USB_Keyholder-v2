@@ -56,14 +56,14 @@ const char ascii2kbd[]={
 
 void USB_main( void ){
 	if(usbMode != usbModeOld){
+		
 		usbModeOld = usbMode;
 		if(hUsbDeviceFS.dev_state == USBD_STATE_CONFIGURED){
 			USBD_Stop(&hUsbDeviceFS);
+			HAL_Delay(200);
 		}
-		
 		switch(usbMode){
 			case HID_mode:
-				
 				USBD_RegisterClass(&hUsbDeviceFS, &USBD_HID);
 				usbState = HID_state;
 				break;
@@ -84,6 +84,7 @@ void USB_main( void ){
 				break;
 		}
 		USBD_Start(&hUsbDeviceFS);
+		HAL_Delay(200);
 	}
 	
 	switch(usbState){
@@ -139,14 +140,15 @@ void USB_keyboard_putc(char ch){
 		if(chToSend & 0x80)
 			keyboardHIDsub[0] = 0x02;
 		keyboardHIDsub[2] = chToSend & 0x7F;
-		
-		USBD_HID_SendReport(&hUsbDeviceFS,keyboardHIDsub,sizeof(keyboardHIDsub));
+		if(hUsbDeviceFS.dev_state == USBD_STATE_CONFIGURED)
+			USBD_HID_SendReport(&hUsbDeviceFS,keyboardHIDsub,sizeof(keyboardHIDsub));
 		HAL_Delay(20);
 		
 		// Release shift and key
 		keyboardHIDsub[0] = 0x00;
 		keyboardHIDsub[2] = 0x00;
-		USBD_HID_SendReport(&hUsbDeviceFS,keyboardHIDsub,sizeof(keyboardHIDsub));
+		if(hUsbDeviceFS.dev_state == USBD_STATE_CONFIGURED)
+			USBD_HID_SendReport(&hUsbDeviceFS,keyboardHIDsub,sizeof(keyboardHIDsub));
 		HAL_Delay(20);
 	}
 }
