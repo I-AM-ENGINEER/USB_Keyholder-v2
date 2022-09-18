@@ -22,11 +22,15 @@ keyholder/ssd1306.o: ..\Core\Src\ssd1306.c ..\Core\Inc\ssd1306.h \
   ..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_gpio_ex.h \
   ..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_dma.h \
   ..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_cortex.h \
+  ..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_adc.h \
+  ..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_adc_ex.h \
   ..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_flash.h \
   ..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_flash_ex.h \
   ..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_flash_ramfunc.h \
   ..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_pwr.h \
   ..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_pwr_ex.h \
+  ..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_rtc.h \
+  ..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_rtc_ex.h \
   ..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_spi.h \
   ..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_tim.h \
   ..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_tim_ex.h \
@@ -37,4 +41,4 @@ keyholder/ssd1306.o: ..\Core\Src\ssd1306.c ..\Core\Inc\ssd1306.h \
   ..\Core\Inc\ssd1306_fonts.h ..\Core\Inc\main.h \
   C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\math.h \
   C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdlib.h \
-  C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\string.h
+  C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\string.h ..\Core\Inc\tim.h

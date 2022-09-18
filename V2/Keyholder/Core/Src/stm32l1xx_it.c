@@ -219,45 +219,76 @@ void USB_LP_IRQHandler(void)
 }
 
 /**
-  * @brief This function handles EXTI line[9:5] interrupts.
-  */
-void EXTI9_5_IRQHandler(void)
-{
-  /* USER CODE BEGIN EXTI9_5_IRQn 0 */
-	HAL_TIM_Base_Start_IT(&htim6);
-  /* USER CODE END EXTI9_5_IRQn 0 */
-  HAL_GPIO_EXTI_IRQHandler(SW8_Pin);
-  HAL_GPIO_EXTI_IRQHandler(SW6_Pin);
-  HAL_GPIO_EXTI_IRQHandler(SW5_Pin);
-  HAL_GPIO_EXTI_IRQHandler(SW1_Pin);
-  /* USER CODE BEGIN EXTI9_5_IRQn 1 */
-
-  /* USER CODE END EXTI9_5_IRQn 1 */
-}
-
-/**
   * @brief This function handles TIM6 global interrupt.
   */
 void TIM6_IRQHandler(void)
 {
   /* USER CODE BEGIN TIM6_IRQn 0 */
 	HAL_TIM_Base_Stop(&htim6);
-	//switches_byte = \
-	(HAL_GPIO_ReadPin(SW1_GPIO_Port, SW1_Pin)?0:0x01) + \
-	(HAL_GPIO_ReadPin(SW2_GPIO_Port, SW2_Pin)?0:0x02) + \
-	(HAL_GPIO_ReadPin(SW3_GPIO_Port, SW3_Pin)?0:0x04)	+ \
-	(HAL_GPIO_ReadPin(SW4_GPIO_Port, SW4_Pin)?0:0x08)	+ \
-	(HAL_GPIO_ReadPin(SW5_GPIO_Port, SW5_Pin)?0:0x80)	+ \
-	(HAL_GPIO_ReadPin(SW6_GPIO_Port, SW6_Pin)?0:0x40)	+ \
-	(HAL_GPIO_ReadPin(SW7_GPIO_Port, SW7_Pin)?0:0x20)	+ \
-	(HAL_GPIO_ReadPin(SW8_GPIO_Port, SW8_Pin)?0:0x10);
+	
+	static uint16_t old_switches_byte[8] = { [0 ... 7] = 0xFFFF };
+	static uint16_t very_old_switches_byte[8] = { [0 ... 7] = 0xFFFF };
+	uint16_t switches_bytes[8];
+	
+	switches_bytes[0] = SW1_GPIO_Port->IDR & SW1_Pin;
+	switches_bytes[1] = SW2_GPIO_Port->IDR & SW2_Pin;
+	switches_bytes[2] = SW3_GPIO_Port->IDR & SW3_Pin;
+	switches_bytes[3] = SW4_GPIO_Port->IDR & SW4_Pin;
+	switches_bytes[4] = SW5_GPIO_Port->IDR & SW5_Pin;
+	switches_bytes[5] = SW6_GPIO_Port->IDR & SW6_Pin;
+	switches_bytes[6] = SW7_GPIO_Port->IDR & SW7_Pin;
+	switches_bytes[7] = SW8_GPIO_Port->IDR & SW8_Pin;
+	
+	/*switches_bytes[0] = HAL_GPIO_ReadPin(SW1_GPIO_Port, SW1_Pin);
+	switches_bytes[1] = HAL_GPIO_ReadPin(SW2_GPIO_Port, SW2_Pin);
+	switches_bytes[2] = HAL_GPIO_ReadPin(SW3_GPIO_Port, SW3_Pin);
+	switches_bytes[3] = HAL_GPIO_ReadPin(SW4_GPIO_Port, SW4_Pin);
+	switches_bytes[4] = HAL_GPIO_ReadPin(SW5_GPIO_Port, SW5_Pin);
+	switches_bytes[5] = HAL_GPIO_ReadPin(SW6_GPIO_Port, SW6_Pin);
+	switches_bytes[6] = HAL_GPIO_ReadPin(SW7_GPIO_Port, SW7_Pin);
+	switches_bytes[7] = HAL_GPIO_ReadPin(SW8_GPIO_Port, SW8_Pin);
+	*/
+	uint8_t changes = 0;
+	//switches_byte = 0;
+	for(uint32_t i = 0; i < 8; i++){
+		if((old_switches_byte[i] == switches_bytes[i]) && (old_switches_byte[i] != very_old_switches_byte[i])){
+			if(changes == 0){
+				switches_byte = 0;
+				changes = 1;
+			}
+			
+			if(!switches_bytes[i])
+				switches_byte |= (1 << i);
+			
+			/*switches_byte = \
+			(HAL_GPIO_ReadPin(SW1_GPIO_Port, SW1_Pin)?0:0x01) + \
+			(HAL_GPIO_ReadPin(SW2_GPIO_Port, SW2_Pin)?0:0x02) + \
+			(HAL_GPIO_ReadPin(SW3_GPIO_Port, SW3_Pin)?0:0x04)	+ \
+			(HAL_GPIO_ReadPin(SW4_GPIO_Port, SW4_Pin)?0:0x08)	+ \
+			(HAL_GPIO_ReadPin(SW5_GPIO_Port, SW5_Pin)?0:0x80)	+ \
+			(HAL_GPIO_ReadPin(SW6_GPIO_Port, SW6_Pin)?0:0x40)	+ \
+			(HAL_GPIO_ReadPin(SW7_GPIO_Port, SW7_Pin)?0:0x20)	+ \
+			(HAL_GPIO_ReadPin(SW8_GPIO_Port, SW8_Pin)?0:0x10);
+			setPushedButton();*/
+			//setPushedButton();
+			//break;
+		}
+		very_old_switches_byte[i] = old_switches_byte[i];
+		old_switches_byte[i] = switches_bytes[i];
+		
+	}
+	
+	if(changes)
+		setPushedButton();
+	
+	
 
 	if(!ssd1306_GetDisplayOn()) 
 		ssd1306_SetNeedInitFlag();
 	HAL_TIM_Base_Start_IT(&htim7);
 	__HAL_TIM_SET_COUNTER(&htim7, 1);
 	
-	setPushedButton();
+	HAL_TIM_Base_Start_IT(&htim6);
   /* USER CODE END TIM6_IRQn 0 */
   HAL_TIM_IRQHandler(&htim6);
   /* USER CODE BEGIN TIM6_IRQn 1 */
@@ -273,7 +304,7 @@ void TIM7_IRQHandler(void)
   /* USER CODE BEGIN TIM7_IRQn 0 */
 	HAL_TIM_Base_Stop(&htim7);
 	//ssd1306_SetDisplayPower(0);
-	power_SetNeedSleepFlag();
+	//power_SetNeedSleepFlag();
 	
   /* USER CODE END TIM7_IRQn 0 */
   HAL_TIM_IRQHandler(&htim7);

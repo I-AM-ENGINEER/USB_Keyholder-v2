@@ -18,6 +18,8 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
+#include "adc.h"
+#include "rtc.h"
 #include "spi.h"
 #include "tim.h"
 #include "usb_device.h"
@@ -74,6 +76,9 @@ void SystemClock_Slow_Config(void);
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
 
+
+
+
 /* USER CODE END 0 */
 
 /**
@@ -107,43 +112,29 @@ int main(void)
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
-  //MX_USB_DEVICE_Init();
+  MX_USB_DEVICE_Init();
   MX_TIM6_Init();
   MX_TIM7_Init();
   MX_SPI1_Init();
-  MX_SPI2_Init();
+  MX_ADC_Init();
+  MX_RTC_Init();
   /* USER CODE BEGIN 2 */
+	
 	if (USBD_Init(&hUsbDeviceFS, &FS_Desc, DEVICE_FS) != USBD_OK)
   {
     Error_Handler();
 	}
-	//HAL_GPIO_WritePin(VBUS_EN_GPIO_Port, VBUS_EN_Pin, GPIO_PIN_SET);
-	//HAL_Delay(1000);
-	HAL_GPIO_WritePin(VBUS_EN_GPIO_Port, VBUS_EN_Pin, GPIO_PIN_RESET);
-	HAL_Delay(100);
-	//ssd1306_SetDisplayPower(1);
-	//ssd1306_Reset();
-	ssd1306_Init();
-	ssd1306_Fill(White);
-	//ssd1306_DrawPixel(0,0, White);
-	//ssd1306_DrawRectangle(0, 0, 31, 31, White);
-	ssd1306_UpdateScreen();
+
+	ssd1306_SetDisplayPower(1);
+	
+	HAL_TIM_Base_Start_IT(&htim6);
 	//HAL_TIM_Base_Start_IT(&htim7);
-	//USB_set_mode(USB_HID_MODE);
-	//USB_main();
-	HAL_Delay(1000);
 	//fill_database();
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
 	
-	
-	
-	while(1){
-		//uint8_t dat[2] = {0xF0, 0x0F};
-		//HAL_SPI_Transmit(&hspi2, dat, 2, 1000);
-	}
 	
 	/*while(1){
 		USB_set_mode(USB_CDC_MODE);
@@ -184,6 +175,8 @@ int main(void)
 		
 		UI_print_menu();
 		USB_main();
+		
+		
 		//HAL_Delay(10000);
 		//USB_set_mode(USB_CDC_MODE);
 		//
@@ -208,6 +201,7 @@ void SystemClock_Config(void)
 {
   RCC_OscInitTypeDef RCC_OscInitStruct = {0};
   RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
+  RCC_PeriphCLKInitTypeDef PeriphClkInit = {0};
 
   /** Configure the main internal regulator output voltage
   */
@@ -216,11 +210,15 @@ void SystemClock_Config(void)
   /** Initializes the RCC Oscillators according to the specified parameters
   * in the RCC_OscInitTypeDef structure.
   */
-  RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSE;
+  RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSI|RCC_OSCILLATORTYPE_LSI
+                              |RCC_OSCILLATORTYPE_HSE;
   RCC_OscInitStruct.HSEState = RCC_HSE_ON;
+  RCC_OscInitStruct.HSIState = RCC_HSI_ON;
+  RCC_OscInitStruct.HSICalibrationValue = RCC_HSICALIBRATION_DEFAULT;
+  RCC_OscInitStruct.LSIState = RCC_LSI_ON;
   RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
   RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSE;
-  RCC_OscInitStruct.PLL.PLLMUL = RCC_PLL_MUL6;
+  RCC_OscInitStruct.PLL.PLLMUL = RCC_PLL_MUL4;
   RCC_OscInitStruct.PLL.PLLDIV = RCC_PLL_DIV3;
   if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
   {
@@ -236,7 +234,13 @@ void SystemClock_Config(void)
   RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV1;
   RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV1;
 
-  if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_0) != HAL_OK)
+  if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_1) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  PeriphClkInit.PeriphClockSelection = RCC_PERIPHCLK_RTC;
+  PeriphClkInit.RTCClockSelection = RCC_RTCCLKSOURCE_LSI;
+  if (HAL_RCCEx_PeriphCLKConfig(&PeriphClkInit) != HAL_OK)
   {
     Error_Handler();
   }

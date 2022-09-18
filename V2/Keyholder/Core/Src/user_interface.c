@@ -66,9 +66,9 @@ const unsigned char img_passwords[] = {
 
 #define DELTA_SLIDE 4
 
-const uint8_t menuItemsCount = 4;
+#define menuItemsCount 4
 // Menu icons
-const unsigned char *icons[menuItemsCount] = \
+const unsigned char* icons[menuItemsCount] = \
 	{img_settings, img_passwords, img_usb_write, img_lock};
 //{img_settings, img_passwords, img_usb_write, img_folder, img_lock};
 

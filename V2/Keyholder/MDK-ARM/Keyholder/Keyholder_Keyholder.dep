@@ -1,12 +1,12 @@
 Dependencies for Project 'Keyholder', Target 'Keyholder': (DO NOT MODIFY !)
 CompilerVersion: 6180000::V6.18::ARMCLANG
-F (startup_stm32l151xba.s)(0x62F4CF96)(--target=arm-arm-none-eabi -mcpu=cortex-m3 -masm=auto -c-gdwarf-4-I./RTE/_Keyholder-IC:/Users/NoName/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/NoName/AppData/Local/Arm/Packs/Keil/STM32L1xx_DFP/1.4.1/Drivers/CMSIS/Device/ST/STM32L1xx/Include-Wa,armasm,--pd,"__UVISION_VERSION SETA 537" -Wa,armasm,--pd,"_RTE_ SETA 1" -Wa,armasm,--pd,"STM32L151xBA SETA 1" -Wa,armasm,--pd,"_RTE_ SETA 1"-o keyholder/startup_stm32l151xba.o)
-F (..\Core\Src\ssd1306.c)(0x62F4D117)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-4 -O3 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../Core/Inc -I ../USB_DEVICE/App -I ../USB_DEVICE/Target -I ../Drivers/STM32L1xx_HAL_Driver/Inc -I ../Drivers/STM32L1xx_HAL_Driver/Inc/Legacy -I ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I ../Drivers/CMSIS/Device/ST/STM32L1xx/Include -I ../Drivers/CMSIS/Include -I ../Middlewares/ST/STM32_USB_Device_Library/Class/HID/Inc -I ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc-I./RTE/_Keyholder-IC:/Users/NoName/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/NoName/AppData/Local/Arm/Packs/Keil/STM32L1xx_DFP/1.4.1/Drivers/CMSIS/Device/ST/STM32L1xx/Include-D__UVISION_VERSION="537" -D_RTE_ -DSTM32L151xBA -D_RTE_ -DUSE_HAL_DRIVER -DSTM32L151xBA-o keyholder/ssd1306.o -MD)
+F (startup_stm32l151xba.s)(0x63274D6B)(--target=arm-arm-none-eabi -mcpu=cortex-m3 -masm=auto -c-gdwarf-4-I./RTE/_Keyholder-IC:/Users/NoName/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/NoName/AppData/Local/Arm/Packs/Keil/STM32L1xx_DFP/1.4.1/Drivers/CMSIS/Device/ST/STM32L1xx/Include-Wa,armasm,--pd,"__UVISION_VERSION SETA 537" -Wa,armasm,--pd,"_RTE_ SETA 1" -Wa,armasm,--pd,"STM32L151xBA SETA 1" -Wa,armasm,--pd,"_RTE_ SETA 1"-o keyholder/startup_stm32l151xba.o)
+F (..\Core\Src\ssd1306.c)(0x63275099)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-4 -O3 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../Core/Inc -I ../USB_DEVICE/App -I ../USB_DEVICE/Target -I ../Drivers/STM32L1xx_HAL_Driver/Inc -I ../Drivers/STM32L1xx_HAL_Driver/Inc/Legacy -I ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I ../Drivers/CMSIS/Device/ST/STM32L1xx/Include -I ../Drivers/CMSIS/Include -I ../Middlewares/ST/STM32_USB_Device_Library/Class/HID/Inc -I ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc-I./RTE/_Keyholder-IC:/Users/NoName/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/NoName/AppData/Local/Arm/Packs/Keil/STM32L1xx_DFP/1.4.1/Drivers/CMSIS/Device/ST/STM32L1xx/Include-D__UVISION_VERSION="537" -D_RTE_ -DSTM32L151xBA -D_RTE_ -DUSE_HAL_DRIVER -DSTM32L151xBA-o keyholder/ssd1306.o -MD)
 I (..\Core\Inc\ssd1306.h)(0x62617CE8)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stddef.h)(0x625333C6)
-I (..\Core\Inc\ssd1306_conf.h)(0x62F4D202)
+I (..\Core\Inc\ssd1306_conf.h)(0x632732BE)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal.h)(0x62F36871)
-I (..\Core\Inc\stm32l1xx_hal_conf.h)(0x62F4CF93)
+I (..\Core\Inc\stm32l1xx_hal_conf.h)(0x63274D69)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_rcc.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_def.h)(0x62F36871)
 I (..\Drivers\CMSIS\Device\ST\STM32L1xx\Include\stm32l1xx.h)(0x62F36871)
@@ -26,11 +26,15 @@ I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_gpio.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_gpio_ex.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_dma.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_cortex.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_adc.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_adc_ex.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_flash.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_flash_ex.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_flash_ramfunc.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_pwr.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_pwr_ex.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_rtc.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_rtc_ex.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_spi.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_tim.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_tim_ex.h)(0x62F36871)
@@ -39,22 +43,23 @@ I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_ll_usb.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_pcd_ex.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_exti.h)(0x62F36871)
 I (..\Core\Inc\ssd1306_fonts.h)(0x628695C8)
-I (..\Core\Inc\main.h)(0x62F4CF93)
+I (..\Core\Inc\main.h)(0x63274332)
 I (C:\Keil_v5\ARM\ARMCLANG\include\math.h)(0x625333C6)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdlib.h)(0x625333C6)
 I (C:\Keil_v5\ARM\ARMCLANG\include\string.h)(0x625333C6)
+I (..\Core\Inc\tim.h)(0x632741F1)
 F (..\Core\Src\ssd1306_fonts.c)(0x6257EEB8)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-4 -O3 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../Core/Inc -I ../USB_DEVICE/App -I ../USB_DEVICE/Target -I ../Drivers/STM32L1xx_HAL_Driver/Inc -I ../Drivers/STM32L1xx_HAL_Driver/Inc/Legacy -I ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I ../Drivers/CMSIS/Device/ST/STM32L1xx/Include -I ../Drivers/CMSIS/Include -I ../Middlewares/ST/STM32_USB_Device_Library/Class/HID/Inc -I ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc-I./RTE/_Keyholder-IC:/Users/NoName/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/NoName/AppData/Local/Arm/Packs/Keil/STM32L1xx_DFP/1.4.1/Drivers/CMSIS/Device/ST/STM32L1xx/Include-D__UVISION_VERSION="537" -D_RTE_ -DSTM32L151xBA -D_RTE_ -DUSE_HAL_DRIVER -DSTM32L151xBA-o keyholder/ssd1306_fonts.o -MD)
 I (..\Core\Inc\ssd1306_fonts.h)(0x628695C8)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x625333C8)
-I (..\Core\Inc\ssd1306_conf.h)(0x62F4D202)
+I (..\Core\Inc\ssd1306_conf.h)(0x632732BE)
 F (..\Core\Src\ssd1306_tests.c)(0x6272A16F)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-4 -O3 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../Core/Inc -I ../USB_DEVICE/App -I ../USB_DEVICE/Target -I ../Drivers/STM32L1xx_HAL_Driver/Inc -I ../Drivers/STM32L1xx_HAL_Driver/Inc/Legacy -I ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I ../Drivers/CMSIS/Device/ST/STM32L1xx/Include -I ../Drivers/CMSIS/Include -I ../Middlewares/ST/STM32_USB_Device_Library/Class/HID/Inc -I ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc-I./RTE/_Keyholder-IC:/Users/NoName/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/NoName/AppData/Local/Arm/Packs/Keil/STM32L1xx_DFP/1.4.1/Drivers/CMSIS/Device/ST/STM32L1xx/Include-D__UVISION_VERSION="537" -D_RTE_ -DSTM32L151xBA -D_RTE_ -DUSE_HAL_DRIVER -DSTM32L151xBA-o keyholder/ssd1306_tests.o -MD)
 I (C:\Keil_v5\ARM\ARMCLANG\include\string.h)(0x625333C6)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdio.h)(0x625333C6)
 I (..\Core\Inc\ssd1306.h)(0x62617CE8)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stddef.h)(0x625333C6)
-I (..\Core\Inc\ssd1306_conf.h)(0x62F4D202)
+I (..\Core\Inc\ssd1306_conf.h)(0x632732BE)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal.h)(0x62F36871)
-I (..\Core\Inc\stm32l1xx_hal_conf.h)(0x62F4CF93)
+I (..\Core\Inc\stm32l1xx_hal_conf.h)(0x63274D69)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_rcc.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_def.h)(0x62F36871)
 I (..\Drivers\CMSIS\Device\ST\STM32L1xx\Include\stm32l1xx.h)(0x62F36871)
@@ -74,11 +79,15 @@ I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_gpio.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_gpio_ex.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_dma.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_cortex.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_adc.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_adc_ex.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_flash.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_flash_ex.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_flash_ramfunc.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_pwr.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_pwr_ex.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_rtc.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_rtc_ex.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_spi.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_tim.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_tim_ex.h)(0x62F36871)
@@ -92,7 +101,7 @@ F (..\Core\Src\crypto.c)(0x62961B0E)(-xc -std=c99 --target=arm-arm-none-eabi -mc
 I (..\Core\Inc\crypto.h)(0x62961B63)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stddef.h)(0x625333C6)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal.h)(0x62F36871)
-I (..\Core\Inc\stm32l1xx_hal_conf.h)(0x62F4CF93)
+I (..\Core\Inc\stm32l1xx_hal_conf.h)(0x63274D69)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_rcc.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_def.h)(0x62F36871)
 I (..\Drivers\CMSIS\Device\ST\STM32L1xx\Include\stm32l1xx.h)(0x62F36871)
@@ -112,11 +121,15 @@ I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_gpio.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_gpio_ex.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_dma.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_cortex.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_adc.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_adc_ex.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_flash.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_flash_ex.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_flash_ramfunc.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_pwr.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_pwr_ex.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_rtc.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_rtc_ex.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_spi.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_tim.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_tim_ex.h)(0x62F36871)
@@ -126,12 +139,12 @@ I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_pcd_ex.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_exti.h)(0x62F36871)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdio.h)(0x625333C6)
 I (C:\Keil_v5\ARM\ARMCLANG\include\string.h)(0x625333C6)
-I (..\Core\Inc\main.h)(0x62F4CF93)
-F (..\Core\Src\user_interface.c)(0x6296233C)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-4 -O3 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../Core/Inc -I ../USB_DEVICE/App -I ../USB_DEVICE/Target -I ../Drivers/STM32L1xx_HAL_Driver/Inc -I ../Drivers/STM32L1xx_HAL_Driver/Inc/Legacy -I ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I ../Drivers/CMSIS/Device/ST/STM32L1xx/Include -I ../Drivers/CMSIS/Include -I ../Middlewares/ST/STM32_USB_Device_Library/Class/HID/Inc -I ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc-I./RTE/_Keyholder-IC:/Users/NoName/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/NoName/AppData/Local/Arm/Packs/Keil/STM32L1xx_DFP/1.4.1/Drivers/CMSIS/Device/ST/STM32L1xx/Include-D__UVISION_VERSION="537" -D_RTE_ -DSTM32L151xBA -D_RTE_ -DUSE_HAL_DRIVER -DSTM32L151xBA-o keyholder/user_interface.o -MD)
+I (..\Core\Inc\main.h)(0x63274332)
+F (..\Core\Src\user_interface.c)(0x6327397C)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-4 -O3 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../Core/Inc -I ../USB_DEVICE/App -I ../USB_DEVICE/Target -I ../Drivers/STM32L1xx_HAL_Driver/Inc -I ../Drivers/STM32L1xx_HAL_Driver/Inc/Legacy -I ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I ../Drivers/CMSIS/Device/ST/STM32L1xx/Include -I ../Drivers/CMSIS/Include -I ../Middlewares/ST/STM32_USB_Device_Library/Class/HID/Inc -I ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc-I./RTE/_Keyholder-IC:/Users/NoName/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/NoName/AppData/Local/Arm/Packs/Keil/STM32L1xx_DFP/1.4.1/Drivers/CMSIS/Device/ST/STM32L1xx/Include-D__UVISION_VERSION="537" -D_RTE_ -DSTM32L151xBA -D_RTE_ -DUSE_HAL_DRIVER -DSTM32L151xBA-o keyholder/user_interface.o -MD)
 I (..\Core\Inc\user_interface.h)(0x62868701)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stddef.h)(0x625333C6)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal.h)(0x62F36871)
-I (..\Core\Inc\stm32l1xx_hal_conf.h)(0x62F4CF93)
+I (..\Core\Inc\stm32l1xx_hal_conf.h)(0x63274D69)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_rcc.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_def.h)(0x62F36871)
 I (..\Drivers\CMSIS\Device\ST\STM32L1xx\Include\stm32l1xx.h)(0x62F36871)
@@ -151,11 +164,15 @@ I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_gpio.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_gpio_ex.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_dma.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_cortex.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_adc.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_adc_ex.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_flash.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_flash_ex.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_flash_ramfunc.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_pwr.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_pwr_ex.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_rtc.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_rtc_ex.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_spi.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_tim.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_tim_ex.h)(0x62F36871)
@@ -164,11 +181,11 @@ I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_ll_usb.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_pcd_ex.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_exti.h)(0x62F36871)
 I (..\Core\Inc\ssd1306.h)(0x62617CE8)
-I (..\Core\Inc\ssd1306_conf.h)(0x62F4D202)
+I (..\Core\Inc\ssd1306_conf.h)(0x632732BE)
 I (..\Core\Inc\ssd1306_fonts.h)(0x628695C8)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdio.h)(0x625333C6)
 I (..\Core\Inc\crypto.h)(0x62961B63)
-I (..\Core\Inc\main.h)(0x62F4CF93)
+I (..\Core\Inc\main.h)(0x63274332)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdlib.h)(0x625333C6)
 I (..\Core\Inc\usb.h)(0x628E8D47)
 I (C:\Keil_v5\ARM\ARMCLANG\include\string.h)(0x625333C6)
@@ -177,13 +194,13 @@ I (..\USB_DEVICE\App\usbd_cdc_if.h)(0x6286A4FB)
 I (..\Middlewares\ST\STM32_USB_Device_Library\Class\CDC\Inc\usbd_cdc.h)(0x62F36860)
 I (..\Middlewares\ST\STM32_USB_Device_Library\Core\Inc\usbd_ioreq.h)(0x62F36860)
 I (..\Middlewares\ST\STM32_USB_Device_Library\Core\Inc\usbd_def.h)(0x62F36860)
-I (..\USB_DEVICE\Target\usbd_conf.h)(0x6286994A)
+I (..\USB_DEVICE\Target\usbd_conf.h)(0x632700AF)
 I (..\Middlewares\ST\STM32_USB_Device_Library\Core\Inc\usbd_core.h)(0x62F36860)
 I (..\Middlewares\ST\STM32_USB_Device_Library\Core\Inc\usbd_ctlreq.h)(0x62F36860)
 F (..\Core\Src\system.c)(0x62ACC6E2)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-4 -O3 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../Core/Inc -I ../USB_DEVICE/App -I ../USB_DEVICE/Target -I ../Drivers/STM32L1xx_HAL_Driver/Inc -I ../Drivers/STM32L1xx_HAL_Driver/Inc/Legacy -I ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I ../Drivers/CMSIS/Device/ST/STM32L1xx/Include -I ../Drivers/CMSIS/Include -I ../Middlewares/ST/STM32_USB_Device_Library/Class/HID/Inc -I ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc-I./RTE/_Keyholder-IC:/Users/NoName/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/NoName/AppData/Local/Arm/Packs/Keil/STM32L1xx_DFP/1.4.1/Drivers/CMSIS/Device/ST/STM32L1xx/Include-D__UVISION_VERSION="537" -D_RTE_ -DSTM32L151xBA -D_RTE_ -DUSE_HAL_DRIVER -DSTM32L151xBA-o keyholder/system.o -MD)
 I (..\Core\Inc\system.h)(0x627416A5)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal.h)(0x62F36871)
-I (..\Core\Inc\stm32l1xx_hal_conf.h)(0x62F4CF93)
+I (..\Core\Inc\stm32l1xx_hal_conf.h)(0x63274D69)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_rcc.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_def.h)(0x62F36871)
 I (..\Drivers\CMSIS\Device\ST\STM32L1xx\Include\stm32l1xx.h)(0x62F36871)
@@ -204,11 +221,15 @@ I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_gpio.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_gpio_ex.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_dma.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_cortex.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_adc.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_adc_ex.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_flash.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_flash_ex.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_flash_ramfunc.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_pwr.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_pwr_ex.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_rtc.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_rtc_ex.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_spi.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_tim.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_tim_ex.h)(0x62F36871)
@@ -217,12 +238,12 @@ I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_ll_usb.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_pcd_ex.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_exti.h)(0x62F36871)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdio.h)(0x625333C6)
-I (..\Core\Inc\main.h)(0x62F4CF93)
+I (..\Core\Inc\main.h)(0x63274332)
 F (..\Core\Src\usb.c)(0x62A9F99E)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-4 -O3 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../Core/Inc -I ../USB_DEVICE/App -I ../USB_DEVICE/Target -I ../Drivers/STM32L1xx_HAL_Driver/Inc -I ../Drivers/STM32L1xx_HAL_Driver/Inc/Legacy -I ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I ../Drivers/CMSIS/Device/ST/STM32L1xx/Include -I ../Drivers/CMSIS/Include -I ../Middlewares/ST/STM32_USB_Device_Library/Class/HID/Inc -I ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc-I./RTE/_Keyholder-IC:/Users/NoName/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/NoName/AppData/Local/Arm/Packs/Keil/STM32L1xx_DFP/1.4.1/Drivers/CMSIS/Device/ST/STM32L1xx/Include-D__UVISION_VERSION="537" -D_RTE_ -DSTM32L151xBA -D_RTE_ -DUSE_HAL_DRIVER -DSTM32L151xBA-o keyholder/usb.o -MD)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdio.h)(0x625333C6)
-I (..\Core\Inc\main.h)(0x62F4CF93)
+I (..\Core\Inc\main.h)(0x63274332)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal.h)(0x62F36871)
-I (..\Core\Inc\stm32l1xx_hal_conf.h)(0x62F4CF93)
+I (..\Core\Inc\stm32l1xx_hal_conf.h)(0x63274D69)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_rcc.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_def.h)(0x62F36871)
 I (..\Drivers\CMSIS\Device\ST\STM32L1xx\Include\stm32l1xx.h)(0x62F36871)
@@ -243,11 +264,15 @@ I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_gpio.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_gpio_ex.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_dma.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_cortex.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_adc.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_adc_ex.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_flash.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_flash_ex.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_flash_ramfunc.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_pwr.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_pwr_ex.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_rtc.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_rtc_ex.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_spi.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_tim.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_tim_ex.h)(0x62F36871)
@@ -262,16 +287,16 @@ I (..\USB_DEVICE\App\usbd_cdc_if.h)(0x6286A4FB)
 I (..\Middlewares\ST\STM32_USB_Device_Library\Class\CDC\Inc\usbd_cdc.h)(0x62F36860)
 I (..\Middlewares\ST\STM32_USB_Device_Library\Core\Inc\usbd_ioreq.h)(0x62F36860)
 I (..\Middlewares\ST\STM32_USB_Device_Library\Core\Inc\usbd_def.h)(0x62F36860)
-I (..\USB_DEVICE\Target\usbd_conf.h)(0x6286994A)
+I (..\USB_DEVICE\Target\usbd_conf.h)(0x632700AF)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdlib.h)(0x625333C6)
 I (C:\Keil_v5\ARM\ARMCLANG\include\string.h)(0x625333C6)
 I (..\Middlewares\ST\STM32_USB_Device_Library\Core\Inc\usbd_core.h)(0x62F36860)
 I (..\Middlewares\ST\STM32_USB_Device_Library\Core\Inc\usbd_ctlreq.h)(0x62F36860)
 I (..\Middlewares\ST\STM32_USB_Device_Library\Class\HID\Inc\usbd_hid.h)(0x62864C01)
-F (../Core/Src/main.c)(0x62F4D743)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-4 -O3 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../Core/Inc -I ../USB_DEVICE/App -I ../USB_DEVICE/Target -I ../Drivers/STM32L1xx_HAL_Driver/Inc -I ../Drivers/STM32L1xx_HAL_Driver/Inc/Legacy -I ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I ../Drivers/CMSIS/Device/ST/STM32L1xx/Include -I ../Drivers/CMSIS/Include -I ../Middlewares/ST/STM32_USB_Device_Library/Class/HID/Inc -I ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc-I./RTE/_Keyholder-IC:/Users/NoName/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/NoName/AppData/Local/Arm/Packs/Keil/STM32L1xx_DFP/1.4.1/Drivers/CMSIS/Device/ST/STM32L1xx/Include-D__UVISION_VERSION="537" -D_RTE_ -DSTM32L151xBA -D_RTE_ -DUSE_HAL_DRIVER -DSTM32L151xBA-o keyholder/main.o -MD)
-I (..\Core\Inc\main.h)(0x62F4CF93)
+F (../Core/Src/main.c)(0x632743B9)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-4 -O3 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../Core/Inc -I ../USB_DEVICE/App -I ../USB_DEVICE/Target -I ../Drivers/STM32L1xx_HAL_Driver/Inc -I ../Drivers/STM32L1xx_HAL_Driver/Inc/Legacy -I ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I ../Drivers/CMSIS/Device/ST/STM32L1xx/Include -I ../Drivers/CMSIS/Include -I ../Middlewares/ST/STM32_USB_Device_Library/Class/HID/Inc -I ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc-I./RTE/_Keyholder-IC:/Users/NoName/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/NoName/AppData/Local/Arm/Packs/Keil/STM32L1xx_DFP/1.4.1/Drivers/CMSIS/Device/ST/STM32L1xx/Include-D__UVISION_VERSION="537" -D_RTE_ -DSTM32L151xBA -D_RTE_ -DUSE_HAL_DRIVER -DSTM32L151xBA-o keyholder/main.o -MD)
+I (..\Core\Inc\main.h)(0x63274332)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal.h)(0x62F36871)
-I (..\Core\Inc\stm32l1xx_hal_conf.h)(0x62F4CF93)
+I (..\Core\Inc\stm32l1xx_hal_conf.h)(0x63274D69)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_rcc.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_def.h)(0x62F36871)
 I (..\Drivers\CMSIS\Device\ST\STM32L1xx\Include\stm32l1xx.h)(0x62F36871)
@@ -292,11 +317,15 @@ I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_gpio.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_gpio_ex.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_dma.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_cortex.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_adc.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_adc_ex.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_flash.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_flash_ex.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_flash_ramfunc.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_pwr.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_pwr_ex.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_rtc.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_rtc_ex.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_spi.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_tim.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_tim_ex.h)(0x62F36871)
@@ -304,17 +333,19 @@ I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_pcd.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_ll_usb.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_pcd_ex.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_exti.h)(0x62F36871)
-I (..\Core\Inc\spi.h)(0x62F370E3)
-I (..\Core\Inc\tim.h)(0x626166D0)
+I (..\Core\Inc\adc.h)(0x625FF268)
+I (..\Core\Inc\rtc.h)(0x6326FCDE)
+I (..\Core\Inc\spi.h)(0x6326FCDE)
+I (..\Core\Inc\tim.h)(0x632741F1)
 I (..\USB_DEVICE\App\usb_device.h)(0x625D9BCD)
 I (..\Middlewares\ST\STM32_USB_Device_Library\Core\Inc\usbd_def.h)(0x62F36860)
-I (..\USB_DEVICE\Target\usbd_conf.h)(0x6286994A)
+I (..\USB_DEVICE\Target\usbd_conf.h)(0x632700AF)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdio.h)(0x625333C6)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdlib.h)(0x625333C6)
 I (C:\Keil_v5\ARM\ARMCLANG\include\string.h)(0x625333C6)
 I (..\Core\Inc\gpio.h)(0x625FF268)
 I (..\Core\Inc\ssd1306.h)(0x62617CE8)
-I (..\Core\Inc\ssd1306_conf.h)(0x62F4D202)
+I (..\Core\Inc\ssd1306_conf.h)(0x632732BE)
 I (..\Core\Inc\ssd1306_fonts.h)(0x628695C8)
 I (..\Core\Inc\ssd1306_tests.h)(0x62741685)
 I (..\Core\Inc\crypto.h)(0x62961B63)
@@ -326,11 +357,11 @@ I (..\Middlewares\ST\STM32_USB_Device_Library\Core\Inc\usbd_core.h)(0x62F36860)
 I (..\Middlewares\ST\STM32_USB_Device_Library\Core\Inc\usbd_ctlreq.h)(0x62F36860)
 I (..\Core\Inc\usb.h)(0x628E8D47)
 I (..\USB_DEVICE\App\usbd_desc.h)(0x625D9BCD)
-F (../Core/Src/gpio.c)(0x62F4CF91)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-4 -O3 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../Core/Inc -I ../USB_DEVICE/App -I ../USB_DEVICE/Target -I ../Drivers/STM32L1xx_HAL_Driver/Inc -I ../Drivers/STM32L1xx_HAL_Driver/Inc/Legacy -I ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I ../Drivers/CMSIS/Device/ST/STM32L1xx/Include -I ../Drivers/CMSIS/Include -I ../Middlewares/ST/STM32_USB_Device_Library/Class/HID/Inc -I ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc-I./RTE/_Keyholder-IC:/Users/NoName/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/NoName/AppData/Local/Arm/Packs/Keil/STM32L1xx_DFP/1.4.1/Drivers/CMSIS/Device/ST/STM32L1xx/Include-D__UVISION_VERSION="537" -D_RTE_ -DSTM32L151xBA -D_RTE_ -DUSE_HAL_DRIVER -DSTM32L151xBA-o keyholder/gpio.o -MD)
+F (../Core/Src/gpio.c)(0x63274D67)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-4 -O3 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../Core/Inc -I ../USB_DEVICE/App -I ../USB_DEVICE/Target -I ../Drivers/STM32L1xx_HAL_Driver/Inc -I ../Drivers/STM32L1xx_HAL_Driver/Inc/Legacy -I ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I ../Drivers/CMSIS/Device/ST/STM32L1xx/Include -I ../Drivers/CMSIS/Include -I ../Middlewares/ST/STM32_USB_Device_Library/Class/HID/Inc -I ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc-I./RTE/_Keyholder-IC:/Users/NoName/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/NoName/AppData/Local/Arm/Packs/Keil/STM32L1xx_DFP/1.4.1/Drivers/CMSIS/Device/ST/STM32L1xx/Include-D__UVISION_VERSION="537" -D_RTE_ -DSTM32L151xBA -D_RTE_ -DUSE_HAL_DRIVER -DSTM32L151xBA-o keyholder/gpio.o -MD)
 I (..\Core\Inc\gpio.h)(0x625FF268)
-I (..\Core\Inc\main.h)(0x62F4CF93)
+I (..\Core\Inc\main.h)(0x63274332)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal.h)(0x62F36871)
-I (..\Core\Inc\stm32l1xx_hal_conf.h)(0x62F4CF93)
+I (..\Core\Inc\stm32l1xx_hal_conf.h)(0x63274D69)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_rcc.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_def.h)(0x62F36871)
 I (..\Drivers\CMSIS\Device\ST\STM32L1xx\Include\stm32l1xx.h)(0x62F36871)
@@ -351,11 +382,15 @@ I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_gpio.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_gpio_ex.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_dma.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_cortex.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_adc.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_adc_ex.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_flash.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_flash_ex.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_flash_ramfunc.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_pwr.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_pwr_ex.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_rtc.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_rtc_ex.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_spi.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_tim.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_tim_ex.h)(0x62F36871)
@@ -363,11 +398,11 @@ I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_pcd.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_ll_usb.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_pcd_ex.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_exti.h)(0x62F36871)
-F (../Core/Src/spi.c)(0x62F4CF92)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-4 -O3 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../Core/Inc -I ../USB_DEVICE/App -I ../USB_DEVICE/Target -I ../Drivers/STM32L1xx_HAL_Driver/Inc -I ../Drivers/STM32L1xx_HAL_Driver/Inc/Legacy -I ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I ../Drivers/CMSIS/Device/ST/STM32L1xx/Include -I ../Drivers/CMSIS/Include -I ../Middlewares/ST/STM32_USB_Device_Library/Class/HID/Inc -I ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc-I./RTE/_Keyholder-IC:/Users/NoName/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/NoName/AppData/Local/Arm/Packs/Keil/STM32L1xx_DFP/1.4.1/Drivers/CMSIS/Device/ST/STM32L1xx/Include-D__UVISION_VERSION="537" -D_RTE_ -DSTM32L151xBA -D_RTE_ -DUSE_HAL_DRIVER -DSTM32L151xBA-o keyholder/spi.o -MD)
-I (..\Core\Inc\spi.h)(0x62F370E3)
-I (..\Core\Inc\main.h)(0x62F4CF93)
+F (../Core/Src/adc.c)(0x6326FCDD)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-4 -O3 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../Core/Inc -I ../USB_DEVICE/App -I ../USB_DEVICE/Target -I ../Drivers/STM32L1xx_HAL_Driver/Inc -I ../Drivers/STM32L1xx_HAL_Driver/Inc/Legacy -I ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I ../Drivers/CMSIS/Device/ST/STM32L1xx/Include -I ../Drivers/CMSIS/Include -I ../Middlewares/ST/STM32_USB_Device_Library/Class/HID/Inc -I ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc-I./RTE/_Keyholder-IC:/Users/NoName/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/NoName/AppData/Local/Arm/Packs/Keil/STM32L1xx_DFP/1.4.1/Drivers/CMSIS/Device/ST/STM32L1xx/Include-D__UVISION_VERSION="537" -D_RTE_ -DSTM32L151xBA -D_RTE_ -DUSE_HAL_DRIVER -DSTM32L151xBA-o keyholder/adc.o -MD)
+I (..\Core\Inc\adc.h)(0x625FF268)
+I (..\Core\Inc\main.h)(0x63274332)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal.h)(0x62F36871)
-I (..\Core\Inc\stm32l1xx_hal_conf.h)(0x62F4CF93)
+I (..\Core\Inc\stm32l1xx_hal_conf.h)(0x63274D69)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_rcc.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_def.h)(0x62F36871)
 I (..\Drivers\CMSIS\Device\ST\STM32L1xx\Include\stm32l1xx.h)(0x62F36871)
@@ -388,11 +423,15 @@ I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_gpio.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_gpio_ex.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_dma.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_cortex.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_adc.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_adc_ex.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_flash.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_flash_ex.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_flash_ramfunc.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_pwr.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_pwr_ex.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_rtc.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_rtc_ex.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_spi.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_tim.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_tim_ex.h)(0x62F36871)
@@ -400,11 +439,11 @@ I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_pcd.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_ll_usb.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_pcd_ex.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_exti.h)(0x62F36871)
-F (../Core/Src/tim.c)(0x62F3687A)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-4 -O3 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../Core/Inc -I ../USB_DEVICE/App -I ../USB_DEVICE/Target -I ../Drivers/STM32L1xx_HAL_Driver/Inc -I ../Drivers/STM32L1xx_HAL_Driver/Inc/Legacy -I ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I ../Drivers/CMSIS/Device/ST/STM32L1xx/Include -I ../Drivers/CMSIS/Include -I ../Middlewares/ST/STM32_USB_Device_Library/Class/HID/Inc -I ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc-I./RTE/_Keyholder-IC:/Users/NoName/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/NoName/AppData/Local/Arm/Packs/Keil/STM32L1xx_DFP/1.4.1/Drivers/CMSIS/Device/ST/STM32L1xx/Include-D__UVISION_VERSION="537" -D_RTE_ -DSTM32L151xBA -D_RTE_ -DUSE_HAL_DRIVER -DSTM32L151xBA-o keyholder/tim.o -MD)
-I (..\Core\Inc\tim.h)(0x626166D0)
-I (..\Core\Inc\main.h)(0x62F4CF93)
+F (../Core/Src/rtc.c)(0x6326FCDE)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-4 -O3 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../Core/Inc -I ../USB_DEVICE/App -I ../USB_DEVICE/Target -I ../Drivers/STM32L1xx_HAL_Driver/Inc -I ../Drivers/STM32L1xx_HAL_Driver/Inc/Legacy -I ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I ../Drivers/CMSIS/Device/ST/STM32L1xx/Include -I ../Drivers/CMSIS/Include -I ../Middlewares/ST/STM32_USB_Device_Library/Class/HID/Inc -I ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc-I./RTE/_Keyholder-IC:/Users/NoName/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/NoName/AppData/Local/Arm/Packs/Keil/STM32L1xx_DFP/1.4.1/Drivers/CMSIS/Device/ST/STM32L1xx/Include-D__UVISION_VERSION="537" -D_RTE_ -DSTM32L151xBA -D_RTE_ -DUSE_HAL_DRIVER -DSTM32L151xBA-o keyholder/rtc.o -MD)
+I (..\Core\Inc\rtc.h)(0x6326FCDE)
+I (..\Core\Inc\main.h)(0x63274332)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal.h)(0x62F36871)
-I (..\Core\Inc\stm32l1xx_hal_conf.h)(0x62F4CF93)
+I (..\Core\Inc\stm32l1xx_hal_conf.h)(0x63274D69)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_rcc.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_def.h)(0x62F36871)
 I (..\Drivers\CMSIS\Device\ST\STM32L1xx\Include\stm32l1xx.h)(0x62F36871)
@@ -425,11 +464,15 @@ I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_gpio.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_gpio_ex.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_dma.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_cortex.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_adc.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_adc_ex.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_flash.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_flash_ex.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_flash_ramfunc.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_pwr.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_pwr_ex.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_rtc.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_rtc_ex.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_spi.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_tim.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_tim_ex.h)(0x62F36871)
@@ -437,10 +480,11 @@ I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_pcd.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_ll_usb.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_pcd_ex.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_exti.h)(0x62F36871)
-F (../Core/Src/stm32l1xx_it.c)(0x62F4D09A)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-4 -O3 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../Core/Inc -I ../USB_DEVICE/App -I ../USB_DEVICE/Target -I ../Drivers/STM32L1xx_HAL_Driver/Inc -I ../Drivers/STM32L1xx_HAL_Driver/Inc/Legacy -I ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I ../Drivers/CMSIS/Device/ST/STM32L1xx/Include -I ../Drivers/CMSIS/Include -I ../Middlewares/ST/STM32_USB_Device_Library/Class/HID/Inc -I ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc-I./RTE/_Keyholder-IC:/Users/NoName/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/NoName/AppData/Local/Arm/Packs/Keil/STM32L1xx_DFP/1.4.1/Drivers/CMSIS/Device/ST/STM32L1xx/Include-D__UVISION_VERSION="537" -D_RTE_ -DSTM32L151xBA -D_RTE_ -DUSE_HAL_DRIVER -DSTM32L151xBA-o keyholder/stm32l1xx_it.o -MD)
-I (..\Core\Inc\main.h)(0x62F4CF93)
+F (../Core/Src/spi.c)(0x6326FCDE)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-4 -O3 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../Core/Inc -I ../USB_DEVICE/App -I ../USB_DEVICE/Target -I ../Drivers/STM32L1xx_HAL_Driver/Inc -I ../Drivers/STM32L1xx_HAL_Driver/Inc/Legacy -I ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I ../Drivers/CMSIS/Device/ST/STM32L1xx/Include -I ../Drivers/CMSIS/Include -I ../Middlewares/ST/STM32_USB_Device_Library/Class/HID/Inc -I ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc-I./RTE/_Keyholder-IC:/Users/NoName/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/NoName/AppData/Local/Arm/Packs/Keil/STM32L1xx_DFP/1.4.1/Drivers/CMSIS/Device/ST/STM32L1xx/Include-D__UVISION_VERSION="537" -D_RTE_ -DSTM32L151xBA -D_RTE_ -DUSE_HAL_DRIVER -DSTM32L151xBA-o keyholder/spi.o -MD)
+I (..\Core\Inc\spi.h)(0x6326FCDE)
+I (..\Core\Inc\main.h)(0x63274332)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal.h)(0x62F36871)
-I (..\Core\Inc\stm32l1xx_hal_conf.h)(0x62F4CF93)
+I (..\Core\Inc\stm32l1xx_hal_conf.h)(0x63274D69)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_rcc.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_def.h)(0x62F36871)
 I (..\Drivers\CMSIS\Device\ST\STM32L1xx\Include\stm32l1xx.h)(0x62F36871)
@@ -461,11 +505,15 @@ I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_gpio.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_gpio_ex.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_dma.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_cortex.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_adc.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_adc_ex.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_flash.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_flash_ex.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_flash_ramfunc.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_pwr.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_pwr_ex.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_rtc.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_rtc_ex.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_spi.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_tim.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_tim_ex.h)(0x62F36871)
@@ -473,17 +521,98 @@ I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_pcd.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_ll_usb.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_pcd_ex.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_exti.h)(0x62F36871)
-I (..\Core\Inc\stm32l1xx_it.h)(0x62F4CF93)
+F (../Core/Src/tim.c)(0x632741F0)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-4 -O3 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../Core/Inc -I ../USB_DEVICE/App -I ../USB_DEVICE/Target -I ../Drivers/STM32L1xx_HAL_Driver/Inc -I ../Drivers/STM32L1xx_HAL_Driver/Inc/Legacy -I ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I ../Drivers/CMSIS/Device/ST/STM32L1xx/Include -I ../Drivers/CMSIS/Include -I ../Middlewares/ST/STM32_USB_Device_Library/Class/HID/Inc -I ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc-I./RTE/_Keyholder-IC:/Users/NoName/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/NoName/AppData/Local/Arm/Packs/Keil/STM32L1xx_DFP/1.4.1/Drivers/CMSIS/Device/ST/STM32L1xx/Include-D__UVISION_VERSION="537" -D_RTE_ -DSTM32L151xBA -D_RTE_ -DUSE_HAL_DRIVER -DSTM32L151xBA-o keyholder/tim.o -MD)
+I (..\Core\Inc\tim.h)(0x632741F1)
+I (..\Core\Inc\main.h)(0x63274332)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal.h)(0x62F36871)
+I (..\Core\Inc\stm32l1xx_hal_conf.h)(0x63274D69)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_rcc.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_def.h)(0x62F36871)
+I (..\Drivers\CMSIS\Device\ST\STM32L1xx\Include\stm32l1xx.h)(0x62F36871)
+I (..\Drivers\CMSIS\Device\ST\STM32L1xx\Include\stm32l151xba.h)(0x62F36871)
+I (..\Drivers\CMSIS\Include\core_cm3.h)(0x62F3685E)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x625333C8)
+I (..\Drivers\CMSIS\Include\cmsis_version.h)(0x62F3685E)
+I (..\Drivers\CMSIS\Include\cmsis_compiler.h)(0x62F3685E)
+I (..\Drivers\CMSIS\Include\cmsis_armclang.h)(0x62F3685E)
+I (C:\Keil_v5\ARM\ARMCLANG\include\arm_compat.h)(0x625333C6)
+I (C:\Keil_v5\ARM\ARMCLANG\include\arm_acle.h)(0x625333C6)
+I (..\Drivers\CMSIS\Include\mpu_armv7.h)(0x62F3685E)
+I (..\Drivers\CMSIS\Device\ST\STM32L1xx\Include\system_stm32l1xx.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\Legacy\stm32_hal_legacy.h)(0x62F36871)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stddef.h)(0x625333C6)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_rcc_ex.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_gpio.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_gpio_ex.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_dma.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_cortex.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_adc.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_adc_ex.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_flash.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_flash_ex.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_flash_ramfunc.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_pwr.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_pwr_ex.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_rtc.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_rtc_ex.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_spi.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_tim.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_tim_ex.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_pcd.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_ll_usb.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_pcd_ex.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_exti.h)(0x62F36871)
+F (../Core/Src/stm32l1xx_it.c)(0x63275088)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-4 -O3 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../Core/Inc -I ../USB_DEVICE/App -I ../USB_DEVICE/Target -I ../Drivers/STM32L1xx_HAL_Driver/Inc -I ../Drivers/STM32L1xx_HAL_Driver/Inc/Legacy -I ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I ../Drivers/CMSIS/Device/ST/STM32L1xx/Include -I ../Drivers/CMSIS/Include -I ../Middlewares/ST/STM32_USB_Device_Library/Class/HID/Inc -I ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc-I./RTE/_Keyholder-IC:/Users/NoName/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/NoName/AppData/Local/Arm/Packs/Keil/STM32L1xx_DFP/1.4.1/Drivers/CMSIS/Device/ST/STM32L1xx/Include-D__UVISION_VERSION="537" -D_RTE_ -DSTM32L151xBA -D_RTE_ -DUSE_HAL_DRIVER -DSTM32L151xBA-o keyholder/stm32l1xx_it.o -MD)
+I (..\Core\Inc\main.h)(0x63274332)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal.h)(0x62F36871)
+I (..\Core\Inc\stm32l1xx_hal_conf.h)(0x63274D69)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_rcc.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_def.h)(0x62F36871)
+I (..\Drivers\CMSIS\Device\ST\STM32L1xx\Include\stm32l1xx.h)(0x62F36871)
+I (..\Drivers\CMSIS\Device\ST\STM32L1xx\Include\stm32l151xba.h)(0x62F36871)
+I (..\Drivers\CMSIS\Include\core_cm3.h)(0x62F3685E)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x625333C8)
+I (..\Drivers\CMSIS\Include\cmsis_version.h)(0x62F3685E)
+I (..\Drivers\CMSIS\Include\cmsis_compiler.h)(0x62F3685E)
+I (..\Drivers\CMSIS\Include\cmsis_armclang.h)(0x62F3685E)
+I (C:\Keil_v5\ARM\ARMCLANG\include\arm_compat.h)(0x625333C6)
+I (C:\Keil_v5\ARM\ARMCLANG\include\arm_acle.h)(0x625333C6)
+I (..\Drivers\CMSIS\Include\mpu_armv7.h)(0x62F3685E)
+I (..\Drivers\CMSIS\Device\ST\STM32L1xx\Include\system_stm32l1xx.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\Legacy\stm32_hal_legacy.h)(0x62F36871)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stddef.h)(0x625333C6)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_rcc_ex.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_gpio.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_gpio_ex.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_dma.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_cortex.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_adc.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_adc_ex.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_flash.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_flash_ex.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_flash_ramfunc.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_pwr.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_pwr_ex.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_rtc.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_rtc_ex.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_spi.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_tim.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_tim_ex.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_pcd.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_ll_usb.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_pcd_ex.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_exti.h)(0x62F36871)
+I (..\Core\Inc\stm32l1xx_it.h)(0x63274331)
 I (..\Core\Inc\user_interface.h)(0x62868701)
 I (..\Core\Inc\ssd1306.h)(0x62617CE8)
-I (..\Core\Inc\ssd1306_conf.h)(0x62F4D202)
+I (..\Core\Inc\ssd1306_conf.h)(0x632732BE)
 I (..\Core\Inc\ssd1306_fonts.h)(0x628695C8)
 I (..\Core\Inc\crypto.h)(0x62961B63)
 I (..\Core\Inc\system.h)(0x627416A5)
 F (../Core/Src/stm32l1xx_hal_msp.c)(0x625FF269)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-4 -O3 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../Core/Inc -I ../USB_DEVICE/App -I ../USB_DEVICE/Target -I ../Drivers/STM32L1xx_HAL_Driver/Inc -I ../Drivers/STM32L1xx_HAL_Driver/Inc/Legacy -I ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I ../Drivers/CMSIS/Device/ST/STM32L1xx/Include -I ../Drivers/CMSIS/Include -I ../Middlewares/ST/STM32_USB_Device_Library/Class/HID/Inc -I ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc-I./RTE/_Keyholder-IC:/Users/NoName/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/NoName/AppData/Local/Arm/Packs/Keil/STM32L1xx_DFP/1.4.1/Drivers/CMSIS/Device/ST/STM32L1xx/Include-D__UVISION_VERSION="537" -D_RTE_ -DSTM32L151xBA -D_RTE_ -DUSE_HAL_DRIVER -DSTM32L151xBA-o keyholder/stm32l1xx_hal_msp.o -MD)
-I (..\Core\Inc\main.h)(0x62F4CF93)
+I (..\Core\Inc\main.h)(0x63274332)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal.h)(0x62F36871)
-I (..\Core\Inc\stm32l1xx_hal_conf.h)(0x62F4CF93)
+I (..\Core\Inc\stm32l1xx_hal_conf.h)(0x63274D69)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_rcc.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_def.h)(0x62F36871)
 I (..\Drivers\CMSIS\Device\ST\STM32L1xx\Include\stm32l1xx.h)(0x62F36871)
@@ -504,11 +633,15 @@ I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_gpio.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_gpio_ex.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_dma.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_cortex.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_adc.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_adc_ex.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_flash.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_flash_ex.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_flash_ramfunc.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_pwr.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_pwr_ex.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_rtc.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_rtc_ex.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_spi.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_tim.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_tim_ex.h)(0x62F36871)
@@ -530,7 +663,7 @@ I (C:\Keil_v5\ARM\ARMCLANG\include\arm_acle.h)(0x625333C6)
 I (..\Drivers\CMSIS\Include\mpu_armv7.h)(0x62F3685E)
 I (..\Drivers\CMSIS\Device\ST\STM32L1xx\Include\system_stm32l1xx.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal.h)(0x62F36871)
-I (..\Core\Inc\stm32l1xx_hal_conf.h)(0x62F4CF93)
+I (..\Core\Inc\stm32l1xx_hal_conf.h)(0x63274D69)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_rcc.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_def.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\Legacy\stm32_hal_legacy.h)(0x62F36871)
@@ -540,11 +673,15 @@ I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_gpio.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_gpio_ex.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_dma.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_cortex.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_adc.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_adc_ex.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_flash.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_flash_ex.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_flash_ramfunc.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_pwr.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_pwr_ex.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_rtc.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_rtc_ex.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_spi.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_tim.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_tim_ex.h)(0x62F36871)
@@ -553,11 +690,11 @@ I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_ll_usb.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_pcd_ex.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_exti.h)(0x62F36871)
 I (..\Middlewares\ST\STM32_USB_Device_Library\Core\Inc\usbd_def.h)(0x62F36860)
-I (..\USB_DEVICE\Target\usbd_conf.h)(0x6286994A)
+I (..\USB_DEVICE\Target\usbd_conf.h)(0x632700AF)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdio.h)(0x625333C6)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdlib.h)(0x625333C6)
 I (C:\Keil_v5\ARM\ARMCLANG\include\string.h)(0x625333C6)
-I (..\Core\Inc\main.h)(0x62F4CF93)
+I (..\Core\Inc\main.h)(0x63274332)
 I (..\Middlewares\ST\STM32_USB_Device_Library\Core\Inc\usbd_core.h)(0x62F36860)
 I (..\Middlewares\ST\STM32_USB_Device_Library\Core\Inc\usbd_ioreq.h)(0x62F36860)
 I (..\Middlewares\ST\STM32_USB_Device_Library\Core\Inc\usbd_ctlreq.h)(0x62F36860)
@@ -566,13 +703,13 @@ I (..\Middlewares\ST\STM32_USB_Device_Library\Class\CDC\Inc\usbd_cdc.h)(0x62F368
 I (..\USB_DEVICE\App\usbd_cdc_if.h)(0x6286A4FB)
 F (../USB_DEVICE/App/usbd_desc.c)(0x6286994A)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-4 -O3 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../Core/Inc -I ../USB_DEVICE/App -I ../USB_DEVICE/Target -I ../Drivers/STM32L1xx_HAL_Driver/Inc -I ../Drivers/STM32L1xx_HAL_Driver/Inc/Legacy -I ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I ../Drivers/CMSIS/Device/ST/STM32L1xx/Include -I ../Drivers/CMSIS/Include -I ../Middlewares/ST/STM32_USB_Device_Library/Class/HID/Inc -I ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc-I./RTE/_Keyholder-IC:/Users/NoName/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/NoName/AppData/Local/Arm/Packs/Keil/STM32L1xx_DFP/1.4.1/Drivers/CMSIS/Device/ST/STM32L1xx/Include-D__UVISION_VERSION="537" -D_RTE_ -DSTM32L151xBA -D_RTE_ -DUSE_HAL_DRIVER -DSTM32L151xBA-o keyholder/usbd_desc.o -MD)
 I (..\Middlewares\ST\STM32_USB_Device_Library\Core\Inc\usbd_core.h)(0x62F36860)
-I (..\USB_DEVICE\Target\usbd_conf.h)(0x6286994A)
+I (..\USB_DEVICE\Target\usbd_conf.h)(0x632700AF)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdio.h)(0x625333C6)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdlib.h)(0x625333C6)
 I (C:\Keil_v5\ARM\ARMCLANG\include\string.h)(0x625333C6)
-I (..\Core\Inc\main.h)(0x62F4CF93)
+I (..\Core\Inc\main.h)(0x63274332)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal.h)(0x62F36871)
-I (..\Core\Inc\stm32l1xx_hal_conf.h)(0x62F4CF93)
+I (..\Core\Inc\stm32l1xx_hal_conf.h)(0x63274D69)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_rcc.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_def.h)(0x62F36871)
 I (..\Drivers\CMSIS\Device\ST\STM32L1xx\Include\stm32l1xx.h)(0x62F36871)
@@ -593,11 +730,15 @@ I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_gpio.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_gpio_ex.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_dma.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_cortex.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_adc.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_adc_ex.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_flash.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_flash_ex.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_flash_ramfunc.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_pwr.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_pwr_ex.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_rtc.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_rtc_ex.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_spi.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_tim.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_tim_ex.h)(0x62F36871)
@@ -614,13 +755,13 @@ I (..\USB_DEVICE\App\usbd_cdc_if.h)(0x6286A4FB)
 I (..\Middlewares\ST\STM32_USB_Device_Library\Class\CDC\Inc\usbd_cdc.h)(0x62F36860)
 I (..\Middlewares\ST\STM32_USB_Device_Library\Core\Inc\usbd_ioreq.h)(0x62F36860)
 I (..\Middlewares\ST\STM32_USB_Device_Library\Core\Inc\usbd_def.h)(0x62F36860)
-I (..\USB_DEVICE\Target\usbd_conf.h)(0x6286994A)
+I (..\USB_DEVICE\Target\usbd_conf.h)(0x632700AF)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdio.h)(0x625333C6)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdlib.h)(0x625333C6)
 I (C:\Keil_v5\ARM\ARMCLANG\include\string.h)(0x625333C6)
-I (..\Core\Inc\main.h)(0x62F4CF93)
+I (..\Core\Inc\main.h)(0x63274332)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal.h)(0x62F36871)
-I (..\Core\Inc\stm32l1xx_hal_conf.h)(0x62F4CF93)
+I (..\Core\Inc\stm32l1xx_hal_conf.h)(0x63274D69)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_rcc.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_def.h)(0x62F36871)
 I (..\Drivers\CMSIS\Device\ST\STM32L1xx\Include\stm32l1xx.h)(0x62F36871)
@@ -641,11 +782,15 @@ I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_gpio.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_gpio_ex.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_dma.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_cortex.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_adc.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_adc_ex.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_flash.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_flash_ex.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_flash_ramfunc.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_pwr.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_pwr_ex.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_rtc.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_rtc_ex.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_spi.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_tim.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_tim_ex.h)(0x62F36871)
@@ -657,7 +802,7 @@ I (..\Middlewares\ST\STM32_USB_Device_Library\Core\Inc\usbd_core.h)(0x62F36860)
 I (..\Middlewares\ST\STM32_USB_Device_Library\Core\Inc\usbd_ctlreq.h)(0x62F36860)
 I (..\Core\Inc\user_interface.h)(0x62868701)
 I (..\Core\Inc\crypto.h)(0x62961B63)
-F (..\USB_DEVICE\Target\usbd_conf.h)(0x6286994A)()
+F (..\USB_DEVICE\Target\usbd_conf.h)(0x632700AF)()
 F (../USB_DEVICE/Target/usbd_conf.c)(0x628E9EE7)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-4 -O3 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../Core/Inc -I ../USB_DEVICE/App -I ../USB_DEVICE/Target -I ../Drivers/STM32L1xx_HAL_Driver/Inc -I ../Drivers/STM32L1xx_HAL_Driver/Inc/Legacy -I ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I ../Drivers/CMSIS/Device/ST/STM32L1xx/Include -I ../Drivers/CMSIS/Include -I ../Middlewares/ST/STM32_USB_Device_Library/Class/HID/Inc -I ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc-I./RTE/_Keyholder-IC:/Users/NoName/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/NoName/AppData/Local/Arm/Packs/Keil/STM32L1xx_DFP/1.4.1/Drivers/CMSIS/Device/ST/STM32L1xx/Include-D__UVISION_VERSION="537" -D_RTE_ -DSTM32L151xBA -D_RTE_ -DUSE_HAL_DRIVER -DSTM32L151xBA-o keyholder/usbd_conf.o -MD)
 I (..\Drivers\CMSIS\Device\ST\STM32L1xx\Include\stm32l1xx.h)(0x62F36871)
 I (..\Drivers\CMSIS\Device\ST\STM32L1xx\Include\stm32l151xba.h)(0x62F36871)
@@ -671,7 +816,7 @@ I (C:\Keil_v5\ARM\ARMCLANG\include\arm_acle.h)(0x625333C6)
 I (..\Drivers\CMSIS\Include\mpu_armv7.h)(0x62F3685E)
 I (..\Drivers\CMSIS\Device\ST\STM32L1xx\Include\system_stm32l1xx.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal.h)(0x62F36871)
-I (..\Core\Inc\stm32l1xx_hal_conf.h)(0x62F4CF93)
+I (..\Core\Inc\stm32l1xx_hal_conf.h)(0x63274D69)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_rcc.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_def.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\Legacy\stm32_hal_legacy.h)(0x62F36871)
@@ -681,11 +826,15 @@ I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_gpio.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_gpio_ex.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_dma.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_cortex.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_adc.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_adc_ex.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_flash.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_flash_ex.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_flash_ramfunc.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_pwr.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_pwr_ex.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_rtc.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_rtc_ex.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_spi.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_tim.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_tim_ex.h)(0x62F36871)
@@ -694,20 +843,20 @@ I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_ll_usb.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_pcd_ex.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_exti.h)(0x62F36871)
 I (..\Middlewares\ST\STM32_USB_Device_Library\Core\Inc\usbd_def.h)(0x62F36860)
-I (..\USB_DEVICE\Target\usbd_conf.h)(0x6286994A)
+I (..\USB_DEVICE\Target\usbd_conf.h)(0x632700AF)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdio.h)(0x625333C6)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdlib.h)(0x625333C6)
 I (C:\Keil_v5\ARM\ARMCLANG\include\string.h)(0x625333C6)
-I (..\Core\Inc\main.h)(0x62F4CF93)
+I (..\Core\Inc\main.h)(0x63274332)
 I (..\Middlewares\ST\STM32_USB_Device_Library\Core\Inc\usbd_core.h)(0x62F36860)
 I (..\Middlewares\ST\STM32_USB_Device_Library\Core\Inc\usbd_ioreq.h)(0x62F36860)
 I (..\Middlewares\ST\STM32_USB_Device_Library\Core\Inc\usbd_ctlreq.h)(0x62F36860)
 I (..\Middlewares\ST\STM32_USB_Device_Library\Class\CDC\Inc\usbd_cdc.h)(0x62F36860)
 I (..\Core\Inc\usb.h)(0x628E8D47)
-I (..\Core\Inc\tim.h)(0x626166D0)
+I (..\Core\Inc\tim.h)(0x632741F1)
 F (../Drivers/STM32L1xx_HAL_Driver/Src/stm32l1xx_hal_pcd.c)(0x62F36871)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-4 -O3 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../Core/Inc -I ../USB_DEVICE/App -I ../USB_DEVICE/Target -I ../Drivers/STM32L1xx_HAL_Driver/Inc -I ../Drivers/STM32L1xx_HAL_Driver/Inc/Legacy -I ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I ../Drivers/CMSIS/Device/ST/STM32L1xx/Include -I ../Drivers/CMSIS/Include -I ../Middlewares/ST/STM32_USB_Device_Library/Class/HID/Inc -I ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc-I./RTE/_Keyholder-IC:/Users/NoName/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/NoName/AppData/Local/Arm/Packs/Keil/STM32L1xx_DFP/1.4.1/Drivers/CMSIS/Device/ST/STM32L1xx/Include-D__UVISION_VERSION="537" -D_RTE_ -DSTM32L151xBA -D_RTE_ -DUSE_HAL_DRIVER -DSTM32L151xBA-o keyholder/stm32l1xx_hal_pcd.o -MD)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal.h)(0x62F36871)
-I (..\Core\Inc\stm32l1xx_hal_conf.h)(0x62F4CF93)
+I (..\Core\Inc\stm32l1xx_hal_conf.h)(0x63274D69)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_rcc.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_def.h)(0x62F36871)
 I (..\Drivers\CMSIS\Device\ST\STM32L1xx\Include\stm32l1xx.h)(0x62F36871)
@@ -728,11 +877,15 @@ I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_gpio.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_gpio_ex.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_dma.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_cortex.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_adc.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_adc_ex.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_flash.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_flash_ex.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_flash_ramfunc.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_pwr.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_pwr_ex.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_rtc.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_rtc_ex.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_spi.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_tim.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_tim_ex.h)(0x62F36871)
@@ -742,7 +895,7 @@ I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_pcd_ex.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_exti.h)(0x62F36871)
 F (../Drivers/STM32L1xx_HAL_Driver/Src/stm32l1xx_hal_pcd_ex.c)(0x62F36871)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-4 -O3 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../Core/Inc -I ../USB_DEVICE/App -I ../USB_DEVICE/Target -I ../Drivers/STM32L1xx_HAL_Driver/Inc -I ../Drivers/STM32L1xx_HAL_Driver/Inc/Legacy -I ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I ../Drivers/CMSIS/Device/ST/STM32L1xx/Include -I ../Drivers/CMSIS/Include -I ../Middlewares/ST/STM32_USB_Device_Library/Class/HID/Inc -I ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc-I./RTE/_Keyholder-IC:/Users/NoName/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/NoName/AppData/Local/Arm/Packs/Keil/STM32L1xx_DFP/1.4.1/Drivers/CMSIS/Device/ST/STM32L1xx/Include-D__UVISION_VERSION="537" -D_RTE_ -DSTM32L151xBA -D_RTE_ -DUSE_HAL_DRIVER -DSTM32L151xBA-o keyholder/stm32l1xx_hal_pcd_ex.o -MD)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal.h)(0x62F36871)
-I (..\Core\Inc\stm32l1xx_hal_conf.h)(0x62F4CF93)
+I (..\Core\Inc\stm32l1xx_hal_conf.h)(0x63274D69)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_rcc.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_def.h)(0x62F36871)
 I (..\Drivers\CMSIS\Device\ST\STM32L1xx\Include\stm32l1xx.h)(0x62F36871)
@@ -763,11 +916,15 @@ I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_gpio.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_gpio_ex.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_dma.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_cortex.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_adc.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_adc_ex.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_flash.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_flash_ex.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_flash_ramfunc.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_pwr.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_pwr_ex.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_rtc.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_rtc_ex.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_spi.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_tim.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_tim_ex.h)(0x62F36871)
@@ -777,7 +934,7 @@ I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_pcd_ex.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_exti.h)(0x62F36871)
 F (../Drivers/STM32L1xx_HAL_Driver/Src/stm32l1xx_ll_usb.c)(0x62F36871)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-4 -O3 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../Core/Inc -I ../USB_DEVICE/App -I ../USB_DEVICE/Target -I ../Drivers/STM32L1xx_HAL_Driver/Inc -I ../Drivers/STM32L1xx_HAL_Driver/Inc/Legacy -I ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I ../Drivers/CMSIS/Device/ST/STM32L1xx/Include -I ../Drivers/CMSIS/Include -I ../Middlewares/ST/STM32_USB_Device_Library/Class/HID/Inc -I ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc-I./RTE/_Keyholder-IC:/Users/NoName/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/NoName/AppData/Local/Arm/Packs/Keil/STM32L1xx_DFP/1.4.1/Drivers/CMSIS/Device/ST/STM32L1xx/Include-D__UVISION_VERSION="537" -D_RTE_ -DSTM32L151xBA -D_RTE_ -DUSE_HAL_DRIVER -DSTM32L151xBA-o keyholder/stm32l1xx_ll_usb.o -MD)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal.h)(0x62F36871)
-I (..\Core\Inc\stm32l1xx_hal_conf.h)(0x62F4CF93)
+I (..\Core\Inc\stm32l1xx_hal_conf.h)(0x63274D69)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_rcc.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_def.h)(0x62F36871)
 I (..\Drivers\CMSIS\Device\ST\STM32L1xx\Include\stm32l1xx.h)(0x62F36871)
@@ -798,11 +955,15 @@ I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_gpio.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_gpio_ex.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_dma.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_cortex.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_adc.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_adc_ex.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_flash.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_flash_ex.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_flash_ramfunc.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_pwr.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_pwr_ex.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_rtc.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_rtc_ex.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_spi.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_tim.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_tim_ex.h)(0x62F36871)
@@ -812,7 +973,7 @@ I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_pcd_ex.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_exti.h)(0x62F36871)
 F (../Drivers/STM32L1xx_HAL_Driver/Src/stm32l1xx_hal.c)(0x62F36871)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-4 -O3 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../Core/Inc -I ../USB_DEVICE/App -I ../USB_DEVICE/Target -I ../Drivers/STM32L1xx_HAL_Driver/Inc -I ../Drivers/STM32L1xx_HAL_Driver/Inc/Legacy -I ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I ../Drivers/CMSIS/Device/ST/STM32L1xx/Include -I ../Drivers/CMSIS/Include -I ../Middlewares/ST/STM32_USB_Device_Library/Class/HID/Inc -I ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc-I./RTE/_Keyholder-IC:/Users/NoName/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/NoName/AppData/Local/Arm/Packs/Keil/STM32L1xx_DFP/1.4.1/Drivers/CMSIS/Device/ST/STM32L1xx/Include-D__UVISION_VERSION="537" -D_RTE_ -DSTM32L151xBA -D_RTE_ -DUSE_HAL_DRIVER -DSTM32L151xBA-o keyholder/stm32l1xx_hal.o -MD)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal.h)(0x62F36871)
-I (..\Core\Inc\stm32l1xx_hal_conf.h)(0x62F4CF93)
+I (..\Core\Inc\stm32l1xx_hal_conf.h)(0x63274D69)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_rcc.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_def.h)(0x62F36871)
 I (..\Drivers\CMSIS\Device\ST\STM32L1xx\Include\stm32l1xx.h)(0x62F36871)
@@ -833,11 +994,15 @@ I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_gpio.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_gpio_ex.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_dma.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_cortex.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_adc.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_adc_ex.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_flash.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_flash_ex.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_flash_ramfunc.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_pwr.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_pwr_ex.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_rtc.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_rtc_ex.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_spi.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_tim.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_tim_ex.h)(0x62F36871)
@@ -847,7 +1012,7 @@ I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_pcd_ex.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_exti.h)(0x62F36871)
 F (../Drivers/STM32L1xx_HAL_Driver/Src/stm32l1xx_hal_rcc.c)(0x62F36871)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-4 -O3 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../Core/Inc -I ../USB_DEVICE/App -I ../USB_DEVICE/Target -I ../Drivers/STM32L1xx_HAL_Driver/Inc -I ../Drivers/STM32L1xx_HAL_Driver/Inc/Legacy -I ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I ../Drivers/CMSIS/Device/ST/STM32L1xx/Include -I ../Drivers/CMSIS/Include -I ../Middlewares/ST/STM32_USB_Device_Library/Class/HID/Inc -I ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc-I./RTE/_Keyholder-IC:/Users/NoName/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/NoName/AppData/Local/Arm/Packs/Keil/STM32L1xx_DFP/1.4.1/Drivers/CMSIS/Device/ST/STM32L1xx/Include-D__UVISION_VERSION="537" -D_RTE_ -DSTM32L151xBA -D_RTE_ -DUSE_HAL_DRIVER -DSTM32L151xBA-o keyholder/stm32l1xx_hal_rcc.o -MD)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal.h)(0x62F36871)
-I (..\Core\Inc\stm32l1xx_hal_conf.h)(0x62F4CF93)
+I (..\Core\Inc\stm32l1xx_hal_conf.h)(0x63274D69)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_rcc.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_def.h)(0x62F36871)
 I (..\Drivers\CMSIS\Device\ST\STM32L1xx\Include\stm32l1xx.h)(0x62F36871)
@@ -868,11 +1033,15 @@ I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_gpio.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_gpio_ex.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_dma.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_cortex.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_adc.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_adc_ex.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_flash.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_flash_ex.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_flash_ramfunc.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_pwr.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_pwr_ex.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_rtc.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_rtc_ex.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_spi.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_tim.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_tim_ex.h)(0x62F36871)
@@ -882,7 +1051,7 @@ I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_pcd_ex.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_exti.h)(0x62F36871)
 F (../Drivers/STM32L1xx_HAL_Driver/Src/stm32l1xx_hal_rcc_ex.c)(0x62F36871)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-4 -O3 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../Core/Inc -I ../USB_DEVICE/App -I ../USB_DEVICE/Target -I ../Drivers/STM32L1xx_HAL_Driver/Inc -I ../Drivers/STM32L1xx_HAL_Driver/Inc/Legacy -I ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I ../Drivers/CMSIS/Device/ST/STM32L1xx/Include -I ../Drivers/CMSIS/Include -I ../Middlewares/ST/STM32_USB_Device_Library/Class/HID/Inc -I ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc-I./RTE/_Keyholder-IC:/Users/NoName/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/NoName/AppData/Local/Arm/Packs/Keil/STM32L1xx_DFP/1.4.1/Drivers/CMSIS/Device/ST/STM32L1xx/Include-D__UVISION_VERSION="537" -D_RTE_ -DSTM32L151xBA -D_RTE_ -DUSE_HAL_DRIVER -DSTM32L151xBA-o keyholder/stm32l1xx_hal_rcc_ex.o -MD)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal.h)(0x62F36871)
-I (..\Core\Inc\stm32l1xx_hal_conf.h)(0x62F4CF93)
+I (..\Core\Inc\stm32l1xx_hal_conf.h)(0x63274D69)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_rcc.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_def.h)(0x62F36871)
 I (..\Drivers\CMSIS\Device\ST\STM32L1xx\Include\stm32l1xx.h)(0x62F36871)
@@ -903,11 +1072,15 @@ I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_gpio.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_gpio_ex.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_dma.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_cortex.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_adc.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_adc_ex.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_flash.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_flash_ex.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_flash_ramfunc.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_pwr.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_pwr_ex.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_rtc.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_rtc_ex.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_spi.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_tim.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_tim_ex.h)(0x62F36871)
@@ -917,7 +1090,7 @@ I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_pcd_ex.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_exti.h)(0x62F36871)
 F (../Drivers/STM32L1xx_HAL_Driver/Src/stm32l1xx_hal_flash.c)(0x62F36871)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-4 -O3 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../Core/Inc -I ../USB_DEVICE/App -I ../USB_DEVICE/Target -I ../Drivers/STM32L1xx_HAL_Driver/Inc -I ../Drivers/STM32L1xx_HAL_Driver/Inc/Legacy -I ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I ../Drivers/CMSIS/Device/ST/STM32L1xx/Include -I ../Drivers/CMSIS/Include -I ../Middlewares/ST/STM32_USB_Device_Library/Class/HID/Inc -I ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc-I./RTE/_Keyholder-IC:/Users/NoName/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/NoName/AppData/Local/Arm/Packs/Keil/STM32L1xx_DFP/1.4.1/Drivers/CMSIS/Device/ST/STM32L1xx/Include-D__UVISION_VERSION="537" -D_RTE_ -DSTM32L151xBA -D_RTE_ -DUSE_HAL_DRIVER -DSTM32L151xBA-o keyholder/stm32l1xx_hal_flash.o -MD)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal.h)(0x62F36871)
-I (..\Core\Inc\stm32l1xx_hal_conf.h)(0x62F4CF93)
+I (..\Core\Inc\stm32l1xx_hal_conf.h)(0x63274D69)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_rcc.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_def.h)(0x62F36871)
 I (..\Drivers\CMSIS\Device\ST\STM32L1xx\Include\stm32l1xx.h)(0x62F36871)
@@ -938,11 +1111,15 @@ I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_gpio.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_gpio_ex.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_dma.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_cortex.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_adc.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_adc_ex.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_flash.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_flash_ex.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_flash_ramfunc.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_pwr.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_pwr_ex.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_rtc.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_rtc_ex.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_spi.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_tim.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_tim_ex.h)(0x62F36871)
@@ -952,7 +1129,7 @@ I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_pcd_ex.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_exti.h)(0x62F36871)
 F (../Drivers/STM32L1xx_HAL_Driver/Src/stm32l1xx_hal_flash_ex.c)(0x62F36871)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-4 -O3 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../Core/Inc -I ../USB_DEVICE/App -I ../USB_DEVICE/Target -I ../Drivers/STM32L1xx_HAL_Driver/Inc -I ../Drivers/STM32L1xx_HAL_Driver/Inc/Legacy -I ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I ../Drivers/CMSIS/Device/ST/STM32L1xx/Include -I ../Drivers/CMSIS/Include -I ../Middlewares/ST/STM32_USB_Device_Library/Class/HID/Inc -I ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc-I./RTE/_Keyholder-IC:/Users/NoName/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/NoName/AppData/Local/Arm/Packs/Keil/STM32L1xx_DFP/1.4.1/Drivers/CMSIS/Device/ST/STM32L1xx/Include-D__UVISION_VERSION="537" -D_RTE_ -DSTM32L151xBA -D_RTE_ -DUSE_HAL_DRIVER -DSTM32L151xBA-o keyholder/stm32l1xx_hal_flash_ex.o -MD)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal.h)(0x62F36871)
-I (..\Core\Inc\stm32l1xx_hal_conf.h)(0x62F4CF93)
+I (..\Core\Inc\stm32l1xx_hal_conf.h)(0x63274D69)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_rcc.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_def.h)(0x62F36871)
 I (..\Drivers\CMSIS\Device\ST\STM32L1xx\Include\stm32l1xx.h)(0x62F36871)
@@ -973,11 +1150,15 @@ I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_gpio.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_gpio_ex.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_dma.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_cortex.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_adc.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_adc_ex.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_flash.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_flash_ex.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_flash_ramfunc.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_pwr.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_pwr_ex.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_rtc.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_rtc_ex.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_spi.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_tim.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_tim_ex.h)(0x62F36871)
@@ -987,7 +1168,7 @@ I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_pcd_ex.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_exti.h)(0x62F36871)
 F (../Drivers/STM32L1xx_HAL_Driver/Src/stm32l1xx_hal_flash_ramfunc.c)(0x62F36871)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-4 -O3 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../Core/Inc -I ../USB_DEVICE/App -I ../USB_DEVICE/Target -I ../Drivers/STM32L1xx_HAL_Driver/Inc -I ../Drivers/STM32L1xx_HAL_Driver/Inc/Legacy -I ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I ../Drivers/CMSIS/Device/ST/STM32L1xx/Include -I ../Drivers/CMSIS/Include -I ../Middlewares/ST/STM32_USB_Device_Library/Class/HID/Inc -I ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc-I./RTE/_Keyholder-IC:/Users/NoName/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/NoName/AppData/Local/Arm/Packs/Keil/STM32L1xx_DFP/1.4.1/Drivers/CMSIS/Device/ST/STM32L1xx/Include-D__UVISION_VERSION="537" -D_RTE_ -DSTM32L151xBA -D_RTE_ -DUSE_HAL_DRIVER -DSTM32L151xBA-o keyholder/stm32l1xx_hal_flash_ramfunc.o -MD)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal.h)(0x62F36871)
-I (..\Core\Inc\stm32l1xx_hal_conf.h)(0x62F4CF93)
+I (..\Core\Inc\stm32l1xx_hal_conf.h)(0x63274D69)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_rcc.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_def.h)(0x62F36871)
 I (..\Drivers\CMSIS\Device\ST\STM32L1xx\Include\stm32l1xx.h)(0x62F36871)
@@ -1008,11 +1189,15 @@ I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_gpio.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_gpio_ex.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_dma.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_cortex.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_adc.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_adc_ex.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_flash.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_flash_ex.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_flash_ramfunc.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_pwr.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_pwr_ex.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_rtc.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_rtc_ex.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_spi.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_tim.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_tim_ex.h)(0x62F36871)
@@ -1022,7 +1207,7 @@ I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_pcd_ex.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_exti.h)(0x62F36871)
 F (../Drivers/STM32L1xx_HAL_Driver/Src/stm32l1xx_hal_gpio.c)(0x62F36871)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-4 -O3 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../Core/Inc -I ../USB_DEVICE/App -I ../USB_DEVICE/Target -I ../Drivers/STM32L1xx_HAL_Driver/Inc -I ../Drivers/STM32L1xx_HAL_Driver/Inc/Legacy -I ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I ../Drivers/CMSIS/Device/ST/STM32L1xx/Include -I ../Drivers/CMSIS/Include -I ../Middlewares/ST/STM32_USB_Device_Library/Class/HID/Inc -I ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc-I./RTE/_Keyholder-IC:/Users/NoName/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/NoName/AppData/Local/Arm/Packs/Keil/STM32L1xx_DFP/1.4.1/Drivers/CMSIS/Device/ST/STM32L1xx/Include-D__UVISION_VERSION="537" -D_RTE_ -DSTM32L151xBA -D_RTE_ -DUSE_HAL_DRIVER -DSTM32L151xBA-o keyholder/stm32l1xx_hal_gpio.o -MD)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal.h)(0x62F36871)
-I (..\Core\Inc\stm32l1xx_hal_conf.h)(0x62F4CF93)
+I (..\Core\Inc\stm32l1xx_hal_conf.h)(0x63274D69)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_rcc.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_def.h)(0x62F36871)
 I (..\Drivers\CMSIS\Device\ST\STM32L1xx\Include\stm32l1xx.h)(0x62F36871)
@@ -1043,11 +1228,15 @@ I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_gpio.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_gpio_ex.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_dma.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_cortex.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_adc.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_adc_ex.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_flash.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_flash_ex.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_flash_ramfunc.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_pwr.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_pwr_ex.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_rtc.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_rtc_ex.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_spi.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_tim.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_tim_ex.h)(0x62F36871)
@@ -1057,7 +1246,7 @@ I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_pcd_ex.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_exti.h)(0x62F36871)
 F (../Drivers/STM32L1xx_HAL_Driver/Src/stm32l1xx_hal_dma.c)(0x62F36871)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-4 -O3 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../Core/Inc -I ../USB_DEVICE/App -I ../USB_DEVICE/Target -I ../Drivers/STM32L1xx_HAL_Driver/Inc -I ../Drivers/STM32L1xx_HAL_Driver/Inc/Legacy -I ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I ../Drivers/CMSIS/Device/ST/STM32L1xx/Include -I ../Drivers/CMSIS/Include -I ../Middlewares/ST/STM32_USB_Device_Library/Class/HID/Inc -I ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc-I./RTE/_Keyholder-IC:/Users/NoName/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/NoName/AppData/Local/Arm/Packs/Keil/STM32L1xx_DFP/1.4.1/Drivers/CMSIS/Device/ST/STM32L1xx/Include-D__UVISION_VERSION="537" -D_RTE_ -DSTM32L151xBA -D_RTE_ -DUSE_HAL_DRIVER -DSTM32L151xBA-o keyholder/stm32l1xx_hal_dma.o -MD)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal.h)(0x62F36871)
-I (..\Core\Inc\stm32l1xx_hal_conf.h)(0x62F4CF93)
+I (..\Core\Inc\stm32l1xx_hal_conf.h)(0x63274D69)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_rcc.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_def.h)(0x62F36871)
 I (..\Drivers\CMSIS\Device\ST\STM32L1xx\Include\stm32l1xx.h)(0x62F36871)
@@ -1078,11 +1267,15 @@ I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_gpio.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_gpio_ex.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_dma.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_cortex.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_adc.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_adc_ex.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_flash.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_flash_ex.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_flash_ramfunc.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_pwr.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_pwr_ex.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_rtc.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_rtc_ex.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_spi.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_tim.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_tim_ex.h)(0x62F36871)
@@ -1092,7 +1285,7 @@ I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_pcd_ex.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_exti.h)(0x62F36871)
 F (../Drivers/STM32L1xx_HAL_Driver/Src/stm32l1xx_hal_pwr.c)(0x62F36871)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-4 -O3 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../Core/Inc -I ../USB_DEVICE/App -I ../USB_DEVICE/Target -I ../Drivers/STM32L1xx_HAL_Driver/Inc -I ../Drivers/STM32L1xx_HAL_Driver/Inc/Legacy -I ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I ../Drivers/CMSIS/Device/ST/STM32L1xx/Include -I ../Drivers/CMSIS/Include -I ../Middlewares/ST/STM32_USB_Device_Library/Class/HID/Inc -I ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc-I./RTE/_Keyholder-IC:/Users/NoName/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/NoName/AppData/Local/Arm/Packs/Keil/STM32L1xx_DFP/1.4.1/Drivers/CMSIS/Device/ST/STM32L1xx/Include-D__UVISION_VERSION="537" -D_RTE_ -DSTM32L151xBA -D_RTE_ -DUSE_HAL_DRIVER -DSTM32L151xBA-o keyholder/stm32l1xx_hal_pwr.o -MD)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal.h)(0x62F36871)
-I (..\Core\Inc\stm32l1xx_hal_conf.h)(0x62F4CF93)
+I (..\Core\Inc\stm32l1xx_hal_conf.h)(0x63274D69)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_rcc.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_def.h)(0x62F36871)
 I (..\Drivers\CMSIS\Device\ST\STM32L1xx\Include\stm32l1xx.h)(0x62F36871)
@@ -1113,11 +1306,15 @@ I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_gpio.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_gpio_ex.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_dma.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_cortex.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_adc.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_adc_ex.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_flash.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_flash_ex.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_flash_ramfunc.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_pwr.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_pwr_ex.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_rtc.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_rtc_ex.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_spi.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_tim.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_tim_ex.h)(0x62F36871)
@@ -1127,7 +1324,7 @@ I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_pcd_ex.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_exti.h)(0x62F36871)
 F (../Drivers/STM32L1xx_HAL_Driver/Src/stm32l1xx_hal_pwr_ex.c)(0x62F36871)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-4 -O3 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../Core/Inc -I ../USB_DEVICE/App -I ../USB_DEVICE/Target -I ../Drivers/STM32L1xx_HAL_Driver/Inc -I ../Drivers/STM32L1xx_HAL_Driver/Inc/Legacy -I ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I ../Drivers/CMSIS/Device/ST/STM32L1xx/Include -I ../Drivers/CMSIS/Include -I ../Middlewares/ST/STM32_USB_Device_Library/Class/HID/Inc -I ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc-I./RTE/_Keyholder-IC:/Users/NoName/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/NoName/AppData/Local/Arm/Packs/Keil/STM32L1xx_DFP/1.4.1/Drivers/CMSIS/Device/ST/STM32L1xx/Include-D__UVISION_VERSION="537" -D_RTE_ -DSTM32L151xBA -D_RTE_ -DUSE_HAL_DRIVER -DSTM32L151xBA-o keyholder/stm32l1xx_hal_pwr_ex.o -MD)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal.h)(0x62F36871)
-I (..\Core\Inc\stm32l1xx_hal_conf.h)(0x62F4CF93)
+I (..\Core\Inc\stm32l1xx_hal_conf.h)(0x63274D69)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_rcc.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_def.h)(0x62F36871)
 I (..\Drivers\CMSIS\Device\ST\STM32L1xx\Include\stm32l1xx.h)(0x62F36871)
@@ -1148,11 +1345,15 @@ I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_gpio.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_gpio_ex.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_dma.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_cortex.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_adc.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_adc_ex.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_flash.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_flash_ex.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_flash_ramfunc.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_pwr.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_pwr_ex.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_rtc.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_rtc_ex.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_spi.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_tim.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_tim_ex.h)(0x62F36871)
@@ -1162,7 +1363,7 @@ I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_pcd_ex.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_exti.h)(0x62F36871)
 F (../Drivers/STM32L1xx_HAL_Driver/Src/stm32l1xx_hal_cortex.c)(0x62F36871)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-4 -O3 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../Core/Inc -I ../USB_DEVICE/App -I ../USB_DEVICE/Target -I ../Drivers/STM32L1xx_HAL_Driver/Inc -I ../Drivers/STM32L1xx_HAL_Driver/Inc/Legacy -I ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I ../Drivers/CMSIS/Device/ST/STM32L1xx/Include -I ../Drivers/CMSIS/Include -I ../Middlewares/ST/STM32_USB_Device_Library/Class/HID/Inc -I ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc-I./RTE/_Keyholder-IC:/Users/NoName/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/NoName/AppData/Local/Arm/Packs/Keil/STM32L1xx_DFP/1.4.1/Drivers/CMSIS/Device/ST/STM32L1xx/Include-D__UVISION_VERSION="537" -D_RTE_ -DSTM32L151xBA -D_RTE_ -DUSE_HAL_DRIVER -DSTM32L151xBA-o keyholder/stm32l1xx_hal_cortex.o -MD)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal.h)(0x62F36871)
-I (..\Core\Inc\stm32l1xx_hal_conf.h)(0x62F4CF93)
+I (..\Core\Inc\stm32l1xx_hal_conf.h)(0x63274D69)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_rcc.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_def.h)(0x62F36871)
 I (..\Drivers\CMSIS\Device\ST\STM32L1xx\Include\stm32l1xx.h)(0x62F36871)
@@ -1183,11 +1384,15 @@ I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_gpio.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_gpio_ex.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_dma.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_cortex.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_adc.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_adc_ex.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_flash.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_flash_ex.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_flash_ramfunc.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_pwr.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_pwr_ex.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_rtc.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_rtc_ex.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_spi.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_tim.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_tim_ex.h)(0x62F36871)
@@ -1197,7 +1402,7 @@ I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_pcd_ex.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_exti.h)(0x62F36871)
 F (../Drivers/STM32L1xx_HAL_Driver/Src/stm32l1xx_hal_exti.c)(0x62F36871)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-4 -O3 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../Core/Inc -I ../USB_DEVICE/App -I ../USB_DEVICE/Target -I ../Drivers/STM32L1xx_HAL_Driver/Inc -I ../Drivers/STM32L1xx_HAL_Driver/Inc/Legacy -I ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I ../Drivers/CMSIS/Device/ST/STM32L1xx/Include -I ../Drivers/CMSIS/Include -I ../Middlewares/ST/STM32_USB_Device_Library/Class/HID/Inc -I ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc-I./RTE/_Keyholder-IC:/Users/NoName/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/NoName/AppData/Local/Arm/Packs/Keil/STM32L1xx_DFP/1.4.1/Drivers/CMSIS/Device/ST/STM32L1xx/Include-D__UVISION_VERSION="537" -D_RTE_ -DSTM32L151xBA -D_RTE_ -DUSE_HAL_DRIVER -DSTM32L151xBA-o keyholder/stm32l1xx_hal_exti.o -MD)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal.h)(0x62F36871)
-I (..\Core\Inc\stm32l1xx_hal_conf.h)(0x62F4CF93)
+I (..\Core\Inc\stm32l1xx_hal_conf.h)(0x63274D69)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_rcc.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_def.h)(0x62F36871)
 I (..\Drivers\CMSIS\Device\ST\STM32L1xx\Include\stm32l1xx.h)(0x62F36871)
@@ -1218,11 +1423,171 @@ I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_gpio.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_gpio_ex.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_dma.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_cortex.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_adc.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_adc_ex.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_flash.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_flash_ex.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_flash_ramfunc.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_pwr.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_pwr_ex.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_rtc.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_rtc_ex.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_spi.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_tim.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_tim_ex.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_pcd.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_ll_usb.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_pcd_ex.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_exti.h)(0x62F36871)
+F (../Drivers/STM32L1xx_HAL_Driver/Src/stm32l1xx_hal_adc.c)(0x62F36871)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-4 -O3 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../Core/Inc -I ../USB_DEVICE/App -I ../USB_DEVICE/Target -I ../Drivers/STM32L1xx_HAL_Driver/Inc -I ../Drivers/STM32L1xx_HAL_Driver/Inc/Legacy -I ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I ../Drivers/CMSIS/Device/ST/STM32L1xx/Include -I ../Drivers/CMSIS/Include -I ../Middlewares/ST/STM32_USB_Device_Library/Class/HID/Inc -I ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc-I./RTE/_Keyholder-IC:/Users/NoName/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/NoName/AppData/Local/Arm/Packs/Keil/STM32L1xx_DFP/1.4.1/Drivers/CMSIS/Device/ST/STM32L1xx/Include-D__UVISION_VERSION="537" -D_RTE_ -DSTM32L151xBA -D_RTE_ -DUSE_HAL_DRIVER -DSTM32L151xBA-o keyholder/stm32l1xx_hal_adc.o -MD)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal.h)(0x62F36871)
+I (..\Core\Inc\stm32l1xx_hal_conf.h)(0x63274D69)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_rcc.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_def.h)(0x62F36871)
+I (..\Drivers\CMSIS\Device\ST\STM32L1xx\Include\stm32l1xx.h)(0x62F36871)
+I (..\Drivers\CMSIS\Device\ST\STM32L1xx\Include\stm32l151xba.h)(0x62F36871)
+I (..\Drivers\CMSIS\Include\core_cm3.h)(0x62F3685E)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x625333C8)
+I (..\Drivers\CMSIS\Include\cmsis_version.h)(0x62F3685E)
+I (..\Drivers\CMSIS\Include\cmsis_compiler.h)(0x62F3685E)
+I (..\Drivers\CMSIS\Include\cmsis_armclang.h)(0x62F3685E)
+I (C:\Keil_v5\ARM\ARMCLANG\include\arm_compat.h)(0x625333C6)
+I (C:\Keil_v5\ARM\ARMCLANG\include\arm_acle.h)(0x625333C6)
+I (..\Drivers\CMSIS\Include\mpu_armv7.h)(0x62F3685E)
+I (..\Drivers\CMSIS\Device\ST\STM32L1xx\Include\system_stm32l1xx.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\Legacy\stm32_hal_legacy.h)(0x62F36871)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stddef.h)(0x625333C6)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_rcc_ex.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_gpio.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_gpio_ex.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_dma.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_cortex.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_adc.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_adc_ex.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_flash.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_flash_ex.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_flash_ramfunc.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_pwr.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_pwr_ex.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_rtc.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_rtc_ex.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_spi.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_tim.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_tim_ex.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_pcd.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_ll_usb.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_pcd_ex.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_exti.h)(0x62F36871)
+F (../Drivers/STM32L1xx_HAL_Driver/Src/stm32l1xx_hal_adc_ex.c)(0x62F36871)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-4 -O3 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../Core/Inc -I ../USB_DEVICE/App -I ../USB_DEVICE/Target -I ../Drivers/STM32L1xx_HAL_Driver/Inc -I ../Drivers/STM32L1xx_HAL_Driver/Inc/Legacy -I ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I ../Drivers/CMSIS/Device/ST/STM32L1xx/Include -I ../Drivers/CMSIS/Include -I ../Middlewares/ST/STM32_USB_Device_Library/Class/HID/Inc -I ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc-I./RTE/_Keyholder-IC:/Users/NoName/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/NoName/AppData/Local/Arm/Packs/Keil/STM32L1xx_DFP/1.4.1/Drivers/CMSIS/Device/ST/STM32L1xx/Include-D__UVISION_VERSION="537" -D_RTE_ -DSTM32L151xBA -D_RTE_ -DUSE_HAL_DRIVER -DSTM32L151xBA-o keyholder/stm32l1xx_hal_adc_ex.o -MD)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal.h)(0x62F36871)
+I (..\Core\Inc\stm32l1xx_hal_conf.h)(0x63274D69)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_rcc.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_def.h)(0x62F36871)
+I (..\Drivers\CMSIS\Device\ST\STM32L1xx\Include\stm32l1xx.h)(0x62F36871)
+I (..\Drivers\CMSIS\Device\ST\STM32L1xx\Include\stm32l151xba.h)(0x62F36871)
+I (..\Drivers\CMSIS\Include\core_cm3.h)(0x62F3685E)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x625333C8)
+I (..\Drivers\CMSIS\Include\cmsis_version.h)(0x62F3685E)
+I (..\Drivers\CMSIS\Include\cmsis_compiler.h)(0x62F3685E)
+I (..\Drivers\CMSIS\Include\cmsis_armclang.h)(0x62F3685E)
+I (C:\Keil_v5\ARM\ARMCLANG\include\arm_compat.h)(0x625333C6)
+I (C:\Keil_v5\ARM\ARMCLANG\include\arm_acle.h)(0x625333C6)
+I (..\Drivers\CMSIS\Include\mpu_armv7.h)(0x62F3685E)
+I (..\Drivers\CMSIS\Device\ST\STM32L1xx\Include\system_stm32l1xx.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\Legacy\stm32_hal_legacy.h)(0x62F36871)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stddef.h)(0x625333C6)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_rcc_ex.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_gpio.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_gpio_ex.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_dma.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_cortex.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_adc.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_adc_ex.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_flash.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_flash_ex.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_flash_ramfunc.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_pwr.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_pwr_ex.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_rtc.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_rtc_ex.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_spi.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_tim.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_tim_ex.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_pcd.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_ll_usb.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_pcd_ex.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_exti.h)(0x62F36871)
+F (../Drivers/STM32L1xx_HAL_Driver/Src/stm32l1xx_hal_rtc.c)(0x62F36871)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-4 -O3 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../Core/Inc -I ../USB_DEVICE/App -I ../USB_DEVICE/Target -I ../Drivers/STM32L1xx_HAL_Driver/Inc -I ../Drivers/STM32L1xx_HAL_Driver/Inc/Legacy -I ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I ../Drivers/CMSIS/Device/ST/STM32L1xx/Include -I ../Drivers/CMSIS/Include -I ../Middlewares/ST/STM32_USB_Device_Library/Class/HID/Inc -I ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc-I./RTE/_Keyholder-IC:/Users/NoName/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/NoName/AppData/Local/Arm/Packs/Keil/STM32L1xx_DFP/1.4.1/Drivers/CMSIS/Device/ST/STM32L1xx/Include-D__UVISION_VERSION="537" -D_RTE_ -DSTM32L151xBA -D_RTE_ -DUSE_HAL_DRIVER -DSTM32L151xBA-o keyholder/stm32l1xx_hal_rtc.o -MD)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal.h)(0x62F36871)
+I (..\Core\Inc\stm32l1xx_hal_conf.h)(0x63274D69)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_rcc.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_def.h)(0x62F36871)
+I (..\Drivers\CMSIS\Device\ST\STM32L1xx\Include\stm32l1xx.h)(0x62F36871)
+I (..\Drivers\CMSIS\Device\ST\STM32L1xx\Include\stm32l151xba.h)(0x62F36871)
+I (..\Drivers\CMSIS\Include\core_cm3.h)(0x62F3685E)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x625333C8)
+I (..\Drivers\CMSIS\Include\cmsis_version.h)(0x62F3685E)
+I (..\Drivers\CMSIS\Include\cmsis_compiler.h)(0x62F3685E)
+I (..\Drivers\CMSIS\Include\cmsis_armclang.h)(0x62F3685E)
+I (C:\Keil_v5\ARM\ARMCLANG\include\arm_compat.h)(0x625333C6)
+I (C:\Keil_v5\ARM\ARMCLANG\include\arm_acle.h)(0x625333C6)
+I (..\Drivers\CMSIS\Include\mpu_armv7.h)(0x62F3685E)
+I (..\Drivers\CMSIS\Device\ST\STM32L1xx\Include\system_stm32l1xx.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\Legacy\stm32_hal_legacy.h)(0x62F36871)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stddef.h)(0x625333C6)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_rcc_ex.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_gpio.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_gpio_ex.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_dma.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_cortex.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_adc.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_adc_ex.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_flash.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_flash_ex.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_flash_ramfunc.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_pwr.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_pwr_ex.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_rtc.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_rtc_ex.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_spi.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_tim.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_tim_ex.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_pcd.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_ll_usb.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_pcd_ex.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_exti.h)(0x62F36871)
+F (../Drivers/STM32L1xx_HAL_Driver/Src/stm32l1xx_hal_rtc_ex.c)(0x62F36871)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-4 -O3 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../Core/Inc -I ../USB_DEVICE/App -I ../USB_DEVICE/Target -I ../Drivers/STM32L1xx_HAL_Driver/Inc -I ../Drivers/STM32L1xx_HAL_Driver/Inc/Legacy -I ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I ../Drivers/CMSIS/Device/ST/STM32L1xx/Include -I ../Drivers/CMSIS/Include -I ../Middlewares/ST/STM32_USB_Device_Library/Class/HID/Inc -I ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc-I./RTE/_Keyholder-IC:/Users/NoName/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/NoName/AppData/Local/Arm/Packs/Keil/STM32L1xx_DFP/1.4.1/Drivers/CMSIS/Device/ST/STM32L1xx/Include-D__UVISION_VERSION="537" -D_RTE_ -DSTM32L151xBA -D_RTE_ -DUSE_HAL_DRIVER -DSTM32L151xBA-o keyholder/stm32l1xx_hal_rtc_ex.o -MD)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal.h)(0x62F36871)
+I (..\Core\Inc\stm32l1xx_hal_conf.h)(0x63274D69)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_rcc.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_def.h)(0x62F36871)
+I (..\Drivers\CMSIS\Device\ST\STM32L1xx\Include\stm32l1xx.h)(0x62F36871)
+I (..\Drivers\CMSIS\Device\ST\STM32L1xx\Include\stm32l151xba.h)(0x62F36871)
+I (..\Drivers\CMSIS\Include\core_cm3.h)(0x62F3685E)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x625333C8)
+I (..\Drivers\CMSIS\Include\cmsis_version.h)(0x62F3685E)
+I (..\Drivers\CMSIS\Include\cmsis_compiler.h)(0x62F3685E)
+I (..\Drivers\CMSIS\Include\cmsis_armclang.h)(0x62F3685E)
+I (C:\Keil_v5\ARM\ARMCLANG\include\arm_compat.h)(0x625333C6)
+I (C:\Keil_v5\ARM\ARMCLANG\include\arm_acle.h)(0x625333C6)
+I (..\Drivers\CMSIS\Include\mpu_armv7.h)(0x62F3685E)
+I (..\Drivers\CMSIS\Device\ST\STM32L1xx\Include\system_stm32l1xx.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\Legacy\stm32_hal_legacy.h)(0x62F36871)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stddef.h)(0x625333C6)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_rcc_ex.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_gpio.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_gpio_ex.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_dma.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_cortex.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_adc.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_adc_ex.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_flash.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_flash_ex.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_flash_ramfunc.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_pwr.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_pwr_ex.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_rtc.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_rtc_ex.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_spi.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_tim.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_tim_ex.h)(0x62F36871)
@@ -1232,7 +1597,7 @@ I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_pcd_ex.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_exti.h)(0x62F36871)
 F (../Drivers/STM32L1xx_HAL_Driver/Src/stm32l1xx_hal_spi.c)(0x62F36871)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-4 -O3 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../Core/Inc -I ../USB_DEVICE/App -I ../USB_DEVICE/Target -I ../Drivers/STM32L1xx_HAL_Driver/Inc -I ../Drivers/STM32L1xx_HAL_Driver/Inc/Legacy -I ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I ../Drivers/CMSIS/Device/ST/STM32L1xx/Include -I ../Drivers/CMSIS/Include -I ../Middlewares/ST/STM32_USB_Device_Library/Class/HID/Inc -I ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc-I./RTE/_Keyholder-IC:/Users/NoName/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/NoName/AppData/Local/Arm/Packs/Keil/STM32L1xx_DFP/1.4.1/Drivers/CMSIS/Device/ST/STM32L1xx/Include-D__UVISION_VERSION="537" -D_RTE_ -DSTM32L151xBA -D_RTE_ -DUSE_HAL_DRIVER -DSTM32L151xBA-o keyholder/stm32l1xx_hal_spi.o -MD)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal.h)(0x62F36871)
-I (..\Core\Inc\stm32l1xx_hal_conf.h)(0x62F4CF93)
+I (..\Core\Inc\stm32l1xx_hal_conf.h)(0x63274D69)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_rcc.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_def.h)(0x62F36871)
 I (..\Drivers\CMSIS\Device\ST\STM32L1xx\Include\stm32l1xx.h)(0x62F36871)
@@ -1253,11 +1618,15 @@ I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_gpio.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_gpio_ex.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_dma.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_cortex.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_adc.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_adc_ex.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_flash.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_flash_ex.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_flash_ramfunc.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_pwr.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_pwr_ex.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_rtc.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_rtc_ex.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_spi.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_tim.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_tim_ex.h)(0x62F36871)
@@ -1267,7 +1636,7 @@ I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_pcd_ex.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_exti.h)(0x62F36871)
 F (../Drivers/STM32L1xx_HAL_Driver/Src/stm32l1xx_hal_tim.c)(0x62F36871)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-4 -O3 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../Core/Inc -I ../USB_DEVICE/App -I ../USB_DEVICE/Target -I ../Drivers/STM32L1xx_HAL_Driver/Inc -I ../Drivers/STM32L1xx_HAL_Driver/Inc/Legacy -I ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I ../Drivers/CMSIS/Device/ST/STM32L1xx/Include -I ../Drivers/CMSIS/Include -I ../Middlewares/ST/STM32_USB_Device_Library/Class/HID/Inc -I ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc-I./RTE/_Keyholder-IC:/Users/NoName/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/NoName/AppData/Local/Arm/Packs/Keil/STM32L1xx_DFP/1.4.1/Drivers/CMSIS/Device/ST/STM32L1xx/Include-D__UVISION_VERSION="537" -D_RTE_ -DSTM32L151xBA -D_RTE_ -DUSE_HAL_DRIVER -DSTM32L151xBA-o keyholder/stm32l1xx_hal_tim.o -MD)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal.h)(0x62F36871)
-I (..\Core\Inc\stm32l1xx_hal_conf.h)(0x62F4CF93)
+I (..\Core\Inc\stm32l1xx_hal_conf.h)(0x63274D69)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_rcc.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_def.h)(0x62F36871)
 I (..\Drivers\CMSIS\Device\ST\STM32L1xx\Include\stm32l1xx.h)(0x62F36871)
@@ -1288,11 +1657,15 @@ I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_gpio.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_gpio_ex.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_dma.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_cortex.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_adc.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_adc_ex.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_flash.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_flash_ex.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_flash_ramfunc.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_pwr.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_pwr_ex.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_rtc.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_rtc_ex.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_spi.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_tim.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_tim_ex.h)(0x62F36871)
@@ -1302,7 +1675,7 @@ I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_pcd_ex.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_exti.h)(0x62F36871)
 F (../Drivers/STM32L1xx_HAL_Driver/Src/stm32l1xx_hal_tim_ex.c)(0x62F36871)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-4 -O3 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../Core/Inc -I ../USB_DEVICE/App -I ../USB_DEVICE/Target -I ../Drivers/STM32L1xx_HAL_Driver/Inc -I ../Drivers/STM32L1xx_HAL_Driver/Inc/Legacy -I ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I ../Drivers/CMSIS/Device/ST/STM32L1xx/Include -I ../Drivers/CMSIS/Include -I ../Middlewares/ST/STM32_USB_Device_Library/Class/HID/Inc -I ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc-I./RTE/_Keyholder-IC:/Users/NoName/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/NoName/AppData/Local/Arm/Packs/Keil/STM32L1xx_DFP/1.4.1/Drivers/CMSIS/Device/ST/STM32L1xx/Include-D__UVISION_VERSION="537" -D_RTE_ -DSTM32L151xBA -D_RTE_ -DUSE_HAL_DRIVER -DSTM32L151xBA-o keyholder/stm32l1xx_hal_tim_ex.o -MD)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal.h)(0x62F36871)
-I (..\Core\Inc\stm32l1xx_hal_conf.h)(0x62F4CF93)
+I (..\Core\Inc\stm32l1xx_hal_conf.h)(0x63274D69)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_rcc.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_def.h)(0x62F36871)
 I (..\Drivers\CMSIS\Device\ST\STM32L1xx\Include\stm32l1xx.h)(0x62F36871)
@@ -1323,11 +1696,15 @@ I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_gpio.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_gpio_ex.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_dma.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_cortex.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_adc.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_adc_ex.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_flash.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_flash_ex.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_flash_ramfunc.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_pwr.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_pwr_ex.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_rtc.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_rtc_ex.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_spi.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_tim.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_tim_ex.h)(0x62F36871)
@@ -1348,7 +1725,7 @@ I (C:\Keil_v5\ARM\ARMCLANG\include\arm_acle.h)(0x625333C6)
 I (..\Drivers\CMSIS\Include\mpu_armv7.h)(0x62F3685E)
 I (..\Drivers\CMSIS\Device\ST\STM32L1xx\Include\system_stm32l1xx.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal.h)(0x62F36871)
-I (..\Core\Inc\stm32l1xx_hal_conf.h)(0x62F4CF93)
+I (..\Core\Inc\stm32l1xx_hal_conf.h)(0x63274D69)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_rcc.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_def.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\Legacy\stm32_hal_legacy.h)(0x62F36871)
@@ -1358,11 +1735,15 @@ I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_gpio.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_gpio_ex.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_dma.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_cortex.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_adc.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_adc_ex.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_flash.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_flash_ex.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_flash_ramfunc.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_pwr.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_pwr_ex.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_rtc.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_rtc_ex.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_spi.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_tim.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_tim_ex.h)(0x62F36871)
@@ -1378,13 +1759,13 @@ F (..\Middlewares\ST\STM32_USB_Device_Library\Core\Inc\usbd_desc_template.h)(0x6
 F (..\Middlewares\ST\STM32_USB_Device_Library\Core\Inc\usbd_ioreq.h)(0x62F36860)()
 F (../Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_core.c)(0x62F36860)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-4 -O3 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../Core/Inc -I ../USB_DEVICE/App -I ../USB_DEVICE/Target -I ../Drivers/STM32L1xx_HAL_Driver/Inc -I ../Drivers/STM32L1xx_HAL_Driver/Inc/Legacy -I ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I ../Drivers/CMSIS/Device/ST/STM32L1xx/Include -I ../Drivers/CMSIS/Include -I ../Middlewares/ST/STM32_USB_Device_Library/Class/HID/Inc -I ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc-I./RTE/_Keyholder-IC:/Users/NoName/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/NoName/AppData/Local/Arm/Packs/Keil/STM32L1xx_DFP/1.4.1/Drivers/CMSIS/Device/ST/STM32L1xx/Include-D__UVISION_VERSION="537" -D_RTE_ -DSTM32L151xBA -D_RTE_ -DUSE_HAL_DRIVER -DSTM32L151xBA-o keyholder/usbd_core.o -MD)
 I (..\Middlewares\ST\STM32_USB_Device_Library\Core\Inc\usbd_core.h)(0x62F36860)
-I (..\USB_DEVICE\Target\usbd_conf.h)(0x6286994A)
+I (..\USB_DEVICE\Target\usbd_conf.h)(0x632700AF)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdio.h)(0x625333C6)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdlib.h)(0x625333C6)
 I (C:\Keil_v5\ARM\ARMCLANG\include\string.h)(0x625333C6)
-I (..\Core\Inc\main.h)(0x62F4CF93)
+I (..\Core\Inc\main.h)(0x63274332)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal.h)(0x62F36871)
-I (..\Core\Inc\stm32l1xx_hal_conf.h)(0x62F4CF93)
+I (..\Core\Inc\stm32l1xx_hal_conf.h)(0x63274D69)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_rcc.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_def.h)(0x62F36871)
 I (..\Drivers\CMSIS\Device\ST\STM32L1xx\Include\stm32l1xx.h)(0x62F36871)
@@ -1405,11 +1786,15 @@ I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_gpio.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_gpio_ex.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_dma.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_cortex.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_adc.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_adc_ex.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_flash.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_flash_ex.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_flash_ramfunc.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_pwr.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_pwr_ex.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_rtc.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_rtc_ex.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_spi.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_tim.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_tim_ex.h)(0x62F36871)
@@ -1423,13 +1808,13 @@ I (..\Middlewares\ST\STM32_USB_Device_Library\Core\Inc\usbd_ctlreq.h)(0x62F36860
 F (../Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.c)(0x62F36860)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-4 -O3 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../Core/Inc -I ../USB_DEVICE/App -I ../USB_DEVICE/Target -I ../Drivers/STM32L1xx_HAL_Driver/Inc -I ../Drivers/STM32L1xx_HAL_Driver/Inc/Legacy -I ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I ../Drivers/CMSIS/Device/ST/STM32L1xx/Include -I ../Drivers/CMSIS/Include -I ../Middlewares/ST/STM32_USB_Device_Library/Class/HID/Inc -I ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc-I./RTE/_Keyholder-IC:/Users/NoName/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/NoName/AppData/Local/Arm/Packs/Keil/STM32L1xx_DFP/1.4.1/Drivers/CMSIS/Device/ST/STM32L1xx/Include-D__UVISION_VERSION="537" -D_RTE_ -DSTM32L151xBA -D_RTE_ -DUSE_HAL_DRIVER -DSTM32L151xBA-o keyholder/usbd_ctlreq.o -MD)
 I (..\Middlewares\ST\STM32_USB_Device_Library\Core\Inc\usbd_ctlreq.h)(0x62F36860)
 I (..\Middlewares\ST\STM32_USB_Device_Library\Core\Inc\usbd_def.h)(0x62F36860)
-I (..\USB_DEVICE\Target\usbd_conf.h)(0x6286994A)
+I (..\USB_DEVICE\Target\usbd_conf.h)(0x632700AF)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdio.h)(0x625333C6)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdlib.h)(0x625333C6)
 I (C:\Keil_v5\ARM\ARMCLANG\include\string.h)(0x625333C6)
-I (..\Core\Inc\main.h)(0x62F4CF93)
+I (..\Core\Inc\main.h)(0x63274332)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal.h)(0x62F36871)
-I (..\Core\Inc\stm32l1xx_hal_conf.h)(0x62F4CF93)
+I (..\Core\Inc\stm32l1xx_hal_conf.h)(0x63274D69)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_rcc.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_def.h)(0x62F36871)
 I (..\Drivers\CMSIS\Device\ST\STM32L1xx\Include\stm32l1xx.h)(0x62F36871)
@@ -1450,11 +1835,15 @@ I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_gpio.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_gpio_ex.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_dma.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_cortex.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_adc.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_adc_ex.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_flash.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_flash_ex.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_flash_ramfunc.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_pwr.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_pwr_ex.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_rtc.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_rtc_ex.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_spi.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_tim.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_tim_ex.h)(0x62F36871)
@@ -1467,13 +1856,13 @@ I (..\Middlewares\ST\STM32_USB_Device_Library\Core\Inc\usbd_core.h)(0x62F36860)
 F (../Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ioreq.c)(0x62F36860)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-4 -O3 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../Core/Inc -I ../USB_DEVICE/App -I ../USB_DEVICE/Target -I ../Drivers/STM32L1xx_HAL_Driver/Inc -I ../Drivers/STM32L1xx_HAL_Driver/Inc/Legacy -I ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I ../Drivers/CMSIS/Device/ST/STM32L1xx/Include -I ../Drivers/CMSIS/Include -I ../Middlewares/ST/STM32_USB_Device_Library/Class/HID/Inc -I ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc-I./RTE/_Keyholder-IC:/Users/NoName/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/NoName/AppData/Local/Arm/Packs/Keil/STM32L1xx_DFP/1.4.1/Drivers/CMSIS/Device/ST/STM32L1xx/Include-D__UVISION_VERSION="537" -D_RTE_ -DSTM32L151xBA -D_RTE_ -DUSE_HAL_DRIVER -DSTM32L151xBA-o keyholder/usbd_ioreq.o -MD)
 I (..\Middlewares\ST\STM32_USB_Device_Library\Core\Inc\usbd_ioreq.h)(0x62F36860)
 I (..\Middlewares\ST\STM32_USB_Device_Library\Core\Inc\usbd_def.h)(0x62F36860)
-I (..\USB_DEVICE\Target\usbd_conf.h)(0x6286994A)
+I (..\USB_DEVICE\Target\usbd_conf.h)(0x632700AF)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdio.h)(0x625333C6)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdlib.h)(0x625333C6)
 I (C:\Keil_v5\ARM\ARMCLANG\include\string.h)(0x625333C6)
-I (..\Core\Inc\main.h)(0x62F4CF93)
+I (..\Core\Inc\main.h)(0x63274332)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal.h)(0x62F36871)
-I (..\Core\Inc\stm32l1xx_hal_conf.h)(0x62F4CF93)
+I (..\Core\Inc\stm32l1xx_hal_conf.h)(0x63274D69)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_rcc.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_def.h)(0x62F36871)
 I (..\Drivers\CMSIS\Device\ST\STM32L1xx\Include\stm32l1xx.h)(0x62F36871)
@@ -1494,11 +1883,15 @@ I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_gpio.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_gpio_ex.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_dma.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_cortex.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_adc.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_adc_ex.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_flash.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_flash_ex.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_flash_ramfunc.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_pwr.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_pwr_ex.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_rtc.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_rtc_ex.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_spi.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_tim.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_tim_ex.h)(0x62F36871)
@@ -1512,13 +1905,13 @@ F (../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Src/usbd_cdc.c)(0x62F368
 I (..\Middlewares\ST\STM32_USB_Device_Library\Class\CDC\Inc\usbd_cdc.h)(0x62F36860)
 I (..\Middlewares\ST\STM32_USB_Device_Library\Core\Inc\usbd_ioreq.h)(0x62F36860)
 I (..\Middlewares\ST\STM32_USB_Device_Library\Core\Inc\usbd_def.h)(0x62F36860)
-I (..\USB_DEVICE\Target\usbd_conf.h)(0x6286994A)
+I (..\USB_DEVICE\Target\usbd_conf.h)(0x632700AF)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdio.h)(0x625333C6)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdlib.h)(0x625333C6)
 I (C:\Keil_v5\ARM\ARMCLANG\include\string.h)(0x625333C6)
-I (..\Core\Inc\main.h)(0x62F4CF93)
+I (..\Core\Inc\main.h)(0x63274332)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal.h)(0x62F36871)
-I (..\Core\Inc\stm32l1xx_hal_conf.h)(0x62F4CF93)
+I (..\Core\Inc\stm32l1xx_hal_conf.h)(0x63274D69)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_rcc.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_def.h)(0x62F36871)
 I (..\Drivers\CMSIS\Device\ST\STM32L1xx\Include\stm32l1xx.h)(0x62F36871)
@@ -1539,11 +1932,15 @@ I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_gpio.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_gpio_ex.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_dma.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_cortex.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_adc.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_adc_ex.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_flash.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_flash_ex.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_flash_ramfunc.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_pwr.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_pwr_ex.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_rtc.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_rtc_ex.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_spi.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_tim.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_tim_ex.h)(0x62F36871)
@@ -1556,13 +1953,13 @@ I (..\Middlewares\ST\STM32_USB_Device_Library\Core\Inc\usbd_ctlreq.h)(0x62F36860
 F (..\Core\Inc\adc.h)(0x625FF268)()
 F (..\Core\Inc\gpio.h)(0x625FF268)()
 F (..\Core\Inc\i2c.h)(0x625FF269)()
-F (..\Core\Inc\main.h)(0x62F4CF93)()
+F (..\Core\Inc\main.h)(0x63274332)()
 F (..\Core\Inc\ssd1306.h)(0x62617CE8)()
-F (..\Core\Inc\ssd1306_conf.h)(0x62F4D202)()
+F (..\Core\Inc\ssd1306_conf.h)(0x632732BE)()
 F (..\Core\Inc\ssd1306_fonts.h)(0x628695C8)()
 F (..\Core\Inc\ssd1306_tests.h)(0x62741685)()
-F (..\Core\Inc\stm32l1xx_hal_conf.h)(0x62F4CF93)()
-F (..\Core\Inc\stm32l1xx_it.h)(0x62F4CF93)()
+F (..\Core\Inc\stm32l1xx_hal_conf.h)(0x63274D69)()
+F (..\Core\Inc\stm32l1xx_it.h)(0x63274331)()
 F (..\Core\Inc\crypto.h)(0x62961B63)()
 F (..\Core\Inc\user_interface.h)(0x62868701)()
 F (..\Core\Inc\system.h)(0x627416A5)()
@@ -1572,13 +1969,13 @@ F (..\Middlewares\ST\STM32_USB_Device_Library\Class\HID\Src\usbd_hid.c)(0x62864B
 I (..\Middlewares\ST\STM32_USB_Device_Library\Class\HID\Inc\usbd_hid.h)(0x62864C01)
 I (..\Middlewares\ST\STM32_USB_Device_Library\Core\Inc\usbd_ioreq.h)(0x62F36860)
 I (..\Middlewares\ST\STM32_USB_Device_Library\Core\Inc\usbd_def.h)(0x62F36860)
-I (..\USB_DEVICE\Target\usbd_conf.h)(0x6286994A)
+I (..\USB_DEVICE\Target\usbd_conf.h)(0x632700AF)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdio.h)(0x625333C6)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdlib.h)(0x625333C6)
 I (C:\Keil_v5\ARM\ARMCLANG\include\string.h)(0x625333C6)
-I (..\Core\Inc\main.h)(0x62F4CF93)
+I (..\Core\Inc\main.h)(0x63274332)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal.h)(0x62F36871)
-I (..\Core\Inc\stm32l1xx_hal_conf.h)(0x62F4CF93)
+I (..\Core\Inc\stm32l1xx_hal_conf.h)(0x63274D69)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_rcc.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_def.h)(0x62F36871)
 I (..\Drivers\CMSIS\Device\ST\STM32L1xx\Include\stm32l1xx.h)(0x62F36871)
@@ -1599,11 +1996,15 @@ I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_gpio.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_gpio_ex.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_dma.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_cortex.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_adc.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_adc_ex.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_flash.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_flash_ex.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_flash_ramfunc.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_pwr.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_pwr_ex.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_rtc.h)(0x62F36871)
+I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_rtc_ex.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_spi.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_tim.h)(0x62F36871)
 I (..\Drivers\STM32L1xx_HAL_Driver\Inc\stm32l1xx_hal_tim_ex.h)(0x62F36871)
