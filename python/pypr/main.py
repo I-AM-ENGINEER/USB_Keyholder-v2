@@ -19,7 +19,7 @@ class pogram(QtWidgets.QMainWindow):
         self.ui.lineLogin.setPlaceholderText('вводим')
         self.ui.lineComment.setPlaceholderText('вводим')
         self.ui.pushButton.clicked.connect(self.serialFL)
-        self.serialAdd()
+        #self.serialAdd()
 
     def serialAdd(self):
         for i in range(15):
@@ -64,7 +64,7 @@ class pogram(QtWidgets.QMainWindow):
         self.ui.lineComment.setText(text)
 
 
-ser = serial.Serial('COM3', 38400, timeout=1)
+#ser = serial.Serial('COM3', 38400, timeout=1)
 app = QtWidgets.QApplication([])
 application = pogram()
 application.show()
