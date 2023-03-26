@@ -998,8 +998,8 @@ extern "C" {
   * @{
   */
 
-//#define FORMAT_BIN                  RTC_FORMAT_BIN
-//#define FORMAT_BCD                  RTC_FORMAT_BCD
+#define FORMAT_BIN                  RTC_FORMAT_BIN
+#define FORMAT_BCD                  RTC_FORMAT_BCD
 
 #define RTC_ALARMSUBSECONDMASK_None     RTC_ALARMSUBSECONDMASK_NONE
 #define RTC_TAMPERERASEBACKUP_DISABLED  RTC_TAMPER_ERASE_BACKUP_DISABLE

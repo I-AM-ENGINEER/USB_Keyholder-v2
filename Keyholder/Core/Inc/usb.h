@@ -1,36 +1,52 @@
+/* USER CODE BEGIN Header */
+/**
+  ******************************************************************************
+  * @file    usb.h
+  * @brief   This file contains all the function prototypes for
+  *          the usb.c file
+  ******************************************************************************
+  * @attention
+  *
+  * Copyright (c) 2023 STMicroelectronics.
+  * All rights reserved.
+  *
+  * This software is licensed under terms that can be found in the LICENSE file
+  * in the root directory of this software component.
+  * If no LICENSE file comes with this software, it is provided AS-IS.
+  *
+  ******************************************************************************
+  */
+/* USER CODE END Header */
+/* Define to prevent recursive inclusion -------------------------------------*/
 #ifndef __USB_H__
 #define __USB_H__
 
-#include <stddef.h>
-#include "stm32l1xx_hal.h"
-//#include "stm32l1xx_hal_def.h"
+#ifdef __cplusplus
+extern "C" {
+#endif
 
-/* -------------------------------------------------------------------------- */
+/* Includes ------------------------------------------------------------------*/
+#include "main.h"
 
+/* USER CODE BEGIN Includes */
 
-/* -------------------------------------------------------------------------- */
+/* USER CODE END Includes */
 
-#define USB_SUSPEND_MODE 	0x00
-#define USB_HID_MODE			0x01
-#define USB_CDC_MODE			0x02
-#define USB_MSC_MODE			0x03
-#define USB_DFU_MODE			0x04
+extern PCD_HandleTypeDef hpcd_USB_FS;
 
-/* -------------------------------------------------------------------------- */
+/* USER CODE BEGIN Private defines */
 
-void USB_keyboard_putc(char ch);
-void USB_keyboard_puts(char *str, uint8_t length);
+/* USER CODE END Private defines */
 
-/* -------------------------------------------------------------------------- */
+void MX_USB_PCD_Init(void);
 
-void USB_set_mode(uint8_t mode);
-uint8_t USB_get_state( void );
-void USB_main( void );
-uint8_t get_USB_write_flag( void );
-void set_USB_write_flag( uint8_t passwordNum );
-uint8_t is_USB_connected( void );
-void set_USB_connection( void );
-void reset_USB_connection( void );
-void wait_USB_insert_hotkey( void );
+/* USER CODE BEGIN Prototypes */
 
-#endif // __USB_H__
+/* USER CODE END Prototypes */
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif /* __USB_H__ */
+

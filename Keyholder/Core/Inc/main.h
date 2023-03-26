@@ -31,7 +31,10 @@ extern "C" {
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include <stdbool.h>
+#include <string.h>
+#include <stdlib.h>
+#include <stdio.h>
 /* USER CODE END Includes */
 
 /* Exported types ------------------------------------------------------------*/
@@ -59,38 +62,45 @@ void Error_Handler(void);
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
-#define DISPLAY_ON2_Pin GPIO_PIN_1
-#define DISPLAY_ON2_GPIO_Port GPIOA
-#define DISPLAY_ON1_Pin GPIO_PIN_2
-#define DISPLAY_ON1_GPIO_Port GPIOA
-#define SW4_Pin GPIO_PIN_3
-#define SW4_GPIO_Port GPIOA
-#define SW4_EXTI_IRQn EXTI3_IRQn
-#define SW5_Pin GPIO_PIN_4
-#define SW5_GPIO_Port GPIOA
-#define SW5_EXTI_IRQn EXTI4_IRQn
-#define SW6_Pin GPIO_PIN_5
-#define SW6_GPIO_Port GPIOA
-#define SW6_EXTI_IRQn EXTI9_5_IRQn
-#define SW7_Pin GPIO_PIN_6
+#define SW7_Pin GPIO_PIN_1
 #define SW7_GPIO_Port GPIOA
-#define SW7_EXTI_IRQn EXTI9_5_IRQn
-#define SW8_Pin GPIO_PIN_7
+#define SW4_Pin GPIO_PIN_2
+#define SW4_GPIO_Port GPIOA
+#define DCDC_EN_Pin GPIO_PIN_3
+#define DCDC_EN_GPIO_Port GPIOA
+#define SW8_Pin GPIO_PIN_5
 #define SW8_GPIO_Port GPIOA
-#define SW8_EXTI_IRQn EXTI9_5_IRQn
-#define ADC_VBAT_Pin GPIO_PIN_0
-#define ADC_VBAT_GPIO_Port GPIOB
-#define VBAT_EN_Pin GPIO_PIN_2
-#define VBAT_EN_GPIO_Port GPIOB
-#define SW1_Pin GPIO_PIN_8
+#define SW6_Pin GPIO_PIN_6
+#define SW6_GPIO_Port GPIOA
+#define SW5_Pin GPIO_PIN_7
+#define SW5_GPIO_Port GPIOA
+#define JOY_CCW_Pin GPIO_PIN_0
+#define JOY_CCW_GPIO_Port GPIOB
+#define JOY_GND_Pin GPIO_PIN_1
+#define JOY_GND_GPIO_Port GPIOB
+#define JOY_CW_Pin GPIO_PIN_10
+#define JOY_CW_GPIO_Port GPIOB
+#define OLED_CS_Pin GPIO_PIN_12
+#define OLED_CS_GPIO_Port GPIOB
+#define OLES_SSPI_MOSI_Pin GPIO_PIN_13
+#define OLES_SSPI_MOSI_GPIO_Port GPIOB
+#define OLES_SSPI_SCK_Pin GPIO_PIN_15
+#define OLES_SSPI_SCK_GPIO_Port GPIOB
+#define ADC_EN_Pin GPIO_PIN_8
+#define ADC_EN_GPIO_Port GPIOA
+#define SW1_Pin GPIO_PIN_9
 #define SW1_GPIO_Port GPIOA
-#define SW1_EXTI_IRQn EXTI9_5_IRQn
-#define SW2_Pin GPIO_PIN_9
+#define SW2_Pin GPIO_PIN_15
 #define SW2_GPIO_Port GPIOA
-#define SW2_EXTI_IRQn EXTI9_5_IRQn
-#define SW3_Pin GPIO_PIN_10
-#define SW3_GPIO_Port GPIOA
-#define SW3_EXTI_IRQn EXTI15_10_IRQn
+#define SW3_Pin GPIO_PIN_6
+#define SW3_GPIO_Port GPIOB
+#define VBUS_EN_Pin GPIO_PIN_7
+#define VBUS_EN_GPIO_Port GPIOB
+#define OLED_DC_Pin GPIO_PIN_8
+#define OLED_DC_GPIO_Port GPIOB
+#define OLED_RES_Pin GPIO_PIN_9
+#define OLED_RES_GPIO_Port GPIOB
+
 /* USER CODE BEGIN Private defines */
 
 /* USER CODE END Private defines */

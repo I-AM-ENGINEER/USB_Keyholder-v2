@@ -19,21 +19,21 @@
 //#define STM32G0
 
 // Choose a bus
-#define SSD1306_USE_I2C
-//#define SSD1306_USE_SPI
+//#define SSD1306_USE_I2C
+#define SSD1306_USE_SPI
 
 // I2C Configuration
-#define SSD1306_I2C_PORT        hi2c1
-#define SSD1306_I2C_ADDR        (0x3C << 1)
+//#define SSD1306_I2C_PORT        hi2c1
+//#define SSD1306_I2C_ADDR        (0x3C << 1)
 
 // SPI Configuration
-//#define SSD1306_SPI_PORT        hspi1
-//#define SSD1306_CS_Port         OLED_CS_GPIO_Port
-//#define SSD1306_CS_Pin          OLED_CS_Pin
-//#define SSD1306_DC_Port         OLED_DC_GPIO_Port
-//#define SSD1306_DC_Pin          OLED_DC_Pin
-//#define SSD1306_Reset_Port      OLED_Res_GPIO_Port
-//#define SSD1306_Reset_Pin       OLED_Res_Pin
+#define SSD1306_SPI_PORT        hspi2
+#define SSD1306_CS_Port         OLED_CS_GPIO_Port
+#define SSD1306_CS_Pin          OLED_CS_Pin
+#define SSD1306_DC_Port         OLED_DC_GPIO_Port
+#define SSD1306_DC_Pin          OLED_DC_Pin
+#define SSD1306_Reset_Port      OLED_RES_GPIO_Port
+#define SSD1306_Reset_Pin       OLED_RES_Pin
 
 // Mirror the screen if needed
 // #define SSD1306_MIRROR_VERT
@@ -50,7 +50,7 @@
 
 // The width of the screen can be set using this
 // define. The default value is 128.
-#define SSD1306_WIDTH           128
+#define SSD1306_WIDTH           64
 
 // If your screen horizontal axis does not start
 // in column 0 you can use this define to
@@ -59,6 +59,6 @@
 
 // The height can be changed as well if necessary.
 // It can be 32, 64 or 128. The default value is 64.
-#define SSD1306_HEIGHT          32
+#define SSD1306_HEIGHT          128
 
 #endif /* __SSD1306_CONF_H__ */
