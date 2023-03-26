@@ -19,7 +19,7 @@ typedef enum{
 	BTN_JCCW_ID,
 	BTN_JCW_ID,
 	BTN_NONE,
-} BTN_IDs;
+} BTN_ids_t;
 
 int exampleF(int number, char *string);
 void power_GoToSleep( void );

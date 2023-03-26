@@ -5,7 +5,7 @@
 #include "usbd_core.h"
 #include "gpio.h"
 #include "buttons.h"
-#include "user_interface.h"
+#include "ui_core.h"
 #include "comd.h"
 #include "usbd_cdc_acm_if.h"
 #include "crypto_io.h"
@@ -15,10 +15,10 @@
 #define SYSTEM_PREFIX "SYS_"
 
 typedef struct{
-	BTN_pushButton_t *perimeterButtons[8];
-	BTN_pushButton_t *joyCenter;
-	BTN_pushButton_t *joyCCW;
-	BTN_pushButton_t *joyCW;
+	BTN_push_button_t *perimeterButtons[8];
+	BTN_push_button_t *joyCenter;
+	BTN_push_button_t *joyCCW;
+	BTN_push_button_t *joyCW;
 } buttonArray_t;
 
 
@@ -40,10 +40,10 @@ void SYS_init( void ){
 	//comd_receive_IRQ(
 }
 
-BTN_buttonState_t oldSt;
+BTN_button_state_t oldSt;
 
-void SYS_BtnCallback( uint32_t buttonID, BTN_buttonState_t state ){
-	UI_event_SetButton( buttonID, state );
+void SYS_BtnCallback( uint32_t button_id, BTN_button_state_t state ){
+	UI_event_set_button( button_id, state );
 }
 
 bool SYS_GetSWstate ( GPIO_TypeDef *GPIO, uint32_t pin ){
@@ -69,36 +69,36 @@ bool SYS_GetJoySwipeState ( GPIO_TypeDef *GPIO, uint32_t pin ){
 
 void SYS_ButtonsInit( void ){
 	
-	buttonArray.perimeterButtons[0] = BTN_AddButton(BTN_SW1_ID);
-	buttonArray.perimeterButtons[1] = BTN_AddButton(BTN_SW2_ID);
-	buttonArray.perimeterButtons[2] = BTN_AddButton(BTN_SW3_ID);
-	buttonArray.perimeterButtons[3] = BTN_AddButton(BTN_SW4_ID);
-	buttonArray.perimeterButtons[4] = BTN_AddButton(BTN_SW5_ID);
-	buttonArray.perimeterButtons[5] = BTN_AddButton(BTN_SW6_ID);
-	buttonArray.perimeterButtons[6] = BTN_AddButton(BTN_SW7_ID);
-	buttonArray.perimeterButtons[7] = BTN_AddButton(BTN_SW8_ID);
-	buttonArray.joyCenter = BTN_AddButton(BTN_JPUSH_ID);
-	buttonArray.joyCCW 		= BTN_AddButton(BTN_JCCW_ID);
-	buttonArray.joyCW 		= BTN_AddButton(BTN_JCW_ID);
+	buttonArray.perimeterButtons[0] = BTN_add_button(BTN_SW1_ID);
+	buttonArray.perimeterButtons[1] = BTN_add_button(BTN_SW2_ID);
+	buttonArray.perimeterButtons[2] = BTN_add_button(BTN_SW3_ID);
+	buttonArray.perimeterButtons[3] = BTN_add_button(BTN_SW4_ID);
+	buttonArray.perimeterButtons[4] = BTN_add_button(BTN_SW5_ID);
+	buttonArray.perimeterButtons[5] = BTN_add_button(BTN_SW6_ID);
+	buttonArray.perimeterButtons[6] = BTN_add_button(BTN_SW7_ID);
+	buttonArray.perimeterButtons[7] = BTN_add_button(BTN_SW8_ID);
+	buttonArray.joyCenter = BTN_add_button(BTN_JPUSH_ID);
+	buttonArray.joyCCW 		= BTN_add_button(BTN_JCCW_ID);
+	buttonArray.joyCW 		= BTN_add_button(BTN_JCW_ID);
 	
-	BTN_ConnectButton(buttonArray.perimeterButtons[0], SYS_GetSWstate, SW1_GPIO_Port, SW1_Pin);
-	BTN_ConnectButton(buttonArray.perimeterButtons[1], SYS_GetSWstate, SW2_GPIO_Port, SW2_Pin);
-	BTN_ConnectButton(buttonArray.perimeterButtons[2], SYS_GetSWstate, SW3_GPIO_Port, SW3_Pin);
-	BTN_ConnectButton(buttonArray.perimeterButtons[3], SYS_GetSWstate, SW4_GPIO_Port, SW4_Pin);
-	BTN_ConnectButton(buttonArray.perimeterButtons[4], SYS_GetSWstate, SW5_GPIO_Port, SW5_Pin);
-	BTN_ConnectButton(buttonArray.perimeterButtons[5], SYS_GetSWstate, SW6_GPIO_Port, SW6_Pin);
-	BTN_ConnectButton(buttonArray.perimeterButtons[6], SYS_GetSWstate, SW7_GPIO_Port, SW7_Pin);
-	BTN_ConnectButton(buttonArray.perimeterButtons[7], SYS_GetSWstate, SW8_GPIO_Port, SW8_Pin);
-	BTN_ConnectButton(buttonArray.joyCenter,SYS_GetJoyPushState,  JOY_GND_GPIO_Port, JOY_GND_Pin);
-	BTN_ConnectButton(buttonArray.joyCCW, 	SYS_GetJoySwipeState, JOY_CCW_GPIO_Port, JOY_CCW_Pin);
-	BTN_ConnectButton(buttonArray.joyCW, 		SYS_GetJoySwipeState, JOY_CW_GPIO_Port , JOY_CW_Pin );
+	BTN_connect_button(buttonArray.perimeterButtons[0], SYS_GetSWstate, SW1_GPIO_Port, SW1_Pin);
+	BTN_connect_button(buttonArray.perimeterButtons[1], SYS_GetSWstate, SW2_GPIO_Port, SW2_Pin);
+	BTN_connect_button(buttonArray.perimeterButtons[2], SYS_GetSWstate, SW3_GPIO_Port, SW3_Pin);
+	BTN_connect_button(buttonArray.perimeterButtons[3], SYS_GetSWstate, SW4_GPIO_Port, SW4_Pin);
+	BTN_connect_button(buttonArray.perimeterButtons[4], SYS_GetSWstate, SW5_GPIO_Port, SW5_Pin);
+	BTN_connect_button(buttonArray.perimeterButtons[5], SYS_GetSWstate, SW6_GPIO_Port, SW6_Pin);
+	BTN_connect_button(buttonArray.perimeterButtons[6], SYS_GetSWstate, SW7_GPIO_Port, SW7_Pin);
+	BTN_connect_button(buttonArray.perimeterButtons[7], SYS_GetSWstate, SW8_GPIO_Port, SW8_Pin);
+	BTN_connect_button(buttonArray.joyCenter,SYS_GetJoyPushState,  JOY_GND_GPIO_Port, JOY_GND_Pin);
+	BTN_connect_button(buttonArray.joyCCW, 	SYS_GetJoySwipeState, JOY_CCW_GPIO_Port, JOY_CCW_Pin);
+	BTN_connect_button(buttonArray.joyCW, 		SYS_GetJoySwipeState, JOY_CW_GPIO_Port , JOY_CW_Pin );
 	
 	for(uint32_t i = 0; i < 8; i++){
-		BTN_SetCallback(buttonArray.perimeterButtons[i], SYS_BtnCallback);
+		BTN_set_callback(buttonArray.perimeterButtons[i], SYS_BtnCallback);
 	}
-	BTN_SetCallback(buttonArray.joyCenter, SYS_BtnCallback);
-	BTN_SetCallback(buttonArray.joyCCW, SYS_BtnCallback);
-	BTN_SetCallback(buttonArray.joyCW, SYS_BtnCallback);
+	BTN_set_callback(buttonArray.joyCenter, SYS_BtnCallback);
+	BTN_set_callback(buttonArray.joyCCW, SYS_BtnCallback);
+	BTN_set_callback(buttonArray.joyCW, SYS_BtnCallback);
 }
 
 void SystemClock_Config(void);

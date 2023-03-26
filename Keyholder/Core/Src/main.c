@@ -38,7 +38,7 @@
 #include "ssd1306.h"
 #include "ssd1306_tests.h"
 #include "crypto.h"
-#include "user_interface.h"
+#include "ui_core.h"
 #include "system.h"
 #include "comd.h"
 //#include "usbd_hid.h"

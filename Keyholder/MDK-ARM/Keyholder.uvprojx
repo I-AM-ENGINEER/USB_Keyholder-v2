@@ -135,7 +135,7 @@
             <RunIndependent>0</RunIndependent>
             <UpdateFlashBeforeDebugging>1</UpdateFlashBeforeDebugging>
             <Capability>1</Capability>
-            <DriverSelection>4101</DriverSelection>
+            <DriverSelection>4096</DriverSelection>
           </Flash1>
           <bUseTDR>1</bUseTDR>
           <Flash2>BIN\UL2CM3.DLL</Flash2>
@@ -323,7 +323,7 @@
             <PlainCh>0</PlainCh>
             <Ropi>0</Ropi>
             <Rwpi>0</Rwpi>
-            <wLevel>2</wLevel>
+            <wLevel>1</wLevel>
             <uThumb>0</uThumb>
             <uSurpInc>0</uSurpInc>
             <uC99>1</uC99>
@@ -340,7 +340,7 @@
               <MiscControls></MiscControls>
               <Define>USE_HAL_DRIVER,STM32L151xBA</Define>
               <Undefine></Undefine>
-              <IncludePath>../Core/Inc;../Drivers/STM32L1xx_HAL_Driver/Inc;../Drivers/STM32L1xx_HAL_Driver/Inc/Legacy;../Drivers/CMSIS/Device/ST/STM32L1xx/Include;../Drivers/CMSIS/Include;../Composite;../Middlewares/Third_Party/AL94_USB_Composite/COMPOSITE/Class/MSC/Inc;../Middlewares/Third_Party/AL94_USB_Composite/COMPOSITE/App;../Middlewares/Third_Party/AL94_USB_Composite/COMPOSITE/Class/COMPOSITE/Inc;../Middlewares/Third_Party/AL94_USB_Composite/COMPOSITE/Class/HID_KEYBOARD/Inc;../Middlewares/Third_Party/AL94_USB_Composite/COMPOSITE/Core/Inc;../Middlewares/Third_Party/AL94_USB_Composite/COMPOSITE/Target;../Middlewares/Third_Party/AL94_USB_Composite/COMPOSITE/Class/CDC_ACM/Inc;../FATFS/Target;../FATFS/App;../Middlewares/Third_Party/FatFs/src;..\Middlewares\ST\STM32_Cryptographic\include</IncludePath>
+              <IncludePath>../Core/Inc;../Drivers/STM32L1xx_HAL_Driver/Inc;../Drivers/STM32L1xx_HAL_Driver/Inc/Legacy;../Drivers/CMSIS/Device/ST/STM32L1xx/Include;../Drivers/CMSIS/Include;../Composite;../Middlewares/Third_Party/AL94_USB_Composite/COMPOSITE/Class/MSC/Inc;../Middlewares/Third_Party/AL94_USB_Composite/COMPOSITE/App;../Middlewares/Third_Party/AL94_USB_Composite/COMPOSITE/Class/COMPOSITE/Inc;../Middlewares/Third_Party/AL94_USB_Composite/COMPOSITE/Class/HID_KEYBOARD/Inc;../Middlewares/Third_Party/AL94_USB_Composite/COMPOSITE/Core/Inc;../Middlewares/Third_Party/AL94_USB_Composite/COMPOSITE/Target;../Middlewares/Third_Party/AL94_USB_Composite/COMPOSITE/Class/CDC_ACM/Inc;../FATFS/Target;../FATFS/App;../Middlewares/Third_Party/FatFs/src;..\Middlewares\ST\STM32_Cryptographic\include;..\Core\Src\ugl;..\Core\Src\ui</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -413,11 +413,6 @@
               <FileName>crypto.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\Core\Src\crypto.c</FilePath>
-            </File>
-            <File>
-              <FileName>user_interface.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\Core\Src\user_interface.c</FilePath>
             </File>
             <File>
               <FileName>system.c</FileName>
@@ -661,6 +656,56 @@
               <FileName>crypto_io.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\Core\Src\crypto_io.c</FilePath>
+            </File>
+            <File>
+              <FileName>ugl_core.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Core\Src\ugl\ugl_core.h</FilePath>
+            </File>
+            <File>
+              <FileName>ugl_item.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Core\Src\ugl\ugl_item.c</FilePath>
+            </File>
+            <File>
+              <FileName>ugl_menu.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Core\Src\ugl\ugl_menu.c</FilePath>
+            </File>
+            <File>
+              <FileName>ugl_sprite.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Core\Src\ugl\ugl_sprite.c</FilePath>
+            </File>
+            <File>
+              <FileName>ugl_text.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Core\Src\ugl\ugl_text.c</FilePath>
+            </File>
+            <File>
+              <FileName>ui_menu_hotkey.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Core\Src\ui\ui_menu_hotkey.c</FilePath>
+            </File>
+            <File>
+              <FileName>ui_menu_login.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Core\Src\ui\ui_menu_login.c</FilePath>
+            </File>
+            <File>
+              <FileName>ui_menu_main.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Core\Src\ui\ui_menu_main.c</FilePath>
+            </File>
+            <File>
+              <FileName>ui_core.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Core\Src\ui\ui_core.c</FilePath>
+            </File>
+            <File>
+              <FileName>ugl_core.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Core\Src\ugl\ugl_core.c</FilePath>
             </File>
           </Files>
         </Group>

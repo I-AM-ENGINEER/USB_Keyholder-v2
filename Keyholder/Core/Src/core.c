@@ -2,7 +2,7 @@
 #include "ssd1306.h"
 #include "ssd1306_tests.h"
 #include "crypto.h"
-#include "user_interface.h"
+#include "ui_core.h"
 #include "system.h"
 //#include "usbd_hid.h"
 //#include "usb.h"
@@ -104,7 +104,7 @@ inline void CORE_Process( void ){
 	
 	if(currentTick != buttonsTimestamp){
 		buttonsTimestamp = currentTick;
-		BTN_UpdateButtons();
+		BTN_update_buttons();
 	}
 	
 	static uint32_t circlePosition = 10;

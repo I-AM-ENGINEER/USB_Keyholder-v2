@@ -22,7 +22,7 @@
 #include "stm32l1xx_it.h"
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#include "user_interface.h"
+#include "ui_core.h"
 #include "ssd1306.h"
 #include "crypto.h"
 #include "buttons.h"
@@ -241,7 +241,7 @@ void TIM6_IRQHandler(void)
 {
   /* USER CODE BEGIN TIM6_IRQn 0 */
 	HAL_TIM_Base_Stop(&htim6);
-	//BTN_UpdateButtons();
+	//BTN_update_buttons();
 	HAL_TIM_Base_Start_IT(&htim6);
   /* USER CODE END TIM6_IRQn 0 */
   HAL_TIM_IRQHandler(&htim6);

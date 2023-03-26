@@ -17,34 +17,34 @@ typedef enum {
 	BUTTON_STATE_HOLDED,
 	BUTTON_STATE_RELEASING,
 	BUTTON_STATE_RELEASED,
-} BTN_buttonState_t;
+} BTN_button_state_t;
 
 typedef struct{
 	GPIO_TypeDef *GPIO;
 	uint32_t			pin;
-	bool (*getState_f) ( GPIO_TypeDef *, uint32_t );
-} BTN_pushButtonHW_t;
+	bool (*get_state_f) ( GPIO_TypeDef *, uint32_t );
+} BTN_push_button_hw_t;
 
 typedef struct{
-	BTN_pushButtonHW_t HW;
-	BTN_buttonState_t state;
-	BTN_buttonState_t stateOld;
+	BTN_push_button_hw_t hw;
+	BTN_button_state_t state;
+	BTN_button_state_t state_old;
 	uint32_t timestamp;
 	//char buttonChar[BTN_MAX_NAME_LENGTH];
 	uint32_t ID;
 	bool inverted;
-	void (*callback) ( uint32_t buttonID, BTN_buttonState_t state );
-} BTN_pushButton_t;
+	void (*callback) ( uint32_t button_id, BTN_button_state_t state );
+} BTN_push_button_t;
 
 
-BTN_pushButton_t* BTN_AddButton( uint32_t buttonID );
-void BTN_ConnectButton( BTN_pushButton_t* button, bool (*readButtonState) ( GPIO_TypeDef *GPIO, uint32_t pin ), GPIO_TypeDef *GPIO, uint32_t pin );
-void BTN_SetCallback( BTN_pushButton_t *button, void (*callback) ( uint32_t buttonID, BTN_buttonState_t buttonState ) );
-void BTN_UpdateButtons( void );
+BTN_push_button_t* BTN_add_button( uint32_t button_id );
+void BTN_connect_button( BTN_push_button_t* button, bool (*read_button_state_f) ( GPIO_TypeDef *GPIO, uint32_t pin ), GPIO_TypeDef *GPIO, uint32_t pin );
+void BTN_set_callback( BTN_push_button_t *button, void (*callback) ( uint32_t button_id, BTN_button_state_t buttonState ) );
+void BTN_update_buttons( void );
 
 /*
 typedef struct{
 	
-} pushButtonStack_t;
+} push_button_stack_t;
 */
 #endif // __BUTTONS_H__
