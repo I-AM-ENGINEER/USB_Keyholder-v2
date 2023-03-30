@@ -11,7 +11,9 @@ void ugl_return( void ){
 
 void ugl_enter( uint32_t ID, ugl_menu_t* (*menu_constructor) ( uint32_t ID, void* extra ), void* extra ){
 	ugl_menu_t *oldMenu = UI_current_menu;
-	UI_current_menu = menu_constructor(ID, extra);
+	ugl_menu_t *curMenu = menu_constructor(ID, extra);
+	if(curMenu == NULL) return;
+	UI_current_menu = curMenu;
 	UI_current_menu->caller_ptr = oldMenu;
 }
 

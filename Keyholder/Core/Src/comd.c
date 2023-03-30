@@ -37,9 +37,18 @@ void comd_add_receive_callback(char* (*callback)(const char*), char* prefix) {
 }
 
 void comd_receive_IRQ(uint8_t *received_data, uint16_t size) {
-    static char buffer[256]; // static buffer to store received data
-    static uint16_t buffer_index = 0; // index of the next available position in the buffer
+    //static char buffer[256]; // static buffer to store received data
+  char *buffer = (char*)received_data;  
+	static uint16_t buffer_index = 0; // index of the next available position in the buffer
     
+	for (uint8_t j = 0; j < receive_callback_count; j++) {
+		if (strncmp(buffer, receive_callbacks[j].prefix, strlen(receive_callbacks[j].prefix)) == 0) {
+			comd_send_str_IT(receive_callbacks[j].callback(&buffer[strlen(receive_callbacks[j].prefix)]));
+		}
+  }
+	
+	
+	/*
     // process received data
     for (uint16_t i = 0; i < size; i++) {
         buffer[buffer_index++] = received_data[i]; // add received byte to the buffer
@@ -74,6 +83,7 @@ void comd_receive_IRQ(uint8_t *received_data, uint16_t size) {
             buffer_index = 0;
         }
     }
+		*/
 }
 					
 					

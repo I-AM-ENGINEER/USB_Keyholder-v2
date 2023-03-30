@@ -12,17 +12,10 @@ void crypto_save( void ) {
     uint32_t bytes_to_write;
 		uint32_t page_id = CRYPTO_PAGE_OFFSET;
 	
-    // Write the structure to flash memory in chunks of FLASH_PAGE_SIZE bytes
     while (bytes_remaining > 0) {
         bytes_to_write = (bytes_remaining > FLASH_PAGE_SIZE) ? FLASH_PAGE_SIZE : bytes_remaining;
-
-        // Copy the next chunk of data from the structure buffer to the page buffer
         memcpy(page_buffer, &struct_buffer[struct_offset], bytes_to_write);
-
-        // Write the page buffer to flash memory
         flashd_page_write(page_buffer, page_id);
-
-        // Update the offsets and remaining bytes
         struct_offset += bytes_to_write;
         bytes_remaining -= bytes_to_write;
         page_id++;
@@ -37,17 +30,10 @@ void crypto_load(void) {
     uint32_t bytes_to_read;
     uint32_t page_id = CRYPTO_PAGE_OFFSET;
 	
-    // Read the structure from flash memory in chunks of FLASH_PAGE_SIZE bytes
     while (bytes_remaining > 0) {
         bytes_to_read = (bytes_remaining > FLASH_PAGE_SIZE) ? FLASH_PAGE_SIZE : bytes_remaining;
-
-        // Read the page buffer from flash memory
         flashd_page_read(page_buffer, page_id);
-
-        // Copy the next chunk of data from the page buffer to the structure buffer
         memcpy(&struct_buffer[struct_offset], page_buffer, bytes_to_read);
-
-        // Update the offsets and remaining bytes
         struct_offset += bytes_to_read;
         bytes_remaining -= bytes_to_read;
         page_id++;
@@ -56,8 +42,9 @@ void crypto_load(void) {
 
 void crypto_init( void ){
 	crypto_load();
-	if(crypto_db.first_check != 0x55AA){
-		crypto_db.first_check = 0x55AA;
+	if(crypto_db.first_check != 0xAAAA){
+		memset(&crypto_db, 0, sizeof(crypto_database_t));
+		crypto_db.first_check = 0xAAAA;
 		list_init(&crypto_db.password_list, crypto_db.password_list_buf, sizeof(crypto_db.password_list_buf)/sizeof(list_node_t));
 		crypto_save();
 	}
@@ -109,6 +96,18 @@ crypto_state_t crypto_password_set( crypto_password_t* password, uint16_t number
 }
 
 crypto_state_t crypto_password_remove( uint16_t number ){
+	crypto_password_t* password;
+	
+	if(crypto_password_get(password, number) != CRYPTO_STATE_OK){
+		return CRYPTO_STATE_ERROR;
+	}
+	
+	for(uint8_t i = 0; i < CRYPTO_HOTKEY_NUM; i++){
+		if(password == crypto_db.hotkey[i]){
+			crypto_db.hotkey[i] = NULL;
+		}
+	}
+	
 	if(list_remove(&crypto_db.password_list, number) != LIST_STATE_OK) {
 		return CRYPTO_STATE_ERROR;
 	}
@@ -130,15 +129,12 @@ crypto_state_t crypto_password_swap( uint16_t password_a, uint16_t password_b ){
 }
 
 crypto_state_t crypto_password_new( crypto_password_t* password ){
-	uint8_t searchArray[(CRYPTO_PASSWORDS_COUNT_MAX + 7) / 8];
-	
 	if(list_get_count(&crypto_db.password_list) == list_get_count_max(&crypto_db.password_list)){
 		return CRYPTO_STATE_ERROR;
 	}
 	
+	uint8_t searchArray[(CRYPTO_PASSWORDS_COUNT_MAX + 7) / 8];
 	memset(searchArray, 0, sizeof(searchArray));
-	
-	
 	
 	for(uint8_t i = 0; i < list_get_count(&crypto_db.password_list); i++){
 		uint32_t data;
@@ -160,4 +156,31 @@ crypto_state_t crypto_password_new( crypto_password_t* password ){
 		}
 	}
 	return CRYPTO_STATE_ERROR;
+}
+
+
+
+
+
+crypto_state_t crypto_hotkey_password_get( uint8_t hothey, crypto_password_t** password ){
+	if(hothey >= CRYPTO_HOTKEY_NUM){
+		return CRYPTO_STATE_ERROR;
+	}
+	if(crypto_db.hotkey[hothey] == NULL){
+		return CRYPTO_STATE_ERROR;
+	}
+	*password = crypto_db.hotkey[hothey];
+	return CRYPTO_STATE_OK;
+}
+
+crypto_state_t crypto_hotkey_password_set( uint8_t hotkey, uint16_t password_number ){
+	crypto_password_t* password;
+	if(hotkey >= CRYPTO_HOTKEY_NUM){
+		return CRYPTO_STATE_ERROR;
+	}
+	if(crypto_password_get(password, password_number) != CRYPTO_STATE_OK){
+		return CRYPTO_STATE_ERROR;
+	}
+	crypto_db.hotkey[hotkey] = password;
+	return CRYPTO_STATE_OK;
 }

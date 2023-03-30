@@ -52,7 +52,7 @@ void UI_Init( void );
 
 void UI_menu_Return( void );
 void UI_event_clear_last( void );
-UI_event_button_t* UI_event_GetLast( void );
+UI_event_button_t UI_event_GetLast( void );
 
 
 /* -------------------------------------------------------------------------- */

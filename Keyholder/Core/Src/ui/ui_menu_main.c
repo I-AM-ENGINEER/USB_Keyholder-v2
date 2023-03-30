@@ -1,4 +1,5 @@
 #include "ui_core.h"
+#include "crypto.h"
 
 void UI_mainMenuDraw( void ){
 	ssd1306_Fill(Black);
@@ -6,15 +7,34 @@ void UI_mainMenuDraw( void ){
 	static uint32_t lastSwipeTimestamp = 0;
 	
 	
-	UI_event_button_t* lastButton = UI_event_GetLast();
-	switch(lastButton->event_type){
+	UI_event_button_t lastButton = UI_event_GetLast();
+	UI_event_clear_last();
+	
+	switch(lastButton.event_type){
 		case BUTTON_STATE_PRESSED:
-			if(lastButton->button_id == BTN_JCW_ID) ugl_get_current_menu()->selected_item = ugl_get_current_menu()->selected_item->next_item;
-			else if(lastButton->button_id == BTN_JCCW_ID) ugl_get_current_menu()->selected_item = ugl_get_current_menu()->selected_item->previous_item;
-			//else if(
+			if(lastButton.button_id == BTN_JCW_ID){
+				ugl_get_current_menu()->selected_item = ugl_get_current_menu()->selected_item->next_item;
+			}else if(lastButton.button_id == BTN_JCCW_ID){
+				ugl_get_current_menu()->selected_item = ugl_get_current_menu()->selected_item->previous_item;
+			}else if(lastButton.button_id == BTN_JPUSH_ID){
+				switch(ugl_get_current_menu()->selected_item->ID){
+					case UI_MENU_MAIN_LOCK: 
+						ugl_enter(1, UI_login_menu_constructor, NULL);
+						return;
+						break;
+					default: break;
+				}
+			}else if((lastButton.button_id >= BTN_SW1_ID) && (lastButton.button_id <= BTN_SW8_ID)){
+				crypto_password_t* password;
+				//BTN_ids_t pushed_button = lastButton.button_id;
+				if(crypto_hotkey_password_get(lastButton.button_id, &password) == CRYPTO_STATE_OK){
+					ugl_enter(1, UI_hotkey_menu_constructor, password);
+				}
+				return;
+			}
 			break;
 		case BUTTON_STATE_HOLDED:
-			holdedButton = lastButton->button_id;
+			holdedButton = lastButton.button_id;
 			break;
 		case BUTTON_STATE_RELEASED:
 			holdedButton = BTN_NONE;
@@ -22,33 +42,12 @@ void UI_mainMenuDraw( void ){
 		default: break;
 	}
 	
-	
-	if((lastButton->event_type == BUTTON_STATE_PRESSED) && (lastButton->button_id == BTN_JPUSH_ID)){
-		switch(ugl_get_current_menu()->selected_item->ID){
-			case UI_MENU_MAIN_LOCK: 
-				ugl_enter(1, UI_login_menu_constructor, NULL);
-				//UI_switch_to_login_menu(1);
-				return;
-				break;
-			default: break;
-		}
-	}
-	
-	if((lastButton->event_type == BUTTON_STATE_PRESSED) && (lastButton->button_id >= BTN_SW1_ID) && (lastButton->button_id <= BTN_SW8_ID)){
-		BTN_ids_t pushed_button = lastButton->button_id;
-		ugl_enter(1, UI_hotkey_menu_constructor, &pushed_button);
-		return;
-	}
-	
-	UI_event_clear_last();
-		
 	// Holded swipe
 	if(((HAL_GetTick() - lastSwipeTimestamp) > 200) && ((holdedButton == BTN_JCW_ID) || (holdedButton == BTN_JCCW_ID))){
 		if(holdedButton == BTN_JCW_ID) 	ugl_get_current_menu()->selected_item = ugl_get_current_menu()->selected_item->next_item;
 		else 														ugl_get_current_menu()->selected_item = ugl_get_current_menu()->selected_item->previous_item;
 		lastSwipeTimestamp = HAL_GetTick();
 	}
-	
 	
 	if(ugl_get_current_menu()->selected_item->position_x_abs > 50) {
 		ugl_get_current_menu()->group->position_x -= 5;
@@ -65,31 +64,24 @@ void UI_mainMenuDraw( void ){
 	ssd1306_Line(1, 63, 126, 63, Black);
 	
 	
-	ssd1306_SetCursor(2,0);
-	ssd1306_WriteString("AAAA", Font_7x10, White);
+	crypto_password_t* password;
+	for(uint8_t i = 0; i < 8; i++){
+		ssd1306_SetCursor(((i & 0x03) * 31) + 2, i >> 3);
+		
+		if(crypto_hotkey_password_get(i, &password) == CRYPTO_STATE_OK){
+			char name[5];
+			memcpy(name, password->short_name, 4);
+			name[4] = 0;
+			ssd1306_WriteString(name, Font_7x10, White);
+		}
+	}
+	
 	ssd1306_Line(31, 0, 31, 10, White);
-	ssd1306_SetCursor(33,0);
-	ssd1306_WriteString("KEY2", Font_7x10, White);
 	ssd1306_Line(63, 0, 63, 10, White);
-	ssd1306_SetCursor(65,0);
-	ssd1306_WriteString("WIND", Font_7x10, White);
 	ssd1306_Line(95, 0, 95, 10, White);
-	ssd1306_SetCursor(97,0);
-	ssd1306_WriteString("SSH4", Font_7x10, White);
-	
-	
-	
-	ssd1306_SetCursor(2,55);
-	ssd1306_WriteString("TEST", Font_7x10, White);
 	ssd1306_Line(31, 53, 31, 63, White);
-	ssd1306_SetCursor(33,55);
-	ssd1306_WriteString("FUCK", Font_7x10, White);
 	ssd1306_Line(63, 53, 63, 63, White);
-	ssd1306_SetCursor(65,55);
-	ssd1306_WriteString("SHIT", Font_7x10, White);
 	ssd1306_Line(95, 53, 95, 63, White);
-	ssd1306_SetCursor(97,55);
-	ssd1306_WriteString("TEXT", Font_7x10, White);
 }
 
 ugl_menu_t *UI_main_menu_constructor( uint32_t ID, void* extra ){

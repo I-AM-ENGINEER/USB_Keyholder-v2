@@ -21,13 +21,18 @@ void UI_getData( uint32_t address, void *icon, uint32_t size ){
 	}
 }
 
-UI_event_button_t *UI_event_buttonStack = NULL;
+UI_event_button_t* UI_event_buttonStack = NULL;
 uint32_t UI_event_buttonStackSize = 0;
 uint32_t UI_event_buttonCount = 0;
 
-UI_event_button_t* UI_event_GetLast( void ){
-	if(UI_event_buttonCount == 0) return NULL;
-	return &UI_event_buttonStack[UI_event_buttonCount - 1];
+UI_event_button_t UI_event_GetLast( void ){
+	if(UI_event_buttonCount == 0){
+		UI_event_button_t t;
+		t.button_id = -1;
+		t.event_type = BUTTON_STATE_IDLE;
+		return t;
+	}//		return NULL;
+	return UI_event_buttonStack[UI_event_buttonCount - 1];
 }
 
 void UI_event_clear_last( void ){

@@ -6,14 +6,52 @@
 crypto_password_t passwordBuffer;
 char out_buffer[64];
 
+char* crypto_io_cmd_save( void );
 char* crypto_io_cmd_set_password( const char* cmd );
 char* crypto_io_cmd_get_password( const char* cmd );
 char* crypto_io_cmd_password_append( void );
+char* crypto_io_cmd_get_password_count( void );
+char* crypto_io_cmd_password_remove( const char* cmd );
+char* crypto_io_cmd_password_move( const char* cmd );
+char* crypto_io_cmd_password_swap( const char* cmd );
+char* crypto_io_cmd_password_insert( const char* cmd );
+char* crypto_io_cmd_hotkey_password_set( const char* cmd );
+
+char* crypto_io_cmd_parse( const char* cmd ){
+	utils_cmd_setstr( cmd );
+	
+	if (utils_cmdcmp(CRYPTO_CMD_PASSWORD_SET))
+		return crypto_io_cmd_set_password(&cmd[strlen(CRYPTO_CMD_PASSWORD_SET)]);
+	if (utils_cmdcmp(CRYPTO_CMD_PASSWORD_GET))
+		return crypto_io_cmd_get_password(&cmd[strlen(CRYPTO_CMD_PASSWORD_GET)]);
+	if (utils_cmdcmp(CRYPTO_CMD_PASSWORD_GET_COUNT))
+		return crypto_io_cmd_get_password_count();
+	if (utils_cmdcmp(CRYPTO_CMD_PASSWORD_REMOVE))
+		return crypto_io_cmd_password_remove(&cmd[strlen(CRYPTO_CMD_PASSWORD_REMOVE)]);
+	if (utils_cmdcmp(CRYPTO_CMD_PASSWORD_INSERT))
+		return crypto_io_cmd_password_insert(&cmd[strlen(CRYPTO_CMD_PASSWORD_INSERT)]);
+	if (utils_cmdcmp(CRYPTO_CMD_PASSWORD_APPEND))
+		return crypto_io_cmd_password_append();
+	if (utils_cmdcmp(CRYPTO_CMD_PASSWORD_MOVE))
+		return crypto_io_cmd_password_move(&cmd[strlen(CRYPTO_CMD_PASSWORD_MOVE)]);
+	if (utils_cmdcmp(CRYPTO_CMD_PASSWORD_SWAP))
+		return crypto_io_cmd_password_swap(&cmd[strlen(CRYPTO_CMD_PASSWORD_SWAP)]);
+	if (utils_cmdcmp(CRYPTO_CMD_HOTKEY_PASSWORD_SET))
+		return crypto_io_cmd_hotkey_password_set(&cmd[strlen(CRYPTO_CMD_HOTKEY_PASSWORD_SET)]);
+	if (utils_cmdcmp(CRYPTO_CMD_SAVE))
+		return crypto_io_cmd_save();
+	return CRYPTO_REPLY_INVALID_COMMAND;
+}
+
+static char* crypto_io_cmd_save( void ){
+	crypto_save();
+}
 
 static char* crypto_io_cmd_get_password_count( void ){
 	sprintf(out_buffer, "count: %d\r\n", crypto_password_count());
 	return out_buffer;
 }
+
 static char* crypto_io_cmd_password_remove( const char* cmd ){
 	uint16_t password_number = atoi(cmd);
 	if(crypto_password_remove( password_number ) != CRYPTO_STATE_OK){
@@ -79,28 +117,6 @@ static char* crypto_io_cmd_password_append( void ){
 	crypto_password_new(&passwordBuffer);
 	sprintf(out_buffer, "%s%d", CRYPTO_REPLY_PASSWORD_APPEND, crypto_password_count() - 1);
 	return out_buffer;
-}
-
-char* crypto_io_cmd_parse( const char* cmd ){
-	utils_cmd_setstr( cmd );
-	
-	if (utils_cmdcmp(CRYPTO_CMD_PASSWORD_SET))
-		return crypto_io_cmd_set_password(&cmd[strlen(CRYPTO_CMD_PASSWORD_SET)]);
-	if (utils_cmdcmp(CRYPTO_CMD_PASSWORD_GET))
-		return crypto_io_cmd_get_password(&cmd[strlen(CRYPTO_CMD_PASSWORD_GET)]);
-	if (utils_cmdcmp(CRYPTO_CMD_PASSWORD_GET_COUNT))
-		return crypto_io_cmd_get_password_count();
-	if (utils_cmdcmp(CRYPTO_CMD_PASSWORD_REMOVE))
-		return crypto_io_cmd_password_remove(&cmd[strlen(CRYPTO_CMD_PASSWORD_REMOVE)]);
-	if (utils_cmdcmp(CRYPTO_CMD_PASSWORD_INSERT))
-		return crypto_io_cmd_password_insert(&cmd[strlen(CRYPTO_CMD_PASSWORD_INSERT)]);
-	if (utils_cmdcmp(CRYPTO_CMD_PASSWORD_APPEND))
-		return crypto_io_cmd_password_append();
-	if (utils_cmdcmp(CRYPTO_CMD_PASSWORD_MOVE))
-		return crypto_io_cmd_password_move(&cmd[strlen(CRYPTO_CMD_PASSWORD_MOVE)]);
-	if (utils_cmdcmp(CRYPTO_CMD_PASSWORD_SWAP))
-		return crypto_io_cmd_password_swap(&cmd[strlen(CRYPTO_CMD_PASSWORD_SWAP)]);
-	return CRYPTO_REPLY_ERROR;
 }
 
 static char* crypto_io_cmd_set_password( const char* cmd ){
@@ -169,6 +185,10 @@ static char* crypto_io_cmd_set_password( const char* cmd ){
 }
 
 static char* crypto_io_cmd_get_password( const char* cmd ){
+	if(cmd == NULL){
+		return CRYPTO_REPLY_ERROR;
+	}
+	
 	uint16_t password_number = atoi(cmd);
 	
 	if(crypto_password_get(&passwordBuffer, password_number) != CRYPTO_STATE_OK){
@@ -178,4 +198,22 @@ static char* crypto_io_cmd_get_password( const char* cmd ){
 	sprintf(out_buffer, "%s%d:%s", CRYPTO_REPLY_GET_PASSWORD, password_number, passwordBuffer.password);
 	return out_buffer;
 }
+
+static char* crypto_io_cmd_hotkey_password_set( const char* cmd ){
+	if(cmd == NULL){
+		return CRYPTO_REPLY_ERROR;
+	}
+	// Login check
+	const char* password_number = strchr(cmd, ':') + 1;
+	if(password_number == NULL){
+		return CRYPTO_REPLY_ERROR;
+	}
+	
+	if(crypto_hotkey_password_set(atoi(cmd), atoi(password_number)) != CRYPTO_STATE_OK){
+		return CRYPTO_REPLY_ERROR;
+	}
+	return CRYPTO_REPLY_OK;
+}
+
+
 

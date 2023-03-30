@@ -14,18 +14,14 @@
 #include "main.h"
 #include "list.h"
 
+
+#define CRYPTO_HOTKEY_NUM						8
+
 #define CRYPTO_MAX_LIST_SIZE sizeof(CRYPTO_ListNode_t)
 
 
 void crypto_init( void );
 	
-typedef struct{
-	uint16_t first_check;
-	uint16_t hotkey_ID[8];
-	uint32_t chipper[8];
-	list_t 	password_list;
-	list_node_t password_list_buf[CRYPTO_PASSWORDS_COUNT_MAX];
-} crypto_database_t;
 
 typedef struct{
 	char password[32];
@@ -33,6 +29,14 @@ typedef struct{
 	char comment[60];
 	char short_name[4];
 } crypto_password_t;
+
+typedef struct{
+	uint16_t first_check;
+	uint32_t chipper[8];
+	list_t 	password_list;
+	crypto_password_t *hotkey[8];
+	list_node_t password_list_buf[CRYPTO_PASSWORDS_COUNT_MAX];
+} crypto_database_t;
 
 typedef enum{
 	CRYPTO_STATE_OK,
@@ -58,5 +62,9 @@ crypto_state_t crypto_password_swap( uint16_t password_a, uint16_t password_b );
 crypto_state_t crypto_password_new( crypto_password_t* password );
 // Delete password from list, not delete from flash memory
 crypto_state_t crypto_password_remove( uint16_t number );
+
+
+crypto_state_t crypto_hotkey_password_set( uint8_t hotkey, uint16_t password_number );
+crypto_state_t crypto_hotkey_password_get( uint8_t hothey, crypto_password_t** password );
 
 #endif // __CRYPTO_H__

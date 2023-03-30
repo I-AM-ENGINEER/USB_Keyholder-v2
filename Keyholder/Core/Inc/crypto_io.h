@@ -12,15 +12,15 @@
 #define CRYPTO_CMD_PASSWORD_INSERT				"PASSWORD_INSERT"				// PASSWORD_INSERT_idx	// create new password
 #define CRYPTO_CMD_PASSWORD_MOVE					"PASSWORD_MOVE_"					// PASSWORD_MOVE:from:to
 #define CRYPTO_CMD_PASSWORD_SWAP					"PASSWORD_SWAP_"					// PASSWORD_SWAP:firs:second
-
-//#define CRYPTO_CMD_PASSWORD_NEW						"PASSWORD_NEW:"
+#define CRYPTO_CMD_SAVE										"SAVE"					
+#define CRYPTO_CMD_HOTKEY_PASSWORD_SET		"HOTKEY_PASSWORD_SET_"		// HOTKEY_PASSWORD_SET_hotkey:password
 
 #define CRYPTO_REPLY_GET_PASSWORD					"PASSWORD_"
 
 #define CRYPTO_REPLY_PASSWORD_APPEND			"NEW_PASSWORD_IDX:"
 #define CRYPTO_REPLY_OK										"OK"
 #define CRYPTO_REPLY_ERROR								"ERROR"
-
+#define CRYPTO_REPLY_INVALID_COMMAND			"INVALID_COMMAND"
 
 char* crypto_io_cmd_parse( const char* cmd );
 

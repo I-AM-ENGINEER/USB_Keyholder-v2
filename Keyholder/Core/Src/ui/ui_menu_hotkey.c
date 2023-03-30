@@ -1,27 +1,62 @@
 #include "ui_core.h"
+#include "crypto.h"
 
 BTN_ids_t pushed_button;
 
+crypto_password_t* password;
+
 void UI_hotkey_menu_draw( void ){
-	UI_event_button_t* lastButton = UI_event_GetLast();
+	UI_event_button_t lastButton = UI_event_GetLast();
+	UI_event_clear_last();
+	
+	static bool show_password = false;
+	static bool last_p = false;
 	
 	ssd1306_Fill(Black);
 	
-	static uint32_t cursor = 0;
-	static char pswd[6] = "      ";
+	switch(lastButton.event_type){
+		//case BUTTON_STATE_PRESSED:
+			
+			//break;
+		case BUTTON_STATE_RELEASED:
+			if(lastButton.button_id == BTN_JPUSH_ID){
+				if(last_p){
+					last_p = false;
+					break;
+				}
+				show_password = false;
+				ugl_return();
+				return;
+			}
+			break;
+		case BUTTON_STATE_HOLDED:
+			if(lastButton.button_id == BTN_JPUSH_ID){
+				show_password = true;
+				last_p = true;
+			}
+		default: break;
+	}
 	
+	ssd1306_SetCursor(0,0);
+	ssd1306_WriteString("LLL", Font_7x10, White);
+	ssd1306_SetCursor(0,10);
+	ssd1306_WriteString("PSWD:", Font_7x10, White);
+	ssd1306_SetCursor(0,20);
+	if(show_password){
+		ssd1306_WriteString("YES", Font_7x10, White);
+	}
 	/*
-	switch(lastButton->event_type){
+	switch(lastButton.event_type){
 		case BUTTON_STATE_PRESSED:
-			if((lastButton->button_id >= BTN_SW1_ID) && (lastButton->button_id <= BTN_SW8_ID)){
-				pswd[cursor] = lastButton->button_id + '1';
+			if((lastButton.button_id >= BTN_SW1_ID) && (lastButton.button_id <= BTN_SW8_ID)){
+				pswd[cursor] = lastButton.button_id + '1';
 				if((cursor < 5) && (pswd[cursor+1] == ' ')){ 
 					cursor++;
 				}
-			}else if(lastButton->button_id == BTN_JCW_ID) {
+			}else if(lastButton.button_id == BTN_JCW_ID) {
 				if(cursor < 5) cursor++;
 			}
-			else if(lastButton->button_id == BTN_JCCW_ID) {
+			else if(lastButton.button_id == BTN_JCCW_ID) {
 				if(cursor > 0) cursor--;
 			}
 			break;
@@ -73,6 +108,8 @@ void UI_hotkey_menu_draw( void ){
 	ssd1306_Line(1, 63, 126, 63, Black);
 	*/
 	
+	
+	/*
 	uint32_t offset = 11;
 	
 	ssd1306_SetCursor(2+offset,0);
@@ -86,7 +123,7 @@ void UI_hotkey_menu_draw( void ){
 	ssd1306_Line(95, 0, 95, 10, White);
 	ssd1306_SetCursor(97+offset,0);
 	ssd1306_WriteString("4", Font_7x10, White);
-	
+	*/
 	
 	
 	//ssd1306_DrawRectangle(10, 10, 30, 40, White);
@@ -97,10 +134,12 @@ void UI_hotkey_menu_draw( void ){
 }
 
 ugl_menu_t *UI_hotkey_menu_constructor( uint32_t ID, void* extra ){
-	if(extra != NULL){
-		memcpy(&pushed_button, extra, sizeof(BTN_ids_t));
+	//password
+	if(extra == NULL){
+		return NULL;
+		//memcpy(&pushed_button, extra, sizeof(BTN_ids_t));
 	}
-	
+	//password
 	
 	ugl_menu_t *hotkey_menu = ugl_menu_constructor(ID);
 	//ugl_item_t *item = NULL;

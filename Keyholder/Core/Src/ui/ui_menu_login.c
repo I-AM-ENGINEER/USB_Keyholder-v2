@@ -1,24 +1,24 @@
 #include "ui_core.h"
 
 void UI_login_menu_draw( void ){
-	UI_event_button_t* lastButton = UI_event_GetLast();
+	UI_event_button_t lastButton = UI_event_GetLast();
 	
 	ssd1306_Fill(Black);
 	
 	static uint32_t cursor = 0;
 	static char pswd[6] = "      ";
 	
-	switch(lastButton->event_type){
+	switch(lastButton.event_type){
 		case BUTTON_STATE_PRESSED:
-			if((lastButton->button_id >= BTN_SW1_ID) && (lastButton->button_id <= BTN_SW8_ID)){
-				pswd[cursor] = lastButton->button_id + '1';
+			if((lastButton.button_id >= BTN_SW1_ID) && (lastButton.button_id <= BTN_SW8_ID)){
+				pswd[cursor] = lastButton.button_id + '1';
 				if((cursor < 5) && (pswd[cursor+1] == ' ')){ 
 					cursor++;
 				}
-			}else if(lastButton->button_id == BTN_JCW_ID) {
+			}else if(lastButton.button_id == BTN_JCW_ID) {
 				if(cursor < 5) cursor++;
 			}
-			else if(lastButton->button_id == BTN_JCCW_ID) {
+			else if(lastButton.button_id == BTN_JCCW_ID) {
 				if(cursor > 0) cursor--;
 			}
 			break;
