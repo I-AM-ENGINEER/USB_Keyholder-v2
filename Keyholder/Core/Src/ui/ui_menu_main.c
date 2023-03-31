@@ -28,9 +28,11 @@ void UI_mainMenuDraw( void ){
 				crypto_password_t* password;
 				//BTN_ids_t pushed_button = lastButton.button_id;
 				if(crypto_hotkey_password_get(lastButton.button_id, &password) == CRYPTO_STATE_OK){
-					ugl_enter(1, UI_hotkey_menu_constructor, password);
+					if(password != NULL){
+						ugl_enter(1, UI_hotkey_menu_constructor, password);
+						return;
+					}
 				}
-				return;
 			}
 			break;
 		case BUTTON_STATE_HOLDED:
@@ -66,8 +68,7 @@ void UI_mainMenuDraw( void ){
 	
 	crypto_password_t* password;
 	for(uint8_t i = 0; i < 8; i++){
-		ssd1306_SetCursor(((i & 0x03) * 31) + 2, i >> 3);
-		
+		ssd1306_SetCursor(((i & 0x03) * 32) + 2, i >> 3);
 		if(crypto_hotkey_password_get(i, &password) == CRYPTO_STATE_OK){
 			char name[5];
 			memcpy(name, password->short_name, 4);

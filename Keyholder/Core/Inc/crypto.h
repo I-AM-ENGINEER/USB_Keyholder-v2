@@ -6,7 +6,7 @@
 #define CRYPTO_PAGE_OFFSET 					(CRYPTO_FLASH_OFFSET/PAGESIZE)
 #define CRYPTO_PASSWORDS_COUNT_MAX	64
 //((sizeof(crypto_db) + FLASH_PAGE_SIZE - 1)/FLASH_PAGE_SIZE)
-#define CRYPTO_PAGE_PASSWORDS_OFFSET	CRYPTO_PAGE_OFFSET + ((sizeof(crypto_database_t) + FLASH_PAGE_SIZE - 1)/FLASH_PAGE_SIZE)
+#define CRYPTO_PAGE_PASSWORDS_OFFSET	(CRYPTO_PAGE_OFFSET + ((sizeof(crypto_database_t) + FLASH_PAGE_SIZE - 1)/FLASH_PAGE_SIZE))
 
 //(FLASH_END - FLASH_BASE - CRYPTO_FLASH_OFFSET + 1)
 //#define CRYPTO_PASSWORDS_COUNT_MAX		((CRYPTO_FLASH_SIZE/sizeof(CRYPTO_password_t))-1)
@@ -65,6 +65,6 @@ crypto_state_t crypto_password_remove( uint16_t number );
 
 
 crypto_state_t crypto_hotkey_password_set( uint8_t hotkey, uint16_t password_number );
-crypto_state_t crypto_hotkey_password_get( uint8_t hothey, crypto_password_t** password );
+crypto_state_t crypto_hotkey_password_get( uint8_t hothey, crypto_password_t**const password );
 
 #endif // __CRYPTO_H__

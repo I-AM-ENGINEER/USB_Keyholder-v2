@@ -70,12 +70,17 @@ void crypto_password_read( crypto_password_t* password, uint16_t ID ){
 	memcpy(password, &page_buffer[((ID & 0x01) << 7)], sizeof(crypto_password_t));
 }
 
-crypto_password_t* crypto_get_passwdord_ptr( uint16_t ID ){
-	return (crypto_password_t*)(ID * sizeof(crypto_password_t) + CRYPTO_FLASH_OFFSET + FLASH_BASE);
+void crypto_get_password_ptr( crypto_password_t** password, uint32_t ID ){
+	*password = (crypto_password_t*)( ID * sizeof(crypto_password_t) + FLASH_BASE + CRYPTO_PAGE_PASSWORDS_OFFSET * FLASH_PAGE_SIZE );
 }
 
 crypto_state_t crypto_password_get( crypto_password_t* password, uint16_t number ){
-	static volatile uint32_t node_ID;
+	uint32_t node_ID;
+	
+	if(password == NULL){
+		return CRYPTO_STATE_ERROR;
+	}
+	
 	if(list_get_node_data(&crypto_db.password_list, number, (void*)&node_ID) != LIST_STATE_OK){
 		return CRYPTO_STATE_ERROR;
 	}
@@ -84,7 +89,12 @@ crypto_state_t crypto_password_get( crypto_password_t* password, uint16_t number
 }
 
 crypto_state_t crypto_password_set( crypto_password_t* password, uint16_t number ){
-	static volatile uint32_t node_ID;
+	uint32_t node_ID;
+	
+	if(password == NULL){
+		return CRYPTO_STATE_ERROR;
+	}
+	
 	if(list_get_node_data(&crypto_db.password_list, number, (void*)&node_ID) != LIST_STATE_OK){
 		return CRYPTO_STATE_ERROR;
 	}
@@ -97,10 +107,13 @@ crypto_state_t crypto_password_set( crypto_password_t* password, uint16_t number
 
 crypto_state_t crypto_password_remove( uint16_t number ){
 	crypto_password_t* password;
+	uint32_t node_ID;
 	
-	if(crypto_password_get(password, number) != CRYPTO_STATE_OK){
+	if(list_get_node_data(&crypto_db.password_list, number, (void*)&node_ID) != LIST_STATE_OK){
 		return CRYPTO_STATE_ERROR;
 	}
+	
+	crypto_get_password_ptr(&password, node_ID);
 	
 	for(uint8_t i = 0; i < CRYPTO_HOTKEY_NUM; i++){
 		if(password == crypto_db.hotkey[i]){
@@ -132,6 +145,9 @@ crypto_state_t crypto_password_new( crypto_password_t* password ){
 	if(list_get_count(&crypto_db.password_list) == list_get_count_max(&crypto_db.password_list)){
 		return CRYPTO_STATE_ERROR;
 	}
+	if(password == NULL) {
+		return CRYPTO_STATE_ERROR;
+	}
 	
 	uint8_t searchArray[(CRYPTO_PASSWORDS_COUNT_MAX + 7) / 8];
 	memset(searchArray, 0, sizeof(searchArray));
@@ -158,27 +174,36 @@ crypto_state_t crypto_password_new( crypto_password_t* password ){
 	return CRYPTO_STATE_ERROR;
 }
 
-
-
-
-
-crypto_state_t crypto_hotkey_password_get( uint8_t hothey, crypto_password_t** password ){
+crypto_state_t crypto_hotkey_password_get( uint8_t hothey, crypto_password_t**const password ){
 	if(hothey >= CRYPTO_HOTKEY_NUM){
 		return CRYPTO_STATE_ERROR;
 	}
 	if(crypto_db.hotkey[hothey] == NULL){
 		return CRYPTO_STATE_ERROR;
 	}
+	if(password == NULL){
+		return CRYPTO_STATE_ERROR;
+	}
+	
+	//crypto_db.hotkey[hothey]
 	*password = crypto_db.hotkey[hothey];
+	//memcpy(password, crypto_db.hotkey[hothey], sizeof(crypto_password_t));
+	//password = 
+	//memcpy(password, crypto_db.hotkey[hothey]);
 	return CRYPTO_STATE_OK;
 }
 
 crypto_state_t crypto_hotkey_password_set( uint8_t hotkey, uint16_t password_number ){
-	crypto_password_t* password;
+	uint32_t node_ID;
 	if(hotkey >= CRYPTO_HOTKEY_NUM){
 		return CRYPTO_STATE_ERROR;
 	}
-	if(crypto_password_get(password, password_number) != CRYPTO_STATE_OK){
+	if(list_get_node_data(&crypto_db.password_list, password_number, (void*)&node_ID) != LIST_STATE_OK){
+		return CRYPTO_STATE_ERROR;
+	}
+	crypto_password_t* password;
+	crypto_get_password_ptr(&password, node_ID);
+	if(password == NULL){
 		return CRYPTO_STATE_ERROR;
 	}
 	crypto_db.hotkey[hotkey] = password;

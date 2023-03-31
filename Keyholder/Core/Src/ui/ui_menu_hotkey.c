@@ -1,9 +1,10 @@
 #include "ui_core.h"
 #include "crypto.h"
+#include "usbd.h"
 
 BTN_ids_t pushed_button;
 
-crypto_password_t* password;
+const crypto_password_t* password;
 
 void UI_hotkey_menu_draw( void ){
 	UI_event_button_t lastButton = UI_event_GetLast();
@@ -15,9 +16,6 @@ void UI_hotkey_menu_draw( void ){
 	ssd1306_Fill(Black);
 	
 	switch(lastButton.event_type){
-		//case BUTTON_STATE_PRESSED:
-			
-			//break;
 		case BUTTON_STATE_RELEASED:
 			if(lastButton.button_id == BTN_JPUSH_ID){
 				if(last_p){
@@ -30,21 +28,38 @@ void UI_hotkey_menu_draw( void ){
 			}
 			break;
 		case BUTTON_STATE_HOLDED:
+			if(!last_p){
+				show_password = !show_password;
+			}
 			if(lastButton.button_id == BTN_JPUSH_ID){
-				show_password = true;
 				last_p = true;
 			}
 		default: break;
 	}
 	
-	ssd1306_SetCursor(0,0);
-	ssd1306_WriteString("LLL", Font_7x10, White);
-	ssd1306_SetCursor(0,10);
-	ssd1306_WriteString("PSWD:", Font_7x10, White);
-	ssd1306_SetCursor(0,20);
-	if(show_password){
-		ssd1306_WriteString("YES", Font_7x10, White);
+	ssd1306_SetCursor(20,0);
+	ssd1306_WriteString((char*)password->login, Font_7x10, White);
+	
+	
+	
+	if(!show_password){
+		ssd1306_SetCursor(10,20);
+		ssd1306_WriteString("INSERT!", Font_16x26, White);
+		
+		//USB_keyboard_puts(password->password);
+	}else{
+		ssd1306_SetCursor(0,20);
+		//ssd1306_WriteString("PWD:", Font_7x10, White);
+		ssd1306_WriteString((char*)password->password, Font_7x10, White);
+		ssd1306_SetCursor(0,40);
+		//ssd1306_WriteString("COM:", Font_7x10, White);
+		ssd1306_WriteString((char*)password->comment, Font_7x10, White);
 	}
+	
+	/*
+	
+	*/
+	
 	/*
 	switch(lastButton.event_type){
 		case BUTTON_STATE_PRESSED:
@@ -134,7 +149,7 @@ void UI_hotkey_menu_draw( void ){
 }
 
 ugl_menu_t *UI_hotkey_menu_constructor( uint32_t ID, void* extra ){
-	//password
+	password = extra;
 	if(extra == NULL){
 		return NULL;
 		//memcpy(&pushed_button, extra, sizeof(BTN_ids_t));
