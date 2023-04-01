@@ -29,6 +29,7 @@ uint8_t power_GetNeedSleepFlag( void );
 void SYS_UpdateButtons( void );
 void SYS_ButtonsInit( void );
 void SYS_init( void );
+
 /* -------------------------------------------------------------------------- */
 
 #endif // __SYSTEM_H__

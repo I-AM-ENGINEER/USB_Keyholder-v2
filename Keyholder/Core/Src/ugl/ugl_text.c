@@ -16,10 +16,12 @@ ugl_text_t *ugl_text_constructor(){
 
 // This function bad, depricated
 void ugl_text_set_test( ugl_text_t *text, char *string, FontDef *Font ){
+	if(string == NULL) return;
+	//if(*string == 0) return;
+	
 	if(text->string != NULL){
 		free(text->string);
 	}
-	if(*string == 0) return;
 	text->font = Font;
 	text->string = malloc(strlen(string)+1);
 	strcpy(text->string, string);

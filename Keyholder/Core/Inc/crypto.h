@@ -52,6 +52,8 @@ uint16_t crypto_password_count_max( void );
 
 // Write to *password struct from flash memory
 crypto_state_t crypto_password_get( crypto_password_t* password, uint16_t number );
+// Get pointer to memory
+crypto_state_t crypto_password_get_ptr( crypto_password_t**const password, uint16_t number );
 // Write from *password struct to flash memory
 crypto_state_t crypto_password_set( crypto_password_t* password, uint16_t number );
 // Move passwords in list

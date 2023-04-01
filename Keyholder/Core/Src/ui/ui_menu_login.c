@@ -41,7 +41,8 @@ void UI_login_menu_draw( void ){
 		cursor = 0;
 		if(!memcmp(pswd, "222222", 6)){
 			memset(pswd, ' ', 6);
-			ugl_return();
+			ugl_enter(0, UI_main_menu_constructor, NULL);
+			//ugl_return();
 			return;
 		}else{
 			memset(pswd, ' ', 6);
@@ -107,7 +108,7 @@ void UI_login_menu_draw( void ){
 	ugl_menu_render( ugl_get_current_menu() );
 }
 
-ugl_menu_t *UI_login_menu_constructor( uint32_t ID, void* extra ){
+ugl_menu_t *UI_login_menu_constructor( int32_t ID, void* extra ){
 	ugl_menu_t *menu = ugl_menu_constructor(ID);
 	//ugl_item_t *item = NULL;
 	//ugl_text_t *text = NULL;

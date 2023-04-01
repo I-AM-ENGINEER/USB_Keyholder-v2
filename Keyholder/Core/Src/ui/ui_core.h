@@ -41,9 +41,10 @@ typedef enum{
 } UI_Menu_mainItems_t;
 
 
-ugl_menu_t *UI_main_menu_constructor( uint32_t ID, void* extra );
-ugl_menu_t *UI_login_menu_constructor( uint32_t ID, void* extra );
-ugl_menu_t *UI_hotkey_menu_constructor( uint32_t ID, void* extra );
+ugl_menu_t *UI_main_menu_constructor( int32_t ID, void* extra );
+ugl_menu_t *UI_login_menu_constructor( int32_t ID, void* extra );
+ugl_menu_t *UI_hotkey_menu_constructor( int32_t ID, void* extra );
+ugl_menu_t *UI_menu_logins_constructor( int32_t ID, void* extra );
 
 void UI_print_menu( void );
 void UI_event_set_button( uint32_t button_id, BTN_button_state_t state );

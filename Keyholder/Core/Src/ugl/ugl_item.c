@@ -12,7 +12,7 @@ void ugl_item_destructor( ugl_item_t *item ){
 	return;
 }
 
-ugl_item_t *ugl_item_constructor( uint32_t ID ){
+ugl_item_t *ugl_item_constructor( int32_t ID ){
 	ugl_item_t *item = malloc(sizeof(ugl_item_t));
 	item->ID = ID;
 	item->type = UI_ITEM_TYPE_NONE;
@@ -76,7 +76,7 @@ void ugl_group_destructor( ugl_group_t *group ){
 	free(group);
 }
 
-ugl_group_t *ugl_group_constructor( uint32_t ID ){
+ugl_group_t *ugl_group_constructor( int32_t ID ){
 	ugl_group_t *group = malloc(sizeof(ugl_item_t));
 	group->ID = ID;
 	group->position_x_abs = 0;
@@ -124,7 +124,7 @@ void ugl_group_set_position( ugl_group_t *group, int32_t position_x, uint32_t po
 	group->position_y = position_y;
 }
 
-ugl_group_t *ugl_group_get_group_by_id( ugl_group_t *group, uint32_t ID ){
+ugl_group_t *ugl_group_get_group_by_id( ugl_group_t *group, int32_t ID ){
 	if(group->ID == ID) return group;
 	for(uint32_t i = 0; i < group->groupsCount; i++){
 		ugl_group_t *tmp = ugl_group_get_group_by_id(group->groups[i], ID);
@@ -133,7 +133,7 @@ ugl_group_t *ugl_group_get_group_by_id( ugl_group_t *group, uint32_t ID ){
 	return NULL;
 }
 
-ugl_item_t *ugl_group_get_item_by_id( ugl_group_t *group, uint32_t ID ){
+ugl_item_t *ugl_group_get_item_by_id( ugl_group_t *group, int32_t ID ){
 	for(uint32_t i = 0; i < group->itemsCount; i++){
 		if(group->items[i]->ID == ID) return group->items[i];
 	}

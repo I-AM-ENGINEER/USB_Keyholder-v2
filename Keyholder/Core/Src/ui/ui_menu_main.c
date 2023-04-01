@@ -19,9 +19,15 @@ void UI_mainMenuDraw( void ){
 			}else if(lastButton.button_id == BTN_JPUSH_ID){
 				switch(ugl_get_current_menu()->selected_item->ID){
 					case UI_MENU_MAIN_LOCK: 
-						ugl_enter(1, UI_login_menu_constructor, NULL);
+						ugl_return();
+						//ugl_enter(1, UI_login_menu_constructor, NULL);
 						return;
 						break;
+					case UI_MENU_MAIN_USB_WRITE:
+						ugl_enter(1, UI_menu_logins_constructor, NULL);
+						return;
+						break;
+						//UI_menu_logins_constructor
 					default: break;
 				}
 			}else if((lastButton.button_id >= BTN_SW1_ID) && (lastButton.button_id <= BTN_SW8_ID)){
@@ -85,7 +91,7 @@ void UI_mainMenuDraw( void ){
 	ssd1306_Line(95, 53, 95, 63, White);
 }
 
-ugl_menu_t *UI_main_menu_constructor( uint32_t ID, void* extra ){
+ugl_menu_t *UI_main_menu_constructor( int32_t ID, void* extra ){
 	ugl_menu_t *mainMenu = ugl_menu_constructor(0);
 	ugl_item_t *item = NULL;
 	ugl_sprite_t *sprite = NULL;

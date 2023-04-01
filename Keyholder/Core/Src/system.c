@@ -9,7 +9,7 @@
 #include "comd.h"
 #include "usbd_cdc_acm_if.h"
 #include "crypto_io.h"
-
+#include "usbd.h"
 
 #define CRYPTO_PREFIX "CRYPTO_"
 #define SYSTEM_PREFIX "SYS_"
@@ -29,8 +29,8 @@ void SYS_send_CDC( const uint8_t* buf, uint16_t size ){
 }
 
 char* SYS_IRQ_reveive( const char* cmd ){
-	comd_send_str_IT(cmd);
-	return "";
+	//comd_send_str_IT(cmd);
+	return (char*)cmd;
 }
 
 void SYS_init( void ){

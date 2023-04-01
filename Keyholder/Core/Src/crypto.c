@@ -70,7 +70,7 @@ void crypto_password_read( crypto_password_t* password, uint16_t ID ){
 	memcpy(password, &page_buffer[((ID & 0x01) << 7)], sizeof(crypto_password_t));
 }
 
-void crypto_get_password_ptr( crypto_password_t** password, uint32_t ID ){
+void crypto_get_password_ptr( crypto_password_t** password, int32_t ID ){
 	*password = (crypto_password_t*)( ID * sizeof(crypto_password_t) + FLASH_BASE + CRYPTO_PAGE_PASSWORDS_OFFSET * FLASH_PAGE_SIZE );
 }
 
@@ -85,6 +85,24 @@ crypto_state_t crypto_password_get( crypto_password_t* password, uint16_t number
 		return CRYPTO_STATE_ERROR;
 	}
 	crypto_password_read(password, node_ID);
+	return CRYPTO_STATE_OK;
+}
+
+crypto_state_t crypto_password_get_ptr( crypto_password_t**const password, uint16_t number ){
+	uint32_t node_ID;
+	
+	if(password == NULL){
+		return CRYPTO_STATE_ERROR;
+	}
+	
+	if(number >= CRYPTO_PASSWORDS_COUNT_MAX){
+		return CRYPTO_STATE_ERROR;
+	}
+	
+	if(list_get_node_data(&crypto_db.password_list, number, (void*)&node_ID) != LIST_STATE_OK){
+		return CRYPTO_STATE_ERROR;
+	}
+	crypto_get_password_ptr( password, node_ID );
 	return CRYPTO_STATE_OK;
 }
 

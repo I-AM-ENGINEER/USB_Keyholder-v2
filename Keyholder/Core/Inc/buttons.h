@@ -31,7 +31,7 @@ typedef struct{
 	BTN_button_state_t state_old;
 	uint32_t timestamp;
 	//char buttonChar[BTN_MAX_NAME_LENGTH];
-	uint32_t ID;
+	int32_t ID;
 	bool inverted;
 	void (*callback) ( uint32_t button_id, BTN_button_state_t state );
 } BTN_push_button_t;

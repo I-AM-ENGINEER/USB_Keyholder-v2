@@ -9,7 +9,7 @@ void ugl_return( void ){
 	UI_current_menu = returnMenu;
 }
 
-void ugl_enter( uint32_t ID, ugl_menu_t* (*menu_constructor) ( uint32_t ID, void* extra ), void* extra ){
+void ugl_enter( int32_t ID, ugl_menu_t* (*menu_constructor) ( int32_t ID, void* extra ), void* extra ){
 	ugl_menu_t *oldMenu = UI_current_menu;
 	ugl_menu_t *curMenu = menu_constructor(ID, extra);
 	if(curMenu == NULL) return;

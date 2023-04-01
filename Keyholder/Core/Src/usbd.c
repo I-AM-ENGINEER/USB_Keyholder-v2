@@ -6,6 +6,46 @@
 
 extern USBD_HandleTypeDef hUsbDevice;
 
+static USB_status_t connection_state = USB_STATUS_DISCONNECTED;
+
+
+void USB_update_status( void ){
+	uint8_t keyboardHIDsub[8] = {0,0,0,0,0,0,0,0};
+	USBD_HID_Keybaord_SendReport(&hUsbDevice, keyboardHIDsub, sizeof(keyboardHIDsub));
+	HAL_Delay(5);
+}
+
+USB_status_t USB_connection_status( void ){
+	//if(hUsbDevice.dev_state != USBD_STATE_CONFIGURED){
+	/*
+	static USB_status_t lastState = USB_STATUS_DISCONNECTED;
+	uint8_t stateNow = hUsbDevice.dev_state;
+
+   if(stateNow == USBD_STATE_CONFIGURED)//&& (lastState == USB_STATUS_DISCONNECTED)
+   {
+      lastState = USB_STATUS_CONNECTED;
+   }
+   else if(stateNow == USBD_STATE_SUSPENDED) //&& (lastState == USB_STATUS_CONNECTED)
+   {
+      lastState = USB_STATUS_DISCONNECTED;
+   }
+
+   return lastState;
+	*/
+	
+	
+	USBD_HID_Keyboard_HandleTypeDef *hhid = (USBD_HID_Keyboard_HandleTypeDef *)hUsbDevice.pClassData_HID_Keyboard;
+	
+	
+	//HAL_Delay(2);
+	if(hhid->state != KEYBOARD_HID_IDLE){
+		return USB_STATUS_DISCONNECTED;
+	}
+	return USB_STATUS_CONNECTED;
+	
+	//return connection_status;
+}
+
 const char ascii2kbd[]={
 	0x2C, 0x9E,	0xB4, 0xA0, 0xA1, 0xA2, 0xA4,	0xB4,				// 8  0x20-0x27
 	0xA6, 0xA7, 0xA5,	0xAE, 0x36, 0x2D,	0x37, 0x38, 0x27, // 17 0x28-0x30
