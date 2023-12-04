@@ -1,0 +1,632 @@
+{
+  "name": "Keyholder",
+  "type": "ARM",
+  "dependenceList": [],
+  "srcDirs": [
+    ".eide/deps"
+  ],
+  "virtualFolder": {
+    "name": "<virtual_root>",
+    "files": [],
+    "folders": [
+      {
+        "name": "Source",
+        "files": [
+          {
+            "path": "Source/buttons.c"
+          },
+          {
+            "path": "Source/comd.c"
+          },
+          {
+            "path": "Source/core.c"
+          },
+          {
+            "path": "Source/crypto_io.c"
+          },
+          {
+            "path": "Source/crypto.c"
+          },
+          {
+            "path": "Source/flashd.c"
+          },
+          {
+            "path": "Source/list.c"
+          },
+          {
+            "path": "Source/ssd1306_fonts.c"
+          },
+          {
+            "path": "Source/ssd1306_tests.c"
+          },
+          {
+            "path": "Source/ssd1306.c"
+          },
+          {
+            "path": "Source/system.c"
+          },
+          {
+            "path": "Source/usbd_cdc_acm_if.c"
+          },
+          {
+            "path": "Source/usbd.c"
+          },
+          {
+            "path": "Source/utils.c"
+          }
+        ],
+        "folders": [
+          {
+            "name": "ugl",
+            "files": [
+              {
+                "path": "Source/ugl/ugl_core.c"
+              },
+              {
+                "path": "Source/ugl/ugl_item.c"
+              },
+              {
+                "path": "Source/ugl/ugl_menu.c"
+              },
+              {
+                "path": "Source/ugl/ugl_sprite.c"
+              },
+              {
+                "path": "Source/ugl/ugl_text.c"
+              }
+            ],
+            "folders": []
+          },
+          {
+            "name": "ui",
+            "files": [
+              {
+                "path": "Source/ui/ui_core.c"
+              },
+              {
+                "path": "Source/ui/ui_menu_hotkey.c"
+              },
+              {
+                "path": "Source/ui/ui_menu_login.c"
+              },
+              {
+                "path": "Source/ui/ui_menu_logins.c"
+              },
+              {
+                "path": "Source/ui/ui_menu_main.c"
+              }
+            ],
+            "folders": []
+          }
+        ]
+      },
+      {
+        "name": "Application",
+        "files": [],
+        "folders": [
+          {
+            "name": "MDK-ARM",
+            "files": [
+              {
+                "path": "MDK-ARM/startup_stm32l151xba.s"
+              }
+            ],
+            "folders": []
+          }
+        ]
+      },
+      {
+        "name": "CubeGenerated",
+        "files": [
+          {
+            "path": "STM32Cube/Core/Src/adc.c"
+          },
+          {
+            "path": "STM32Cube/Core/Src/cmox_low_level.c"
+          },
+          {
+            "path": "STM32Cube/Core/Src/dma.c"
+          },
+          {
+            "path": "STM32Cube/Core/Src/gpio.c"
+          },
+          {
+            "path": "STM32Cube/Core/Src/main.c"
+          },
+          {
+            "path": "STM32Cube/Core/Src/rtc.c"
+          },
+          {
+            "path": "STM32Cube/Core/Src/stm32l1xx_hal_msp.c"
+          },
+          {
+            "path": "STM32Cube/Core/Src/stm32l1xx_it.c"
+          },
+          {
+            "path": "STM32Cube/Core/Src/tim.c"
+          },
+          {
+            "path": "STM32Cube/Core/Src/usb.c"
+          }
+        ],
+        "folders": []
+      },
+      {
+        "name": "Drivers",
+        "files": [],
+        "folders": [
+          {
+            "name": "CMSIS",
+            "files": [
+              {
+                "path": "STM32Cube/Core/Src/system_stm32l1xx.c"
+              }
+            ],
+            "folders": []
+          },
+          {
+            "name": "STM32L1xx_HAL_Driver",
+            "files": [
+              {
+                "path": "STM32Cube/Drivers/STM32L1xx_HAL_Driver/Src/stm32l1xx_hal.c"
+              },
+              {
+                "path": "STM32Cube/Drivers/STM32L1xx_HAL_Driver/Src/stm32l1xx_hal_adc.c"
+              },
+              {
+                "path": "STM32Cube/Drivers/STM32L1xx_HAL_Driver/Src/stm32l1xx_hal_adc_ex.c"
+              },
+              {
+                "path": "STM32Cube/Drivers/STM32L1xx_HAL_Driver/Src/stm32l1xx_hal_comp.c"
+              },
+              {
+                "path": "STM32Cube/Drivers/STM32L1xx_HAL_Driver/Src/stm32l1xx_hal_cortex.c"
+              },
+              {
+                "path": "STM32Cube/Drivers/STM32L1xx_HAL_Driver/Src/stm32l1xx_hal_crc.c"
+              },
+              {
+                "path": "STM32Cube/Drivers/STM32L1xx_HAL_Driver/Src/stm32l1xx_hal_cryp.c"
+              },
+              {
+                "path": "STM32Cube/Drivers/STM32L1xx_HAL_Driver/Src/stm32l1xx_hal_cryp_ex.c"
+              },
+              {
+                "path": "STM32Cube/Drivers/STM32L1xx_HAL_Driver/Src/stm32l1xx_hal_dac.c"
+              },
+              {
+                "path": "STM32Cube/Drivers/STM32L1xx_HAL_Driver/Src/stm32l1xx_hal_dac_ex.c"
+              },
+              {
+                "path": "STM32Cube/Drivers/STM32L1xx_HAL_Driver/Src/stm32l1xx_hal_dma.c"
+              },
+              {
+                "path": "STM32Cube/Drivers/STM32L1xx_HAL_Driver/Src/stm32l1xx_hal_exti.c"
+              },
+              {
+                "path": "STM32Cube/Drivers/STM32L1xx_HAL_Driver/Src/stm32l1xx_hal_flash.c"
+              },
+              {
+                "path": "STM32Cube/Drivers/STM32L1xx_HAL_Driver/Src/stm32l1xx_hal_flash_ex.c"
+              },
+              {
+                "path": "STM32Cube/Drivers/STM32L1xx_HAL_Driver/Src/stm32l1xx_hal_flash_ramfunc.c"
+              },
+              {
+                "path": "STM32Cube/Drivers/STM32L1xx_HAL_Driver/Src/stm32l1xx_hal_gpio.c"
+              },
+              {
+                "path": "STM32Cube/Drivers/STM32L1xx_HAL_Driver/Src/stm32l1xx_hal_i2c.c"
+              },
+              {
+                "path": "STM32Cube/Drivers/STM32L1xx_HAL_Driver/Src/stm32l1xx_hal_i2s.c"
+              },
+              {
+                "path": "STM32Cube/Drivers/STM32L1xx_HAL_Driver/Src/stm32l1xx_hal_irda.c"
+              },
+              {
+                "path": "STM32Cube/Drivers/STM32L1xx_HAL_Driver/Src/stm32l1xx_hal_iwdg.c"
+              },
+              {
+                "path": "STM32Cube/Drivers/STM32L1xx_HAL_Driver/Src/stm32l1xx_hal_lcd.c"
+              },
+              {
+                "path": "STM32Cube/Drivers/STM32L1xx_HAL_Driver/Src/stm32l1xx_hal_nor.c"
+              },
+              {
+                "path": "STM32Cube/Drivers/STM32L1xx_HAL_Driver/Src/stm32l1xx_hal_opamp.c"
+              },
+              {
+                "path": "STM32Cube/Drivers/STM32L1xx_HAL_Driver/Src/stm32l1xx_hal_opamp_ex.c"
+              },
+              {
+                "path": "STM32Cube/Drivers/STM32L1xx_HAL_Driver/Src/stm32l1xx_hal_pcd.c"
+              },
+              {
+                "path": "STM32Cube/Drivers/STM32L1xx_HAL_Driver/Src/stm32l1xx_hal_pcd_ex.c"
+              },
+              {
+                "path": "STM32Cube/Drivers/STM32L1xx_HAL_Driver/Src/stm32l1xx_hal_pwr.c"
+              },
+              {
+                "path": "STM32Cube/Drivers/STM32L1xx_HAL_Driver/Src/stm32l1xx_hal_pwr_ex.c"
+              },
+              {
+                "path": "STM32Cube/Drivers/STM32L1xx_HAL_Driver/Src/stm32l1xx_hal_rcc.c"
+              },
+              {
+                "path": "STM32Cube/Drivers/STM32L1xx_HAL_Driver/Src/stm32l1xx_hal_rcc_ex.c"
+              },
+              {
+                "path": "STM32Cube/Drivers/STM32L1xx_HAL_Driver/Src/stm32l1xx_hal_rtc.c"
+              },
+              {
+                "path": "STM32Cube/Drivers/STM32L1xx_HAL_Driver/Src/stm32l1xx_hal_rtc_ex.c"
+              },
+              {
+                "path": "STM32Cube/Drivers/STM32L1xx_HAL_Driver/Src/stm32l1xx_hal_sd.c"
+              },
+              {
+                "path": "STM32Cube/Drivers/STM32L1xx_HAL_Driver/Src/stm32l1xx_hal_smartcard.c"
+              },
+              {
+                "path": "STM32Cube/Drivers/STM32L1xx_HAL_Driver/Src/stm32l1xx_hal_smbus.c"
+              },
+              {
+                "path": "STM32Cube/Drivers/STM32L1xx_HAL_Driver/Src/stm32l1xx_hal_spi.c"
+              },
+              {
+                "path": "STM32Cube/Drivers/STM32L1xx_HAL_Driver/Src/stm32l1xx_hal_sram.c"
+              },
+              {
+                "path": "STM32Cube/Drivers/STM32L1xx_HAL_Driver/Src/stm32l1xx_hal_tim.c"
+              },
+              {
+                "path": "STM32Cube/Drivers/STM32L1xx_HAL_Driver/Src/stm32l1xx_hal_tim_ex.c"
+              },
+              {
+                "path": "STM32Cube/Drivers/STM32L1xx_HAL_Driver/Src/stm32l1xx_hal_uart.c"
+              },
+              {
+                "path": "STM32Cube/Drivers/STM32L1xx_HAL_Driver/Src/stm32l1xx_hal_usart.c"
+              },
+              {
+                "path": "STM32Cube/Drivers/STM32L1xx_HAL_Driver/Src/stm32l1xx_hal_wwdg.c"
+              },
+              {
+                "path": "STM32Cube/Drivers/STM32L1xx_HAL_Driver/Src/stm32l1xx_ll_adc.c"
+              },
+              {
+                "path": "STM32Cube/Drivers/STM32L1xx_HAL_Driver/Src/stm32l1xx_ll_comp.c"
+              },
+              {
+                "path": "STM32Cube/Drivers/STM32L1xx_HAL_Driver/Src/stm32l1xx_ll_crc.c"
+              },
+              {
+                "path": "STM32Cube/Drivers/STM32L1xx_HAL_Driver/Src/stm32l1xx_ll_dac.c"
+              },
+              {
+                "path": "STM32Cube/Drivers/STM32L1xx_HAL_Driver/Src/stm32l1xx_ll_dma.c"
+              },
+              {
+                "path": "STM32Cube/Drivers/STM32L1xx_HAL_Driver/Src/stm32l1xx_ll_exti.c"
+              },
+              {
+                "path": "STM32Cube/Drivers/STM32L1xx_HAL_Driver/Src/stm32l1xx_ll_fsmc.c"
+              },
+              {
+                "path": "STM32Cube/Drivers/STM32L1xx_HAL_Driver/Src/stm32l1xx_ll_gpio.c"
+              },
+              {
+                "path": "STM32Cube/Drivers/STM32L1xx_HAL_Driver/Src/stm32l1xx_ll_i2c.c"
+              },
+              {
+                "path": "STM32Cube/Drivers/STM32L1xx_HAL_Driver/Src/stm32l1xx_ll_opamp.c"
+              },
+              {
+                "path": "STM32Cube/Drivers/STM32L1xx_HAL_Driver/Src/stm32l1xx_ll_pwr.c"
+              },
+              {
+                "path": "STM32Cube/Drivers/STM32L1xx_HAL_Driver/Src/stm32l1xx_ll_rcc.c"
+              },
+              {
+                "path": "STM32Cube/Drivers/STM32L1xx_HAL_Driver/Src/stm32l1xx_ll_rtc.c"
+              },
+              {
+                "path": "STM32Cube/Drivers/STM32L1xx_HAL_Driver/Src/stm32l1xx_ll_sdmmc.c"
+              },
+              {
+                "path": "STM32Cube/Drivers/STM32L1xx_HAL_Driver/Src/stm32l1xx_ll_spi.c"
+              },
+              {
+                "path": "STM32Cube/Drivers/STM32L1xx_HAL_Driver/Src/stm32l1xx_ll_tim.c"
+              },
+              {
+                "path": "STM32Cube/Drivers/STM32L1xx_HAL_Driver/Src/stm32l1xx_ll_usart.c"
+              },
+              {
+                "path": "STM32Cube/Drivers/STM32L1xx_HAL_Driver/Src/stm32l1xx_ll_usb.c"
+              },
+              {
+                "path": "STM32Cube/Drivers/STM32L1xx_HAL_Driver/Src/stm32l1xx_ll_utils.c"
+              }
+            ],
+            "folders": []
+          }
+        ]
+      },
+      {
+        "name": "Middlewares",
+        "files": [],
+        "folders": [
+          {
+            "name": "Composite",
+            "files": [],
+            "folders": [
+              {
+                "name": "USB",
+                "files": [],
+                "folders": [
+                  {
+                    "name": "COMPOSITE",
+                    "files": [],
+                    "folders": [
+                      {
+                        "name": "CDC_ACM",
+                        "files": [
+                          {
+                            "path": "STM32Cube/Middlewares/Third_Party/AL94_USB_Composite/COMPOSITE/Class/CDC_ACM/Src/usbd_cdc_acm.c"
+                          }
+                        ],
+                        "folders": []
+                      },
+                      {
+                        "name": "COMPOSITE",
+                        "files": [
+                          {
+                            "path": "STM32Cube/Middlewares/Third_Party/AL94_USB_Composite/COMPOSITE/Class/COMPOSITE/Src/usbd_composite.c"
+                          }
+                        ],
+                        "folders": []
+                      },
+                      {
+                        "name": "Core",
+                        "files": [
+                          {
+                            "path": "STM32Cube/Middlewares/Third_Party/AL94_USB_Composite/COMPOSITE/Core/Src/usbd_ioreq.c"
+                          },
+                          {
+                            "path": "STM32Cube/Middlewares/Third_Party/AL94_USB_Composite/COMPOSITE/Core/Src/usbd_ctlreq.c"
+                          },
+                          {
+                            "path": "STM32Cube/Middlewares/Third_Party/AL94_USB_Composite/COMPOSITE/Core/Src/usbd_core.c"
+                          },
+                          {
+                            "path": "STM32Cube/Middlewares/Third_Party/AL94_USB_Composite/COMPOSITE/Target/usbd_conf.c"
+                          },
+                          {
+                            "path": "STM32Cube/Middlewares/Third_Party/AL94_USB_Composite/COMPOSITE/App/usb_device.c"
+                          },
+                          {
+                            "path": "STM32Cube/Middlewares/Third_Party/AL94_USB_Composite/COMPOSITE/App/usbd_desc.c"
+                          }
+                        ],
+                        "folders": []
+                      },
+                      {
+                        "name": "HID_KEYBOARD",
+                        "files": [
+                          {
+                            "path": "STM32Cube/Middlewares/Third_Party/AL94_USB_Composite/COMPOSITE/Class/HID_KEYBOARD/Src/usbd_hid_keyboard.c"
+                          }
+                        ],
+                        "folders": []
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "name": "ST",
+            "files": [],
+            "folders": [
+              {
+                "name": "STM32_Cryptographic",
+                "files": [],
+                "folders": [
+                  {
+                    "name": "lib",
+                    "files": [],
+                    "folders": []
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "outDir": "build",
+  "deviceName": null,
+  "packDir": null,
+  "miscInfo": {
+    "uid": "4dd6b01d46538c780358699722d2bdc7"
+  },
+  "targets": {
+    "Keyholder": {
+      "excludeList": [
+        "<virtual_root>/::CMSIS"
+      ],
+      "toolchain": "AC6",
+      "compileConfig": {
+        "cpuType": "Cortex-M3",
+        "floatingPointHardware": "none",
+        "scatterFilePath": "",
+        "useCustomScatterFile": false,
+        "storageLayout": {
+          "RAM": [
+            {
+              "tag": "RAM",
+              "id": 1,
+              "mem": {
+                "startAddr": "0x0",
+                "size": "0x0"
+              },
+              "isChecked": false,
+              "noInit": false
+            },
+            {
+              "tag": "RAM",
+              "id": 2,
+              "mem": {
+                "startAddr": "0x0",
+                "size": "0x0"
+              },
+              "isChecked": false,
+              "noInit": false
+            },
+            {
+              "tag": "RAM",
+              "id": 3,
+              "mem": {
+                "startAddr": "0x0",
+                "size": "0x0"
+              },
+              "isChecked": false,
+              "noInit": false
+            },
+            {
+              "tag": "IRAM",
+              "id": 1,
+              "mem": {
+                "startAddr": "0x20000000",
+                "size": "0x8000"
+              },
+              "isChecked": true,
+              "noInit": false
+            },
+            {
+              "tag": "IRAM",
+              "id": 2,
+              "mem": {
+                "startAddr": "0x0",
+                "size": "0x0"
+              },
+              "isChecked": false,
+              "noInit": false
+            }
+          ],
+          "ROM": [
+            {
+              "tag": "ROM",
+              "id": 1,
+              "mem": {
+                "startAddr": "0x0",
+                "size": "0x0"
+              },
+              "isChecked": false,
+              "isStartup": false
+            },
+            {
+              "tag": "ROM",
+              "id": 2,
+              "mem": {
+                "startAddr": "0x0",
+                "size": "0x0"
+              },
+              "isChecked": false,
+              "isStartup": false
+            },
+            {
+              "tag": "ROM",
+              "id": 3,
+              "mem": {
+                "startAddr": "0x0",
+                "size": "0x0"
+              },
+              "isChecked": false,
+              "isStartup": false
+            },
+            {
+              "tag": "IROM",
+              "id": 1,
+              "mem": {
+                "startAddr": "0x8000000",
+                "size": "0xe000"
+              },
+              "isChecked": true,
+              "isStartup": true
+            },
+            {
+              "tag": "IROM",
+              "id": 2,
+              "mem": {
+                "startAddr": "0x0",
+                "size": "0x0"
+              },
+              "isChecked": false,
+              "isStartup": false
+            }
+          ]
+        },
+        "options": "null"
+      },
+      "uploader": "STLink",
+      "uploadConfig": {
+        "bin": "",
+        "proType": "SWD",
+        "resetMode": "SWrst",
+        "runAfterProgram": true,
+        "speed": 4000,
+        "address": "0x8000000",
+        "elFile": "None",
+        "optionBytes": ".eide/keyholder.st.option.bytes.ini",
+        "otherCmds": ""
+      },
+      "uploadConfigMap": {
+        "JLink": {
+          "bin": "",
+          "baseAddr": "",
+          "cpuInfo": {
+            "vendor": "ST",
+            "cpuName": "STM32L151C8"
+          },
+          "proType": 1,
+          "speed": 8000,
+          "otherCmds": ""
+        }
+      },
+      "custom_dep": {
+        "name": "default",
+        "incList": [
+          "Includes",
+          "Source/ui",
+          "STM32Cube/Core/Inc",
+          "STM32Cube/Drivers/STM32L1xx_HAL_Driver/Inc",
+          "STM32Cube/Drivers/CMSIS/Include",
+          "STM32Cube/Middlewares/Third_Party/AL94_USB_Composite/COMPOSITE/Core/Inc",
+          "STM32Cube/Middlewares/Third_Party/AL94_USB_Composite/COMPOSITE/Class/CDC_ACM/Inc",
+          "STM32Cube/Middlewares/Third_Party/AL94_USB_Composite/COMPOSITE/Class/COMPOSITE/Inc",
+          "STM32Cube/Middlewares/Third_Party/AL94_USB_Composite/COMPOSITE/Class/HID_KEYBOARD/Inc",
+          "STM32Cube/Middlewares/Third_Party/AL94_USB_Composite/COMPOSITE/Target",
+          "STM32Cube/Composite",
+          "STM32Cube/Middlewares/Third_Party/AL94_USB_Composite/COMPOSITE/App",
+          "STM32Cube/Middlewares/ST/STM32_Cryptographic/include",
+          "STM32Cube/Drivers/STM32L1xx_HAL_Driver/Inc/Legacy",
+          "MDK-ARM/RTE/_Keyholder",
+          "STM32Cube/Drivers/CMSIS/Device/ST/STM32L1xx/Include"
+        ],
+        "libList": [],
+        "sourceDirList": [],
+        "defineList": [
+          "USE_HAL_DRIVER",
+          "STM32L151xBA"
+        ]
+      }
+    }
+  },
+  "version": "3.3"
+}
