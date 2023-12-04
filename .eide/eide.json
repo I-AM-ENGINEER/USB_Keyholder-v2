@@ -10,97 +10,6 @@
     "files": [],
     "folders": [
       {
-        "name": "Source",
-        "files": [
-          {
-            "path": "Source/buttons.c"
-          },
-          {
-            "path": "Source/comd.c"
-          },
-          {
-            "path": "Source/core.c"
-          },
-          {
-            "path": "Source/crypto_io.c"
-          },
-          {
-            "path": "Source/crypto.c"
-          },
-          {
-            "path": "Source/flashd.c"
-          },
-          {
-            "path": "Source/list.c"
-          },
-          {
-            "path": "Source/ssd1306_fonts.c"
-          },
-          {
-            "path": "Source/ssd1306_tests.c"
-          },
-          {
-            "path": "Source/ssd1306.c"
-          },
-          {
-            "path": "Source/system.c"
-          },
-          {
-            "path": "Source/usbd_cdc_acm_if.c"
-          },
-          {
-            "path": "Source/usbd.c"
-          },
-          {
-            "path": "Source/utils.c"
-          }
-        ],
-        "folders": [
-          {
-            "name": "ugl",
-            "files": [
-              {
-                "path": "Source/ugl/ugl_core.c"
-              },
-              {
-                "path": "Source/ugl/ugl_item.c"
-              },
-              {
-                "path": "Source/ugl/ugl_menu.c"
-              },
-              {
-                "path": "Source/ugl/ugl_sprite.c"
-              },
-              {
-                "path": "Source/ugl/ugl_text.c"
-              }
-            ],
-            "folders": []
-          },
-          {
-            "name": "ui",
-            "files": [
-              {
-                "path": "Source/ui/ui_core.c"
-              },
-              {
-                "path": "Source/ui/ui_menu_hotkey.c"
-              },
-              {
-                "path": "Source/ui/ui_menu_login.c"
-              },
-              {
-                "path": "Source/ui/ui_menu_logins.c"
-              },
-              {
-                "path": "Source/ui/ui_menu_main.c"
-              }
-            ],
-            "folders": []
-          }
-        ]
-      },
-      {
         "name": "Application",
         "files": [],
         "folders": [
@@ -444,6 +353,97 @@
                 ]
               }
             ]
+          }
+        ]
+      },
+      {
+        "name": "Source",
+        "files": [
+          {
+            "path": "Source/buttons.c"
+          },
+          {
+            "path": "Source/comd.c"
+          },
+          {
+            "path": "Source/core.c"
+          },
+          {
+            "path": "Source/crypto_io.c"
+          },
+          {
+            "path": "Source/crypto.c"
+          },
+          {
+            "path": "Source/flashd.c"
+          },
+          {
+            "path": "Source/list.c"
+          },
+          {
+            "path": "Source/ssd1306_fonts.c"
+          },
+          {
+            "path": "Source/ssd1306_tests.c"
+          },
+          {
+            "path": "Source/ssd1306.c"
+          },
+          {
+            "path": "Source/system.c"
+          },
+          {
+            "path": "Source/usbd_cdc_acm_if.c"
+          },
+          {
+            "path": "Source/usbd.c"
+          },
+          {
+            "path": "Source/utils.c"
+          }
+        ],
+        "folders": [
+          {
+            "name": "ugl",
+            "files": [
+              {
+                "path": "Source/ugl/ugl_core.c"
+              },
+              {
+                "path": "Source/ugl/ugl_item.c"
+              },
+              {
+                "path": "Source/ugl/ugl_menu.c"
+              },
+              {
+                "path": "Source/ugl/ugl_sprite.c"
+              },
+              {
+                "path": "Source/ugl/ugl_text.c"
+              }
+            ],
+            "folders": []
+          },
+          {
+            "name": "ui",
+            "files": [
+              {
+                "path": "Source/ui/ui_core.c"
+              },
+              {
+                "path": "Source/ui/ui_menu_hotkey.c"
+              },
+              {
+                "path": "Source/ui/ui_menu_login.c"
+              },
+              {
+                "path": "Source/ui/ui_menu_logins.c"
+              },
+              {
+                "path": "Source/ui/ui_menu_main.c"
+              }
+            ],
+            "folders": []
           }
         ]
       }

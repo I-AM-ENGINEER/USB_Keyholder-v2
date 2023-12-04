@@ -1,0 +1,1 @@
+pyinstaller --onefile -w --add-data="B_sylete;." --add-data="W_sylete;." main.py
