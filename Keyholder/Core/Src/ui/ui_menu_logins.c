@@ -13,9 +13,9 @@ static int32_t submenu_cursor_position = 0;
 static int16_t submenu_start_position = 128;
 static bool submenu_exit = false;
 
-void UI_menu_logins_render( void );
+static void UI_menu_logins_render( void );
 void UI_menu_logins_submenu_render( void );
-ugl_menu_t *UI_menu_logins_submenu_constructor( int32_t ID, void* extra );
+static ugl_menu_t *UI_menu_logins_submenu_constructor( int32_t ID, void* extra );
 void UI_menu_logins_delete_warning_draw();
 ugl_menu_t *UI_menu_logins_delete_warning_constructor( int32_t ID, void* extra );
 

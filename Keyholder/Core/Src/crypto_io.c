@@ -6,16 +6,16 @@
 crypto_password_t passwordBuffer;
 char out_buffer[64];
 
-char* crypto_io_cmd_save( void );
-char* crypto_io_cmd_set_password( const char* cmd );
-char* crypto_io_cmd_get_password( const char* cmd );
-char* crypto_io_cmd_password_append( void );
-char* crypto_io_cmd_get_password_count( void );
-char* crypto_io_cmd_password_remove( const char* cmd );
-char* crypto_io_cmd_password_move( const char* cmd );
-char* crypto_io_cmd_password_swap( const char* cmd );
-char* crypto_io_cmd_password_insert( const char* cmd );
-char* crypto_io_cmd_hotkey_password_set( const char* cmd );
+static char* crypto_io_cmd_save( void );
+static char* crypto_io_cmd_set_password( const char* cmd );
+static char* crypto_io_cmd_get_password( const char* cmd );
+static char* crypto_io_cmd_password_append( void );
+static char* crypto_io_cmd_get_password_count( void );
+static char* crypto_io_cmd_password_remove( const char* cmd );
+static char* crypto_io_cmd_password_move( const char* cmd );
+static char* crypto_io_cmd_password_swap( const char* cmd );
+static char* crypto_io_cmd_password_insert( const char* cmd );
+static char* crypto_io_cmd_hotkey_password_set( const char* cmd );
 
 char* crypto_io_cmd_parse( const char* cmd ){
 	utils_cmd_setstr( cmd );
@@ -127,23 +127,23 @@ static char* crypto_io_cmd_set_password( const char* cmd ){
 		return CRYPTO_REPLY_ERROR;
 	}
 	// Login check
-	const char* login 		= strchr(cmd, ':') + 1;
-	if(login 		== NULL){
+	const char* login 		= strchr(cmd, ':');
+	if(login++ 		== NULL){
 		return CRYPTO_REPLY_ERROR;
 	}
 	// Short login check
-	const char* slogin 		= strchr(login, ':') + 1;
-	if(slogin 	== NULL){
+	const char* slogin 		= strchr(login, ':');
+	if(slogin++ 	== NULL){
 		return CRYPTO_REPLY_ERROR;
 	}
 	// Password check
-	const char* password 	= strchr(slogin, ':') + 1;
-	if(password == NULL){
+	const char* password 	= strchr(slogin, ':');
+	if(password++ == NULL){
 		return CRYPTO_REPLY_ERROR;
 	}
 	// Comment check
-	const char* comment 	= strchr(password, ':') + 1;
-	if(comment  == NULL){
+	const char* comment 	= strchr(password, ':');
+	if(comment++  == NULL){
 		return CRYPTO_REPLY_ERROR;
 	}
 	
@@ -156,7 +156,7 @@ static char* crypto_io_cmd_set_password( const char* cmd ){
 	uint8_t login_length = slogin - login - 1;
 	uint8_t slogin_length = password - slogin - 1;
 	uint8_t password_length = comment - password - 1;
-	uint8_t comment_length = strlen(comment);
+	uint8_t comment_length = strlen(comment) - 1;
 	
 	if(login_length >= sizeof(passwordBuffer.login)){
 		login_length = sizeof(passwordBuffer.login) - 1;
@@ -174,6 +174,7 @@ static char* crypto_io_cmd_set_password( const char* cmd ){
 		comment_length = sizeof(passwordBuffer.comment) - 1;
 	}
 	
+	memset(&passwordBuffer, 0, sizeof(passwordBuffer));
 	strncpy(passwordBuffer.login, login, login_length);
 	strncpy(passwordBuffer.short_name, slogin, slogin_length);
 	strncpy(passwordBuffer.password, password, password_length);
@@ -195,7 +196,7 @@ static char* crypto_io_cmd_get_password( const char* cmd ){
 		return CRYPTO_REPLY_ERROR;
 	}
 	
-	sprintf(out_buffer, "%s%d:%s", CRYPTO_REPLY_GET_PASSWORD, password_number, passwordBuffer.password);
+	sprintf(out_buffer, "%s%d:%s:%s:%s:%s", CRYPTO_REPLY_GET_PASSWORD, password_number, passwordBuffer.login, passwordBuffer.short_name, passwordBuffer.password, passwordBuffer.comment);
 	return out_buffer;
 }
 
