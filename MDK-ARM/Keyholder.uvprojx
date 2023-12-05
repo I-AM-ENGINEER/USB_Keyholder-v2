@@ -330,7 +330,7 @@
             <uC99>1</uC99>
             <uGnu>0</uGnu>
             <useXO>0</useXO>
-            <v6Lang>3</v6Lang>
+            <v6Lang>5</v6Lang>
             <v6LangP>5</v6LangP>
             <vShortEn>1</vShortEn>
             <vShortWch>1</vShortWch>
@@ -341,7 +341,7 @@
               <MiscControls></MiscControls>
               <Define>USE_HAL_DRIVER,STM32L151xBA</Define>
               <Undefine></Undefine>
-              <IncludePath>..\Includes;..\Source\ui;..\STM32Cube\Core\Inc;..\STM32Cube\Drivers\STM32L1xx_HAL_Driver\Inc;..\STM32Cube\Drivers\CMSIS\Include;..\STM32Cube\Middlewares\Third_Party\AL94_USB_Composite\COMPOSITE\Core\Inc;..\STM32Cube\Middlewares\Third_Party\AL94_USB_Composite\COMPOSITE\Class\CDC_ACM\Inc;..\STM32Cube\Middlewares\Third_Party\AL94_USB_Composite\COMPOSITE\Class\COMPOSITE\Inc;..\STM32Cube\Middlewares\Third_Party\AL94_USB_Composite\COMPOSITE\Class\HID_KEYBOARD\Inc;..\STM32Cube\Middlewares\Third_Party\AL94_USB_Composite\COMPOSITE\Target;..\STM32Cube\Composite;..\STM32Cube\Middlewares\Third_Party\AL94_USB_Composite\COMPOSITE\App;..\STM32Cube\Middlewares\ST\STM32_Cryptographic\include;..\STM32Cube\Drivers\STM32L1xx_HAL_Driver\Inc\Legacy</IncludePath>
+              <IncludePath>..\Includes;..\Source\ui;..\STM32Cube\Core\Inc;..\STM32Cube\Drivers\STM32L1xx_HAL_Driver\Inc;..\STM32Cube\Drivers\CMSIS\Include;..\STM32Cube\Middlewares\Third_Party\AL94_USB_Composite\COMPOSITE\Core\Inc;..\STM32Cube\Middlewares\Third_Party\AL94_USB_Composite\COMPOSITE\Class\CDC_ACM\Inc;..\STM32Cube\Middlewares\Third_Party\AL94_USB_Composite\COMPOSITE\Class\COMPOSITE\Inc;..\STM32Cube\Middlewares\Third_Party\AL94_USB_Composite\COMPOSITE\Class\HID_KEYBOARD\Inc;..\STM32Cube\Middlewares\Third_Party\AL94_USB_Composite\COMPOSITE\Target;..\STM32Cube\Composite;..\STM32Cube\Middlewares\Third_Party\AL94_USB_Composite\COMPOSITE\App;..\STM32Cube\Middlewares\ST\STM32_Cryptographic\include;..\STM32Cube\Drivers\STM32L1xx_HAL_Driver\Inc\Legacy;..\Libs\ugl\Include</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -446,44 +446,9 @@
               <FilePath>..\Source\usbd.c</FilePath>
             </File>
             <File>
-              <FileName>usbd_cdc_acm_if.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\Source\usbd_cdc_acm_if.c</FilePath>
-            </File>
-            <File>
               <FileName>utils.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\Source\utils.c</FilePath>
-            </File>
-          </Files>
-        </Group>
-        <Group>
-          <GroupName>Source/ugl</GroupName>
-          <Files>
-            <File>
-              <FileName>ugl_core.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\Source\ugl\ugl_core.c</FilePath>
-            </File>
-            <File>
-              <FileName>ugl_item.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\Source\ugl\ugl_item.c</FilePath>
-            </File>
-            <File>
-              <FileName>ugl_menu.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\Source\ugl\ugl_menu.c</FilePath>
-            </File>
-            <File>
-              <FileName>ugl_sprite.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\Source\ugl\ugl_sprite.c</FilePath>
-            </File>
-            <File>
-              <FileName>ugl_text.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\Source\ugl\ugl_text.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -569,6 +534,16 @@
               <FileName>usb.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\STM32Cube\Core\Src\usb.c</FilePath>
+            </File>
+            <File>
+              <FileName>system_stm32l1xx.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\STM32Cube\Core\Src\system_stm32l1xx.c</FilePath>
+            </File>
+            <File>
+              <FileName>usbd_cdc_acm_if.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\STM32Cube\Core\Src\usbd_cdc_acm_if.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -889,16 +864,6 @@
               <FileName>stm32l1xx_ll_utils.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\STM32Cube\Drivers\STM32L1xx_HAL_Driver\Src\stm32l1xx_ll_utils.c</FilePath>
-            </File>
-          </Files>
-        </Group>
-        <Group>
-          <GroupName>Drivers/CMSIS</GroupName>
-          <Files>
-            <File>
-              <FileName>system_stm32l1xx.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\STM32Cube\Core\Src\system_stm32l1xx.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -1245,6 +1210,36 @@
         </Group>
         <Group>
           <GroupName>Middlewares/ST/STM32_Cryptographic/lib</GroupName>
+        </Group>
+        <Group>
+          <GroupName>Libs/ugl/Source/legacy</GroupName>
+          <Files>
+            <File>
+              <FileName>ugl_core.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Libs\ugl\Source\legacy\ugl_core.c</FilePath>
+            </File>
+            <File>
+              <FileName>ugl_item.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Libs\ugl\Source\legacy\ugl_item.c</FilePath>
+            </File>
+            <File>
+              <FileName>ugl_menu.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Libs\ugl\Source\legacy\ugl_menu.c</FilePath>
+            </File>
+            <File>
+              <FileName>ugl_sprite.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Libs\ugl\Source\legacy\ugl_sprite.c</FilePath>
+            </File>
+            <File>
+              <FileName>ugl_text.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Libs\ugl\Source\legacy\ugl_text.c</FilePath>
+            </File>
+          </Files>
         </Group>
         <Group>
           <GroupName>::CMSIS</GroupName>

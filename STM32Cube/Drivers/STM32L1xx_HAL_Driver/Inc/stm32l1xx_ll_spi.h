@@ -6,12 +6,13 @@
   ******************************************************************************
   * @attention
   *
-  * Copyright (c) 2016 STMicroelectronics.
-  * All rights reserved.
+  * <h2><center>&copy; Copyright (c) 2016 STMicroelectronics.
+  * All rights reserved.</center></h2>
   *
-  * This software is licensed under terms that can be found in the LICENSE file
-  * in the root directory of this software component.
-  * If no LICENSE file comes with this software, it is provided AS-IS.
+  * This software component is licensed by ST under BSD 3-Clause license,
+  * the "License"; You may not use this file except in compliance with the
+  * License. You may obtain a copy of the License at:
+  *                        opensource.org/licenses/BSD-3-Clause
   *
   ******************************************************************************
   */
@@ -157,7 +158,7 @@ typedef struct
 #define LL_SPI_PROTOCOL_MOTOROLA           0x00000000U               /*!< Motorola mode. Used as default value */
 #if defined(SPI_CR2_FRF)
 #define LL_SPI_PROTOCOL_TI                 (SPI_CR2_FRF)             /*!< TI mode                              */
-#endif /* SPI_CR2_FRF */
+#endif
 /**
   * @}
   */
@@ -383,7 +384,7 @@ __STATIC_INLINE uint32_t LL_SPI_GetStandard(SPI_TypeDef *SPIx)
 {
   return (uint32_t)(READ_BIT(SPIx->CR2, SPI_CR2_FRF));
 }
-#endif /* SPI_CR2_FRF */
+#endif
 
 /**
   * @brief  Set clock phase
@@ -811,7 +812,7 @@ __STATIC_INLINE uint32_t LL_SPI_IsActiveFlag_FRE(SPI_TypeDef *SPIx)
 {
   return ((READ_BIT(SPIx->SR, SPI_SR_FRE) == (SPI_SR_FRE)) ? 1UL : 0UL);
 }
-#endif /* SPI_CR2_FRF */
+#endif
 
 /**
   * @brief  Clear CRC error flag
@@ -1693,7 +1694,7 @@ __STATIC_INLINE uint32_t LL_I2S_IsActiveFlag_FRE(SPI_TypeDef *SPIx)
 {
   return LL_SPI_IsActiveFlag_FRE(SPIx);
 }
-#endif /* SPI_CR2_FRF */
+#endif
 
 /**
   * @brief  Get channel side flag.
@@ -1998,3 +1999,4 @@ void        LL_I2S_ConfigPrescaler(SPI_TypeDef *SPIx, uint32_t PrescalerLinear, 
 
 #endif /* STM32L1xx_LL_SPI_H */
 
+/************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

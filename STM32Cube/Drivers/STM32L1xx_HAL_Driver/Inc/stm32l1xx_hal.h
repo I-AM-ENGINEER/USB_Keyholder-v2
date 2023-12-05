@@ -7,12 +7,13 @@
   ******************************************************************************
   * @attention
   *
-  * Copyright (c) 2017 STMicroelectronics.
-  * All rights reserved.
+  * <h2><center>&copy; Copyright (c) 2017 STMicroelectronics.
+  * All rights reserved.</center></h2>
   *
-  * This software is licensed under terms that can be found in the LICENSE file
-  * in the root directory of this software component.
-  * If no LICENSE file comes with this software, it is provided AS-IS.
+  * This software component is licensed by ST under BSD 3-Clause license,
+  * the "License"; You may not use this file except in compliance with the
+  * License. You may obtain a copy of the License at:
+  *                        opensource.org/licenses/BSD-3-Clause
   *
   ******************************************************************************
   */
@@ -738,7 +739,7 @@
 /**
   * @brief  Close or open the internal switch COMP1_SW1.
   *         This switch connects I/O pin PC3 (can be used as ADC channel 13)
-  *         and OPAMP3 output to ADC switch matrix (ADC channel VCOMP, channel
+  *         and OPAMP3 ouput to ADC switch matrix (ADC channel VCOMP, channel
   *         26) and COMP1 non-inverting input.
   *         Pin PC3 connection depends on another switch setting, refer to
   *         macro "__HAL_ADC_CHANNEL_SPEED_FAST()".
@@ -758,7 +759,7 @@
   */
 
 /**
-  * @brief  Enable or disable Hysteresis of the input schmitt trigger of Ports A
+  * @brief  Enable or disable Hysteresis of the input schmitt triger of Ports A
   *         When the I/Os are programmed in input mode by standard I/O port
   *         registers, the Schmitt trigger and the hysteresis are enabled by default.
   *         When hysteresis is disabled, it is possible to read the
@@ -776,7 +777,7 @@
           } while(0)
 
 /**
-  * @brief  Enable or disable Hysteresis of the input schmitt trigger of Ports B
+  * @brief  Enable or disable Hysteresis of the input schmitt triger of Ports B
   *         When the I/Os are programmed in input mode by standard I/O port
   *         registers, the Schmitt trigger and the hysteresis are enabled by default.
   *         When hysteresis is disabled, it is possible to read the
@@ -794,7 +795,7 @@
           } while(0)
 
 /**
-  * @brief  Enable or disable Hysteresis of the input schmitt trigger of Ports C
+  * @brief  Enable or disable Hysteresis of the input schmitt triger of Ports C
   *         When the I/Os are programmed in input mode by standard I/O port
   *         registers, the Schmitt trigger and the hysteresis are enabled by default.
   *         When hysteresis is disabled, it is possible to read the
@@ -812,7 +813,7 @@
           } while(0)
 
 /**
-  * @brief  Enable or disable Hysteresis of the input schmitt trigger of Ports D
+  * @brief  Enable or disable Hysteresis of the input schmitt triger of Ports D
   *         When the I/Os are programmed in input mode by standard I/O port
   *         registers, the Schmitt trigger and the hysteresis are enabled by default.
   *         When hysteresis is disabled, it is possible to read the
@@ -832,7 +833,7 @@
 #if defined (GPIOE_BASE)
 
 /**
-  * @brief  Enable or disable Hysteresis of the input schmitt trigger of Ports E
+  * @brief  Enable or disable Hysteresis of the input schmitt triger of Ports E
   *         When the I/Os are programmed in input mode by standard I/O port
   *         registers, the Schmitt trigger and the hysteresis are enabled by default.
   *         When hysteresis is disabled, it is possible to read the
@@ -854,7 +855,7 @@
 #if defined(GPIOF_BASE) || defined(GPIOG_BASE)
 
 /**
-  * @brief  Enable or disable Hysteresis of the input schmitt trigger of Ports F
+  * @brief  Enable or disable Hysteresis of the input schmitt triger of Ports F
   *         When the I/Os are programmed in input mode by standard I/O port
   *         registers, the Schmitt trigger and the hysteresis are enabled by default.
   *         When hysteresis is disabled, it is possible to read the
@@ -872,7 +873,7 @@
           } while(0)
 
 /**
-  * @brief  Enable or disable Hysteresis of the input schmitt trigger of Ports G
+  * @brief  Enable or disable Hysteresis of the input schmitt triger of Ports G
   *         When the I/Os are programmed in input mode by standard I/O port
   *         registers, the Schmitt trigger and the hysteresis are enabled by default.
   *         When hysteresis is disabled, it is possible to read the
@@ -992,4 +993,4 @@ void              HAL_DBGMCU_DisableDBGStandbyMode(void);
 
 #endif /* __STM32L1xx_HAL_H */
 
-
+/************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

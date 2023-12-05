@@ -1,4 +1,4 @@
-#include "ui_core.h"
+#include "ui/core.h"
 #include "crypto.h"
 
 #define UI_MENU_LOGINS_PRINTED_COUNT 	6

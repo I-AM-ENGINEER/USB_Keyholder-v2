@@ -10,7 +10,7 @@
             "interface": "swd",
             "executable": "build\\Keyholder\\Keyholder.elf",
             "runToEntryPoint": "main",
-            "device": "STM32L151C8"
+            "device": "null"
         },
         {
             "cwd": "${workspaceRoot}",

@@ -2,7 +2,7 @@
 #include "ssd1306.h"
 #include "ssd1306_tests.h"
 #include "crypto.h"
-#include "ui_core.h"
+#include "ui/core.h"
 #include "system.h"
 //#include "usbd_hid.h"
 //#include "usb.h"

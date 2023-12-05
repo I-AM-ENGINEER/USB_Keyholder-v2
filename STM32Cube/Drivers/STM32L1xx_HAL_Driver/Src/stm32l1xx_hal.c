@@ -5,17 +5,6 @@
   * @brief   HAL module driver.
   *          This is the common part of the HAL initialization
   *
-  ******************************************************************************
-  * @attention
-  *
-  * Copyright (c) 2017 STMicroelectronics.
-  * All rights reserved.
-  *
-  * This software is licensed under terms that can be found in the LICENSE file
-  * in the root directory of this software component.
-  * If no LICENSE file comes with this software, it is provided AS-IS.
-  *
-  ******************************************************************************
   @verbatim
   ==============================================================================
                      ##### How to use this driver #####
@@ -29,6 +18,17 @@
          (+) Services HAL APIs
 
   @endverbatim
+  ******************************************************************************
+  * @attention
+  *
+  * <h2><center>&copy; Copyright (c) 2017 STMicroelectronics.
+  * All rights reserved.</center></h2>
+  *
+  * This software component is licensed by ST under BSD 3-Clause license,
+  * the "License"; You may not use this file except in compliance with the
+  * License. You may obtain a copy of the License at:
+  *                        opensource.org/licenses/BSD-3-Clause
+  *
   ******************************************************************************
   */
 
@@ -54,11 +54,11 @@
   */
 
 /**
- * @brief STM32L1xx HAL Driver version number
+ * @brief STM32L1xx HAL Driver version number V1.4.4
    */
 #define __STM32L1xx_HAL_VERSION_MAIN   (0x01) /*!< [31:24] main version */
 #define __STM32L1xx_HAL_VERSION_SUB1   (0x04) /*!< [23:16] sub1 version */
-#define __STM32L1xx_HAL_VERSION_SUB2   (0x05) /*!< [15:8]  sub2 version */
+#define __STM32L1xx_HAL_VERSION_SUB2   (0x04) /*!< [15:8]  sub2 version */
 #define __STM32L1xx_HAL_VERSION_RC     (0x00) /*!< [7:0]  release candidate */
 #define __STM32L1xx_HAL_VERSION         ((__STM32L1xx_HAL_VERSION_MAIN << 24)\
                                         |(__STM32L1xx_HAL_VERSION_SUB1 << 16)\
@@ -355,8 +355,7 @@ HAL_StatusTypeDef HAL_SetTickFreq(uint32_t Freq)
 
 /**
   * @brief Return tick frequency.
-  * @retval Tick frequency.
-  *         Value of @ref HAL_TickFreqTypeDef.
+  * @retval tick period in Hz
   */
 uint32_t HAL_GetTickFreq(void)
 {
@@ -567,4 +566,4 @@ void HAL_DBGMCU_DisableDBGStandbyMode(void)
   * @}
   */
 
-
+/************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

@@ -5,7 +5,11 @@
   * @brief   This file provides firmware functions to manage the following 
   *          functionalities of the Analog to Digital Convertor (ADC)
   *          peripheral:
-  *           + Peripheral Control functions
+  *           + Operation functions
+  *             ++ Start, stop, get result of conversions of injected
+  *                group, using 2 possible modes: polling, interruption.
+  *           + Control functions
+  *             ++ Channels configuration on injected group
   *          Other functions (generic functions) are available in file 
   *          "stm32l1xx_hal_adc.c".
   *
@@ -18,12 +22,13 @@
   ******************************************************************************
   * @attention
   *
-  * Copyright (c) 2017 STMicroelectronics.
-  * All rights reserved.
+  * <h2><center>&copy; Copyright (c) 2017 STMicroelectronics.
+  * All rights reserved.</center></h2>
   *
-  * This software is licensed under terms that can be found in the LICENSE file
-  * in the root directory of this software component.
-  * If no LICENSE file comes with this software, it is provided AS-IS.
+  * This software component is licensed by ST under BSD 3-Clause license,
+  * the "License"; You may not use this file except in compliance with the
+  * License. You may obtain a copy of the License at:
+  *                        opensource.org/licenses/BSD-3-Clause
   *
   ******************************************************************************
   */
@@ -593,7 +598,7 @@ __weak void HAL_ADCEx_InjectedConvCpltCallback(ADC_HandleTypeDef* hadc)
   * @note   Possibility to update parameters on the fly:
   *         This function initializes injected group, following calls to this 
   *         function can be used to reconfigure some parameters of structure
-  *         "ADC_InjectionConfTypeDef" on the fly, without resetting the ADC.
+  *         "ADC_InjectionConfTypeDef" on the fly, without reseting the ADC.
   *         The setting of these parameters is conditioned to ADC state: 
   *         this function must be called when ADC is not under conversion.
   * @param  hadc ADC handle
@@ -866,3 +871,5 @@ HAL_StatusTypeDef HAL_ADCEx_InjectedConfigChannel(ADC_HandleTypeDef* hadc, ADC_I
 /**
   * @}
   */
+
+/************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

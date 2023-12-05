@@ -5,7 +5,7 @@
 #include "usbd_core.h"
 #include "gpio.h"
 #include "buttons.h"
-#include "ui_core.h"
+#include "ui/core.h"
 #include "comd.h"
 #include "usbd_cdc_acm_if.h"
 #include "crypto_io.h"

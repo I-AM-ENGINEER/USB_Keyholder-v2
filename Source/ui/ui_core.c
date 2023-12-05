@@ -1,4 +1,4 @@
-#include "ui_core.h"
+#include "ui/core.h"
 #include "stdio.h"
 #include "crypto.h"
 #include "main.h"
@@ -6,7 +6,7 @@
 #include "usb.h"
 #include "system.h"
 #include "buttons.h"
-#include "ui_bitmaps.h"
+#include "ui/bitmaps.h"
 
 /**********   Events  *******************/
 
@@ -57,8 +57,8 @@ void UI_Init( void ){
 	
 	for(uint32_t i; i < UI_event_buttonStackSize; i++) UI_event_buttonStack[i].event_type = BUTTON_STATE_IDLE;
 	//ugl_enter(0, UI_menu_logins_constructor, NULL);
-	ugl_enter(0, UI_main_menu_constructor, NULL);
-	//ugl_enter(0, UI_login_menu_constructor, NULL);
+	//ugl_enter(0, UI_main_menu_constructor, NULL);
+	ugl_enter(0, UI_login_menu_constructor, NULL);
 	
 }
 

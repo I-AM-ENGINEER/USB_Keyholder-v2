@@ -22,7 +22,7 @@
 #include "stm32l1xx_it.h"
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#include "ui_core.h"
+#include "ui/core.h"
 #include "ssd1306.h"
 #include "crypto.h"
 #include "buttons.h"

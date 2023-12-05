@@ -9,17 +9,18 @@
   *          This file contains:
   *           - Data structures and the address mapping for all peripherals
   *           - Peripheral's registers declarations and bits definition
-  *           - Macros to access peripheral's registers hardware
+  *           - Macros to access peripheral’s registers hardware
   *  
   ******************************************************************************
   * @attention
   *
-  * Copyright (c) 2017-2021 STMicroelectronics.
-  * All rights reserved.
+  * <h2><center>&copy; Copyright (c) 2017 STMicroelectronics.
+  * All rights reserved.</center></h2>
   *
-  * This software is licensed under terms that can be found in the LICENSE file
-  * in the root directory of this software component.
-  * If no LICENSE file comes with this software, it is provided AS-IS.
+  * This software component is licensed by ST under BSD 3-Clause license,
+  * the "License"; You may not use this file except in compliance with the
+  * License. You may obtain a copy of the License at:
+  *                        opensource.org/licenses/BSD-3-Clause
   *
   ******************************************************************************
   */
@@ -863,7 +864,7 @@ typedef struct
 #define ADC_CR2_EOCS                         ADC_CR2_EOCS_Msk                  /*!< ADC end of unitary or end of sequence conversions selection */
 #define ADC_CR2_ALIGN_Pos                    (11U)                             
 #define ADC_CR2_ALIGN_Msk                    (0x1UL << ADC_CR2_ALIGN_Pos)       /*!< 0x00000800 */
-#define ADC_CR2_ALIGN                        ADC_CR2_ALIGN_Msk                 /*!< ADC data alignment */
+#define ADC_CR2_ALIGN                        ADC_CR2_ALIGN_Msk                 /*!< ADC data alignement */
 
 #define ADC_CR2_JEXTSEL_Pos                  (16U)                             
 #define ADC_CR2_JEXTSEL_Msk                  (0xFUL << ADC_CR2_JEXTSEL_Pos)     /*!< 0x000F0000 */
@@ -2751,7 +2752,7 @@ typedef struct
 /*                                                                            */
 /******************************************************************************/
 /*
- * @brief Specific device feature definitions (not present on all devices in the STM32L1 series)
+ * @brief Specific device feature definitions (not present on all devices in the STM32L1 serie)
  */
 #define FLASH_CUT1
 
@@ -4349,7 +4350,7 @@ typedef struct
 #define RCC_CSR_RTCSEL_0                    (0x1UL << RCC_CSR_RTCSEL_Pos)       /*!< 0x00010000 */
 #define RCC_CSR_RTCSEL_1                    (0x2UL << RCC_CSR_RTCSEL_Pos)       /*!< 0x00020000 */
 
-/*!< RTC configuration */
+/*!< RTC congiguration */
 #define RCC_CSR_RTCSEL_NOCLOCK              (0x00000000U)                      /*!< No clock */
 #define RCC_CSR_RTCSEL_LSE_Pos              (16U)                              
 #define RCC_CSR_RTCSEL_LSE_Msk              (0x1UL << RCC_CSR_RTCSEL_LSE_Pos)   /*!< 0x00010000 */
@@ -4399,7 +4400,7 @@ typedef struct
 /*                                                                            */
 /******************************************************************************/
 /*
-* @brief Specific device feature definitions  (not present on all devices in the STM32F0 series)
+* @brief Specific device feature definitions  (not present on all devices in the STM32F0 serie)
 */
 #define RTC_TAMPER1_SUPPORT       /*!< TAMPER 1 feature support */
 #define RTC_BACKUP_SUPPORT        /*!< BACKUP register feature support */
@@ -4965,7 +4966,7 @@ typedef struct
 /******************************************************************************/
 
 /*
- * @brief Specific device feature definitions (not present on all devices in the STM32F3 series)
+ * @brief Specific device feature definitions (not present on all devices in the STM32F3 serie)
  */
 
 /*******************  Bit definition for SPI_CR1 register  ********************/
@@ -6029,21 +6030,12 @@ typedef struct
 #define USART_DR_DR                         USART_DR_DR_Msk                    /*!< Data value */
 
 /******************  Bit definition for USART_BRR register  *******************/
-#define USART_BRR_DIV_Fraction_Pos    (0U)                                     
-#define USART_BRR_DIV_Fraction_Msk    (0xFUL << USART_BRR_DIV_Fraction_Pos)     /*!< 0x0000000F */
-#define USART_BRR_DIV_Fraction        USART_BRR_DIV_Fraction_Msk               /*!<Fraction of USARTDIV */
-#define USART_BRR_DIV_Mantissa_Pos    (4U)                                     
-#define USART_BRR_DIV_Mantissa_Msk    (0xFFFUL << USART_BRR_DIV_Mantissa_Pos)   /*!< 0x0000FFF0 */
-#define USART_BRR_DIV_Mantissa        USART_BRR_DIV_Mantissa_Msk               /*!<Mantissa of USARTDIV */
-
-/* Legacy aliases */
-#define  USART_BRR_DIV_FRACTION_Pos              USART_BRR_DIV_Fraction_Pos
-#define  USART_BRR_DIV_FRACTION_Msk              USART_BRR_DIV_Fraction_Msk
-#define  USART_BRR_DIV_FRACTION                  USART_BRR_DIV_Fraction
-
-#define  USART_BRR_DIV_MANTISSA_Pos              USART_BRR_DIV_Mantissa_Pos
-#define  USART_BRR_DIV_MANTISSA_Msk              USART_BRR_DIV_Mantissa_Msk
-#define  USART_BRR_DIV_MANTISSA                  USART_BRR_DIV_Mantissa
+#define USART_BRR_DIV_FRACTION_Pos          (0U)                               
+#define USART_BRR_DIV_FRACTION_Msk          (0xFUL << USART_BRR_DIV_FRACTION_Pos) /*!< 0x0000000F */
+#define USART_BRR_DIV_FRACTION              USART_BRR_DIV_FRACTION_Msk         /*!< Fraction of USARTDIV */
+#define USART_BRR_DIV_MANTISSA_Pos          (4U)                               
+#define USART_BRR_DIV_MANTISSA_Msk          (0xFFFUL << USART_BRR_DIV_MANTISSA_Pos) /*!< 0x0000FFF0 */
+#define USART_BRR_DIV_MANTISSA              USART_BRR_DIV_MANTISSA_Msk         /*!< Mantissa of USARTDIV */
 
 /******************  Bit definition for USART_CR1 register  *******************/
 #define USART_CR1_SBK_Pos                   (0U)                               
@@ -7623,3 +7615,4 @@ typedef struct
 
 
 
+/************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/
