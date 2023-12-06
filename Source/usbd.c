@@ -16,34 +16,15 @@ void USB_update_status( void ){
 }
 
 USB_status_t USB_connection_status( void ){
-	//if(hUsbDevice.dev_state != USBD_STATE_CONFIGURED){
-	/*
-	static USB_status_t lastState = USB_STATUS_DISCONNECTED;
-	uint8_t stateNow = hUsbDevice.dev_state;
-
-   if(stateNow == USBD_STATE_CONFIGURED)//&& (lastState == USB_STATUS_DISCONNECTED)
-   {
-      lastState = USB_STATUS_CONNECTED;
-   }
-   else if(stateNow == USBD_STATE_SUSPENDED) //&& (lastState == USB_STATUS_CONNECTED)
-   {
-      lastState = USB_STATUS_DISCONNECTED;
-   }
-
-   return lastState;
-	*/
-	
-	
 	USBD_HID_Keyboard_HandleTypeDef *hhid = (USBD_HID_Keyboard_HandleTypeDef *)hUsbDevice.pClassData_HID_Keyboard;
-	
-	
-	//HAL_Delay(2);
+	if(hUsbDevice.dev_state != 0x03){
+		return USB_STATUS_DISCONNECTED;
+	}
+
 	if(hhid->state != KEYBOARD_HID_IDLE){
 		return USB_STATUS_DISCONNECTED;
 	}
 	return USB_STATUS_CONNECTED;
-	
-	//return connection_status;
 }
 
 const char ascii2kbd[]={

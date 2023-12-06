@@ -20,9 +20,7 @@ static bool last_p = false;
 void UI_hotkey_menu_draw( void ){
 	UI_event_button_t lastButton = UI_event_GetLast();
 	
-	
 	ssd1306_Fill(Black);
-	
 	switch(lastButton.event_type){
 		case BUTTON_STATE_RELEASED:
 			released = true;
@@ -45,6 +43,7 @@ void UI_hotkey_menu_draw( void ){
 			if(lastButton.button_id == BTN_JPUSH_ID){
 				last_p = true;
 			}
+			break;
 		default: break;
 	}
 	
@@ -56,8 +55,8 @@ void UI_hotkey_menu_draw( void ){
 		ssd1306_SetCursor(10,20);
 		ssd1306_WriteString("INSERT!", Font_16x26, White);
 		USB_update_status();
-		if((USB_connection_status() == USB_STATUS_CONNECTED) && released){
-			HAL_Delay(100);
+		if(USB_connection_status() == USB_STATUS_CONNECTED){
+			HAL_Delay(300);
 			USB_keyboard_puts(password->password);
 			show_password = false;
 			released = false;

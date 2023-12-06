@@ -8,9 +8,9 @@
             "name": "jlink",
             "servertype": "jlink",
             "interface": "swd",
-            "executable": "build\\Keyholder\\Keyholder.axf",
+            "executable": "build\\Keyholder\\Keyholder.elf",
             "runToEntryPoint": "main",
-            "device": "Cortex-M3"
+            "device": "STM32L151C8"
         },
         {
             "cwd": "${workspaceRoot}",

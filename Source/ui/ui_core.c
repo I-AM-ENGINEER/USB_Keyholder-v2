@@ -38,8 +38,9 @@ UI_event_button_t UI_event_GetLast( void ){
 		t.event_type = BUTTON_STATE_IDLE;
 		return t;
 	}
+	UI_event_button_t return_event = UI_event_buttonStack[UI_event_buttonCount - 1];
 	UI_event_clear_last();
-	return UI_event_buttonStack[UI_event_buttonCount - 1];
+	return return_event;
 }
 
 void UI_event_set_button( uint32_t button_id, BTN_button_state_t state ){
