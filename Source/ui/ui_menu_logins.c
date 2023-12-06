@@ -55,7 +55,6 @@ void UI_menu_logins_delete_warning_draw( void ){
 	
 	
 	UI_event_button_t lastButton = UI_event_GetLast();
-	UI_event_clear_last();
 	
 	switch(lastButton.event_type){
 		case BUTTON_STATE_PRESSED:
@@ -96,7 +95,6 @@ void UI_menu_logins_delete_warning_draw( void ){
 
 void UI_menu_logins_submenu_draw( void ){
 	UI_event_button_t lastButton = UI_event_GetLast();
-	UI_event_clear_last();
 	
 	static bool pressed = false;
 	
@@ -180,7 +178,6 @@ void UI_menu_logins_draw( void ){
 	int16_t passwords_count = crypto_password_count();
 	
 	UI_event_button_t lastButton = UI_event_GetLast();
-	UI_event_clear_last();
 	
 	
 	switch(lastButton.event_type){

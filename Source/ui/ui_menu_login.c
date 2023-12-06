@@ -24,7 +24,6 @@ void UI_login_menu_draw( void ){
 			break;
 		default: break;
 	}
-	UI_event_clear_last();
 	
 	/*for(uint32_t i = 0; i < 7; i++){
 		ssd1306_Line(6 + i*19, 17, 6 + i*19, 46, White);

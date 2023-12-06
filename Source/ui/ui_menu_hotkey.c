@@ -19,7 +19,6 @@ static bool last_p = false;
 
 void UI_hotkey_menu_draw( void ){
 	UI_event_button_t lastButton = UI_event_GetLast();
-	UI_event_clear_last();
 	
 	
 	ssd1306_Fill(Black);

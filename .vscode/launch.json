@@ -8,9 +8,9 @@
             "name": "jlink",
             "servertype": "jlink",
             "interface": "swd",
-            "executable": "build\\Keyholder\\Keyholder.elf",
+            "executable": "build\\Keyholder\\Keyholder.axf",
             "runToEntryPoint": "main",
-            "device": "null"
+            "device": "Cortex-M3"
         },
         {
             "cwd": "${workspaceRoot}",
@@ -22,7 +22,7 @@
             "runToEntryPoint": "main",
             "configFiles": [
                 "interface/stlink.cfg",
-                "target/<target-name>.cfg"
+                "target/stm32l1.cfg"
             ]
         }
     ]

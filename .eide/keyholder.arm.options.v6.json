@@ -1,7 +1,14 @@
 {
     "version": 3,
     "beforeBuildTasks": [],
-    "afterBuildTasks": [],
+    "afterBuildTasks": [
+        {
+            "name": "axf to elf for debug rename",
+            "disable": false,
+            "abortAfterFailed": false,
+            "command": "cp ${OutDir}/${ProjectName}.axf ${OutDir}/${ProjectName}.elf"
+        }
+    ],
     "global": {
         "output-debug-info": "enable",
         "use-microLIB": true
