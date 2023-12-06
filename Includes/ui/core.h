@@ -22,6 +22,12 @@
 #define UI_ICON_ADDRESS_USB_WRITE 0x0004
 #define UI_ICON_ADDRESS_PASSWORDS 0x0005
 
+
+#define UI_MENU_LOGINS_PRINTED_COUNT 	6
+#define UI_MENU_LOGINS_SUBMENU_COUNT  4
+#define UI_MENU_LOGINS_FONT						Font_7x10
+#define UI_MENU_LOGINS_INTERVALS			10
+
 #define IO_EVENT_MAX_STACK	4
 
 #pragma anon_unions
@@ -45,6 +51,13 @@ ugl_menu_t *UI_main_menu_constructor( int32_t ID, void* extra );
 ugl_menu_t *UI_login_menu_constructor( int32_t ID, void* extra );
 ugl_menu_t *UI_hotkey_menu_constructor( int32_t ID, void* extra );
 ugl_menu_t *UI_menu_logins_constructor( int32_t ID, void* extra );
+ugl_menu_t *UI_menu_logins_submenu_constructor( int32_t ID, void* extra );
+ugl_menu_t *UI_menu_logins_delete_warning_constructor( int32_t ID, void* extra );
+ugl_menu_t *UI_menu_logins_submenu_hotkey_constructor( int32_t ID, void* extra );
+
+void UI_menu_logins_submenu_render( void );
+void UI_menu_logins_render( void );
+void UI_main_menu_render( void );
 
 void UI_print_menu( void );
 void UI_event_set_button( uint32_t button_id, BTN_button_state_t state );

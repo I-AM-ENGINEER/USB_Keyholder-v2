@@ -13,7 +13,6 @@ typedef enum{
 	//UI_MENU_HOTKEY_STATE_
 }*/
 
-static bool released = false;
 static bool show_password = false;
 static bool last_p = false;
 
@@ -23,14 +22,12 @@ void UI_hotkey_menu_draw( void ){
 	ssd1306_Fill(Black);
 	switch(lastButton.event_type){
 		case BUTTON_STATE_RELEASED:
-			released = true;
 			if(lastButton.button_id == BTN_JPUSH_ID){
 				if(last_p){
 					last_p = false;
 					break;
 				}
 				show_password = false;
-				released = false;
 				last_p = false;
 				ugl_return();
 				return;
@@ -59,7 +56,6 @@ void UI_hotkey_menu_draw( void ){
 			HAL_Delay(300);
 			USB_keyboard_puts(password->password);
 			show_password = false;
-			released = false;
 			last_p = false;
 			ugl_return();
 			return;
@@ -78,7 +74,6 @@ ugl_menu_t *UI_hotkey_menu_constructor( int32_t ID, void* extra ){
 	if(extra == NULL){
 		return NULL;
 	}
-	released = false;
 	show_password = false;
 	last_p = false;
 	

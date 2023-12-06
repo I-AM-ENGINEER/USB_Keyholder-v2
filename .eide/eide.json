@@ -405,10 +405,10 @@
             "path": "Source/core.c"
           },
           {
-            "path": "Source/crypto.c"
+            "path": "Source/crypto_io.c"
           },
           {
-            "path": "Source/crypto_io.c"
+            "path": "Source/crypto.c"
           },
           {
             "path": "Source/flashd.c"
@@ -417,13 +417,13 @@
             "path": "Source/list.c"
           },
           {
-            "path": "Source/ssd1306.c"
-          },
-          {
             "path": "Source/ssd1306_fonts.c"
           },
           {
             "path": "Source/ssd1306_tests.c"
+          },
+          {
+            "path": "Source/ssd1306.c"
           },
           {
             "path": "Source/system.c"
@@ -455,7 +455,29 @@
                 "path": "Source/ui/ui_menu_main.c"
               }
             ],
-            "folders": []
+            "folders": [
+              {
+                "name": "logins_sumbmenu",
+                "files": [
+                  {
+                    "path": "Source/ui/ui_menu_logins_submenu/ui_logins_submenu_delete.c"
+                  },
+                  {
+                    "path": "Source/ui/ui_menu_logins_submenu/ui_logins_submenu_edit.c"
+                  },
+                  {
+                    "path": "Source/ui/ui_menu_logins_submenu/ui_logins_submenu_hotkey.c"
+                  },
+                  {
+                    "path": "Source/ui/ui_menu_logins_submenu/ui_logins_submenu_move.c"
+                  },
+                  {
+                    "path": "Source/ui/ui_menu_logins_submenu/ui_logins_submenu.c"
+                  }
+                ],
+                "folders": []
+              }
+            ]
           }
         ]
       }
