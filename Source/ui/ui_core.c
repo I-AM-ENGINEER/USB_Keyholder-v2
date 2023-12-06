@@ -25,20 +25,22 @@ UI_event_button_t* UI_event_buttonStack = NULL;
 uint32_t UI_event_buttonStackSize = 0;
 uint32_t UI_event_buttonCount = 0;
 
+void UI_event_clear_last( void ){
+	if(UI_event_buttonCount == 0) return;
+	UI_event_buttonCount--;
+	UI_event_buttonStack[UI_event_buttonCount].event_type = BUTTON_STATE_IDLE;
+}
+
 UI_event_button_t UI_event_GetLast( void ){
 	if(UI_event_buttonCount == 0){
 		UI_event_button_t t;
 		t.button_id = -1;
 		t.event_type = BUTTON_STATE_IDLE;
 		return t;
-	}//		return NULL;
-	return UI_event_buttonStack[UI_event_buttonCount - 1];
-}
-
-void UI_event_clear_last( void ){
-	if(UI_event_buttonCount == 0) return;
-	UI_event_buttonCount--;
-	UI_event_buttonStack[UI_event_buttonCount].event_type = BUTTON_STATE_IDLE;
+	}
+	UI_event_button_t return_event = UI_event_buttonStack[UI_event_buttonCount - 1];
+	UI_event_clear_last();
+	return return_event;
 }
 
 void UI_event_set_button( uint32_t button_id, BTN_button_state_t state ){

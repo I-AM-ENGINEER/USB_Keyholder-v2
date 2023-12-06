@@ -17,7 +17,6 @@
   *
   ******************************************************************************
   */
-XuIXuIXuIXuIXuIXuI
 /* Define to prevent recursive inclusion -------------------------------------*/
 #ifndef __STM32L1xx_HAL_DEF
 #define __STM32L1xx_HAL_DEF

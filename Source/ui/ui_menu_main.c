@@ -62,19 +62,20 @@ void UI_mainMenuDraw( void ){
 	}else if(ugl_get_current_menu()->selected_item->position_x_abs < 50){
 		ugl_get_current_menu()->group->position_x += 5;
 	}
-	
 	ugl_menu_render( ugl_get_current_menu() );
-	
-	ssd1306_DrawRectangle(ugl_get_current_menu()->selected_item->position_x_abs, ugl_get_current_menu()->selected_item->position_y_abs, ugl_get_current_menu()->selected_item->position_x_abs+10, ugl_get_current_menu()->selected_item->position_y_abs+10, White);
-	ssd1306_DrawRectangle(0, 0,  127, 10, White);
-	ssd1306_DrawRectangle(0, 53, 127, 63, White);
+	UI_main_menu_render();
+}
+
+void UI_main_menu_render( void ){
+	ssd1306_DrawRectangle(1, 0,  127, 10, White);
+	ssd1306_DrawRectangle(1, 53, 127, 63, White);
 	ssd1306_Line(1, 0,  126, 0,  Black);
 	ssd1306_Line(1, 63, 126, 63, Black);
 	
 	
 	crypto_password_t* password;
 	for(uint8_t i = 0; i < 8; i++){
-		ssd1306_SetCursor(((i & 0x03) * 32) + 2, i >> 3);
+		ssd1306_SetCursor(((i&0x03)*32)+((!(i&0x03))?3:2), i<4?0:54);
 		if(crypto_hotkey_password_get(i, &password) == CRYPTO_STATE_OK){
 			char name[5];
 			memcpy(name, password->short_name, 4);
@@ -83,12 +84,12 @@ void UI_mainMenuDraw( void ){
 		}
 	}
 	
-	ssd1306_Line(31, 0, 31, 10, White);
-	ssd1306_Line(63, 0, 63, 10, White);
-	ssd1306_Line(95, 0, 95, 10, White);
-	ssd1306_Line(31, 53, 31, 63, White);
-	ssd1306_Line(63, 53, 63, 63, White);
-	ssd1306_Line(95, 53, 95, 63, White);
+	ssd1306_Line(32, 0, 32, 10, White);
+	ssd1306_Line(64, 0, 64, 10, White);
+	ssd1306_Line(96, 0, 96, 10, White);
+	ssd1306_Line(32, 53, 32, 63, White);
+	ssd1306_Line(64, 53, 64, 63, White);
+	ssd1306_Line(96, 53, 96, 63, White);
 }
 
 ugl_menu_t *UI_main_menu_constructor( int32_t ID, void* extra ){
@@ -153,7 +154,7 @@ ugl_menu_t *UI_main_menu_constructor( int32_t ID, void* extra ){
 	
 	mainMenu->group->position_y = 17;
 	mainMenu->group->position_x = -15;
-	mainMenu->selected_item = ugl_menu_get_item_by_id(mainMenu, 3);
+	mainMenu->selected_item = ugl_menu_get_item_by_id(mainMenu, 2);
 	
 	return mainMenu;
 }

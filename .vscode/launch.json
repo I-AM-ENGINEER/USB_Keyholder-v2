@@ -10,7 +10,7 @@
             "interface": "swd",
             "executable": "build\\Keyholder\\Keyholder.elf",
             "runToEntryPoint": "main",
-            "device": "null"
+            "device": "STM32L151C8"
         },
         {
             "cwd": "${workspaceRoot}",
@@ -22,7 +22,7 @@
             "runToEntryPoint": "main",
             "configFiles": [
                 "interface/stlink.cfg",
-                "target/<target-name>.cfg"
+                "target/stm32l1.cfg"
             ]
         }
     ]

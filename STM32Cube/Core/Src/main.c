@@ -85,7 +85,7 @@ char buffer[128];
 
 /**
   * @brief  The application entry point.
-  * @retval int
+  * @retval intXuIXuI
   */
 int main(void)
 {

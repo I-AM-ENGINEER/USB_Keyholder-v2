@@ -17,18 +17,12 @@ void UI_login_menu_draw( void ){
 				}
 			}else if(lastButton.button_id == BTN_JCW_ID) {
 				if(cursor < 5) cursor++;
-			}
-			else if(lastButton.button_id == BTN_JCCW_ID) {
+			}else if(lastButton.button_id == BTN_JCCW_ID) {
 				if(cursor > 0) cursor--;
 			}
 			break;
 		default: break;
 	}
-	UI_event_clear_last();
-	
-	/*for(uint32_t i = 0; i < 7; i++){
-		ssd1306_Line(6 + i*19, 17, 6 + i*19, 46, White);
-	}*/
 	
 	bool stringFilled = true;
 	for(uint32_t i = 0; i < 6; i++){
@@ -67,8 +61,8 @@ void UI_login_menu_draw( void ){
 	}
 	ssd1306_Line(6 + cursor*19, 45, 22 + cursor*19, 45, White);
 	
-	ssd1306_DrawRectangle(0, 0,  127, 10, White);
-	ssd1306_DrawRectangle(0, 53, 127, 63, White);
+	ssd1306_DrawRectangle(1, 0,  127, 10, White);
+	ssd1306_DrawRectangle(1, 53, 127, 63, White);
 	ssd1306_Line(1, 0,  126, 0,  Black);
 	ssd1306_Line(1, 63, 126, 63, Black);
 	
