@@ -30,8 +30,8 @@ char* crypto_io_cmd_parse( const char* cmd ){
 		return crypto_io_cmd_password_remove(&cmd[strlen(CRYPTO_CMD_PASSWORD_REMOVE)]);
 	if (utils_cmdcmp(CRYPTO_CMD_PASSWORD_INSERT))
 		return crypto_io_cmd_password_insert(&cmd[strlen(CRYPTO_CMD_PASSWORD_INSERT)]);
-	if (utils_cmdcmp(CRYPTO_CMD_PASSWORD_APPEND))
-		return crypto_io_cmd_password_append();
+	//if (utils_cmdcmp(CRYPTO_CMD_PASSWORD_APPEND))
+	//	return crypto_io_cmd_password_append();
 	if (utils_cmdcmp(CRYPTO_CMD_PASSWORD_MOVE))
 		return crypto_io_cmd_password_move(&cmd[strlen(CRYPTO_CMD_PASSWORD_MOVE)]);
 	if (utils_cmdcmp(CRYPTO_CMD_PASSWORD_SWAP))
@@ -102,8 +102,11 @@ static char* crypto_io_cmd_password_insert( const char* cmd ){
 	if(cmd == NULL) return CRYPTO_REPLY_ERROR;
 	uint16_t password_number = atoi(cmd);
 	if(password_number > crypto_password_count()){
-		return CRYPTO_REPLY_ERROR;
+		password_number = crypto_password_count();
 	}
+	memset(&passwordBuffer, 0, sizeof(passwordBuffer));
+	strcpy(passwordBuffer.login, "New login");
+	strcpy(passwordBuffer.short_name, "NEW");
 	crypto_password_new(&passwordBuffer);
 	crypto_password_move(crypto_password_count() - 1, password_number);
 	sprintf(out_buffer, "%s%d", CRYPTO_REPLY_PASSWORD_APPEND, password_number);
@@ -114,6 +117,7 @@ static char* crypto_io_cmd_password_append( void ){
 	if(crypto_password_count() >= crypto_password_count_max()){
 		return CRYPTO_REPLY_ERROR;
 	}
+	
 	crypto_password_new(&passwordBuffer);
 	sprintf(out_buffer, "%s%d", CRYPTO_REPLY_PASSWORD_APPEND, crypto_password_count() - 1);
 	return out_buffer;
