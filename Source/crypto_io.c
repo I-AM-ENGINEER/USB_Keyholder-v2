@@ -146,7 +146,7 @@ static char* crypto_io_cmd_set_password( const char* cmd ){
 		return CRYPTO_REPLY_ERROR;
 	}
 	// Comment check
-	const char* comment 	= strchr(password, ':');
+	char* comment 	= strchr(password, ':');
 	if(comment++  == NULL){
 		return CRYPTO_REPLY_ERROR;
 	}
@@ -183,8 +183,8 @@ static char* crypto_io_cmd_set_password( const char* cmd ){
 	strncpy(passwordBuffer.short_name, slogin, slogin_length);
 	strncpy(passwordBuffer.password, password, password_length);
 	strncpy(passwordBuffer.comment, comment, comment_length);
-	
-	crypto_password_set(&passwordBuffer , password_number);
+	passwordBuffer.comment[comment_length] = '\0';
+	crypto_password_set(&passwordBuffer, password_number);
 	
 	return CRYPTO_REPLY_OK;
 }
