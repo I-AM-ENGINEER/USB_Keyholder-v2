@@ -45,6 +45,7 @@ char* crypto_io_cmd_parse( const char* cmd ){
 
 static char* crypto_io_cmd_save( void ){
 	crypto_save();
+	return CRYPTO_REPLY_OK;
 }
 
 static char* crypto_io_cmd_get_password_count( void ){
