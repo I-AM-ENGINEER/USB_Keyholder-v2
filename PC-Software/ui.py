@@ -49,7 +49,7 @@ class DragButton(QPushButton):     #класс драг кнопок
 
 class MainFrame(QtWidgets.QMainWindow):
     SignalMoveButton = pyqtSignal(str)
-    SignalSetHotKey = pyqtSignal(int, str)
+    SignalSetHotKey = pyqtSignal(str, str)
     # SignalMoveButton = pyqtSignal(int)
 
     def __init__(self, dict_monitor):
@@ -148,6 +148,7 @@ class MainFrame(QtWidgets.QMainWindow):
         self.label_login.setText(self.mas_btn_dr[num].login)
         self.label_pass.setText(self.mas_btn_dr[num].password)
         self.label_coment.setText(self.mas_btn_dr[num].comm)
+        self.comboBox_HotKey.setCurrentIndex(0)
         self.editSize(constrctorTable=True)
 
 
@@ -173,7 +174,8 @@ class MainFrame(QtWidgets.QMainWindow):
     def screenInfo(self):
         pass
     def setNumHotKey(self):
-        self.SignalSetHotKey.emit(self.num_open_pass, self.mas_btn_dr[self.num_open_pass].hotKey)
+        if self.comboBox_HotKey.currentText() != 'none':
+            self.SignalSetHotKey.emit(str(int(self.comboBox_HotKey.currentText()) - 1),str(self.num_open_pass))
 
     def editSize(self, set_screen_name = '', **kwargs): # отрисовка окна с учетем размера экрана
         global old_screen_skale
