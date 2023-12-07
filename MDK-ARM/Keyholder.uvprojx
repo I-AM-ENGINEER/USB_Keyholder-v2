@@ -278,7 +278,7 @@
               <OCR_RVCT4>
                 <Type>1</Type>
                 <StartAddress>0x8000000</StartAddress>
-                <Size>0xe000</Size>
+                <Size>0x18000</Size>
               </OCR_RVCT4>
               <OCR_RVCT5>
                 <Type>1</Type>
@@ -479,6 +479,31 @@
               <FileName>ui_menu_main.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\Source\ui\ui_menu_main.c</FilePath>
+            </File>
+            <File>
+              <FileName>ui_logins_submenu.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Source\ui\ui_menu_logins_submenu\ui_logins_submenu.c</FilePath>
+            </File>
+            <File>
+              <FileName>ui_logins_submenu_delete.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Source\ui\ui_menu_logins_submenu\ui_logins_submenu_delete.c</FilePath>
+            </File>
+            <File>
+              <FileName>ui_logins_submenu_edit.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Source\ui\ui_menu_logins_submenu\ui_logins_submenu_edit.c</FilePath>
+            </File>
+            <File>
+              <FileName>ui_logins_submenu_hotkey.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Source\ui\ui_menu_logins_submenu\ui_logins_submenu_hotkey.c</FilePath>
+            </File>
+            <File>
+              <FileName>ui_logins_submenu_move.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Source\ui\ui_menu_logins_submenu\ui_logins_submenu_move.c</FilePath>
             </File>
           </Files>
         </Group>
