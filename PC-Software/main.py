@@ -32,7 +32,7 @@ class MainWindow(MainFrame):
         super().__init__(dict_monitor)
         self.num_read_pass = 0
         print(self.screenInfo())
-        self.ser = seriall(1155, 21156, 9600)
+        self.ser = seriall(1155, 21156, 115200)
         # print(win32api.MonitorFromWindow())
         # self.mas_btn[5].clicked.connect(self.close_Serial)
         #self.mas_btn[4].clicked.connect(self.read_serial)
@@ -50,7 +50,7 @@ class MainWindow(MainFrame):
         self.mas_btn[0].clicked.connect(lambda: self.ser.write_('CRYPTO_SAVE'))
         self.mas_btn[2].clicked.connect(self.safeOpenPass)
         self.mas_btn[3].clicked.connect(self.addNewPass)
-        self.SignalSetHotKey.connect(lambda num, num_hot_key: self.ser.write_('CRYPTO_HOTKEY_PASSWORD_SET_' + str(num) + ':' + str(num_hot_key)))
+        self.SignalSetHotKey.connect(lambda num_hot_key, num : self.ser.write_('CRYPTO_HOTKEY_PASSWORD_SET_' + str(num_hot_key) + ':' + str(num)))
         # self.SignalMoveButton.connect(lambda num: self.ser.write_('CRYPTO_CMD_PASSWORD_MOVE_' + str(num).encode()))
 
         self.ser.startSerialAutoConnect()
@@ -59,7 +59,7 @@ class MainWindow(MainFrame):
         self.getDataFromSerial()
         data = str(data).split(':')
 
-        if (len(data) == 5):
+        if (len(data) > 4):
               # 3 элемент login или coment
             self.mas_btn_dr[int(data[0])].setText(data[1])
             self.mas_btn_dr[int(data[0])].login = str(data[1])
@@ -83,10 +83,10 @@ class MainWindow(MainFrame):
         else:
             self.num_read_pass = 0
     def addNewPass(self):
-        if (self.countListPass == 0):
-            self.ser.write_('CRYPTO_PASSWORD_INSERT')
-        else:
-            self.ser.write_('CRYPTO_PASSWORD_APPEND')
+        # if (self.countListPass == 0):
+        #     self.ser.write_('CRYPTO_PASSWORD_INSERT')
+        # else:
+        self.ser.write_('CRYPTO_PASSWORD_APPEND')
         self.countListPass += 1
         self.mas_btn_dr.append(DragButton("none"))
         self.laout_for_list_pass.addWidget(self.mas_btn_dr[self.countListPass - 1])
