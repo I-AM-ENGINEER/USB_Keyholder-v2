@@ -5,6 +5,7 @@ static ugl_menu_t *logins_menu = NULL;
 static int32_t cursor_position = 0;
 static int16_t password_id;
 static bool move_mode = false;
+static int8_t holded;
 
 enum {
 	UI_MENU_LOGINS_NEW_PASS = -2,
@@ -62,19 +63,28 @@ void UI_menu_logins_process( void ){
 				ugl_menu_next_item(ugl_get_current_menu());
 			}else if(lastButton.button_id == BTN_JPUSH_ID){
 				pressed = true;
-			}else if((lastButton.button_id >= BTN_SW1_ID) && (lastButton.button_id <= BTN_SW8_ID)){
-				
 			}
 			break;
 		case BUTTON_STATE_HOLDED:
-			pressed = false;
-			password_id = ugl_get_current_menu()->selected_item->ID;
-			if(password_id >= 0){
-				ugl_enter(1, UI_menu_logins_submenu_constructor, &password_id);
+			if(lastButton.button_id == BTN_JCW_ID){
+				holded=-1;
+				//cursor_position--;
+				//ugl_menu_previous_item(ugl_get_current_menu());
+			}else if(lastButton.button_id == BTN_JCCW_ID){
+				holded=1;
+				//cursor_position++;
+				//ugl_menu_next_item(ugl_get_current_menu());
+			}else if(lastButton.button_id == BTN_JPUSH_ID){
+				pressed = false;
+				password_id = ugl_get_current_menu()->selected_item->ID;
+				if(password_id >= 0){
+					ugl_enter(1, UI_menu_logins_submenu_constructor, &password_id);
+				}
+				return;
 			}
-			return;
 			break;
 		case BUTTON_STATE_RELEASED:
+			holded = 0;
 			if((lastButton.button_id == BTN_JPUSH_ID) && pressed){
 				pressed = false;
 				if((ugl_get_current_menu()->selected_item->ID >= 0) && (ugl_get_current_menu()->selected_item->ID < passwords_count)){
@@ -103,9 +113,8 @@ void UI_menu_logins_process( void ){
 	ugl_item_t *item = NULL;
 	UI_menu_logins_process_list();
 	ugl_item_t *current_item = ugl_get_current_menu()->selected_item;
-	
+
 	// WHAT THE FUCK, I DONT KNOW HOW I WROTE THIS SHIT
-	// 
 	if(cursor_position >= passwords_count){
 		cursor_position = passwords_count - 1;
 	}
@@ -164,12 +173,21 @@ void UI_menu_logins_process( void ){
 	}
 
 	if(current_item->position_y_abs == (cursor_position * UI_MENU_LOGINS_INTERVALS + 2)){
+		if((holded==1) && (cursor_position != 5)){
+			if(cursor_position != 5){
+				ugl_menu_next_item(ugl_get_current_menu());
+				cursor_position++;
+			}
+		}else if((holded==-1) && (cursor_position != 0)){
+			cursor_position--;
+			ugl_menu_previous_item(ugl_get_current_menu());
+		}
 		UI_event_start();
-	}else{
+	}else if(holded==0){
 		UI_event_stop();
 	}
 
-	// 
+	// 123
 	// Naming
 	item = current_item;
 	for(uint8_t i = 0; i < (UI_MENU_LOGINS_PRINTED_COUNT + 2); i++){

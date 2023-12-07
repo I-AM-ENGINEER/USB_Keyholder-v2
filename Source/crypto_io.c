@@ -90,7 +90,7 @@ static char* crypto_io_cmd_password_swap( const char* cmd ){
 		return CRYPTO_REPLY_ERROR;
 	}
 	uint16_t password_a = atoi(pass_a);
-	uint16_t password_b 	= atoi(pass_b);
+	uint16_t password_b = atoi(pass_b);
 	
 	if(crypto_password_swap(password_a, password_b) != CRYPTO_STATE_OK){//list_move(&password_list, password_number_from, password_number_to) != LIST_STATE_OK) {
 		return CRYPTO_REPLY_ERROR;

@@ -37,6 +37,9 @@ void UI_menu_logins_submenu_draw( void ){
 			break;
 		case BUTTON_STATE_HOLDED:
 			submenu_exit = true;
+
+			
+
 			//return;
 			//ugl_enter(1, UI_menu_logins_submenu_constructor, password);
 			//return;
@@ -53,6 +56,9 @@ void UI_menu_logins_submenu_draw( void ){
 						break;
 					case UI_LOGINS_SUBMENU_MOVE:
 						ugl_enter(1, UI_menu_logins_submenu_move_constructor, &password_num);
+						submenu_exit = true;
+                        pressed = false;
+						return;
 						break;
 					case UI_LOGINS_SUBMENU_HOTKEY:
                         ugl_enter(1, UI_menu_logins_submenu_hotkey_constructor, &password_num);
