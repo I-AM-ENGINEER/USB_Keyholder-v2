@@ -4,6 +4,12 @@
 static ugl_menu_t *logins_menu = NULL;
 static int32_t cursor_position = 0;
 static int16_t password_id;
+static bool move_mode = false;
+
+enum {
+	UI_MENU_LOGINS_NEW_PASS = -2,
+	UI_MENU_LOGINS_RETURN = -1,
+} ui_menu_logins_e;
 
 void UI_menu_logins_process_list( void ){
 	ugl_item_t *item = NULL;
@@ -37,13 +43,13 @@ void UI_menu_logins_process_list( void ){
 	}
 }
 
-void UI_menu_logins_draw( void ){
+void UI_menu_logins_process( void ){
 	static bool pressed = false;
 	
 	crypto_password_t* password;
 	int16_t passwords_count = crypto_password_count();
 	
-	UI_event_button_t lastButton = UI_event_GetLast();
+	UI_event_button_t lastButton = UI_event_get_last();
 	
 	
 	switch(lastButton.event_type){
@@ -66,9 +72,7 @@ void UI_menu_logins_draw( void ){
 			if(password_id >= 0){
 				ugl_enter(1, UI_menu_logins_submenu_constructor, &password_id);
 			}
-			
 			return;
-		
 			break;
 		case BUTTON_STATE_RELEASED:
 			if((lastButton.button_id == BTN_JPUSH_ID) && pressed){
@@ -79,10 +83,10 @@ void UI_menu_logins_draw( void ){
 						ugl_enter(1, UI_hotkey_menu_constructor, password);
 						return;
 					}
-				}else if( ugl_get_current_menu()->selected_item->ID == -1 ){
+				}else if( ugl_get_current_menu()->selected_item->ID == UI_MENU_LOGINS_RETURN){
 					ugl_return();
 					return;
-				}else if(ugl_get_current_menu()->selected_item->ID == -2){
+				}else if(ugl_get_current_menu()->selected_item->ID == UI_MENU_LOGINS_NEW_PASS){
 					crypto_password_t new_password = {
 						.comment = "",
 						.login = "New login",
@@ -95,14 +99,6 @@ void UI_menu_logins_draw( void ){
 			break;
 		default: break;
 	}
-	/*
-	// Holded swipe
-	if(((HAL_GetTick() - lastSwipeTimestamp) > 200) && ((holdedButton == BTN_JCW_ID) || (holdedButton == BTN_JCCW_ID))){
-		if(holdedButton == BTN_JCW_ID) 	ugl_get_current_menu()->selected_item = ugl_get_current_menu()->selected_item->next_item;
-		else 														ugl_get_current_menu()->selected_item = ugl_get_current_menu()->selected_item->previous_item;
-		lastSwipeTimestamp = HAL_GetTick();
-	}*/
-	
 	
 	ugl_item_t *item = NULL;
 	UI_menu_logins_process_list();
@@ -124,9 +120,9 @@ void UI_menu_logins_draw( void ){
 			UI_menu_logins_process_list();
 			current_item = ugl_get_current_menu()->selected_item;
 		}
-	}else if(current_item->ID == -2){ // New password
+	}else if(current_item->ID == UI_MENU_LOGINS_NEW_PASS){ // New password
 		cursor_position = 0;
-	}else if(current_item->ID == -1){ // First password
+	}else if(current_item->ID == UI_MENU_LOGINS_RETURN){ // First password
 		cursor_position = 0;
 	}else if(current_item->ID == (passwords_count - 1)){ // Last password
 		if(passwords_count < UI_MENU_LOGINS_PRINTED_COUNT){
@@ -166,6 +162,13 @@ void UI_menu_logins_draw( void ){
 	}else if(current_item->position_y_abs > (cursor_position * UI_MENU_LOGINS_INTERVALS + 2)){
 		ugl_get_current_menu()->group->position_y -= 1;
 	}
+
+	if(current_item->position_y_abs == (cursor_position * UI_MENU_LOGINS_INTERVALS + 2)){
+		UI_event_start();
+	}else{
+		UI_event_stop();
+	}
+
 	// 
 	// Naming
 	item = current_item;
@@ -198,9 +201,6 @@ void UI_menu_logins_draw( void ){
 		}
 		item = item->previous_item;
 	}
-	
-	// Render
-	UI_menu_logins_render();
 }
 
 void UI_menu_logins_render( void ){
@@ -216,13 +216,15 @@ void UI_menu_logins_render( void ){
 }
 
 ugl_menu_t *UI_menu_logins_constructor( int32_t ID, void* extra ){
-	ugl_menu_t *mainMenu = ugl_menu_constructor(0);
+	ugl_menu_t *mainMenu = ugl_menu_constructor(UI_MENU_ID_LOGINS);
 	ugl_item_t *item = NULL;
 	ugl_sprite_t *sprite = NULL;
 	
 	logins_menu = mainMenu;
-	mainMenu->drawing_function = UI_menu_logins_draw;
-	
+	mainMenu->process_f = UI_menu_logins_process;
+	mainMenu->render_f = UI_menu_logins_render;
+	move_mode = false;
+
 	for(uint8_t i = 0; i < UI_MENU_LOGINS_PRINTED_COUNT + 2; i++){
 		item = ugl_item_constructor(i-1);
 		ugl_item_set_position(item, 4, 3+i*UI_MENU_LOGINS_INTERVALS);
@@ -247,7 +249,6 @@ ugl_menu_t *UI_menu_logins_constructor( int32_t ID, void* extra ){
 			ugl_menu_get_item_by_id(mainMenu, UI_MENU_LOGINS_PRINTED_COUNT-1));
 	
 	mainMenu->selected_item = ugl_menu_get_item_by_id(mainMenu, -1);
-	
-	//mainMenu->selected_item = ugl_menu_get_item_by_id(mainMenu, 0);
+
 	return mainMenu;
 }

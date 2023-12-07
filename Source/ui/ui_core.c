@@ -21,9 +21,10 @@ void UI_getData( uint32_t address, void *icon, uint32_t size ){
 	}
 }
 
-UI_event_button_t* UI_event_buttonStack = NULL;
-uint32_t UI_event_buttonStackSize = 0;
-uint32_t UI_event_buttonCount = 0;
+static bool UI_buttons_event_enabled = false;
+static UI_event_button_t* UI_event_buttonStack = NULL;
+static uint32_t UI_event_buttonStackSize;
+static uint32_t UI_event_buttonCount;
 
 void UI_event_clear_last( void ){
 	if(UI_event_buttonCount == 0) return;
@@ -31,7 +32,7 @@ void UI_event_clear_last( void ){
 	UI_event_buttonStack[UI_event_buttonCount].event_type = BUTTON_STATE_IDLE;
 }
 
-UI_event_button_t UI_event_GetLast( void ){
+UI_event_button_t UI_event_get_last( void ){
 	if(UI_event_buttonCount == 0){
 		UI_event_button_t t;
 		t.button_id = -1;
@@ -43,7 +44,18 @@ UI_event_button_t UI_event_GetLast( void ){
 	return return_event;
 }
 
+inline void UI_event_stop( void ){
+	UI_buttons_event_enabled = false;
+}
+
+inline void UI_event_start( void ){
+	UI_buttons_event_enabled = true;
+}
+
 void UI_event_set_button( uint32_t button_id, BTN_button_state_t state ){
+	if(!UI_buttons_event_enabled){
+		return;
+	}
 	if(UI_event_buttonCount >= UI_event_buttonStackSize) return;
 	UI_event_buttonStack[UI_event_buttonCount].button_id  = button_id;
 	UI_event_buttonStack[UI_event_buttonCount].event_type = state;
@@ -58,10 +70,10 @@ void UI_Init( void ){
 	UI_event_buttonStackSize = IO_EVENT_MAX_STACK;
 	
 	for(uint32_t i; i < UI_event_buttonStackSize; i++) UI_event_buttonStack[i].event_type = BUTTON_STATE_IDLE;
+	UI_event_start();
 	//ugl_enter(0, UI_menu_logins_constructor, NULL);
 	//ugl_enter(0, UI_main_menu_constructor, NULL);
 	ugl_enter(0, UI_login_menu_constructor, NULL);
-	
 }
 
 void UI_print_menu( void ){

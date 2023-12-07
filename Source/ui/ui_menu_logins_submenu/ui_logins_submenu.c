@@ -6,7 +6,7 @@ static int32_t submenu_cursor_position = 0;
 static int16_t submenu_start_position = 128;
 static bool submenu_exit = false;
 static ugl_menu_t *logins_submenu = NULL;
-static uint16_t* password_num;
+static uint16_t password_num;
 static bool exit_on_next_run = false;
 
 typedef enum{
@@ -17,7 +17,7 @@ typedef enum{
 } ui_logins_submenu_e;
 
 void UI_menu_logins_submenu_draw( void ){
-	UI_event_button_t lastButton = UI_event_GetLast();
+	UI_event_button_t lastButton = UI_event_get_last();
 	
 	static bool pressed = false;
 	
@@ -46,15 +46,16 @@ void UI_menu_logins_submenu_draw( void ){
 			if((lastButton.button_id == BTN_JPUSH_ID) && pressed){
 				switch(submenu_cursor_position){
 					case UI_LOGINS_SUBMENU_DELETE:
-						ugl_enter(1, UI_menu_logins_delete_warning_constructor, password_num);
+						ugl_enter(1, UI_menu_logins_delete_warning_constructor, &password_num);
                         submenu_exit = true;
                         pressed = false;
                         return;
 						break;
 					case UI_LOGINS_SUBMENU_MOVE:
+						ugl_enter(1, UI_menu_logins_submenu_move_constructor, &password_num);
 						break;
 					case UI_LOGINS_SUBMENU_HOTKEY:
-                        ugl_enter(1, UI_menu_logins_submenu_hotkey_constructor, password_num);
+                        ugl_enter(1, UI_menu_logins_submenu_hotkey_constructor, &password_num);
 						break;
 					case UI_LOGINS_SUBMENU_EDIT:
 						break;
@@ -74,6 +75,7 @@ void UI_menu_logins_submenu_draw( void ){
 	
 	if(submenu_exit && (submenu_start_position < 128)){
 		submenu_start_position += 10;
+		UI_event_stop();
 	}else if(submenu_exit){
 		submenu_exit = false;
 		submenu_cursor_position = 0;
@@ -81,13 +83,14 @@ void UI_menu_logins_submenu_draw( void ){
 		return;
 	}else if(submenu_start_position > 60){
 		submenu_start_position -= 10;
+		UI_event_stop();
+	}else{
+		UI_event_start();
 	}
-	
-	UI_menu_logins_submenu_render();
 }
 
 void UI_menu_logins_submenu_render( void ){
-	UI_menu_logins_render();
+	ugl_get_menu_by_id(UI_MENU_ID_LOGINS)->render_f();
 	logins_submenu->group->position_x = submenu_start_position;
 	
 	for(uint16_t i = 0; i < 32; i++){
@@ -105,12 +108,11 @@ ugl_menu_t *UI_menu_logins_submenu_constructor( int32_t ID, void* extra ){
         return NULL;
     }
     
-    password_num = (uint16_t*)extra;
+    password_num = *(uint16_t*)extra;
 
-	ugl_menu_t *mainMenu = ugl_menu_constructor(0);
+	ugl_menu_t *mainMenu = ugl_menu_constructor(UI_MENU_ID_LOGINS_SUBMENU);
 	logins_submenu = mainMenu;
 	ugl_item_t *item = NULL;
-	
 
 	for(uint8_t i = 0; i < UI_MENU_LOGINS_SUBMENU_COUNT; i++){
 		item = ugl_item_constructor(i);
@@ -140,6 +142,7 @@ ugl_menu_t *UI_menu_logins_submenu_constructor( int32_t ID, void* extra ){
 	ugl_text_set_test(ugl_menu_get_item_by_id(mainMenu, 3)->text, "hotkey", &UI_MENU_LOGINS_FONT);
 	
 	
-	mainMenu->drawing_function = UI_menu_logins_submenu_draw;
+	mainMenu->process_f = UI_menu_logins_submenu_draw;
+	mainMenu->render_f = UI_menu_logins_submenu_render;
 	return mainMenu;
 }

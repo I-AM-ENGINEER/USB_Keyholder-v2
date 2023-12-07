@@ -30,22 +30,23 @@
 
 #define IO_EVENT_MAX_STACK	4
 
-#pragma anon_unions
 
+typedef enum{
+	UI_MENU_ID_AUTH,
+	UI_MENU_ID_MAIN,
+	UI_MENU_ID_LOGINS,
+	UI_MENU_ID_HOTKEY,
+	UI_MENU_ID_LOGINS_SUBMENU,
+	UI_MENU_ID_LOGINS_SUBMENU_DELETE,
+	UI_MENU_ID_LOGINS_SUBMENU_MOVE,
+	UI_MENU_ID_LOGINS_SUBMENU_EDIT,
+	UI_MENU_ID_LOGINS_SUBMENU_HOTKEY,
+} UI_menu_id_e;
 
 typedef struct{
 	BTN_button_state_t event_type;
 	uint32_t button_id;
 } UI_event_button_t;
-
-typedef enum{
-	UI_MENU_MAIN_SETTINGS,
-	UI_MENU_MAIN_PASSWORDS,
-	UI_MENU_MAIN_USB_WRITE,
-	UI_MENU_MAIN_FOLDER,
-	UI_MENU_MAIN_LOCK,
-} UI_Menu_mainItems_t;
-
 
 ugl_menu_t *UI_main_menu_constructor( int32_t ID, void* extra );
 ugl_menu_t *UI_login_menu_constructor( int32_t ID, void* extra );
@@ -54,20 +55,15 @@ ugl_menu_t *UI_menu_logins_constructor( int32_t ID, void* extra );
 ugl_menu_t *UI_menu_logins_submenu_constructor( int32_t ID, void* extra );
 ugl_menu_t *UI_menu_logins_delete_warning_constructor( int32_t ID, void* extra );
 ugl_menu_t *UI_menu_logins_submenu_hotkey_constructor( int32_t ID, void* extra );
-
-void UI_menu_logins_submenu_render( void );
-void UI_menu_logins_render( void );
-void UI_main_menu_render( void );
+ugl_menu_t *UI_menu_logins_submenu_move_constructor( int32_t ID, void* extra );
 
 void UI_print_menu( void );
 void UI_event_set_button( uint32_t button_id, BTN_button_state_t state );
 void UI_Init( void );
 
-
-void UI_menu_Return( void );
-void UI_event_clear_last( void );
-UI_event_button_t UI_event_GetLast( void );
-
+UI_event_button_t UI_event_get_last( void );
+void UI_event_stop( void );
+void UI_event_start( void );
 
 /* -------------------------------------------------------------------------- */
 

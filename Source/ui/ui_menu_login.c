@@ -1,12 +1,10 @@
 #include "ui/core.h"
 
-void UI_login_menu_draw( void ){
-	UI_event_button_t lastButton = UI_event_GetLast();
-	
-	ssd1306_Fill(Black);
-	
-	static uint32_t cursor = 0;
-	static char pswd[6] = "      ";
+static char pswd[6] = "      ";
+static uint32_t cursor = 0;
+
+void UI_login_menu_process( void ){
+	UI_event_button_t lastButton = UI_event_get_last();	
 	
 	switch(lastButton.event_type){
 		case BUTTON_STATE_PRESSED:
@@ -42,9 +40,11 @@ void UI_login_menu_draw( void ){
 			memset(pswd, ' ', 6);
 		}
 	}
-	
-	
-	
+}
+
+void UI_login_menu_render( void ){
+	ssd1306_Fill(Black);
+
 	for(uint32_t i = 0; i < 6; i++){
 		ssd1306_SetCursor(6 + i*19, 20);
 		if(i == cursor){
@@ -54,7 +54,6 @@ void UI_login_menu_draw( void ){
 		}else if(pswd[i] != ' '){
 			ssd1306_WriteChar('*', Font_16x26, White);
 		}
-		
 		
 		ssd1306_Line(6 + i*19, 43, 22 + i*19, 43, White);
 		ssd1306_Line(6 + i*19, 17, 22 + i*19, 17, White);
@@ -79,9 +78,7 @@ void UI_login_menu_draw( void ){
 	ssd1306_Line(95, 0, 95, 10, White);
 	ssd1306_SetCursor(97+offset,0);
 	ssd1306_WriteString("4", Font_7x10, White);
-	
-	
-	
+
 	ssd1306_SetCursor(2+offset,55);
 	ssd1306_WriteString("5", Font_7x10, White);
 	ssd1306_Line(31, 53, 31, 63, White);
@@ -93,33 +90,11 @@ void UI_login_menu_draw( void ){
 	ssd1306_Line(95, 53, 95, 63, White);
 	ssd1306_SetCursor(97+offset,55);
 	ssd1306_WriteString("8", Font_7x10, White);
-	
-	
-	//ssd1306_DrawRectangle(10, 10, 30, 40, White);
-	
-	//ssd1306_WriteString(UI_current_menu->group->items[0]->text->string, Font_7x10, White);
-	
-	ugl_menu_render( ugl_get_current_menu() );
 }
 
 ugl_menu_t *UI_login_menu_constructor( int32_t ID, void* extra ){
-	ugl_menu_t *menu = ugl_menu_constructor(ID);
-	//ugl_item_t *item = NULL;
-	//ugl_text_t *text = NULL;
-	
-	/*
-	item = ugl_item_constructor(0);
-	ugl_item_set_text(item, ugl_text_constructor());
-	ugl_text_set_test(item->text, "      ", &Font_16x26);
-	ugl_menu_add_item(menu, item);
-	
-	ugl_item_set_position(ugl_menu_get_item_by_id(menu, 0), 0,  0);
-	
-	
-	menu->group->position_x = 16;
-	menu->group->position_y = 18;
-	*/
-	menu->drawing_function = UI_login_menu_draw;
-	
+	ugl_menu_t *menu = ugl_menu_constructor(UI_MENU_ID_AUTH);
+	menu->process_f = UI_login_menu_process;
+	menu->render_f = UI_login_menu_render;
 	return menu;
 }

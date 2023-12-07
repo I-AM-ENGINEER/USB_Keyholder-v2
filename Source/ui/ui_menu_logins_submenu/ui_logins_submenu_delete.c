@@ -9,7 +9,7 @@ typedef enum{
 } item_id;
 
 void UI_menu_logins_delete_warning_draw( void ){
-	UI_event_button_t lastButton = UI_event_GetLast();
+	UI_event_button_t lastButton = UI_event_get_last();
 	
 	switch(lastButton.event_type){
 		case BUTTON_STATE_PRESSED:
@@ -29,7 +29,7 @@ void UI_menu_logins_delete_warning_draw( void ){
 		default: break;
 	}
 	
-	UI_menu_logins_submenu_render();
+	ugl_get_menu_by_id(UI_MENU_ID_LOGINS_SUBMENU)->render_f();
 	
 	for(uint16_t i = 0; i < 22; i++){
 		ssd1306_DrawRectangle(16,i+10,111,53-i, Black);
@@ -45,7 +45,7 @@ void UI_menu_logins_delete_warning_draw( void ){
 }
 
 ugl_menu_t *UI_menu_logins_delete_warning_constructor( int32_t ID, void* extra ){
-	ugl_menu_t *mainMenu = ugl_menu_constructor(0);
+	ugl_menu_t *mainMenu = ugl_menu_constructor(UI_MENU_ID_LOGINS_SUBMENU_DELETE);
 	ugl_item_t *item = NULL;
     password_num = *(uint16_t*)extra;
 	
@@ -72,6 +72,6 @@ ugl_menu_t *UI_menu_logins_delete_warning_constructor( int32_t ID, void* extra )
 			ugl_menu_get_item_by_id(mainMenu, ITEM_NO_ID));
 	
 	mainMenu->selected_item = ugl_menu_get_item_by_id(mainMenu, ITEM_NO_ID);
-	mainMenu->drawing_function = UI_menu_logins_delete_warning_draw;
+	mainMenu->process_f = UI_menu_logins_delete_warning_draw;
 	return mainMenu;
 }

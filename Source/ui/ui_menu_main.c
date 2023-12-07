@@ -1,14 +1,20 @@
 #include "ui/core.h"
 #include "crypto.h"
 
-void UI_mainMenuDraw( void ){
+typedef enum{
+	UI_MENU_MAIN_SETTINGS,
+	UI_MENU_MAIN_PASSWORDS,
+	UI_MENU_MAIN_USB_WRITE,
+	UI_MENU_MAIN_FOLDER,
+	UI_MENU_MAIN_LOCK,
+} UI_Menu_mainItems_t;
+
+void UI_main_menu_process( void ){
 	ssd1306_Fill(Black);
 	static BTN_ids_t holdedButton = BTN_NONE;
 	static uint32_t lastSwipeTimestamp = 0;
 	
-	
-	UI_event_button_t lastButton = UI_event_GetLast();
-	UI_event_clear_last();
+	UI_event_button_t lastButton = UI_event_get_last();
 	
 	switch(lastButton.event_type){
 		case BUTTON_STATE_PRESSED:
@@ -63,7 +69,6 @@ void UI_mainMenuDraw( void ){
 		ugl_get_current_menu()->group->position_x += 5;
 	}
 	ugl_menu_render( ugl_get_current_menu() );
-	UI_main_menu_render();
 }
 
 void UI_main_menu_render( void ){
@@ -71,7 +76,6 @@ void UI_main_menu_render( void ){
 	ssd1306_DrawRectangle(1, 53, 127, 63, White);
 	ssd1306_Line(1, 0,  126, 0,  Black);
 	ssd1306_Line(1, 63, 126, 63, Black);
-	
 	
 	crypto_password_t* password;
 	for(uint8_t i = 0; i < 8; i++){
@@ -93,12 +97,13 @@ void UI_main_menu_render( void ){
 }
 
 ugl_menu_t *UI_main_menu_constructor( int32_t ID, void* extra ){
-	ugl_menu_t *mainMenu = ugl_menu_constructor(0);
+	ugl_menu_t *mainMenu = ugl_menu_constructor(UI_MENU_ID_MAIN);
 	ugl_item_t *item = NULL;
 	ugl_sprite_t *sprite = NULL;
 	
-	mainMenu->drawing_function = UI_mainMenuDraw;
-	
+	mainMenu->process_f = UI_main_menu_process;
+	mainMenu->render_f = UI_main_menu_render;
+
 	item = ugl_item_constructor(UI_MENU_MAIN_SETTINGS);
 	ugl_item_set_sprite(item, ugl_sprite_constructor());
 	ugl_sprite_set_bitmap(item->sprite, UI_ICON_ADDRESS_SETTINGS, MAIN_MENU_ICONS_WIDTH, MAIN_MENU_ICONS_HEIGHT);
