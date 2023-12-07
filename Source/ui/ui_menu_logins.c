@@ -82,6 +82,14 @@ void UI_menu_logins_draw( void ){
 				}else if( ugl_get_current_menu()->selected_item->ID == -1 ){
 					ugl_return();
 					return;
+				}else if(ugl_get_current_menu()->selected_item->ID == -2){
+					crypto_password_t new_password = {
+						.comment = "",
+						.login = "New login",
+						.password = "",
+						.short_name = "NEW",
+					};
+					crypto_password_new( &new_password );
 				}
 			}
 			break;
