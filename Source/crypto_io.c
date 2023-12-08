@@ -151,7 +151,9 @@ static char* crypto_io_cmd_set_password( const char* cmd ){
 	if(comment++  == NULL){
 		return CRYPTO_REPLY_ERROR;
 	}
+	char* comment_end = strchr(password, '\n');
 	
+
 	uint16_t password_number = atoi(cmd);
 	
 	if(crypto_password_count() <= password_number){
@@ -161,8 +163,12 @@ static char* crypto_io_cmd_set_password( const char* cmd ){
 	uint8_t login_length = slogin - login - 1;
 	uint8_t slogin_length = password - slogin - 1;
 	uint8_t password_length = comment - password - 1;
-	uint8_t comment_length = strlen(comment) - 1;
+	uint8_t comment_length = comment_end - comment - 1;
 	
+	if(comment_end == NULL){
+		comment_length = strlen(comment) - 1;
+	}
+
 	if(login_length >= sizeof(passwordBuffer.login)){
 		login_length = sizeof(passwordBuffer.login) - 1;
 	}
