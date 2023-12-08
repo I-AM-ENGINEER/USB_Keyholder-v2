@@ -8,6 +8,7 @@ static bool submenu_exit = false;
 static ugl_menu_t *logins_submenu = NULL;
 static uint16_t password_num;
 static bool exit_on_next_run = false;
+static bool pressed = false;
 
 typedef enum{
 	UI_LOGINS_SUBMENU_MOVE = 0,
@@ -19,7 +20,6 @@ typedef enum{
 void UI_menu_logins_submenu_draw( void ){
 	UI_event_button_t lastButton = UI_event_get_last();
 	
-	static bool pressed = false;
 	
 	switch(lastButton.event_type){
 		case BUTTON_STATE_PRESSED:
@@ -113,7 +113,7 @@ ugl_menu_t *UI_menu_logins_submenu_constructor( int32_t ID, void* extra ){
     if(extra == NULL){
         return NULL;
     }
-    
+    pressed = false;
     password_num = *(uint16_t*)extra;
 
 	ugl_menu_t *mainMenu = ugl_menu_constructor(UI_MENU_ID_LOGINS_SUBMENU);
