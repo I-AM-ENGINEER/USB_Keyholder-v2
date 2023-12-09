@@ -443,6 +443,9 @@
                 "path": "Source/ui/ui_core.c"
               },
               {
+                "path": "Source/ui/ui_menu_editor.c"
+              },
+              {
                 "path": "Source/ui/ui_menu_hotkey.c"
               },
               {
@@ -453,6 +456,9 @@
               },
               {
                 "path": "Source/ui/ui_menu_main.c"
+              },
+              {
+                "path": "Source/ui/ui_menu_warning.c"
               }
             ],
             "folders": [

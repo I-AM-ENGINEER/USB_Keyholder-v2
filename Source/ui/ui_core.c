@@ -75,8 +75,8 @@ void UI_Init( void ){
 	ugl_enter(0, UI_login_menu_constructor, NULL);
 	//ugl_enter(0, UI_main_menu_constructor, NULL);
 	//ugl_enter(0, UI_menu_logins_constructor, NULL);
-	//ugl_enter(0, UI_menu_logins_submenu_constructor, NULL);
-	//ugl_enter(0, UI_menu_logins_submenu_move_constructor, &num);
+	//ugl_enter(0, UI_menu_logins_submenu_constructor, &num);
+	//ugl_enter(0, UI_menu_logins_submenu_edit_constructor, &num);
 }
 
 void UI_print_menu( void ){

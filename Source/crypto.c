@@ -1,16 +1,32 @@
 #include "crypto.h"
 #include "flashd.h"
+#include <stdlib.h>
+#include <time.h>
 
 uint8_t page_buffer[FLASH_PAGE_SIZE];
 
 crypto_database_t crypto_db;
+
+static const char allowed_chars[] = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz!\"#$%&()*+,-./;<=>?@[\\]^_`{|}~";
+
+char generate_random_char( void ) {
+    char r = allowed_chars[rand() % (sizeof(allowed_chars) - 1)];
+    return r;
+}
+
+void crypto_generate_password(uint8_t length, char* output){
+	for(uint8_t i = 0; i < length; i++){
+		output[i] = generate_random_char();
+	}
+	output[length] = '\0';
+}
 
 void crypto_save( void ) {
     uint8_t* struct_buffer = (uint8_t*)&crypto_db;
     uint32_t struct_offset = 0;
     uint32_t bytes_remaining = sizeof(crypto_database_t);
     uint32_t bytes_to_write;
-		uint32_t page_id = CRYPTO_PAGE_OFFSET;
+	uint32_t page_id = CRYPTO_PAGE_OFFSET;
 	
     while (bytes_remaining > 0) {
         bytes_to_write = (bytes_remaining > FLASH_PAGE_SIZE) ? FLASH_PAGE_SIZE : bytes_remaining;
@@ -41,6 +57,7 @@ void crypto_load(void) {
 }
 
 void crypto_init( void ){
+	srand(NULL);
 	crypto_load();
 	if(crypto_db.first_check != 0xAAAA){
 		memset(&crypto_db, 0, sizeof(crypto_database_t));

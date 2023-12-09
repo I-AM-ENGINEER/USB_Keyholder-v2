@@ -14,6 +14,10 @@
 #include "main.h"
 #include "list.h"
 
+#define CRYPTO_LOGIN_MAX_LEN	(32)	
+#define CRYPTO_COMMENT_MAX_LEN	(60)
+#define CRYPTO_PASSWORD_MAX_LEN	(32)
+#define CRYPTO_SHORT_NAME_LEN	(4)
 
 #define CRYPTO_HOTKEY_NUM						8
 
@@ -21,13 +25,13 @@
 
 
 void crypto_init( void );
-	
+
 
 typedef struct{
-	char password[32];
-	char login[32];
-	char comment[60];
-	char short_name[4];
+	char password[CRYPTO_PASSWORD_MAX_LEN];
+	char login[CRYPTO_LOGIN_MAX_LEN];
+	char comment[CRYPTO_COMMENT_MAX_LEN];
+	char short_name[CRYPTO_SHORT_NAME_LEN];
 } crypto_password_t;
 
 typedef struct{
@@ -65,6 +69,7 @@ crypto_state_t crypto_password_new( crypto_password_t* password );
 // Delete password from list, not delete from flash memory
 crypto_state_t crypto_password_remove( uint16_t number );
 
+void crypto_generate_password( uint8_t length, char* output );
 
 crypto_state_t crypto_hotkey_password_set( uint8_t hotkey, uint16_t password_number );
 crypto_state_t crypto_hotkey_password_get( uint8_t hothey, crypto_password_t**const password );

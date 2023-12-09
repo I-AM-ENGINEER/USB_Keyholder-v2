@@ -64,6 +64,7 @@ void UI_menu_logins_submenu_draw( void ){
                         ugl_enter(1, UI_menu_logins_submenu_hotkey_constructor, &password_num);
 						break;
 					case UI_LOGINS_SUBMENU_EDIT:
+                        ugl_enter(1, UI_menu_logins_submenu_edit_constructor, &password_num);
 						break;
 					default:break;
 				}

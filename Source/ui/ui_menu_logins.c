@@ -52,7 +52,6 @@ void UI_menu_logins_process( void ){
 	
 	UI_event_button_t lastButton = UI_event_get_last();
 	
-	
 	switch(lastButton.event_type){
 		case BUTTON_STATE_PRESSED:
 			if(lastButton.button_id == BTN_JCW_ID){
@@ -68,12 +67,8 @@ void UI_menu_logins_process( void ){
 		case BUTTON_STATE_HOLDED:
 			if(lastButton.button_id == BTN_JCW_ID){
 				holded=-1;
-				//cursor_position--;
-				//ugl_menu_previous_item(ugl_get_current_menu());
 			}else if(lastButton.button_id == BTN_JCCW_ID){
 				holded=1;
-				//cursor_position++;
-				//ugl_menu_next_item(ugl_get_current_menu());
 			}else if(lastButton.button_id == BTN_JPUSH_ID){
 				pressed = false;
 				password_id = ugl_get_current_menu()->selected_item->ID;
@@ -103,7 +98,24 @@ void UI_menu_logins_process( void ){
 						.password = "",
 						.short_name = "NEW",
 					};
+					crypto_generate_password(16, new_password.password);
 					crypto_password_new( &new_password );
+					ugl_menu_next_item(ugl_get_current_menu());
+					ugl_menu_next_item(ugl_get_current_menu());
+					cursor_position+=2;
+					crypto_password_move(passwords_count, 0);
+					crypto_save();
+				}else if(ugl_get_current_menu()->selected_item->ID == passwords_count){
+					crypto_password_t new_password = {
+						.comment = "",
+						.login = "New login",
+						.password = "",
+						.short_name = "NEW",
+					};
+					crypto_generate_password(16, new_password.password);
+					crypto_password_new( &new_password );
+					uint16_t last_password = crypto_password_count();
+					crypto_save();
 				}
 			}
 			break;

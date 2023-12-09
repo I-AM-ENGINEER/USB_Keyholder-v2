@@ -2,6 +2,10 @@
     "folders": [
         {
             "path": "."
+        },
+        {
+            "name": "rp2040ffff",
+            "path": "../../PlatformIO/Projects/rp2040ffff"
         }
     ],
     "settings": {
@@ -18,7 +22,24 @@
             "*.c++": "cpp",
             "*.cpp": "cpp",
             "*.cxx": "cpp",
-            "*.cc": "cpp"
+            "*.cc": "cpp",
+            "cstddef": "c",
+            "limits": "c",
+            "__locale": "c",
+            "atomic": "c",
+            "bit": "c",
+            "ios": "c",
+            "locale": "c",
+            "new": "c",
+            "string": "c",
+            "variant": "c",
+            "codecvt": "c",
+            "condition_variable": "c",
+            "forward_list": "c",
+            "list": "c",
+            "optional": "c",
+            "memory": "c",
+            "functional": "c"
         },
         "[yaml]": {
             "editor.insertSpaces": true,
