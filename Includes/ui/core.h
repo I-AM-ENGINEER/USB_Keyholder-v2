@@ -65,6 +65,7 @@ ugl_menu_t *UI_menu_logins_delete_warning_constructor( int32_t ID, void* extra )
 ugl_menu_t *UI_menu_logins_submenu_hotkey_constructor( int32_t ID, void* extra );
 ugl_menu_t *UI_menu_logins_submenu_move_constructor( int32_t ID, void* extra );
 ugl_menu_t *UI_menu_logins_submenu_edit_constructor( int32_t ID, void* extra );
+ugl_menu_t *UI_menu_logins_submenu_edit_generate_password_construct( int32_t ID, void* extra );
 
 void UI_print_menu( void );
 void UI_event_set_button( uint32_t button_id, BTN_button_state_t state );

@@ -15,6 +15,14 @@ void UI_menu_logins_submenu_hotkey_draw( void ){
                 crypto_hotkey_password_set(lastButton.button_id - BTN_SW1_ID, password_num);
 			}
 			break;
+		case BUTTON_STATE_HOLDED:
+			if(lastButton.button_id == BTN_JPUSH_ID){
+                crypto_save();
+				ugl_return();
+			}else if((lastButton.button_id >= BTN_SW1_ID) && (lastButton.button_id <= BTN_SW8_ID)){
+                crypto_hotkey_password_set(lastButton.button_id - BTN_SW1_ID, -1);
+			}
+			break;
 		default: break;
 	}
 	ssd1306_Fill(Black);

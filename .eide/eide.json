@@ -472,6 +472,9 @@
                     "path": "Source/ui/ui_menu_logins_submenu/ui_logins_submenu_edit.c"
                   },
                   {
+                    "path": "Source/ui/ui_menu_logins_submenu/ui_logins_submenu_generate_pass.c"
+                  },
+                  {
                     "path": "Source/ui/ui_menu_logins_submenu/ui_logins_submenu_hotkey.c"
                   },
                   {

@@ -1,7 +1,6 @@
 #include "ui/core.h"
 #include "crypto.h"
 
-
 enum edit_menu_select_e {
 	UI_EDIT_SELECT_RETURN,
 	UI_EDIT_SELECT_LOGIN,
@@ -94,6 +93,8 @@ void UI_menu_logins_submenu_edit_process( void ){
 						__enter_in_edit_menu("edit pass", password->password, CRYPTO_PASSWORD_MAX_LEN, true);
 						break;
 					case UI_EDIT_SELECT_REGENERATE_PASSWORD:
+						ugl_enter(0, UI_menu_logins_submenu_edit_generate_password_construct, (void*)&password_num);
+						cursor_position = UI_EDIT_SELECT_RETURN;
 						break;
 					default: break;
 				}
@@ -116,7 +117,9 @@ void UI_menu_logins_submenu_edit_render( void ){
 	ssd1306_WriteString(password->login, Font_7x10, White);
 	ssd1306_SetCursor(4, 22);
     ssd1306_WriteString("hotk ", Font_7x10, White);
-	ssd1306_WriteString(password->short_name, Font_7x10, White);
+	for(uint32_t i = 0; i < CRYPTO_SHORT_NAME_LEN; i++){
+		ssd1306_WriteChar(password->short_name[i],Font_7x10, White);
+	}
 	ssd1306_SetCursor(4, 32);
     ssd1306_WriteString("comm ", Font_7x10, White);
 	ssd1306_WriteString(password->comment, Font_7x10, White);

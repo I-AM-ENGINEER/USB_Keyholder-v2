@@ -70,8 +70,9 @@ crypto_state_t crypto_password_new( crypto_password_t* password );
 crypto_state_t crypto_password_remove( uint16_t number );
 
 void crypto_generate_password( uint8_t length, char* output );
+void crypto_generate_password_adv(uint8_t length, char* output, bool special_symbols, bool numbers, bool alphabet);
 
-crypto_state_t crypto_hotkey_password_set( uint8_t hotkey, uint16_t password_number );
+crypto_state_t crypto_hotkey_password_set( uint8_t hotkey, int16_t password_number );
 crypto_state_t crypto_hotkey_password_get( uint8_t hothey, crypto_password_t**const password );
 
 #endif // __CRYPTO_H__

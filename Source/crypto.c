@@ -8,8 +8,9 @@ uint8_t page_buffer[FLASH_PAGE_SIZE];
 crypto_database_t crypto_db;
 
 static const char allowed_chars[] = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz!\"#$%&()*+,-./;<=>?@[\\]^_`{|}~";
+static const char special_chars[] = "!\"#$%&()*+,-./;<=>?@[\\]^_`{|}~";
 
-char generate_random_char( void ) {
+static char generate_random_char( void ) {
     char r = allowed_chars[rand() % (sizeof(allowed_chars) - 1)];
     return r;
 }
@@ -17,6 +18,53 @@ char generate_random_char( void ) {
 void crypto_generate_password(uint8_t length, char* output){
 	for(uint8_t i = 0; i < length; i++){
 		output[i] = generate_random_char();
+	}
+	output[length] = '\0';
+}
+
+static char generate_random_number( void ){
+	char r = rand() % 10 + '0';
+	return r; 
+}
+
+static char generate_random_alphabet( void ){
+	uint8_t a = rand() % 52;
+	char r = a%26 + (a>=26?'a':'A');
+	return r; 
+}
+
+static char generate_random_special( void ){
+	uint8_t a = rand()%sizeof(special_chars);
+	char r = special_chars[a];
+	return r;
+}
+
+void crypto_generate_password_adv(uint8_t length, char* output, bool special_symbols, bool numbers, bool alphabet){
+	if(output == NULL){
+		return;
+	}
+	if(length == 0){
+		return;
+	}
+	if(!special_symbols && !numbers && !alphabet){
+		output[0] = '\0';
+		return;
+	}
+	for(uint8_t i = 0; i < length;){
+		uint8_t a = rand()%(10+52+sizeof(special_chars));
+		if(a < 10){
+			if(numbers){
+				output[i++] = generate_random_number();
+			}
+		}else if(a < 62){
+			if(alphabet){
+				output[i++] = generate_random_alphabet();
+			}
+		}else{
+			if(special_symbols){
+				output[i++] = generate_random_special();
+			}
+		}
 	}
 	output[length] = '\0';
 }
@@ -228,10 +276,14 @@ crypto_state_t crypto_hotkey_password_get( uint8_t hothey, crypto_password_t**co
 	return CRYPTO_STATE_OK;
 }
 
-crypto_state_t crypto_hotkey_password_set( uint8_t hotkey, uint16_t password_number ){
+crypto_state_t crypto_hotkey_password_set( uint8_t hotkey, int16_t password_number ){
 	uint32_t node_ID;
 	if(hotkey >= CRYPTO_HOTKEY_NUM){
 		return CRYPTO_STATE_ERROR;
+	}
+	if(password_number < 0){
+		crypto_db.hotkey[hotkey] = NULL;
+		return CRYPTO_STATE_OK;
 	}
 	if(list_get_node_data(&crypto_db.password_list, password_number, (void*)&node_ID) != LIST_STATE_OK){
 		return CRYPTO_STATE_ERROR;
