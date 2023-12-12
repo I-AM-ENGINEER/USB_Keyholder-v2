@@ -396,6 +396,9 @@
         "name": "Source",
         "files": [
           {
+            "path": "Source/battery.c"
+          },
+          {
             "path": "Source/buttons.c"
           },
           {

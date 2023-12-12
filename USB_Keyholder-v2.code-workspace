@@ -39,7 +39,8 @@
             "list": "c",
             "optional": "c",
             "memory": "c",
-            "functional": "c"
+            "functional": "c",
+            "random": "c"
         },
         "[yaml]": {
             "editor.insertSpaces": true,

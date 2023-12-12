@@ -34,6 +34,8 @@ char* SYS_IRQ_reveive( const char* cmd ){
 }
 
 void SYS_init( void ){
+	// ADC read voltage enable
+    HAL_GPIO_WritePin(ADC_EN_GPIO_Port, ADC_EN_Pin, GPIO_PIN_RESET);
 	comd_add_receive_callback(SYS_IRQ_reveive, SYSTEM_PREFIX);
 	comd_add_receive_callback(crypto_io_cmd_parse, CRYPTO_PREFIX);
 	comd_set_tx_function(SYS_send_CDC);

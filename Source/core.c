@@ -1,21 +1,16 @@
 #include "core.h"
 #include "ssd1306.h"
-#include "ssd1306_tests.h"
 #include "crypto.h"
 #include "ui/core.h"
 #include "system.h"
-//#include "usbd_hid.h"
-//#include "usb.h"
+#include "battery.h"
 #include "buttons.h"
-//#include "usbd_core.h"
-//#include "usbd_desc.h"
 #include "usbd.h"
 
 #define DISPLAY_FRAMERATE		1000
 #define DISPLAY_FRAME_TIME	1000/DISPLAY_FRAMERATE
 
-void EXTI1_IRQHandler(void)
-{
+void EXTI1_IRQHandler(void){
   __HAL_GPIO_EXTI_CLEAR_IT(GPIO_PIN_1);
 }
 
@@ -48,5 +43,7 @@ inline void CORE_Process( void ){
 		UITimestamp = currentTick;
 		UI_print_menu();
 	}
+
+	battery_process();
 }
 

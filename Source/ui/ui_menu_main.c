@@ -1,5 +1,6 @@
 #include "ui/core.h"
 #include "crypto.h"
+#include "battery.h"
 
 typedef enum{
 	UI_MENU_MAIN_SETTINGS,
@@ -10,7 +11,6 @@ typedef enum{
 } UI_Menu_mainItems_t;
 
 void UI_main_menu_process( void ){
-	ssd1306_Fill(Black);
 	static BTN_ids_t holdedButton = BTN_NONE;
 	static uint32_t lastSwipeTimestamp = 0;
 	
@@ -26,23 +26,17 @@ void UI_main_menu_process( void ){
 				switch(ugl_get_current_menu()->selected_item->ID){
 					case UI_MENU_MAIN_LOCK: 
 						ugl_return();
-						//ugl_enter(1, UI_login_menu_constructor, NULL);
-						return;
 						break;
 					case UI_MENU_MAIN_USB_WRITE:
 						ugl_enter(1, UI_menu_logins_constructor, NULL);
-						return;
 						break;
-						//UI_menu_logins_constructor
 					default: break;
 				}
 			}else if((lastButton.button_id >= BTN_SW1_ID) && (lastButton.button_id <= BTN_SW8_ID)){
 				crypto_password_t* password;
-				//BTN_ids_t pushed_button = lastButton.button_id;
 				if(crypto_hotkey_password_get(lastButton.button_id, &password) == CRYPTO_STATE_OK){
 					if(password != NULL){
 						ugl_enter(1, UI_hotkey_menu_constructor, password);
-						return;
 					}
 				}
 			}
@@ -68,10 +62,12 @@ void UI_main_menu_process( void ){
 	}else if(ugl_get_current_menu()->selected_item->position_x_abs < 50){
 		ugl_get_current_menu()->group->position_x += 5;
 	}
-	ugl_menu_render( ugl_get_current_menu() );
 }
 
 void UI_main_menu_render( void ){
+	ssd1306_Fill(Black);
+
+	ugl_menu_render( ugl_get_menu_by_id(UI_MENU_ID_MAIN) );
 	ssd1306_DrawRectangle(1, 0,  127, 10, White);
 	ssd1306_DrawRectangle(1, 53, 127, 63, White);
 	ssd1306_Line(1, 0,  126, 0,  Black);
@@ -94,6 +90,20 @@ void UI_main_menu_render( void ){
 	ssd1306_Line(32, 53, 32, 63, White);
 	ssd1306_Line(64, 53, 64, 63, White);
 	ssd1306_Line(96, 53, 96, 63, White);
+
+	char clear_bitmap[128];
+	memset(clear_bitmap, 0xFF, sizeof(clear_bitmap));
+
+	ssd1306_DrawBitmap(0, 11, clear_bitmap, 40, 20, Black);
+	snprintf(clear_bitmap, sizeof(clear_bitmap), "%d", battery_get_charge_level());
+	ssd1306_SetCursor(0, 12);
+	ssd1306_WriteString(clear_bitmap, Font_6x8, White);
+	snprintf(clear_bitmap, sizeof(clear_bitmap), "%1d.%02d", battery_get_voltage()/1000, (battery_get_voltage()%1000)/10);
+	ssd1306_SetCursor(0, 22);
+	ssd1306_WriteString(clear_bitmap, Font_6x8, White);
+	//ssd1306_DrawBitmap(1, 14, clear_bitmap, 16, 41, Black);
+	
+	//ssd1306_Line(24, 11, 24, 53, White);
 }
 
 ugl_menu_t *UI_main_menu_constructor( int32_t ID, void* extra ){
