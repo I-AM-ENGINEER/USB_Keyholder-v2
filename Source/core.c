@@ -16,12 +16,7 @@ void EXTI1_IRQHandler(void){
 
 inline void CORE_Init( void ){
 	SYS_init();
-	HAL_GPIO_WritePin(VBUS_EN_GPIO_Port, VBUS_EN_Pin, GPIO_PIN_RESET);
 	
-	ssd1306_SetDisplayPower(1);
-	ssd1306_SetDisplayOn(1);
-	
-	ssd1306_Init();
 	SYS_ButtonsInit();
 	UI_Init();
 }
@@ -43,7 +38,7 @@ inline void CORE_Process( void ){
 		UITimestamp = currentTick;
 		UI_print_menu();
 	}
-
+	
 	battery_process();
 }
 

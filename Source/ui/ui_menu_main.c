@@ -24,8 +24,10 @@ void UI_main_menu_process( void ){
 				ugl_get_current_menu()->selected_item = ugl_get_current_menu()->selected_item->previous_item;
 			}else if(lastButton.button_id == BTN_JPUSH_ID){
 				switch(ugl_get_current_menu()->selected_item->ID){
-					case UI_MENU_MAIN_LOCK: 
-						ugl_return();
+					case UI_MENU_MAIN_LOCK:
+						HAL_Delay(300);
+						SYS_GoToSleep();
+						//ugl_return();
 						break;
 					case UI_MENU_MAIN_USB_WRITE:
 						ugl_enter(1, UI_menu_logins_constructor, NULL);
@@ -169,7 +171,7 @@ ugl_menu_t *UI_main_menu_constructor( int32_t ID, void* extra ){
 	
 	mainMenu->group->position_y = 17;
 	mainMenu->group->position_x = -15;
-	mainMenu->selected_item = ugl_menu_get_item_by_id(mainMenu, 2);
+	mainMenu->selected_item = ugl_menu_get_item_by_id(mainMenu, 4);
 	
 	return mainMenu;
 }

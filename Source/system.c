@@ -10,6 +10,9 @@
 #include "usbd_cdc_acm_if.h"
 #include "crypto_io.h"
 #include "usbd.h"
+#include "adc.h"
+#include "rtc.h"
+#include "usb.h"
 
 #define CRYPTO_PREFIX "CRYPTO_"
 #define SYSTEM_PREFIX "SYS_"
@@ -39,6 +42,13 @@ void SYS_init( void ){
 	comd_add_receive_callback(SYS_IRQ_reveive, SYSTEM_PREFIX);
 	comd_add_receive_callback(crypto_io_cmd_parse, CRYPTO_PREFIX);
 	comd_set_tx_function(SYS_send_CDC);
+
+	HAL_GPIO_WritePin(VBUS_EN_GPIO_Port, VBUS_EN_Pin, GPIO_PIN_RESET);
+	
+	ssd1306_SetDisplayPower(1);
+	ssd1306_SetDisplayOn(1);
+	
+	ssd1306_Init();
 	//comd_receive_IRQ(
 }
 
@@ -106,57 +116,83 @@ void SYS_ButtonsInit( void ){
 void SystemClock_Config(void);
 
 uint8_t needSleepFlag = 0;
-
-extern USBD_HandleTypeDef hUsbDeviceFS;
-
+extern USBD_HandleTypeDef hUsbDevice;
+extern PCD_HandleTypeDef hpcd_USB_FS;
 void SYS_GoToSleep( void ){
 	GPIO_InitTypeDef GPIO_InitStruct = {0};
 	//USBD_DeInit(&hUsbDeviceFS);
-	
-	HAL_GPIO_WritePin(VBUS_EN_GPIO_Port, VBUS_EN_Pin, GPIO_PIN_SET);
-	
+	//ssd1306_SetDisplayPower(0);
+	HAL_Delay(1000);
 	// EXTI PUSH
-	GPIO_InitStruct.Pin = GPIO_PIN_1;
+	USBD_Stop(&hUsbDevice);
+	USBD_DeInit(&hUsbDevice);
+	HAL_PCD_Stop(&hpcd_USB_FS);
+	HAL_PCD_DeInit(&hpcd_USB_FS);
+	//hpcd_USB_FS.Instance->CNTR = 0x0003;
+	hpcd_USB_FS.Instance->CNTR |= (1 << USB_CNTR_FSUSP);
+	hpcd_USB_FS.Instance->CNTR |= (1 << USB_CNTR_LPMODE);
+	hpcd_USB_FS.Instance->CNTR |= (1 << USB_CNTR_PDWN);
+	
+	__HAL_RCC_USB_CLK_DISABLE();
+	__HAL_PCD_DISABLE(&hpcd_USB_FS);
+	HAL_ADC_Stop(&hadc);
+	
+	//HAL_ADC_DeInit(&hadc);
+	//HAL_RTC_DeInit(&hrtc);
+	GPIOA->MODER = 0xffffffff;
+	GPIOB->MODER = 0xffffffff;
+	GPIOC->MODER = 0xffffffff;
+	GPIOH->MODER = 0xffffffff;
+	GPIO_InitStruct.Pin = JOY_GND_Pin;
 	GPIO_InitStruct.Mode = GPIO_MODE_IT_FALLING;
 	GPIO_InitStruct.Pull = GPIO_PULLUP;
-	HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
-	
-  GPIO_InitStruct.Pin = GPIO_PIN_0|GPIO_PIN_2|GPIO_PIN_3|GPIO_PIN_4|GPIO_PIN_5|GPIO_PIN_6|GPIO_PIN_8|GPIO_PIN_9|GPIO_PIN_10|GPIO_PIN_11|GPIO_PIN_12|GPIO_PIN_13|GPIO_PIN_14|GPIO_PIN_15;
-  GPIO_InitStruct.Mode = GPIO_MODE_ANALOG;
-  GPIO_InitStruct.Pull = GPIO_PULLDOWN;
-  HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
-	
-	GPIO_InitStruct.Pin = GPIO_PIN_0|GPIO_PIN_1|GPIO_PIN_2|GPIO_PIN_3|GPIO_PIN_4|GPIO_PIN_5|GPIO_PIN_6|GPIO_PIN_7|GPIO_PIN_8|GPIO_PIN_9|GPIO_PIN_10|GPIO_PIN_11|GPIO_PIN_12|GPIO_PIN_15;
-  GPIO_InitStruct.Mode = GPIO_MODE_ANALOG;
-  GPIO_InitStruct.Pull = GPIO_PULLDOWN;
-  HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
-
-	GPIO_InitStruct.Pin = GPIO_PIN_13|GPIO_PIN_14|GPIO_PIN_15;
-  GPIO_InitStruct.Mode = GPIO_MODE_ANALOG;
-  GPIO_InitStruct.Pull = GPIO_NOPULL;
-  HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
-	
-	GPIO_InitStruct.Pin = GPIO_PIN_0|GPIO_PIN_1;
-  GPIO_InitStruct.Mode = GPIO_MODE_ANALOG;
-  GPIO_InitStruct.Pull = GPIO_NOPULL;
-  HAL_GPIO_Init(GPIOH, &GPIO_InitStruct);
-	
+	HAL_GPIO_Init(JOY_GND_GPIO_Port, &GPIO_InitStruct);
+	GPIO_InitStruct.Pin = VBUS_EN_Pin;
+	GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+	GPIO_InitStruct.Pull = GPIO_PULLUP;
+	HAL_GPIO_Init(VBUS_EN_GPIO_Port, &GPIO_InitStruct);
+	HAL_GPIO_WritePin(VBUS_EN_GPIO_Port, VBUS_EN_Pin, GPIO_PIN_SET);
 	
 	HAL_NVIC_EnableIRQ(EXTI1_IRQn);
-	__HAL_RCC_PWR_CLK_ENABLE();
-	HAL_PWREx_EnableUltraLowPower();
-	__HAL_RCC_PLL_DISABLE();
+	
+	ADC->CCR &= ~ADC_CCR_TSVREFE; // Temperature sensor and V REFINT channel disabled
+	__HAL_ADC_DISABLE(&hadc);
 	HAL_SuspendTick();
 	__HAL_GPIO_EXTI_CLEAR_IT(GPIO_PIN_1);
+
+	PWR->CR |= PWR_CR_CWUF;
+
+	/* источник опорного напряжения Vref выключить автоматически */
+	PWR->CR |= PWR_CR_ULP;
+	PWR->CR &= ~PWR_CR_PVDE; // PVD disable
+	FLASH->OBR &= ~FLASH_OBR_BOR_LEV; // BOR disable
+	RCC->CR &= ~RCC_CR_HSEON;
 	
-	HAL_PWR_EnterSTOPMode(PWR_LOWPOWERREGULATOR_ON, PWR_STOPENTRY_WFE);
+	HAL_PWREx_EnableUltraLowPower();
+	HAL_PWREx_DisableFastWakeUp();
 	
-	PWR->CR = PWR_CR_VOS_0 | PWR_CR_CWUF_Msk;
-	
+	HAL_PWR_EnterSTOPMode(PWR_LOWPOWERREGULATOR_ON, PWR_STOPENTRY_WFI );
+
 	SystemClock_Config();
 	HAL_ResumeTick();
-	
+	HAL_Delay(500);
+	NVIC_SystemReset();
 	MX_GPIO_Init();
+	
+	HAL_GPIO_WritePin(ADC_EN_GPIO_Port, ADC_EN_Pin, GPIO_PIN_RESET);
+	HAL_GPIO_WritePin(VBUS_EN_GPIO_Port, VBUS_EN_Pin, GPIO_PIN_RESET);
+	
+	ssd1306_SetDisplayPower(1);
+	ssd1306_SetDisplayOn(1);
+
+	//__HAL_RCC_USB_CLK_ENABLE();
+	//USBD_Start(&hUsbDevice);
+	//HAL_PCD_Start(&hpcd_USB_FS);
+  	MX_USB_PCD_Init();
+	MX_USB_DEVICE_Init();
+
+	ssd1306_Init();
+	__HAL_ADC_ENABLE(&hadc);
 }
 
 
